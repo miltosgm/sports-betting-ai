@@ -1,0 +1,62 @@
+# Data files
+data/raw/
+data/processed/
+*.csv
+*.xlsx
+
+# Models
+models/*.pkl
+models/*.joblib
+
+# Results
+results/*.json
+results/*.csv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Config (with secrets)
+config/data_config.yaml
+config/model_config.yaml
