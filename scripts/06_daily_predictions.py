@@ -15,9 +15,16 @@ import os
 # Add parent to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Import live data collector
+import importlib.util
+spec = importlib.util.spec_from_file_location("live_data", "scripts/04b_live_data_collector.py")
+live_data = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(live_data)
+LiveDataCollector = live_data.LiveDataCollector
+
 class DailyPredictor:
     def __init__(self, model_path='models/ensemble_model.pkl'):
-        """Load trained model"""
+        """Load trained model and data collector"""
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found: {model_path}")
         
@@ -33,7 +40,8 @@ class DailyPredictor:
             self.model = loaded
             self.model_dict = None
         
-        self.confidence_threshold = 0.55  # Only bet 55%+ confidence (adjust as model improves)
+        self.confidence_threshold = 0.55  # Only bet 55%+ confidence
+        self.data_collector = LiveDataCollector()  # Initialize live data collector
         
     def get_todays_games(self):
         """
@@ -88,28 +96,10 @@ class DailyPredictor:
     
     def get_game_features(self, home_team, away_team):
         """
-        Calculate 16 features for a game
-        TODO: Implement actual feature engineering from live data
+        Calculate 16 features from LIVE TEAM DATA
+        Uses real team statistics, form, and historical data
         """
-        # Mock features for testing
-        features = np.array([
-            np.random.uniform(0.4, 0.8),  # Home form
-            np.random.uniform(0.3, 0.7),  # Away form
-            np.random.uniform(1.0, 2.0),  # Home defense
-            np.random.uniform(0.8, 1.8),  # Away defense
-            np.random.uniform(0.5, 1.0),  # H2H advantage
-            np.random.uniform(0.0, 5.0),  # Winning streak
-            np.random.uniform(1.0, 1.3),  # Home advantage
-            np.random.uniform(2, 8),      # Rest days home
-            np.random.uniform(2, 8),      # Rest days away
-            np.random.uniform(0.3, 0.8),  # Recent wins
-            np.random.uniform(0.2, 0.6),  # Clean sheets
-            np.random.uniform(0.0, 4.0),  # Losing streak
-            np.random.uniform(0.0, 1.0),  # O/U trend
-            np.random.uniform(-2, 2),     # Line movement
-            np.random.uniform(0.5, 2.5),  # Goals scored avg
-            np.random.uniform(0.3, 1.5)   # Goals conceded avg
-        ])
+        features, debug_info = self.data_collector.calculate_16_features(home_team, away_team)
         return features
     
     def predict_game(self, home_team, away_team, vegas_line):
