@@ -22,34 +22,66 @@ class DailyPredictor:
             raise FileNotFoundError(f"Model not found: {model_path}")
         
         with open(model_path, 'rb') as f:
-            self.model = pickle.load(f)
+            loaded = pickle.load(f)
         
-        self.confidence_threshold = 0.65  # Only bet 65%+ confidence
+        # Handle custom ensemble dict format
+        if isinstance(loaded, dict):
+            self.model_dict = loaded
+            self.models = loaded.get('models', {})
+            self.voting_strategy = loaded.get('voting_strategy', 'majority')
+        else:
+            self.model = loaded
+            self.model_dict = None
+        
+        self.confidence_threshold = 0.55  # Only bet 55%+ confidence (adjust as model improves)
         
     def get_todays_games(self):
         """
-        Get today's Premier League games
-        TODO: Implement actual API call to get live games
+        Get today's real Premier League games
+        Feb 7, 2026 fixtures
         """
-        # For now, return mock data for testing
         games = [
             {
-                'home': 'Arsenal',
-                'away': 'Liverpool',
+                'home': 'Manchester United',
+                'away': 'Tottenham',
+                'time': '12:30',
+                'vegas_line': -115
+            },
+            {
+                'home': 'Bournemouth',
+                'away': 'Aston Villa',
                 'time': '15:00',
-                'vegas_line': -130
+                'vegas_line': 105
             },
             {
-                'home': 'Man City',
+                'home': 'Arsenal',
+                'away': 'Sunderland',
+                'time': '15:00',
+                'vegas_line': -280
+            },
+            {
+                'home': 'Burnley',
+                'away': 'West Ham',
+                'time': '15:00',
+                'vegas_line': 120
+            },
+            {
+                'home': 'Fulham',
+                'away': 'Everton',
+                'time': '15:00',
+                'vegas_line': -110
+            },
+            {
+                'home': 'Wolverhampton',
                 'away': 'Chelsea',
-                'time': '17:30',
-                'vegas_line': -180
+                'time': '15:00',
+                'vegas_line': 180
             },
             {
-                'home': 'Man United',
-                'away': 'Brighton',
-                'time': '20:00',
-                'vegas_line': -120
+                'home': 'Newcastle',
+                'away': 'Brentford',
+                'time': '17:30',
+                'vegas_line': -145
             }
         ]
         return games
@@ -86,19 +118,55 @@ class DailyPredictor:
         Returns: (prediction, confidence, edge)
         """
         features = self.get_game_features(home_team, away_team)
+        features_2d = [features]  # Need 2D array for sklearn
         
-        # Get prediction probabilities
-        proba = self.model.predict_proba([features])[0]
+        # Get predictions from ensemble
+        if self.model_dict:
+            # Custom ensemble voting
+            predictions_list = []
+            for model_name, model in self.models.items():
+                pred = model.predict(features_2d)[0]
+                predictions_list.append(pred)
+            
+            # Majority voting
+            from collections import Counter
+            prediction_idx = Counter(predictions_list).most_common(1)[0][0]
+            
+            # Calculate average probability
+            proba_list = []
+            for model in self.models.values():
+                proba = model.predict_proba(features_2d)[0]
+                proba_list.append(proba)
+            
+            # Average probabilities
+            avg_proba = np.mean(proba_list, axis=0)
+            confidence = avg_proba[prediction_idx]
+        else:
+            # Standard sklearn model
+            proba = self.model.predict_proba(features_2d)[0]
+            prediction_idx = np.argmax(proba)
+            confidence = proba[prediction_idx]
+            avg_proba = proba
         
-        # Classes: 0=Home Win, 1=Draw, 2=Away Win
-        prediction_idx = np.argmax(proba)
-        confidence = proba[prediction_idx]
-        
-        predictions = ['Home Win', 'Draw', 'Away Win']
-        prediction = predictions[prediction_idx]
+        # Handle 2-class or 3-class models
+        if len(avg_proba) == 2:
+            # Binary classification: Home Win vs Not Home Win
+            prediction = 'Home Win' if prediction_idx == 1 else 'Away/Draw'
+            proba_dict = {
+                'home_win': round(avg_proba[1] * 100, 1),
+                'not_home': round(avg_proba[0] * 100, 1)
+            }
+        else:
+            # Multi-class: Home Win, Draw, Away Win
+            predictions = ['Home Win', 'Draw', 'Away Win']
+            prediction = predictions[prediction_idx]
+            proba_dict = {
+                'home_win': round(avg_proba[0] * 100, 1),
+                'draw': round(avg_proba[1] * 100, 1) if len(avg_proba) > 1 else 0,
+                'away_win': round(avg_proba[2] * 100, 1) if len(avg_proba) > 2 else 0
+            }
         
         # Calculate edge vs Vegas
-        # Vegas implied probability (simplified)
         vegas_prob = 1 - (abs(vegas_line) / (abs(vegas_line) + 100))
         our_prob = confidence
         edge = (our_prob - vegas_prob) * 100
@@ -106,11 +174,7 @@ class DailyPredictor:
         return {
             'prediction': prediction,
             'confidence': round(confidence * 100, 1),
-            'all_probs': {
-                'home_win': round(proba[0] * 100, 1),
-                'draw': round(proba[1] * 100, 1),
-                'away_win': round(proba[2] * 100, 1)
-            },
+            'all_probs': proba_dict,
             'edge': round(edge, 2),
             'pass_filter': confidence >= self.confidence_threshold
         }
