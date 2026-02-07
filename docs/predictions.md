@@ -1,14 +1,14 @@
 # 🎯 Daily Predictions
 
-How the daily prediction system works.
+Automated daily betting recommendations sent via Telegram.
 
-**Status:** 📋 COMING SOON (Phase 5, Feb 14)
+**Status:** 🟢 LIVE (Phase 5, Feb 7, 2026)
 
 ---
 
-## What This Will Do
+## What This Does
 
-When Phase 5 is complete, this system will:
+Every day at 9 AM GMT+2, this system:
 
 1. **Get today's Premier League games**
 2. **Calculate 16 features** for each game
