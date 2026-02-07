@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESIGN 2: Bold Sports - BetEdge AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial Black', sans-serif; }
+        
+        nav { background: #000; color: white; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ff6b35; }
+        nav .logo { font-size: 2rem; font-weight: 900; color: #ff6b35; letter-spacing: 2px; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: #ff6b35; }
+        
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid #ff6b35;
+        }
+        
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; color: #ff6b35; text-shadow: 0 3px 10px rgba(255,107,53,0.5); }
+        .hero p { font-size: 1.4rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: bold; }
+        
+        .cta { background: #ff6b35; color: white; padding: 1.5rem 4rem; border: none; font-size: 1.2rem; font-weight: 900; cursor: pointer; margin: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .cta:hover { background: #ff8555; transform: scale(1.05); }
+        
+        .stats { background: #222; padding: 4rem 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: -3rem auto 0; position: relative; z-index: 10; }
+        .stat-card { text-align: center; padding: 2rem; background: #000; border-radius: 0; border: 3px solid #ff6b35; color: white; }
+        .stat-card h3 { font-size: 3rem; color: #ff6b35; font-weight: 900; }
+        
+        footer { background: #000; color: white; padding: 3rem 2rem; text-align: center; border-top: 3px solid #ff6b35; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">BETEDGE</div>
+        <ul>
+            <li><a href="#features">FEATURES</a></li>
+            <li><a href="#pricing">PRICING</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>BEAT VEGAS</h1>
+        <p>Machine Learning That Finds What Bookmakers Miss</p>
+        <p style="font-size: 1.1rem; opacity: 0.8;">16,246 games. 75% accuracy. Real money profits.</p>
+        <br>
+        <button class="cta">JOIN NOW - FREE TRIAL</button>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h3>75%</h3>
+            <p>ACCURACY</p>
+        </div>
+        <div class="stat-card">
+            <h3>16K+</h3>
+            <p>GAMES</p>
+        </div>
+        <div class="stat-card">
+            <h3>+2.5%</h3>
+            <p>ROI</p>
+        </div>
+        <div class="stat-card">
+            <h3>2-3</h3>
+            <p>DAILY PICKS</p>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-size: 1.3rem; font-weight: bold;">© 2026 BETEDGE AI</p>
+        <p style="font-size: 0.85rem; margin-top: 1rem; color: #888;">Gamble responsibly. Only bet what you can afford to lose.</p>
+    </footer>
+</body>
+</html>
