@@ -23,7 +23,7 @@ spec.loader.exec_module(live_api)
 LiveAPIIntegrator = live_api.LiveAPIIntegrator
 
 class DailyPredictor:
-    def __init__(self, model_path='models/ensemble_model.pkl'):
+    def __init__(self, model_path='models/ensemble_model_v2.pkl'):
         """Load trained model and data collector"""
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found: {model_path}")
@@ -40,7 +40,7 @@ class DailyPredictor:
             self.model = loaded
             self.model_dict = None
         
-        self.confidence_threshold = 0.55  # Only bet 55%+ confidence
+        self.confidence_threshold = 0.65  # Only bet 65%+ confidence (v2 is well-calibrated)
         self.api_integrator = LiveAPIIntegrator()  # Initialize live data integrator
         
     def get_todays_games(self):
@@ -160,24 +160,27 @@ class DailyPredictor:
         
         # Get predictions from ensemble
         if self.model_dict:
-            # Custom ensemble voting
-            predictions_list = []
-            for model_name, model in self.models.items():
-                pred = model.predict(features_2d)[0]
-                predictions_list.append(pred)
+            # Custom ensemble voting (with weights for v2)
+            weights = self.model_dict.get('weights', {})
+            has_weights = len(weights) > 0
             
-            # Majority voting
-            from collections import Counter
-            prediction_idx = Counter(predictions_list).most_common(1)[0][0]
-            
-            # Calculate average probability
+            # Collect probabilities from all models
             proba_list = []
-            for model in self.models.values():
+            weight_list = []
+            
+            for model_name, model in self.models.items():
                 proba = model.predict_proba(features_2d)[0]
                 proba_list.append(proba)
+                
+                if has_weights:
+                    weight = weights.get(model_name, 1.0 / len(self.models))
+                else:
+                    weight = 1.0 / len(self.models)
+                weight_list.append(weight)
             
-            # Average probabilities
-            avg_proba = np.mean(proba_list, axis=0)
+            # Weighted average of probabilities
+            avg_proba = np.average(proba_list, axis=0, weights=weight_list)
+            prediction_idx = np.argmax(avg_proba)
             confidence = avg_proba[prediction_idx]
         else:
             # Standard sklearn model
