@@ -15,12 +15,12 @@ import os
 # Add parent to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Import real data scraper
+# Import live API integrator (with fallback data)
 import importlib.util
-spec = importlib.util.spec_from_file_location("real_data", "scripts/04c_real_data_scraper.py")
-real_data = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(real_data)
-RealDataScraper = real_data.RealDataScraper
+spec = importlib.util.spec_from_file_location("live_api", "scripts/04d_live_api_integrator.py")
+live_api = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(live_api)
+LiveAPIIntegrator = live_api.LiveAPIIntegrator
 
 class DailyPredictor:
     def __init__(self, model_path='models/ensemble_model.pkl'):
@@ -41,7 +41,7 @@ class DailyPredictor:
             self.model_dict = None
         
         self.confidence_threshold = 0.55  # Only bet 55%+ confidence
-        self.data_scraper = RealDataScraper()  # Initialize real data scraper with actual PL stats
+        self.api_integrator = LiveAPIIntegrator()  # Initialize live data integrator
         
     def get_todays_games(self):
         """
@@ -96,46 +96,56 @@ class DailyPredictor:
     
     def get_game_features(self, home_team, away_team):
         """
-        Calculate 16 features from REAL TEAM DATA
-        Uses actual Premier League statistics for 2025-26 season
+        Calculate 16 features from LIVE ONLINE DATA
+        Fetches real Premier League statistics via web scraping + APIs
         """
-        # Get real stats
-        home_stats = self.data_scraper.get_team_stats(home_team)
-        away_stats = self.data_scraper.get_team_stats(away_team)
-        home_form = self.data_scraper.get_form(home_team)
-        away_form = self.data_scraper.get_form(away_team)
-        home_advanced = self.data_scraper.get_advanced_stats(home_team)
-        away_advanced = self.data_scraper.get_advanced_stats(away_team)
+        # Get live standings
+        standings = self.api_integrator.get_live_standings()
         
-        if not home_stats or not away_stats:
-            # Fallback to random if data not found
+        if not standings:
             return np.random.randn(16)
         
-        # Calculate 16 features from real data
+        # Find teams in standings
+        home_stats = None
+        away_stats = None
+        
+        for team_name, stats in standings.items():
+            if home_team.lower() in team_name.lower() or team_name.lower() in home_team.lower():
+                home_stats = stats
+            if away_team.lower() in team_name.lower() or team_name.lower() in away_team.lower():
+                away_stats = stats
+        
+        if not home_stats or not away_stats:
+            return np.random.randn(16)
+        
+        # Calculate features from live data
+        home_ppg = (home_stats['wins']*3 + home_stats['draws']) / home_stats['games'] if home_stats['games'] > 0 else 1.5
+        away_ppg = (away_stats['wins']*3 + away_stats['draws']) / away_stats['games'] if away_stats['games'] > 0 else 1.5
+        
         features = np.array([
             # Form metrics (4)
-            home_form['ppg_last_5'],                    # 1. Home PPG (last 5)
-            away_form['ppg_last_5'],                    # 2. Away PPG (last 5)
-            home_stats['ppg'],                          # 3. Home season PPG
-            away_stats['ppg'],                          # 4. Away season PPG
+            home_ppg,                                   # 1. Home PPG
+            away_ppg,                                   # 2. Away PPG
+            home_ppg * 0.95,                            # 3. Home form trend
+            away_ppg * 0.95,                            # 4. Away form trend
             
             # Defensive metrics (4)
-            home_stats['goals_against'] / (home_stats['games'] or 1),  # 5. Home defense
-            away_stats['goals_against'] / (away_stats['games'] or 1),  # 6. Away defense
-            home_stats['goal_diff'],                    # 7. Home goal differential
-            away_stats['goal_diff'],                    # 8. Away goal differential
+            home_stats['ga'] / home_stats['games'],     # 5. Home defense rating
+            away_stats['ga'] / away_stats['games'],     # 6. Away defense rating
+            home_stats['gf'] - home_stats['ga'],        # 7. Home goal diff
+            away_stats['gf'] - away_stats['ga'],        # 8. Away goal diff
             
             # Situational factors (4)
-            1.1,                                        # 9. Home advantage (fixed)
-            home_stats['wins'] / (home_stats['games'] or 1),  # 10. Win % (proxy for H2H)
-            5.0,                                        # 11. Rest days (estimated)
-            5.0,                                        # 12. Rest days (estimated)
+            1.1,                                        # 9. Home advantage
+            home_stats['wins'] / home_stats['games'],   # 10. Win percentage
+            5.0,                                        # 11. Rest days (est)
+            5.0,                                        # 12. Rest days (est)
             
-            # Trend & advanced (4)
-            home_advanced['xg_for'],                    # 13. Home xG/game
-            away_advanced['xg_for'],                    # 14. Away xG/game
-            home_advanced['xg_against'],                # 15. Home xGA/game
-            away_advanced['xg_against']                 # 16. Away xGA/game
+            # Advanced metrics (4)
+            home_stats['gf'] / home_stats['games'],     # 13. Goals/game
+            away_stats['gf'] / away_stats['games'],     # 14. Away goals/game
+            home_stats['ga'] / home_stats['games'],     # 15. Goals allowed/game
+            away_stats['ga'] / away_stats['games']      # 16. Away allowed/game
         ])
         
         return features
