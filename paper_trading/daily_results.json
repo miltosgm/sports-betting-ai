@@ -1,0 +1,15 @@
+{
+  "start_date": "2026-02-07T17:24:50.640897",
+  "bankroll": 10000,
+  "bets": [],
+  "metrics": {
+    "total_bets": 0,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "win_rate": 0,
+    "roi": 0,
+    "sharpe_ratio": 0,
+    "max_drawdown": 0
+  }
+}

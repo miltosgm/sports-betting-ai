@@ -1,0 +1,25 @@
+{
+  "baseline": {
+    "accuracy": 0.25,
+    "precision": 0.25,
+    "recall": 1.0,
+    "auc_roc": 1.0
+  },
+  "xgboost": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "auc_roc": 1.0
+  },
+  "lightgbm": {
+    "accuracy": 0.25,
+    "precision": 0.25,
+    "recall": 1.0,
+    "auc_roc": 0.5
+  },
+  "ensemble": {
+    "accuracy": 0.25,
+    "precision": 0.25,
+    "recall": 1.0
+  }
+}
