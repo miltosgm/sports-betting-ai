@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>⚽ Sports Betting AI - Premier League</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="ML model for Premier League predictions - 5-7 selective bets per day at 65%+ confidence" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/themes/vue.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" />
+  <style>
+    :root {
+      --primary-color: #10b981;
+      --base-font-size: 16px;
+    }
+    .sidebar-toggle {
+      z-index: 999;
+    }
+    .markdown-section h1 {
+      border-bottom: 3px solid #10b981;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      name: '⚽ Sports Betting AI',
+      repo: 'https://github.com/miltosgm/sports-betting-ai',
+      homepage: 'README.md',
+      loadSidebar: true,
+      loadNavbar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      formatUpdated: '{YYYY}-{MM}-{DD} {HH}:{mm}',
+      
+      // Dark mode toggle
+      themeColor: '#10b981',
+      darklightTheme: {
+        light: {
+          accent: '#10b981',
+          tint: '#f0f0f0',
+          textColor: '#34495e'
+        },
+        dark: {
+          accent: '#10b981',
+          tint: '#242424',
+          textColor: '#b4bcc8'
+        }
+      },
+
+      // Search plugin
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '🔍 Search docs...',
+        noData: 'No results found',
+        depth: 2
+      },
+
+      // Navigation
+      nav: [
+        { title: 'GitHub', path: 'https://github.com/miltosgm/sports-betting-ai' },
+        { title: 'Discord', path: 'https://discord.gg/yourinvite' }
+      ]
+    }
+  </script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/dist/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/dist/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/dist/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+</body>
+</html>
