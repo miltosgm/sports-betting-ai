@@ -23,7 +23,7 @@ spec.loader.exec_module(live_api)
 LiveAPIIntegrator = live_api.LiveAPIIntegrator
 
 class DailyPredictor:
-    def __init__(self, model_path='models/ensemble_model_v2.pkl'):
+    def __init__(self, model_path='models/ensemble_model_v4.pkl'):
         """Load trained model and data collector"""
         if not os.path.exists(model_path):
             raise FileNotFoundError(f"Model not found: {model_path}")
