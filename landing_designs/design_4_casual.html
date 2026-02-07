@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESIGN 4: Casual Fun - BetEdge AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Comic Sans MS', cursive; background: #fff9e6; }
+        
+        nav { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 1.8rem; font-weight: bold; color: white; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 1.05rem; }
+        nav a:hover { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .cta { background: #f39c12; color: white; padding: 1.2rem 3rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin: 0.5rem; box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4); transition: all 0.3s; }
+        .cta:hover { background: #e67e22; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6); }
+        
+        .stats { background: white; padding: 4rem 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .stat-card { text-align: center; padding: 2rem; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-radius: 15px; border: 3px dashed #667eea; }
+        .stat-card h3 { font-size: 2.8rem; color: #667eea; font-weight: bold; }
+        .stat-card p { color: #764ba2; font-weight: bold; margin-top: 0.5rem; }
+        
+        .features { background: #fff9e6; padding: 3rem 2rem; text-align: center; }
+        .features h2 { color: #764ba2; margin-bottom: 2rem; font-size: 2rem; }
+        .feature-list { max-width: 700px; margin: 0 auto; text-align: left; }
+        .feature-list li { margin: 1rem 0; font-size: 1.1rem; color: #333; list-style: none; }
+        .feature-list li:before { content: "⭐ "; margin-right: 0.5rem; }
+        
+        footer { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem 2rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🎯 BetEdge AI</div>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Stop Guessing. Start Winning. 🎉</h1>
+        <p>Your AI betting buddy that actually knows what it's talking about</p>
+        <p style="font-size: 1rem; opacity: 0.9;">75% accurate predictions. Zero BS. Daily picks that make sense.</p>
+        <button class="cta">Get Started (Free!) 🚀</button>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h3>75%</h3>
+            <p>Win Rate</p>
+        </div>
+        <div class="stat-card">
+            <h3>16k+</h3>
+            <p>Games Learned From</p>
+        </div>
+        <div class="stat-card">
+            <h3>💰</h3>
+            <p>Actually Profitable</p>
+        </div>
+        <div class="stat-card">
+            <h3>⚡</h3>
+            <p>Daily Updates</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>What Makes Us Different 👇</h2>
+        <ul class="feature-list">
+            <li>Travel Fatigue Analysis (Vegas doesn't do this!)</li>
+            <li>Real Injury Data (not guessing)</li>
+            <li>Model Learns From Yesterday (stays fresh)</li>
+            <li>Only Picks With Positive Edge</li>
+            <li>Daily Paper Trading Results</li>
+            <li>Explained In Plain English (no jargon)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p style="font-size: 1.3rem; font-weight: bold;">Ready to Beat the Odds? 🏆</p>
+        <button class="cta">Start Your Free Trial</button>
+        <p style="font-size: 0.85rem; margin-top: 2rem; color: rgba(255,255,255,0.8);">Remember: Bet responsibly! This is for entertainment and informed decisions, not getting rich quick.</p>
+    </footer>
+</body>
+</html>

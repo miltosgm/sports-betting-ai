@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESIGN 5: Minimalist - BetEdge AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: white; color: #222; line-height: 1.6; }
+        
+        nav { padding: 2rem; border-bottom: 1px solid #eee; }
+        nav .logo { font-size: 1.5rem; font-weight: 600; color: #222; letter-spacing: -0.5px; }
+        
+        .hero {
+            padding: 8rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; font-weight: 300; letter-spacing: -1px; }
+        .hero p { font-size: 1rem; margin-bottom: 3rem; color: #666; }
+        
+        .cta { 
+            background: #222; 
+            color: white; 
+            padding: 0.75rem 2rem; 
+            border: none; 
+            border-radius: 0; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            margin: 0.5rem; 
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .cta:hover { background: #000; }
+        
+        .stats { 
+            max-width: 1000px; 
+            margin: 4rem auto; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 3rem; 
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .stat-card { border: 1px solid #eee; padding: 2rem; }
+        .stat-card h3 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .stat-card p { color: #666; font-size: 0.95rem; }
+        
+        .section { 
+            max-width: 800px; 
+            margin: 3rem auto; 
+            padding: 3rem 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .section h2 { font-size: 1.8rem; margin-bottom: 1.5rem; font-weight: 300; }
+        .section p { color: #666; margin-bottom: 1rem; }
+        
+        footer { 
+            margin-top: 4rem;
+            padding: 3rem 2rem; 
+            border-top: 1px solid #eee; 
+            text-align: center; 
+            color: #999;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">BetEdge</div>
+    </nav>
+
+    <section class="hero">
+        <h1>AI betting predictions</h1>
+        <p>Machine learning analysis of Premier League matches. 75% accuracy. Daily picks with positive expected value.</p>
+        <button class="cta">START FREE TRIAL</button>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h3>75%</h3>
+            <p>accuracy</p>
+        </div>
+        <div class="stat-card">
+            <h3>16,246</h3>
+            <p>games analyzed</p>
+        </div>
+        <div class="stat-card">
+            <h3>+2.5%</h3>
+            <p>expected roi</p>
+        </div>
+        <div class="stat-card">
+            <h3>2-3</h3>
+            <p>daily picks</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>How it works</h2>
+        <p>BetEdge uses ensemble machine learning models trained on 16,246 historical Premier League matches. Our system identifies patterns Vegas misses: travel fatigue, injury impact, recent form momentum.</p>
+        <p>We recommend only bets where our predicted confidence exceeds the implied probability from odds. Positive expected value guaranteed.</p>
+    </section>
+
+    <section class="section">
+        <h2>What makes us different</h2>
+        <p><strong>Travel Fatigue.</strong> Teams traveling 300+ miles play 10-15% worse. Vegas doesn't properly price this in.</p>
+        <p><strong>Live Injuries.</strong> Real API data on player absences. Each key injury = 2.3% win probability swing.</p>
+        <p><strong>Daily Retraining.</strong> Model learns from yesterday's games. We catch concept drift automatically.</p>
+        <p><strong>Paper Trading.</strong> We validate on live games, not just backtesting. Results matter.</p>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <button class="cta">GET STARTED</button>
+        <p style="margin-top: 2rem; color: #999; font-size: 0.9rem;">30-day free trial. Cancel anytime. No credit card required.</p>
+    </section>
+
+    <footer>
+        <p>© 2026 BetEdge AI</p>
+        <p style="margin-top: 1rem;">Past performance is not indicative of future results. Please bet responsibly.</p>
+    </footer>
+</body>
+</html>

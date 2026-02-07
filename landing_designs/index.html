@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Landing Page Design Comparison</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 2rem; }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        h1 { text-align: center; margin-bottom: 1rem; color: #333; }
+        .intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; }
+        
+        .designs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        
+        .design-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .design-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+        
+        .design-thumbnail {
+            width: 100%;
+            height: 300px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .design-info {
+            padding: 2rem;
+        }
+        
+        .design-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        
+        .design-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .badge {
+            background: #e0e0e0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        
+        .design-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .design-specs {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .spec {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .spec-label { font-weight: 600; color: #333; }
+        
+        .view-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 0.5rem;
+        }
+        
+        .view-button:hover {
+            background: #0056b3;
+        }
+        
+        .choose-button {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .choose-button:hover {
+            background: #218838;
+        }
+        
+        .comparison-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 BetEdge AI - Landing Page Designs</h1>
+        <div class="intro">
+            <p>5 different design options. Pick the one that matches your brand and target audience.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">Click "View Design" to see full page. Click "Choose This" to select.</p>
+        </div>
+
+        <div class="designs-grid">
+            <!-- Design 1: Modern -->
+            <div class="design-card">
+                <div class="design-thumbnail" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #00d4ff;">
+                    ⚡ Modern Sleek
+                </div>
+                <div class="design-info">
+                    <h2>Design 1: Modern Sleek</h2>
+                    <div class="design-meta">
+                        <span class="badge">Professional</span>
+                        <span class="badge">Tech-Forward</span>
+                    </div>
+                    <div class="design-description">
+                        Dark blue + cyan gradient. Clean, modern aesthetic. Appeals to tech-savvy bettors. Feels premium and sleek.
+                    </div>
+                    <div class="design-specs">
+                        <div class="spec"><span class="spec-label">Colors:</span> Dark blue (#1a1a2e) + Cyan (#00d4ff)</div>
+                        <div class="spec"><span class="spec-label">Vibe:</span> Sophisticated, cutting-edge, premium</div>
+                        <div class="spec"><span class="spec-label">Target:</span> Serious bettors, tech-savvy traders</div>
+                    </div>
+                    <a href="design_1_modern.html" class="view-button">View Design</a>
+                    <button class="choose-button" onclick="selectDesign('Modern Sleek')">Choose This</button>
+                </div>
+            </div>
+
+            <!-- Design 2: Bold -->
+            <div class="design-card">
+                <div class="design-thumbnail" style="background: #000; color: #ff6b35; font-weight: 900; border-bottom: 5px solid #ff6b35;">
+                    BOLD SPORTS
+                </div>
+                <div class="design-info">
+                    <h2>Design 2: Bold Sports</h2>
+                    <div class="design-meta">
+                        <span class="badge">Aggressive</span>
+                        <span class="badge">High Energy</span>
+                    </div>
+                    <div class="design-description">
+                        Black + orange. Bold, aggressive sports vibe. All caps messaging. Very eye-catching and confident. "Beat Vegas" energy.
+                    </div>
+                    <div class="design-specs">
+                        <div class="spec"><span class="spec-label">Colors:</span> Black (#000) + Orange (#ff6b35)</div>
+                        <div class="spec"><span class="spec-label">Vibe:</span> Confident, aggressive, sports-oriented</div>
+                        <div class="spec"><span class="spec-label">Target:</span> Confident bettors, sports fans</div>
+                    </div>
+                    <a href="design_2_bold.html" class="view-button">View Design</a>
+                    <button class="choose-button" onclick="selectDesign('Bold Sports')">Choose This</button>
+                </div>
+            </div>
+
+            <!-- Design 3: Corporate -->
+            <div class="design-card">
+                <div class="design-thumbnail" style="background: #34495e; color: white;">
+                    INSTITUTIONAL
+                </div>
+                <div class="design-info">
+                    <h2>Design 3: Professional Corporate</h2>
+                    <div class="design-meta">
+                        <span class="badge">Institutional</span>
+                        <span class="badge">Trustworthy</span>
+                    </div>
+                    <div class="design-description">
+                        Blue + gray. Professional, corporate aesthetic. Serif fonts. Emphasizes methodology and rigor. Appeals to serious/professional traders.
+                    </div>
+                    <div class="design-specs">
+                        <div class="spec"><span class="spec-label">Colors:</span> Blue (#3498db) + Gray (#34495e)</div>
+                        <div class="spec"><span class="spec-label">Vibe:</span> Institutional, rigorous, trustworthy</div>
+                        <div class="spec"><span class="spec-label">Target:</span> Professional shops, institutions</div>
+                    </div>
+                    <a href="design_3_corporate.html" class="view-button">View Design</a>
+                    <button class="choose-button" onclick="selectDesign('Professional Corporate')">Choose This</button>
+                </div>
+            </div>
+
+            <!-- Design 4: Casual -->
+            <div class="design-card">
+                <div class="design-thumbnail" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);">
+                    ✨ FUN & CASUAL
+                </div>
+                <div class="design-info">
+                    <h2>Design 4: Casual Fun</h2>
+                    <div class="design-meta">
+                        <span class="badge">Friendly</span>
+                        <span class="badge">Fun</span>
+                    </div>
+                    <div class="design-description">
+                        Purple gradient + yellow accents. Playful, friendly tone. Emojis throughout. Fun messaging like "Stop Guessing. Start Winning."
+                    </div>
+                    <div class="design-specs">
+                        <div class="spec"><span class="spec-label">Colors:</span> Purple (#667eea) + Yellow (#f39c12)</div>
+                        <div class="spec"><span class="spec-label">Vibe:</span> Approachable, fun, friendly</div>
+                        <div class="spec"><span class="spec-label">Target:</span> Casual bettors, beginners</div>
+                    </div>
+                    <a href="design_4_casual.html" class="view-button">View Design</a>
+                    <button class="choose-button" onclick="selectDesign('Casual Fun')">Choose This</button>
+                </div>
+            </div>
+
+            <!-- Design 5: Minimalist -->
+            <div class="design-card">
+                <div class="design-thumbnail" style="background: white; color: #222; border: 1px solid #eee; font-weight: 300;">
+                    minimalist
+                </div>
+                <div class="design-info">
+                    <h2>Design 5: Minimalist</h2>
+                    <div class="design-meta">
+                        <span class="badge">Clean</span>
+                        <span class="badge">Elegant</span>
+                    </div>
+                    <div class="design-description">
+                        White + black + gray. Extremely clean and minimal. Focus on content over design. Apple-like simplicity. Very professional.
+                    </div>
+                    <div class="design-specs">
+                        <div class="spec"><span class="spec-label">Colors:</span> White + Black + Gray</div>
+                        <div class="spec"><span class="spec-label">Vibe:</span> Elegant, minimal, refined</div>
+                        <div class="spec"><span class="spec-label">Target:</span> Sophisticated users, professionals</div>
+                    </div>
+                    <a href="design_5_minimalist.html" class="view-button">View Design</a>
+                    <button class="choose-button" onclick="selectDesign('Minimalist')">Choose This</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="comparison-section">
+            <h2>Design Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Design</th>
+                        <th>Colors</th>
+                        <th>Tone</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Modern Sleek</strong></td>
+                        <td>Dark Blue + Cyan</td>
+                        <td>Professional, premium</td>
+                        <td>Tech-savvy serious bettors</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bold Sports</strong></td>
+                        <td>Black + Orange</td>
+                        <td>Aggressive, confident</td>
+                        <td>Sports fans, bold personalities</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Corporate</strong></td>
+                        <td>Blue + Gray</td>
+                        <td>Institutional, rigorous</td>
+                        <td>Professional firms, institutions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Casual Fun</strong></td>
+                        <td>Purple + Yellow</td>
+                        <td>Playful, friendly</td>
+                        <td>Casual bettors, beginners</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minimalist</strong></td>
+                        <td>White + Black</td>
+                        <td>Elegant, refined</td>
+                        <td>Sophisticated professionals</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Recommendation -->
+        <div class="comparison-section" style="background: #f0f7ff; border-left: 5px solid #007bff;">
+            <h2>💡 My Recommendation</h2>
+            <p><strong>For maximum appeal:</strong> Go with <strong>Design 1 (Modern Sleek)</strong></p>
+            <p style="margin-top: 1rem;">It's professional but not stuffy, appeals to both serious traders and casual bettors, and the cyan + dark blue combo is eye-catching without being aggressive. The "premium" feeling justifies the $99/month price point.</p>
+            <p style="margin-top: 1rem;"><strong>If you want aggressive growth:</strong> <strong>Design 2 (Bold Sports)</strong> or <strong>Design 4 (Casual Fun)</strong> will stand out more on social media and get more clicks.</p>
+        </div>
+    </div>
+
+    <script>
+        function selectDesign(name) {
+            alert(`You selected: ${name}\n\nI'll update the landing page to use this design.`);
+            console.log(`Selected design: ${name}`);
+        }
+    </script>
+</body>
+</html>
