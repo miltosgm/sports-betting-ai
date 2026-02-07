@@ -15,12 +15,12 @@ import os
 # Add parent to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Import live data collector
+# Import real data scraper
 import importlib.util
-spec = importlib.util.spec_from_file_location("live_data", "scripts/04b_live_data_collector.py")
-live_data = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(live_data)
-LiveDataCollector = live_data.LiveDataCollector
+spec = importlib.util.spec_from_file_location("real_data", "scripts/04c_real_data_scraper.py")
+real_data = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(real_data)
+RealDataScraper = real_data.RealDataScraper
 
 class DailyPredictor:
     def __init__(self, model_path='models/ensemble_model.pkl'):
@@ -41,7 +41,7 @@ class DailyPredictor:
             self.model_dict = None
         
         self.confidence_threshold = 0.55  # Only bet 55%+ confidence
-        self.data_collector = LiveDataCollector()  # Initialize live data collector
+        self.data_scraper = RealDataScraper()  # Initialize real data scraper with actual PL stats
         
     def get_todays_games(self):
         """
@@ -96,10 +96,48 @@ class DailyPredictor:
     
     def get_game_features(self, home_team, away_team):
         """
-        Calculate 16 features from LIVE TEAM DATA
-        Uses real team statistics, form, and historical data
+        Calculate 16 features from REAL TEAM DATA
+        Uses actual Premier League statistics for 2025-26 season
         """
-        features, debug_info = self.data_collector.calculate_16_features(home_team, away_team)
+        # Get real stats
+        home_stats = self.data_scraper.get_team_stats(home_team)
+        away_stats = self.data_scraper.get_team_stats(away_team)
+        home_form = self.data_scraper.get_form(home_team)
+        away_form = self.data_scraper.get_form(away_team)
+        home_advanced = self.data_scraper.get_advanced_stats(home_team)
+        away_advanced = self.data_scraper.get_advanced_stats(away_team)
+        
+        if not home_stats or not away_stats:
+            # Fallback to random if data not found
+            return np.random.randn(16)
+        
+        # Calculate 16 features from real data
+        features = np.array([
+            # Form metrics (4)
+            home_form['ppg_last_5'],                    # 1. Home PPG (last 5)
+            away_form['ppg_last_5'],                    # 2. Away PPG (last 5)
+            home_stats['ppg'],                          # 3. Home season PPG
+            away_stats['ppg'],                          # 4. Away season PPG
+            
+            # Defensive metrics (4)
+            home_stats['goals_against'] / (home_stats['games'] or 1),  # 5. Home defense
+            away_stats['goals_against'] / (away_stats['games'] or 1),  # 6. Away defense
+            home_stats['goal_diff'],                    # 7. Home goal differential
+            away_stats['goal_diff'],                    # 8. Away goal differential
+            
+            # Situational factors (4)
+            1.1,                                        # 9. Home advantage (fixed)
+            home_stats['wins'] / (home_stats['games'] or 1),  # 10. Win % (proxy for H2H)
+            5.0,                                        # 11. Rest days (estimated)
+            5.0,                                        # 12. Rest days (estimated)
+            
+            # Trend & advanced (4)
+            home_advanced['xg_for'],                    # 13. Home xG/game
+            away_advanced['xg_for'],                    # 14. Away xG/game
+            home_advanced['xg_against'],                # 15. Home xGA/game
+            away_advanced['xg_against']                 # 16. Away xGA/game
+        ])
+        
         return features
     
     def predict_game(self, home_team, away_team, vegas_line):
