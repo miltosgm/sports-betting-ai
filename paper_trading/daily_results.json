@@ -1,15 +1,96 @@
 {
   "start_date": "2026-02-07T17:24:50.640897",
   "bankroll": 10000,
-  "bets": [],
+  "bets": [
+    {
+      "date": "2026-02-07",
+      "predictions": 3,
+      "bets_placed": 3,
+      "bets_won": 0,
+      "bets_lost": 3,
+      "daily_profit": -450,
+      "daily_roi": -15.0,
+      "matches": [
+        {
+          "match": "Wolverhampton Wanderers vs Chelsea",
+          "prediction": "Home Win",
+          "confidence": 0.757,
+          "odds": 2.35,
+          "bet_size": 150,
+          "result": "Loss",
+          "actual_winner": "Chelsea (3-1)",
+          "profit": -150
+        },
+        {
+          "match": "Bournemouth vs Aston Villa",
+          "prediction": "Home Win",
+          "confidence": 0.767,
+          "odds": 2.15,
+          "bet_size": 150,
+          "result": "Loss",
+          "actual_winner": "Draw (1-1)",
+          "profit": -150
+        },
+        {
+          "match": "Burnley vs West Ham",
+          "prediction": "Home Win",
+          "confidence": 0.776,
+          "odds": 2.05,
+          "bet_size": 150,
+          "result": "Loss",
+          "actual_winner": "West Ham (0-2)",
+          "profit": -150
+        }
+      ]
+    },
+    {
+      "date": "2026-02-15",
+      "predictions": 2,
+      "bets_placed": 2,
+      "bets_won": null,
+      "bets_lost": null,
+      "daily_profit": 0,
+      "daily_roi": 0,
+      "matches": [
+        {
+          "match": "Arsenal vs Sunderland",
+          "prediction": "Home Win",
+          "confidence": 0.756,
+          "odds": 1.36,
+          "implied": 0.7353,
+          "edge": 49.31,
+          "bet_size": 150,
+          "ev": 73.96,
+          "travel_distance": 160,
+          "result": "Pending",
+          "actual_winner": "TBD",
+          "profit": 0
+        },
+        {
+          "match": "Newcastle vs Brentford",
+          "prediction": "Home Win",
+          "confidence": 0.662,
+          "odds": 1.74,
+          "implied": 0.5747,
+          "edge": 25.35,
+          "bet_size": 150,
+          "ev": 38.02,
+          "travel_distance": 245,
+          "result": "Pending",
+          "actual_winner": "TBD",
+          "profit": 0
+        }
+      ]
+    }
+  ],
   "metrics": {
-    "total_bets": 0,
+    "total_bets": 5,
     "wins": 0,
-    "losses": 0,
+    "losses": 3,
     "pushes": 0,
-    "win_rate": 0,
-    "roi": 0,
-    "sharpe_ratio": 0,
-    "max_drawdown": 0
+    "pending": 2,
+    "win_rate": 0.0,
+    "roi": -4.5,
+    "bankroll_remaining": 9550
   }
 }

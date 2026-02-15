@@ -65,5 +65,12 @@
     "injury_risk": "Proxy: team discipline (cards) = injury risk",
     "consistency": "Squad depth proxy (low variance = deep squad)",
     "momentum": "Goal scoring in 2nd half vs 1st half"
-  }
+  },
+  "ensemble_weights": {
+    "xgboost": 0.25,
+    "lightgbm": 0.25,
+    "randomforest": 0.25,
+    "catboost": 0.25
+  },
+  "weights_strategy": "accuracy_based"
 }
