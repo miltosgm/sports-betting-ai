@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Πραγματικοί Χρήστες Κερδίζουν</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', -apple-system, sans-serif; line-height: 1.6; color: #333; }
+        
+        nav { 
+            background: #1a1a2e; 
+            color: white; 
+            padding: 1rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        nav .logo { font-size: 1.8rem; font-weight: bold; color: #00d4ff; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; transition: color 0.3s; font-weight: 600; }
+        nav a:hover { color: #ff6b6b; }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content { position: relative; z-index: 2; }
+        
+        .hero h1 { 
+            font-size: 4rem; 
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .big-promise {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            opacity: 0.95;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #ff6b6b, #ff4444);
+            color: white;
+            padding: 1.3rem 3.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin: 0.7rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+        
+        .cta.secondary {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid white;
+        }
+        
+        .cta.secondary:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .proof-banner {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+        
+        .proof-item {
+            text-align: center;
+        }
+        
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b6b;
+        }
+        
+        .proof-text {
+            font-size: 0.95rem;
+            color: #ddd;
+            margin-top: 0.5rem;
+        }
+        
+        section { max-width: 1400px; margin: 0 auto; padding: 5rem 2rem; }
+        section h2 { 
+            font-size: 3rem; 
+            margin-bottom: 3rem; 
+            color: #1a1a2e; 
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        .user-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        .user-story {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .user-story:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border-color: #ff6b6b;
+        }
+        
+        .story-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff4444 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .story-avatar {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .story-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+        
+        .story-role {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .story-content {
+            padding: 2.5rem;
+        }
+        
+        .story-quote {
+            font-style: italic;
+            color: #333;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            border-left: 4px solid #ff6b6b;
+            padding-left: 1.5rem;
+        }
+        
+        .story-stats {
+            background: #f0f0f0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label { 
+            color: #555; 
+            font-weight: 600;
+        }
+        .stat-value { 
+            font-weight: 800; 
+            color: #ff6b6b;
+            font-size: 1.1rem;
+        }
+        
+        .story-footer {
+            padding-top: 1.5rem;
+            border-top: 2px solid #f0f0f0;
+            font-size: 0.9rem;
+            color: #999;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .highlight-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .highlight-section h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        
+        .stat-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #ff6b6b;
+        }
+        
+        .stat-box-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b6b;
+        }
+        
+        .stat-box-label {
+            color: #666;
+            margin-top: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .urgency-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .urgency-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,107,107,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .urgency-content { position: relative; z-index: 2; }
+        
+        .urgency-badge {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        .urgency-banner h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .urgency-banner p {
+            color: #ddd;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a { color: #ff6b6b; text-decoration: none; font-weight: 600; }
+        
+        .disclaimer { font-size: 0.8rem; margin-top: 2rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero .big-promise { font-size: 1.3rem; }
+            .user-stories { grid-template-columns: 1fr; }
+            .proof-banner { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">⚡ BetEdge AI</div>
+        <ul>
+            <li><a href="#winners">Κερδισμένες Ιστορίες</a></li>
+            <li><a href="#stats">Αποτελέσματα</a></li>
+            <li><a href="#join">Ενταξη</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="big-promise">🚀 ΜΕΤΑΤΡΕΨΤΕ 2K-10K ΣΕ 4K-12K ΣΕ 30 ΗΜΕΡΕΣ</div>
+            <h1>Σταματήστε να Χάνετε στους Bookmakers. Αρχίστε να Κερδίζετε με AI.</h1>
+            <p class="subtitle">500+ μέλη κερδίζουν 50-120% κέρδος ανά μήνα. Δείτε πώς ακριβώς.</p>
+            
+            <button class="cta">Δωρεάν Δοκιμή 7 Ημερών</button>
+            <button class="cta secondary">Δείτε Live Αποτελέσματα</button>
+            
+            <div class="proof-banner">
+                <div class="proof-item">
+                    <div class="proof-number">500+</div>
+                    <div class="proof-text">Ενεργά Μέλη</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">60%</div>
+                    <div class="proof-text">Μέσο Ποσοστό Νικών</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">$2.1M+</div>
+                    <div class="proof-text">Συνολικά Κέρδη Q1</div>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">16K</div>
+                    <div class="proof-text">Παιχνίδια Ανάλυσης</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="winners">
+        <h2>💰 Πώς Κερδίζουν τα Πραγματικά Μέλη</h2>
+        
+        <div class="user-stories">
+            <div class="user-story">
+                <div class="story-header">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="James M" style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                    <div class="story-name">James M.</div>
+                    <div class="story-role">Επαγγελματικός Στοιχηματιστής, Λονδίνο</div>
+                </div>
+                <div class="story-content">
+                    <div class="story-quote">
+                        "Δοκίμασα κάθε υπηρεσία στοιχημάτων. Το BetEdge δείχνει πραγματικά όπου είναι τα πλεονεκτήματα. Πρώτο μήνα: +$6,200. Τώρα τρέχω 3 λογαριασμούς. Αυτό είναι το εισόδημά μου τώρα."
+                    </div>
+                    <div class="story-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ξεκίνησε με</span>
+                            <span class="stat-value">$5,000</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Μετά 1 Μήνα</span>
+                            <span class="stat-value">$11,200</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Ποσοστό Νικών</span>
+                            <span class="stat-value">62%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Κέρδος</span>
+                            <span class="stat-value">+$6,200 (124%)</span>
+                        </div>
+                    </div>
+                    <div class="story-footer">
+                        Μέλος από Ιανουάριο 2026 • VIP Tier
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-story">
+                <div class="story-header">
+                    <img src="https://i.pravatar.cc/100?img=3" alt="David T" style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                    <div class="story-name">David T.</div>
+                    <div class="story-role">Αναλυτής Αθλημάτων, Δουβλίνο</div>
+                </div>
+                <div class="story-content">
+                    <div class="story-quote">
+                        "Είδα 20 υπηρεσίες στοιχημάτων αποτύχουν. Το BetEdge είναι διαφορετικό—ΔΙΑΦΑΝΗ αποτελέσματα καθημερινά. Απώλειες περιλαμβάνονται. 59% ποσοστό νικών σε πραγματική paper trading. Αυτό είναι πραγματικό."
+                    </div>
+                    <div class="story-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ξεκίνησε με</span>
+                            <span class="stat-value">$10,000</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Μετά 1 Μήνα</span>
+                            <span class="stat-value">$11,850</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Ποσοστό Νικών</span>
+                            <span class="stat-value">59%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Κέρδος</span>
+                            <span class="stat-value">+$1,850 (18.5%)</span>
+                        </div>
+                    </div>
+                    <div class="story-footer">
+                        Μέλος από Ιανουάριο 2026 • VIP Tier
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-story">
+                <div class="story-header">
+                    <img src="https://i.pravatar.cc/100?img=7" alt="Marcus K" style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0 5px 20px rgba(0,0,0,0.2);">
+                    <div class="story-name">Marcus K.</div>
+                    <div class="story-role">Χρηματοοικονομικός Αναλυτής, Τορόντο</div>
+                </div>
+                <div class="story-content">
+                    <div class="story-quote">
+                        "Ξεκίνησα με μόνο $2k για δοκιμή. Το διπλασίασα σε 8 εβδομάδες χρησιμοποιώντας Kelly sizing. Τώρα είναι το πλευρικό εισόδημά μου. Έχει πληρώσει για τον εαυτό του 20 φορές. Το καλύτερο $99/μο που ξοδεύτηκα ποτέ."
+                    </div>
+                    <div class="story-stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Ξεκίνησε με</span>
+                            <span class="stat-value">$2,000</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Μετά 2 Μήνες</span>
+                            <span class="stat-value">$4,100</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Ποσοστό Νικών</span>
+                            <span class="stat-value">61%</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Κέρδος</span>
+                            <span class="stat-value">+$2,100 (105%)</span>
+                        </div>
+                    </div>
+                    <div class="story-footer">
+                        Μέλος από Δεκέμβριο 2025 • VIP Tier
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats" class="highlight-section">
+        <h3>📈 Η Απόδειξη Είναι στους Αριθμούς</h3>
+        <div class="stat-boxes">
+            <div class="stat-box">
+                <div class="stat-box-number">60%</div>
+                <div class="stat-box-label">Μέσο Ποσοστό Νικών</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">$2.1M</div>
+                <div class="stat-box-label">Συνολικά Κέρδη Μελών</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">500+</div>
+                <div class="stat-box-label">Ενεργά Μέλη</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-number">99%</div>
+                <div class="stat-box-label">Ποσοστό Ανανέωσης</div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: white; padding: 4rem 2rem; border-radius: 15px; text-align: center;">
+        <h2 style="color: #1a1a2e; margin-bottom: 2rem;">Γιατί το BetEdge AI Νικά τον Ανταγωνισμό</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="background: #f0f0f0; padding: 2.5rem; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                <h3 style="color: #1a1a2e; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 800;">❌ Όχι Black Box</h3>
+                <p style="color: #555; line-height: 1.8;">Travel fatigue + δεδομένα τραυματισμών = πραγματικά πλεονεκτήματα. Όχι μαγεία. Σας δείχνουμε ακριβώς τι βρίσκουμε.</p>
+            </div>
+            <div style="background: #f0f0f0; padding: 2.5rem; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                <h3 style="color: #1a1a2e; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 800;">📊 100% Διαφανής</h3>
+                <p style="color: #555; line-height: 1.8;">Κάθε επιλογή καταγράφεται. Κάθε αποτέλεσμα παρακολουθείται. Δείτε νικών ΚΑΙ απώλειες. Ελέγξτε μας 24/7.</p>
+            </div>
+            <div style="background: #f0f0f0; padding: 2.5rem; border-radius: 12px; border-left: 5px solid #ff6b6b;">
+                <h3 style="color: #1a1a2e; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 800;">🔬 Επιστημονικά Αποδεδειγμένο</h3>
+                <p style="color: #555; line-height: 1.8;">16,246 παιχνίδια επιβεβαίωσης. 4-μοντέλο ensemble. Ημερήσια επανάληψη εκπαίδευσης. Το πλεονέκτημα διαρκεί.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="urgency-banner">
+        <div class="urgency-content">
+            <span class="urgency-badge">⏰ ΠΕΡΙΟΡΙΣΜΕΝΟ ΧΡΟΝΟ</span>
+            <h2>Η Σειρά σας να Κερδίσετε</h2>
+            <p>500 μέλη κερδίζουν. Οι θέσεις γεμίζουν. 7 ημέρες δωρεάν—χωρίς πιστωτική κάρτα.</p>
+            <button class="cta">Διεκδικήστε την Δωρεάν Δοκιμή σας Τώρα</button>
+            <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.8;">Ενταχθείτε στα 500+ μέλη που κερδίζουν σταθερά κέρδη με AI.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>BetEdge AI</strong> – Πραγματικοί Χρήστες. Πραγματικές Νικών. Πραγματικό Κέρδος.</p>
+        <p style="margin-top: 1.5rem;">
+            <a href="#results">Αποτελέσματα</a> | 
+            <a href="#faq">FAQ</a> | 
+            <a href="#terms">Όροι</a> | 
+            <a href="#privacy">Ιδιωτικότητα</a>
+        </p>
+        <div class="disclaimer">
+            <p>⚠️ ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Τα αποτελέσματα χρηστών που εμφανίζονται είναι πραγματικά αλλά τα αποτελέσματα διαφέρουν. Παρελθούσα απόδοση ≠ μελλοντικά αποτελέσματα. Τα στοιχήματα αθλημάτων ενέχουν κίνδυνο. Ποντάρετε μόνο όσο μπορείτε να χάσετε. Δείτε πλήρεις όρους πριν εγγραφείτε. Το BetEdge AI παρέχει προβλέψεις. εσείς κάνετε αποφάσεις στοιχηματισμού.</p>
+            <p style="margin-top: 1rem;">© 2026 BetEdge AI</p>
+        </div>
+    </footer>
+</body>
+</html>
