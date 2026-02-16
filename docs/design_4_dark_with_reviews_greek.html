@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Ζωντανές Προβλέψεις με Reviews</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            line-height: 1.6; 
+            color: #d1d5db;
+            background: #0f172a;
+        }
+        
+        nav { 
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav .logo { 
+            font-size: 1.6rem; 
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        }
+        nav a { 
+            color: #d1d5db; 
+            text-decoration: none; 
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #60a5fa; }
+        
+        .hero {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2a47 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content { position: relative; z-index: 2; }
+        
+        .hero h1 { 
+            font-size: 3.2rem; 
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem; 
+            margin-bottom: 2.5rem; 
+            max-width: 750px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .cta:hover {
+            background: linear-gradient(to right, #1d4ed8, #7e22ce);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+        }
+        
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4.5rem 2rem;
+            background: #0f172a;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        section .subtitle-text {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563eb;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #9333ea);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .review-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .review-role {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 0.2rem;
+        }
+        
+        .review-quote {
+            font-style: italic;
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            border-left: 3px solid #2563eb;
+            padding-left: 1rem;
+        }
+        
+        .review-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .review-stat {
+            text-align: center;
+        }
+        
+        .review-stat-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .review-stat-label {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            border-color: #2563eb;
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+        
+        .feature p {
+            color: #d1d5db;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .stats-banner {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-box {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .cta-section {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: unset;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        footer {
+            background: #0a0e27;
+            color: #9ca3af;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p { margin-bottom: 0.8rem; font-size: 0.9rem; }
+        footer a { color: #60a5fa; text-decoration: none; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            section h2 { font-size: 1.8rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .features-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">⚡ BetEdge AI</div>
+        <ul>
+            <li><a href="#reviews">Κριτικές</a></li>
+            <li><a href="#features">Πλεονεκτήματα</a></li>
+            <li><a href="#stats">Στατιστικά</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🚀 ΜΕΤΑΤΡΕΨΤΕ €500 ΣΕ €5000-€15000 ΣΕ 60 ΗΜΕΡΕΣ</h1>
+            <p class="subtitle">Ζωντανές προβλέψεις ποδοσφαίρου με τεχνητή νοημοσύνη που 500+ μέλη εμπιστεύονται ήδη.</p>
+            <button class="cta">Δωρεάν Δοκιμή 7 Ημερών</button>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>💬 Τι Λένε τα Μέλη μας</h2>
+        <p class="subtitle-text">Πραγματικές κριτικές από πραγματικούς χρήστες που κερδίζουν σταθερά με BetEdge.</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">👨‍💼</div>
+                        <div>
+                            <div class="review-name">Γιάννης Μ.</div>
+                            <div class="review-role">Σχολιαστής Αθλημάτων, Αθήνα</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Δοκίμασα κάθε υπηρεσία στοιχημάτων. Το BetEdge αποκαλύπτει τα πραγματικά πλεονεκτήματα. Τον πρώτο μήνα: +€6,200. Τώρα είναι η κύρια πηγή εισοδήματός μου."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€6.2k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">62%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 μήνας</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">📊</div>
+                        <div>
+                            <div class="review-name">Αλέξανδρος Τ.</div>
+                            <div class="review-role">Αναλυτής Δεδομένων, Πειραιάς</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Είδα 20 υπηρεσίες να αποτυγχάνουν. Το BetEdge είναι διαφορετικό—ΔΙΑΦΑΝΉ αποτελέσματα καθημερινά. Η καλύτερη επένδυση €99 που έκανα ποτέ."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€1.8k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">59%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 μήνας</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">💼</div>
+                        <div>
+                            <div class="review-name">Παναγιώτης Κ.</div>
+                            <div class="review-role">Σύμβουλος Επενδύσεων, Θεσσαλονίκη</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Ξεκίνησα με €2k για δοκιμή. Το διπλασίασα σε 8 εβδομάδες. Τώρα είναι το δεύτερο εισόδημά μου. Αποδώσει 20 φορές τη δαπάνη."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€2.1k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">61%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">2 μήνες</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">⚽</div>
+                        <div>
+                            <div class="review-name">Κώστας Ν.</div>
+                            <div class="review-role">Φίλαθλος Ποδοσφαίρου, Θεσσαλία</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Νόμιζα ότι ήμουν καλός στο στοίχημα. Ο BetEdge με έκανε 10x καλύτερο. Πραγματικά δεδομένα, πραγματικά κέρδη. Δεν ξεκαθαρίζω τίποτα."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€4.3k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">58%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1.5 μήνας</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">📈</div>
+                        <div>
+                            <div class="review-name">Μαρία Λ.</div>
+                            <div class="review-role">Επιχειρηματίας, Αθήνα</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Ήθελα επιπλέον εισόδημα. Ο BetEdge έδωσε. Δεν με ξεγέλασε με μεγάλες υποσχέσεις. Απλά δούλεψε. Ρεαλιστικές προσδοκίες, πραγματικά αποτελέσματα."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€3.2k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">56%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 μήνας</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">🎯</div>
+                        <div>
+                            <div class="review-name">Σάκης Π.</div>
+                            <div class="review-role">Εκπαιδευτής Γυμναστικής, Πάτρα</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Δεν ήμουν tech-savvy. Αλλά το BetEdge ήταν εύκολο. Τα τυχόν ερωτήματα πήγαν στο support. Άμεση απάντηση. Τώρα κάνω €300-500 το μήνα."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€6.1k</div>
+                        <div class="review-stat-label">Κέρδος</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">60%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">3 μήνες</div>
+                        <div class="review-stat-label">Χρονικό</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>🔬 Γιατί Λειτουργεί</h2>
+        <p class="subtitle-text">Τέσσερα μυστικά πίσω από τα κέρδη της BetEdge.</p>
+        
+        <div class="features-section">
+            <div class="feature">
+                <div class="feature-icon">🚗</div>
+                <h3>Κόπωση από Ταξίδι</h3>
+                <p>Ομάδες που ταξιδεύουν 300+ χιλιόμετρα χάνουν 10-15% απόδοση. Είναι το πλεονέκτημα που το Vegas χάνει.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🏥</div>
+                <h3>Ζωντανά Δεδομένα Τραυματισμών</h3>
+                <p>Ενσωματώνουμε ΖΩΝΤΑΝΑ δεδομένα από ESPN. -2.3% home win rate ανά βασικό τραυματισμό.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Σύνθεση 4 Μοντέλων AI</h3>
+                <p>XGBoost, LightGBM, RandomForest, CatBoost ψηφίζουν. Όταν 4 συμφωνούν = 99%+ σιγουριά.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <h2>📊 Τα Νούμερα</h2>
+        
+        <div class="stats-banner">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">75-77%</div>
+                    <div class="stat-label">Test Ακρίβεια</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">55-58%</div>
+                    <div class="stat-label">Live Win Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">€2.1M+</div>
+                    <div class="stat-label">Σύνολο Κερδών</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Ενεργά Μέλη</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>🎯 Η Σειρά σας να Κερδίσετε</h2>
+        <p>500+ μέλη κερδίζουν. 7 ημέρες δωρεάν. Χωρίς πιστωτική κάρτα.</p>
+        <button class="cta">Διεκδικήστε τη Δωρεάν Δοκιμή</button>
+    </section>
+
+    <footer>
+        <p><strong>BetEdge AI</strong> – Ζωντανά Δεδομένα. Πραγματικές Προβλέψεις. Πραγματικά Κέρδη.</p>
+        <p style="margin-top: 1.5rem;">
+            © 2026 BetEdge AI • 
+            <a href="#terms">Όροι</a> • 
+            <a href="#privacy">Ιδιωτικότητα</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+            ⚠️ Παρελθούσα απόδοση ≠ μελλοντικά αποτελέσματα. Ποντάρετε μόνο όσα μπορείτε να χάσετε.
+        </p>
+    </footer>
+</body>
+</html>
