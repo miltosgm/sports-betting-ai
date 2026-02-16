@@ -1696,6 +1696,28 @@
 
             <!-- ANALYTICS TAB -->
             <div id="analytics" class="content">
+                <!-- BANKROLL GROWTH CHART -->
+                <div class="chart-container">
+                    <div class="chart-title">💰 Bankroll Growth - February 2026</div>
+                    <div style="position: relative; height: 300px; margin-top: 1rem;">
+                        <canvas id="bankrollChart"></canvas>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.3rem;">Starting Bankroll</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: white;">€0</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.3rem;">Current Bankroll</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; background: linear-gradient(to right, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">€1,278</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.3rem;">Total ROI</div>
+                            <div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">+75%</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="chart-container">
                     <div class="chart-title">📊 Win Rate by Confidence Level (Feb)</div>
                     <div class="chart-bar">
@@ -1938,6 +1960,101 @@
         function updateRangeValue(value) {
             document.getElementById('confidenceValue').textContent = value + '%';
         }
+
+        // BANKROLL GROWTH CHART
+        function initBankrollChart() {
+            const ctx = document.getElementById('bankrollChart');
+            if (!ctx) return;
+
+            // Real cumulative profit data (Feb 1-12, 2026)
+            const dates = [
+                'Feb 1', 'Feb 2', 'Feb 6', 'Feb 7 (1)', 'Feb 7 (2)', 'Feb 7 (3)', 'Feb 7 (4)', 
+                'Feb 8', 'Feb 10 (1)', 'Feb 10 (2)', 'Feb 10 (3)', 'Feb 11 (1)', 'Feb 11 (2)', 
+                'Feb 11 (3)', 'Feb 11 (4)', 'Feb 12'
+            ];
+            
+            const profits = [130, 225, 313, 401, 489, 594, 714, 782, 864, 974, 1046, 1098, 1143, 1238, 1378, 1278];
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Cumulative Profit (€)',
+                        data: profits,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#10b981',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: '#10b981',
+                            borderColor: '#10b981',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Profit: €' + context.parsed.y.toFixed(0);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                callback: function(value) {
+                                    return '€' + value;
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)'
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize chart when Analytics tab is opened
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load Chart.js
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js';
+            script.onload = function() {
+                // Initialize chart after Chart.js loads
+                setTimeout(initBankrollChart, 100);
+            };
+            document.head.appendChild(script);
+        });
     </script>
 </body>
 </html>
