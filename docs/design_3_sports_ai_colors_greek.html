@@ -9,27 +9,30 @@
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
             line-height: 1.6; 
-            color: #2c3e50;
-            background: #f5f7fa;
+            color: #d1d5db;
+            background: #0f172a;
         }
         
         nav { 
-            background: white; 
-            color: #2c3e50;
-            padding: 1.2rem 2rem; 
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem; 
             display: flex; 
             justify-content: space-between; 
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-            border-bottom: 1px solid #e8eef5;
+            box-shadow: none;
+            border-bottom: none;
         }
         nav .logo { 
             font-size: 1.6rem; 
-            font-weight: 700;
-            color: #0066cc;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         nav ul { 
             display: flex; 
@@ -37,13 +40,13 @@
             gap: 2rem; 
         }
         nav a { 
-            color: #2c3e50; 
+            color: #d1d5db; 
             text-decoration: none; 
             font-weight: 500;
             font-size: 0.9rem;
             transition: color 0.3s;
         }
-        nav a:hover { color: #0066cc; }
+        nav a:hover { color: #60a5fa; }
         
         .hero {
             background: linear-gradient(135deg, #0a0e27 0%, #1a2a47 100%);
@@ -61,7 +64,7 @@
             right: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(0, 150, 255, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
             border-radius: 50%;
         }
         
@@ -86,22 +89,22 @@
         }
         
         .cta {
-            background: #0066cc;
+            background: linear-gradient(to right, #2563eb, #9333ea);
             color: white;
             padding: 1rem 2.5rem;
             border: none;
-            border-radius: 6px;
+            border-radius: 50px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             margin: 0.5rem;
             transition: all 0.3s;
             display: inline-block;
         }
         .cta:hover {
-            background: #0052a3;
+            background: linear-gradient(to right, #1d4ed8, #7e22ce);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 102, 204, 0.3);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
         }
         
         .cta.secondary {
@@ -119,12 +122,16 @@
             max-width: 1100px;
             margin: 0 auto;
             padding: 4.5rem 2rem;
+            background: #0f172a;
         }
         
         section h2 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            color: #0a0e27;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
             font-weight: 800;
             letter-spacing: -0.5px;
@@ -132,7 +139,7 @@
         
         section .subtitle-text {
             text-align: center;
-            color: #5a6c7d;
+            color: #9ca3af;
             font-size: 1.1rem;
             max-width: 650px;
             margin: 0 auto 3rem;
@@ -148,24 +155,26 @@
         }
         
         .step {
-            background: white;
+            background: rgba(255,255,255,0.05);
             padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            box-shadow: none;
             text-align: center;
             transition: all 0.3s;
-            border-top: 3px solid #0066cc;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-top: 3px solid #2563eb;
         }
         
         .step:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            background: rgba(255,255,255,0.08);
         }
         
         .step-number {
             display: inline-block;
-            background: #e6f0ff;
-            color: #0066cc;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -178,34 +187,34 @@
         .step h3 {
             font-size: 1.25rem;
             margin-bottom: 0.8rem;
-            color: #0a0e27;
+            color: white;
             font-weight: 700;
         }
         
         .step p {
-            color: #5a6c7d;
+            color: #d1d5db;
             line-height: 1.7;
             font-weight: 300;
             font-size: 0.95rem;
         }
         
         .science-section {
-            background: linear-gradient(135deg, #f0f5ff 0%, #f5f7fa 100%);
+            background: rgba(255,255,255,0.05);
             padding: 3.5rem 2rem;
             border-radius: 12px;
             margin-top: 3rem;
-            border: 1px solid #e0e8f5;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .science-section h3 {
             font-size: 1.8rem;
-            color: #0a0e27;
+            color: white;
             margin-bottom: 1.5rem;
             font-weight: 800;
         }
         
         .science-section p {
-            color: #2c3e50;
+            color: #d1d5db;
             line-height: 1.8;
             font-size: 0.98rem;
             margin-bottom: 1.2rem;
@@ -220,19 +229,19 @@
         }
         
         .feature {
-            background: white;
+            background: rgba(255,255,255,0.05);
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            box-shadow: none;
             text-align: center;
             transition: all 0.3s;
-            border: 1px solid #e8eef5;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .feature:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            border-color: #0066cc;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            border-color: #2563eb;
         }
         
         .feature-icon {
@@ -243,25 +252,25 @@
         
         .feature h4 {
             font-size: 1.25rem;
-            color: #0a0e27;
+            color: white;
             margin-bottom: 0.8rem;
             font-weight: 700;
         }
         
         .feature p {
-            color: #5a6c7d;
+            color: #d1d5db;
             line-height: 1.7;
             font-weight: 300;
             font-size: 0.95rem;
         }
         
         .proof-stats {
-            background: white;
+            background: rgba(255,255,255,0.05);
             padding: 3rem;
             border-radius: 12px;
             margin-top: 2rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e8eef5;
+            box-shadow: none;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .stat-grid {
@@ -274,20 +283,23 @@
         .stat {
             text-align: center;
             padding: 2rem;
-            border: 2px solid #f0f5ff;
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 8px;
-            background: #f8fafc;
+            background: rgba(255,255,255,0.02);
         }
         
         .stat-number {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #0066cc;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
         }
         
         .stat-label {
-            color: #5a6c7d;
+            color: #9ca3af;
             font-weight: 600;
             font-size: 0.9rem;
         }
@@ -319,36 +331,37 @@
         }
         
         .insight-card {
-            background: white;
+            background: rgba(255,255,255,0.05);
             padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            box-shadow: none;
             transition: all 0.3s;
-            border: 1px solid #e8eef5;
-            border-left: 4px solid #0066cc;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 4px solid #2563eb;
         }
         
         .insight-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            background: rgba(255,255,255,0.08);
         }
         
         .insight-card h4 {
             font-size: 1.15rem;
-            color: #0a0e27;
+            color: white;
             margin-bottom: 0.8rem;
             font-weight: 700;
         }
         
         .insight-card p {
-            color: #5a6c7d;
+            color: #d1d5db;
             line-height: 1.7;
             font-weight: 300;
             font-size: 0.95rem;
         }
         
         .cta-banner {
-            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            background: linear-gradient(to right, #2563eb, #9333ea);
             color: white;
             padding: 3.5rem 2rem;
             border-radius: 12px;
@@ -371,7 +384,7 @@
         
         footer {
             background: #0a0e27;
-            color: #8a95a4;
+            color: #9ca3af;
             padding: 3rem 2rem;
             text-align: center;
             margin-top: 4rem;
@@ -380,7 +393,7 @@
         }
         
         footer p { margin-bottom: 0.8rem; }
-        footer a { color: #0096ff; text-decoration: none; font-weight: 500; }
+        footer a { color: #60a5fa; text-decoration: none; font-weight: 500; }
         
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
