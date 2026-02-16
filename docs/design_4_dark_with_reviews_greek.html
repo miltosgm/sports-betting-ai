@@ -34,6 +34,35 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 0.4rem;
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #60a5fa;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
         nav ul { 
             display: flex; 
             list-style: none; 
@@ -47,6 +76,44 @@
             transition: color 0.3s;
         }
         nav a:hover { color: #60a5fa; }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            nav .logo { font-size: 1.2rem; }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 39, 0.95);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                padding: 0.8rem 1rem;
+            }
+            
+            nav ul a {
+                display: block;
+            }
+        }
         
         .hero {
             background: linear-gradient(135deg, #0a0e27 0%, #1a2a47 100%);
@@ -345,22 +412,58 @@
         footer a { color: #60a5fa; text-decoration: none; font-weight: 600; }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            section h2 { font-size: 1.8rem; }
-            .reviews-grid { grid-template-columns: 1fr; }
+            .hero { padding: 3rem 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .subtitle { font-size: 1rem; }
+            
+            section { padding: 3rem 1.5rem; }
+            section h2 { font-size: 1.5rem; }
+            section .subtitle-text { font-size: 0.95rem; }
+            
+            .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .features-section { grid-template-columns: 1fr; }
+            
+            .review-card { padding: 1.5rem; }
+            .review-header { gap: 1rem; }
+            .review-avatar { width: 50px; height: 50px; }
+            .review-name { font-size: 1rem; }
+            .review-role { font-size: 0.8rem; }
+            .review-quote { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="logo">⚡ BetEdge AI</div>
-        <ul>
+        <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
             <li><a href="#reviews">Κριτικές</a></li>
             <li><a href="#features">Πλεονεκτήματα</a></li>
             <li><a href="#stats">Στατιστικά</a></li>
         </ul>
     </nav>
+    
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when link is clicked
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 
     <section class="hero">
         <div class="hero-content">
