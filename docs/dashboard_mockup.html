@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 280px;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: none;
+            color: #9ca3af;
+            font-weight: 500;
+            text-align: left;
+            width: 100%;
+        }
+
+        .nav-item:hover {
+            background: rgba(37, 99, 235, 0.1);
+            color: #60a5fa;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+            color: white;
+            border-left: 3px solid #2563eb;
+        }
+
+        .user-info {
+            position: absolute;
+            bottom: 2rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            padding: 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .user-tier {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* MAIN CONTENT */
+        .main {
+            margin-left: 280px;
+            flex: 1;
+            background: #0f172a;
+        }
+
+        .header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logout-btn {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        /* DASHBOARD GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: #2563eb;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* PICKS TABLE */
+        .picks-section {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .picks-header {
+            padding: 1.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .picks-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .pick-row {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .pick-row:last-child {
+            border-bottom: none;
+        }
+
+        .pick-row:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .pick-match {
+            flex: 1;
+        }
+
+        .match-name {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .match-time {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .pick-details {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+            justify-content: flex-end;
+        }
+
+        .detail {
+            text-align: right;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: white;
+            margin-top: 0.2rem;
+        }
+
+        .confidence-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .confidence-high {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .confidence-medium {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        .confidence-low {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-won {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status-lost {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .status-pending {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+        }
+
+        .status-locked {
+            background: rgba(107, 114, 128, 0.2);
+            color: #d1d5db;
+        }
+
+        /* CHART */
+        .chart-container {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-label {
+            width: 100px;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .chart-progress {
+            flex: 1;
+            height: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        .chart-fill {
+            height: 100%;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .chart-value {
+            width: 50px;
+            text-align: right;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* FORM */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+        }
+
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .danger-zone {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .danger-title {
+            font-weight: 700;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 200px;
+                padding: 1.5rem 1rem;
+            }
+
+            .main {
+                margin-left: 200px;
+            }
+
+            .pick-details {
+                gap: 1rem;
+            }
+
+            .detail-value {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .nav-menu {
+                flex-direction: row;
+                gap: 0.5rem;
+                overflow-x: auto;
+            }
+
+            .nav-item {
+                white-space: nowrap;
+            }
+
+            .user-info {
+                position: relative;
+                margin-top: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pick-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pick-details {
+                width: 100%;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="logo">⚡ BetEdge</div>
+            
+            <div class="nav-menu">
+                <button class="nav-item active" onclick="switchTab('dashboard')">
+                    📊 Dashboard
+                </button>
+                <button class="nav-item" onclick="switchTab('picks')">
+                    ⚽ Σημερινά Picks
+                </button>
+                <button class="nav-item" onclick="switchTab('history')">
+                    📜 Ιστορία
+                </button>
+                <button class="nav-item" onclick="switchTab('analytics')">
+                    📈 Analytics
+                </button>
+                <button class="nav-item" onclick="switchTab('settings')">
+                    ⚙️ Ρυθμίσεις
+                </button>
+            </div>
+
+            <div class="user-info">
+                <div class="user-name">Γιάννης Μ.</div>
+                <div class="user-tier">Pro Plan • €39/μήνα</div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main">
+            <div class="header">
+                <div class="header-title" id="pageTitle">Dashboard</div>
+                <button class="logout-btn">Αποσύνδεση</button>
+            </div>
+
+            <!-- DASHBOARD TAB -->
+            <div id="dashboard" class="content active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">+€2,150</div>
+                        <div class="stat-label">Κέρδος Φεβρουαρίου</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">72%</div>
+                        <div class="stat-label">Win Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">+16.4%</div>
+                        <div class="stat-label">ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Picks Φεβρουαρίου</div>
+                    </div>
+                </div>
+
+                <div class="picks-section">
+                    <div class="picks-header">
+                        <div class="picks-title">🔴 Ζωντανά Picks Σήμερα</div>
+                    </div>
+                    
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Man City vs Newcastle</div>
+                            <div class="match-time">Kick-off: 15:00 (σε 2 ώρες)</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Over 2.5</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-high">78%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.95</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+3.2%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-won">✅ WON +€67</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Liverpool vs Arsenal</div>
+                            <div class="match-time">Kick-off: 17:30 (σε 4.5 ώρες)</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Home Win</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-medium">68%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.82</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+2.1%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Wolves vs Aston Villa</div>
+                            <div class="match-time">Kick-off: 20:00 (σε 7 ώρες)</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Draw</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-low">62%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">3.2</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+1.8%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PICKS TAB -->
+            <div id="picks" class="content">
+                <div class="picks-section">
+                    <div class="picks-header">
+                        <div class="picks-title">📅 Σημερινά Picks - 4 Αγώνες</div>
+                    </div>
+                    
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Brighton vs Fulham</div>
+                            <div class="match-time">Kick-off: Tomorrow 12:30</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Under 3.5</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-high">71%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.88</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+2.8%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-locked">🔒 LOCKED</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Crystal Palace vs Everton</div>
+                            <div class="match-time">Kick-off: 19:45 (σε 4 ώρες)</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Away Win</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-high">75%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">2.15</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+3.1%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Tottenham vs West Ham</div>
+                            <div class="match-time">Kick-off: 21:00 (σε 5.5 ώρες)</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Over 1.5</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge confidence-high">80%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.45</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value">+2.5%</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HISTORY TAB -->
+            <div id="history" class="content">
+                <div class="picks-section">
+                    <div class="picks-header">
+                        <div class="picks-title">📜 Ιστορία Picks - Φεβρουάριος</div>
+                    </div>
+                    
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Man City vs Newcastle</div>
+                            <div class="match-time">16 Feb 2026</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Over 2.5</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.95</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Profit</div>
+                                <div class="detail-value" style="color: #10b981;">+€67</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Liverpool vs Fulham</div>
+                            <div class="match-time">15 Feb 2026</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Home Win</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.82</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-lost">❌ LOST</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Loss</div>
+                                <div class="detail-value" style="color: #ef4444;">-€50</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Chelsea vs Wolves</div>
+                            <div class="match-time">14 Feb 2026</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Under 3.5</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">1.88</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Profit</div>
+                                <div class="detail-value" style="color: #10b981;">+€45</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-match">
+                            <div class="match-name">Man Utd vs Brighton</div>
+                            <div class="match-time">13 Feb 2026</div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">Draw</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value">3.2</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Profit</div>
+                                <div class="detail-value" style="color: #10b981;">+€112</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANALYTICS TAB -->
+            <div id="analytics" class="content">
+                <div class="chart-container">
+                    <div class="chart-title">📊 Win Rate by Confidence Level</div>
+                    <div class="chart-bar">
+                        <div class="chart-label">60-65%</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 58%;">58%</div>
+                        </div>
+                        <div class="chart-value">12 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">65-70%</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 64%;">64%</div>
+                        </div>
+                        <div class="chart-value">18 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">70-75%</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 72%;">72%</div>
+                        </div>
+                        <div class="chart-value">25 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">75-80%</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 81%;">81%</div>
+                        </div>
+                        <div class="chart-value">13 picks</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">📈 Performance by League</div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Premier League</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 76%;">76% (28 picks)</div>
+                        </div>
+                        <div class="chart-value">+€280</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">LaLiga</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 68%;">68% (12 picks)</div>
+                        </div>
+                        <div class="chart-value">+€95</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Bundesliga</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 71%;">71% (8 picks)</div>
+                        </div>
+                        <div class="chart-value">+€112</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Serie A</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 65%;">65% (6 picks)</div>
+                        </div>
+                        <div class="chart-value">+€78</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">58%</div>
+                        <div class="stat-label">Longest Winning Streak</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">€50</div>
+                        <div class="stat-label">Average Stake</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">Over/Under</div>
+                        <div class="stat-label">Best Bet Type (68% WR)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS TAB -->
+            <div id="settings" class="content">
+                <div style="max-width: 600px;">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: white;">📋 Προφίλ</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Όνομα</label>
+                        <input type="text" class="form-input" value="Γιάννης Μ." />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" value="giannis@example.com" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Membership</label>
+                        <input type="text" class="form-input" value="Pro Plan - €39/μήνα" disabled />
+                    </div>
+
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; margin-top: 2rem; color: white;">🔔 Ειδοποιήσεις</h2>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" checked />
+                        <label>Push alerts για νέα picks</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" checked />
+                        <label>Email daily summary</label>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" checked />
+                        <label>Ειδοποιήσεις αποτελεσμάτων</label>
+                    </div>
+
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; margin-top: 2rem; color: white;">⚙️ Προτιμήσεις Στοιχήματος</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Ελάχιστο Επίπεδο Εμπιστοσύνης</label>
+                        <input type="range" style="width: 100%;" min="50" max="90" value="60" />
+                        <div style="text-align: right; color: #9ca3af; margin-top: 0.3rem;">60%</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Προεπιλεγμένο Stake</label>
+                        <input type="text" class="form-input" value="€50" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Προτιμώμενα Πρωταθλήματα</label>
+                        <input type="text" class="form-input" value="Premier League, LaLiga, Bundesliga" />
+                    </div>
+
+                    <div class="danger-zone">
+                        <div class="danger-title">⚠️ Danger Zone</div>
+                        <button class="btn btn-danger" style="width: 100%; margin-bottom: 0.8rem;">Ακύρωση Συνδρομής</button>
+                        <button class="btn btn-danger" style="width: 100%;">Διαγραφή Λογαριασμού</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all content
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+
+            // Show selected content
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Update header title
+            const titles = {
+                dashboard: 'Dashboard',
+                picks: 'Σημερινά Picks',
+                history: 'Ιστορία',
+                analytics: 'Analytics',
+                settings: 'Ρυθμίσεις'
+            };
+            document.getElementById('pageTitle').textContent = titles[tabName];
+        }
+    </script>
+</body>
+</html>
