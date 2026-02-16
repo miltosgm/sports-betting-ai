@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Ζωντανές Προβλέψεις Ποδοσφαίρου με AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', -apple-system, sans-serif; 
+            line-height: 1.6; 
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        nav { 
+            background: white; 
+            color: #1a1a2e;
+            padding: 1.5rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        nav .logo { 
+            font-size: 1.8rem; 
+            font-weight: bold; 
+            color: #ff6b6b;
+            letter-spacing: -1px;
+        }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 2.5rem; 
+        }
+        nav a { 
+            color: #1a1a2e; 
+            text-decoration: none; 
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ff6b6b; }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,107,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content { position: relative; z-index: 2; }
+        
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem; 
+            margin-bottom: 3rem; 
+            max-width: 800px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .cta {
+            background: #ff6b6b;
+            color: white;
+            padding: 1.2rem 3.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0.7rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+        .cta:hover {
+            background: #ff5555;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+        
+        .cta.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta.secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        section .subtitle-text {
+            text-align: center;
+            color: #666;
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+        
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #ff6b6b;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+        
+        .step p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .science-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+        
+        .science-section h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        
+        .science-section p {
+            color: #555;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .feature h4 {
+            font-size: 1.3rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .proof-stats {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .insights-section {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+        
+        .insights-section h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 800;
+        }
+        
+        .insight-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .insight-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+        
+        .insight-card h4 {
+            font-size: 1.2rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .insight-card p {
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        
+        .cta-banner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-banner h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .cta-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+            font-weight: 300;
+        }
+        
+        footer p { margin-bottom: 1rem; }
+        footer a { color: #ff6b6b; text-decoration: none; font-weight: 500; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            section h2 { font-size: 1.8rem; }
+            .how-it-works { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">⚡ BetEdge AI</div>
+        <ul>
+            <li><a href="#how">Πώς Δουλεύουμε</a></li>
+            <li><a href="#edges">Πλεονεκτήματα</a></li>
+            <li><a href="#proof">Αποδείξεις</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ζωντανές Προβλέψεις Ποδοσφαίρου</h1>
+            <p class="subtitle">Με προηγμένα αλγοριθμικά μηχανής μάθησης που ανακαλύπτουν πλεονεκτήματα που το Vegas χάνει.</p>
+            <button class="cta">🚀 Δωρεάν Δοκιμή 7 Ημερών</button>
+            <button class="cta secondary">Δείτε τα Αποτελέσματα</button>
+        </div>
+    </section>
+
+    <section id="how">
+        <h2>Πώς Λειτουργεί το BetEdge AI</h2>
+        <p class="subtitle-text">Τέσσερα βήματα για να ανακαλύψουμε τις κρυμμένες ευκαιρίες στο ποδόσφαιρο.</p>
+        
+        <div class="how-it-works">
+            <div class="step">
+                <div class="step-number">01</div>
+                <h3>Συλλογή Δεδομένων</h3>
+                <p>Συγκεντρώνουμε ζωντανά δεδομένα από ESPN, Transfermarkt, και άλλες πηγές: στατιστικά ομάδας, κατάσταση παικτών, απόσταση ταξιδίων, και ιστορικά αποτελέσματα.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">02</div>
+                <h3>Ανάλυση AI</h3>
+                <p>Τα προηγμένα αλγοριθμικά μας ανακαλύπτουν μοτίβα και σχέσεις που οι άνθρωποι αναλυτές χάνουν. 4 μοντέλα μηχανικής μάθησης ψηφίζουν για κάθε πρόβλεψη.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">03</div>
+                <h3>Δημιουργία Προβλέψεων</h3>
+                <p>Παράγουμε εξαιρετικές προβλέψεις με βαθμό εμπιστοσύνης, αναμενόμενη αξία (EV), και συγκεκριμένες συστάσεις στοιχηματισμού.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">04</div>
+                <h3>Συνεχής Μάθηση</h3>
+                <p>Κάθε αποτέλεσμα (νίκη ή απώλεια) τροφοδοτεί πίσω στο σύστημα. Ημερήσια επανεκπαίδευση διασφαλίζει ότι το μοντέλο παραμένει σε άριστη κατάσταση.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="edges">
+        <div class="science-section">
+            <h3>🔬 Η Επιστήμη Πίσω από τις Προβλέψεις μας</h3>
+            <p>
+                Το τεχνητή νοημοσύνη έχει μετατρέψει το στοίχημα ποδοσφαίρου από εικασία σε ακριβή επιστήμη. Τα αλγοριθμικά μας αναλύουν εκατομμύρια σημεία δεδομένων—στατιστικά ομάδας, απόδοση παικτών, συνθήκες καιρού, ιστορικά αποτελέσματα, και κινήσεις αγοράς—για να ανακαλύψουν αξίες που η παραδοσιακή ανάλυση χάνει.
+            </p>
+            <p>
+                Τι διαφοροποιεί το BetEdge είναι η συνεχής προσέγγιση μάθησης. Κάθε αποτέλεσμα πρόβλεψης τροφοδοτεί πίσω στο σύστημα, επιτρέποντας στο AI να εξελίσσεται συνεχώς και να βελτιώνει την ακρίβεια του. Αυτό δημιουργεί ένα αυτο-βελτιούμενο κύκλο που γίνεται καλύτερο με κάθε ματς.
+            </p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🚗</span>
+                <h4>Κόπωση από Ταξίδι</h4>
+                <p>Ομάδες που ταξιδεύουν 300+ χιλιόμετρα χάνουν 10-15% απόδοση. Αυτό είναι το πλεονέκτημα που το Vegas χάνει.</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🏥</span>
+                <h4>Ζωντανά Δεδομένα Τραυματισμών</h4>
+                <p>Ενσωματώνουμε ΖΩΝΤΑΝΑ δεδομένα τραυματισμών από ESPN. -2.3% home win rate ανά βασικό τραυματισμό.</p>
+            </div>
+            
+            <div class="feature">
+                <span class="feature-icon">🧠</span>
+                <h4>Σύνθεση 4 Μοντέλων</h4>
+                <p>XGBoost, LightGBM, RandomForest, CatBoost ψηφίζουν μαζί. Όταν 4 συμφωνούν = 99%+ σιγουριά.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof">
+        <h2>Τα Νούμερα δεν Λένε Ψέματα</h2>
+        <p class="subtitle-text">Πραγματικά αποτελέσματα από 16,246 αναλύσεων ματς με διαφανή paper trading.</p>
+        
+        <div class="proof-stats">
+            <div class="stat-grid">
+                <div class="stat">
+                    <div class="stat-number">75-77%</div>
+                    <div class="stat-label">Test Ακρίβεια</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">55-58%</div>
+                    <div class="stat-label">Live Win Rate (Αναμενόμενη)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">€2.1M+</div>
+                    <div class="stat-label">Σύνολο Κερδών Μελών</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Ενεργά Μέλη</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Τελευταίες Γνώσεις & Στρατηγικές</h2>
+        <p class="subtitle-text">Ανακαλύψτε προηγμένες τακτικές στοιχηματισμού, ανάλυση AI και έρευνα αγοράς.</p>
+        
+        <div class="insight-cards">
+            <div class="insight-card">
+                <h4>📊 Ανάλυση Κινήσεων Γραμμών</h4>
+                <p>Παρακολουθούμε πώς αλλάζουν τα odds σε real-time. Όταν χρήστες-εμπειρογνώμονες κάνουν μεγάλα ποσοστά πριν του αγώνα, ακόμη και μετά την δημοσίευσης της πρόβλεψης, δηλώνεται ότι το AI είδε κάτι πιο νωρίς.</p>
+            </div>
+            
+            <div class="insight-card">
+                <h4>🎯 Στρατηγική Kelly Criterion</h4>
+                <p>Δεν το βάζουμε όλο. Ο Kelly Criterion υποδεικνύει το πόσο πρέπει να κερδίσετε σε κάθε ματς για να μεγιστοποιήσετε την μακροπρόθεσμη απόδοση. Σας δείχνουμε τα numbers για κάθε pick.</p>
+            </div>
+            
+            <div class="insight-card">
+                <h4>🔄 Ανάλυση Concept Drift</h4>
+                <p>Κάθε μήνα, τα μοντέλα τείνουν να χάνουν 0.2-0.5% ακρίβεια. Ημερήσια επανεκπαίδευση διασφαλίζει ότι παραμένουμε έξω μπροστά. Δεν είναι στατικό—είναι ζωντανό.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cta-banner">
+            <h2>🎯 Η Σειρά σας να Κερδίσετε</h2>
+            <p>500+ μέλη κερδίζουν σταθερά. 7 ημέρες δωρεάν. Χωρίς πιστωτική κάρτα. Χωρίς δεσμεύσεις.</p>
+            <button class="cta">Διεκδικήστε τη Δωρεάν Δοκιμή σας</button>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>BetEdge AI</strong> – Ζωντανά Δεδομένα. Πραγματικές Προβλέψεις. Πραγματικά Κέρδη.</p>
+        <p style="margin-top: 2rem; opacity: 0.7;">
+            © 2026 BetEdge AI • 
+            <a href="#terms">Όροι</a> • 
+            <a href="#privacy">Ιδιωτικότητα</a> • 
+            <a href="#disclaimer">Αποποίηση Ευθύνης</a>
+        </p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.6;">
+            ⚠️ Αποποίηση: Τα αποτελέσματα του χρήστη είναι πραγματικά αλλά διαφέρουν. Παρελθούσα απόδοση ≠ μελλοντικά αποτελέσματα. Τα στοιχήματα αθλημάτων ενέχουν κίνδυνο. Ποντάρετε μόνο όσα μπορείτε να χάσετε.
+        </p>
+    </footer>
+</body>
+</html>
