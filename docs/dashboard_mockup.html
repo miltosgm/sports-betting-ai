@@ -117,6 +117,72 @@
             color: white;
         }
 
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* THINK MODE TOGGLE */
+        .think-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .think-toggle:hover {
+            background: rgba(147, 51, 234, 0.2);
+        }
+
+        .think-toggle.active {
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.3));
+            border-color: #9333ea;
+        }
+
+        .think-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #c084fc;
+        }
+
+        .think-toggle.active .think-label {
+            color: white;
+        }
+
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .think-toggle.active .toggle-switch {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+        }
+
+        .toggle-slider {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s;
+        }
+
+        .think-toggle.active .toggle-slider {
+            left: 22px;
+        }
+
         .logout-btn {
             background: rgba(239, 68, 68, 0.1);
             color: #ef4444;
@@ -161,6 +227,7 @@
         .stat-card:hover {
             background: rgba(255,255,255,0.08);
             border-color: #2563eb;
+            transform: translateY(-2px);
         }
 
         .stat-number {
@@ -204,9 +271,6 @@
         .pick-row {
             padding: 1.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             transition: all 0.3s;
         }
 
@@ -218,6 +282,13 @@
             background: rgba(37, 99, 235, 0.05);
         }
 
+        .pick-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
         .pick-match {
             flex: 1;
         }
@@ -226,6 +297,7 @@
             font-weight: 600;
             color: white;
             margin-bottom: 0.3rem;
+            font-size: 1.05rem;
         }
 
         .match-time {
@@ -302,9 +374,66 @@
             color: #60a5fa;
         }
 
-        .status-locked {
-            background: rgba(107, 114, 128, 0.2);
+        /* AI REASONING BOX */
+        .ai-reasoning {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(147, 51, 234, 0.08);
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .ai-reasoning.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-reasoning-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+            color: #c084fc;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .reasoning-point {
+            margin-bottom: 0.6rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.9rem;
             color: #d1d5db;
+            line-height: 1.5;
+        }
+
+        .reasoning-point:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #9333ea;
+            font-weight: bold;
+        }
+
+        .reasoning-point:last-child {
+            margin-bottom: 0;
+        }
+
+        .edge-highlight {
+            color: #10b981;
+            font-weight: 600;
         }
 
         /* CHART */
@@ -355,6 +484,7 @@
             font-size: 0.75rem;
             font-weight: 600;
             color: white;
+            transition: width 0.5s ease;
         }
 
         .chart-value {
@@ -392,6 +522,11 @@
             background: rgba(255,255,255,0.08);
         }
 
+        .form-input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .checkbox-group {
             display: flex;
             align-items: center;
@@ -401,12 +536,56 @@
             border-radius: 6px;
             margin-bottom: 0.8rem;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkbox-group:hover {
+            background: rgba(255,255,255,0.08);
         }
 
         .checkbox-group input {
             width: 18px;
             height: 18px;
             cursor: pointer;
+        }
+
+        .range-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .range-value {
+            text-align: right;
+            color: #60a5fa;
+            margin-top: 0.5rem;
+            font-weight: 600;
         }
 
         .danger-zone {
@@ -439,6 +618,7 @@
 
         .btn-primary:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         .btn-danger {
@@ -488,6 +668,16 @@
                 margin-left: 0;
             }
 
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
             .nav-menu {
                 flex-direction: row;
                 gap: 0.5rem;
@@ -507,7 +697,7 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .pick-row {
+            .pick-main {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -516,6 +706,11 @@
                 width: 100%;
                 gap: 1rem;
                 margin-top: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .detail {
+                text-align: left;
             }
         }
     </style>
@@ -554,7 +749,15 @@
         <div class="main">
             <div class="header">
                 <div class="header-title" id="pageTitle">Dashboard</div>
-                <button class="logout-btn">Αποσύνδεση</button>
+                <div class="header-actions">
+                    <div class="think-toggle" id="thinkToggle" onclick="toggleThinkMode()">
+                        <span class="think-label">🧠 Think Mode</span>
+                        <div class="toggle-switch">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                    <button class="logout-btn">Αποσύνδεση</button>
+                </div>
             </div>
 
             <!-- DASHBOARD TAB -->
@@ -580,93 +783,123 @@
 
                 <div class="picks-section">
                     <div class="picks-header">
-                        <div class="picks-title">🔴 Ζωντανά Picks Σήμερα - 17 Feb 2026</div>
+                        <div class="picks-title">🔴 Ζωντανά Picks Σήμερα - 16 Feb 2026</div>
                     </div>
                     
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Brighton vs Fulham</div>
-                            <div class="match-time">Σήμερα 17 Feb • Kick-off: 14:30</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Brighton vs Fulham</div>
+                                <div class="match-time">Σήμερα 16 Feb • Kick-off: 14:30</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Over 2.5</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">78%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.95</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+3.2%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON +€67</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Over 2.5</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-high">78%</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.95</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+3.2%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-won">✅ WON +€67</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Tottenham vs Crystal Palace</div>
-                            <div class="match-time">Σήμερα 17 Feb • Kick-off: 17:00</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Home Win</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-medium">68%</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.82</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+2.1%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
+                        <div class="ai-reasoning" data-pick="1">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Brighton's last 5 home games: 4 ended Over 2.5 goals (80% hit rate)</div>
+                            <div class="reasoning-point">Fulham conceded 2+ goals in 3/5 away fixtures</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Fulham traveled 85 miles → -2.1% defensive efficiency</div>
+                            <div class="reasoning-point">Both teams averaging 1.8 goals scored per match (combined: 3.6 xG)</div>
+                            <div class="reasoning-point">Key injury: Fulham's starting CB ruled out → weaker defense</div>
                         </div>
                     </div>
 
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Man United vs Liverpool</div>
-                            <div class="match-time">Σήμερα 17 Feb • Kick-off: 19:45</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Tottenham vs Crystal Palace</div>
+                                <div class="match-time">Σήμερα 16 Feb • Kick-off: 17:00</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Home Win</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-medium">68%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.82</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+2.1%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Draw</div>
+                        <div class="ai-reasoning" data-pick="2">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Tottenham's home record: 8W-2D-1L (73% win rate at home)</div>
+                            <div class="reasoning-point">Crystal Palace away form: 2W-3D-6L (18% win rate away)</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Palace traveled 320 miles → -8.3% expected performance</div>
+                            <div class="reasoning-point">Spurs won last 4/5 home fixtures vs mid-table teams</div>
+                            <div class="reasoning-point">Palace missing 2 key midfielders (injury data confirmed)</div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Man United vs Liverpool</div>
+                                <div class="match-time">Σήμερα 16 Feb • Kick-off: 19:45</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-low">62%</span></div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">BTTS (Yes)</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">82%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.65</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+4.1%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                                </div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">3.2</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+1.8%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
+                        </div>
+                        <div class="ai-reasoning" data-pick="3">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Historic rivalry: Last 10 meetings → 9/10 BTTS hit (90% success rate)</div>
+                            <div class="reasoning-point">Man United scored in 8/8 home games this season</div>
+                            <div class="reasoning-point">Liverpool scored in 10/11 away fixtures</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Both defenses weak:</span> United conceded 1.4 goals/game, Liverpool 1.2 away</div>
+                            <div class="reasoning-point">High-scoring fixture history: avg 3.2 total goals in last 8 meetings</div>
                         </div>
                     </div>
                 </div>
@@ -676,122 +909,162 @@
             <div id="picks" class="content">
                 <div class="picks-section">
                     <div class="picks-header">
-                        <div class="picks-title">📅 Σημερινά Picks - 17 February 2026</div>
+                        <div class="picks-title">📅 Σημερινά Picks - 16 February 2026</div>
                     </div>
                     
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Brighton vs Fulham</div>
-                            <div class="match-time">17 Feb 2026 • Kick-off: 14:30</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Brighton vs Fulham</div>
+                                <div class="match-time">16 Feb 2026 • Kick-off: 14:30</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Over 2.5</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">78%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.95</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+3.2%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Under 3.5</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-high">71%</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.88</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+2.8%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Tottenham vs Crystal Palace</div>
-                            <div class="match-time">17 Feb 2026 • Kick-off: 17:00</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Away Win</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-high">75%</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">2.15</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+3.1%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
+                        <div class="ai-reasoning" data-pick="4">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Brighton's last 5 home games: 4 ended Over 2.5 goals (80% hit rate)</div>
+                            <div class="reasoning-point">Fulham conceded 2+ goals in 3/5 away fixtures</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Fulham traveled 85 miles → -2.1% defensive efficiency</div>
+                            <div class="reasoning-point">Both teams averaging 1.8 goals scored per match (combined: 3.6 xG)</div>
+                            <div class="reasoning-point">Key injury: Fulham's starting CB ruled out → weaker defense</div>
                         </div>
                     </div>
 
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Man United vs Liverpool</div>
-                            <div class="match-time">17 Feb 2026 • Kick-off: 19:45</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Tottenham vs Crystal Palace</div>
+                                <div class="match-time">16 Feb 2026 • Kick-off: 17:00</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Home Win</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-medium">68%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.82</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+2.1%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Over 1.5</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-high">80%</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.45</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+2.5%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
+                        <div class="ai-reasoning" data-pick="5">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Tottenham's home record: 8W-2D-1L (73% win rate at home)</div>
+                            <div class="reasoning-point">Crystal Palace away form: 2W-3D-6L (18% win rate away)</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Palace traveled 320 miles → -8.3% expected performance</div>
+                            <div class="reasoning-point">Spurs won last 4/5 home fixtures vs mid-table teams</div>
+                            <div class="reasoning-point">Palace missing 2 key midfielders (injury data confirmed)</div>
                         </div>
                     </div>
 
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Chelsea vs Everton</div>
-                            <div class="match-time">17 Feb 2026 • Kick-off: 21:15</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Man United vs Liverpool</div>
+                                <div class="match-time">16 Feb 2026 • Kick-off: 19:45</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">BTTS (Yes)</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">82%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.65</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+4.1%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Home Win</div>
+                        <div class="ai-reasoning" data-pick="6">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Historic rivalry: Last 10 meetings → 9/10 BTTS hit (90% success rate)</div>
+                            <div class="reasoning-point">Man United scored in 8/8 home games this season</div>
+                            <div class="reasoning-point">Liverpool scored in 10/11 away fixtures</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Both defenses weak:</span> United conceded 1.4 goals/game, Liverpool 1.2 away</div>
+                            <div class="reasoning-point">High-scoring fixture history: avg 3.2 total goals in last 8 meetings</div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Chelsea vs Everton</div>
+                                <div class="match-time">16 Feb 2026 • Kick-off: 21:15</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Confidence</div>
-                                <div class="detail-value"><span class="confidence-badge confidence-high">73%</span></div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Home Win</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Confidence</div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">73%</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.65</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">EV</div>
+                                    <div class="detail-value">+2.9%</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
+                                </div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.65</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">EV</div>
-                                <div class="detail-value">+2.9%</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div>
-                            </div>
+                        </div>
+                        <div class="ai-reasoning" data-pick="7">
+                            <div class="ai-reasoning-header">🧠 AI Reasoning</div>
+                            <div class="reasoning-point">Chelsea home form: 6W-1D-1L (75% win rate)</div>
+                            <div class="reasoning-point">Everton away struggles: 1W-2D-8L (9% win rate)</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Everton traveled 240 miles → -5.8% performance drop</div>
+                            <div class="reasoning-point">Chelsea won last 7/9 home meetings vs relegation-threatened teams</div>
+                            <div class="reasoning-point">Everton's key striker doubtful (85% chance to miss - injury scraper)</div>
                         </div>
                     </div>
                 </div>
@@ -805,126 +1078,136 @@
                     </div>
                     
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Arsenal vs Bournemouth</div>
-                            <div class="match-time">16 Feb 2026 • 15:00</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Over 2.5</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Arsenal vs Bournemouth</div>
+                                <div class="match-time">15 Feb 2026 • 15:00</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.95</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Profit</div>
-                                <div class="detail-value" style="color: #10b981;">+€67</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Liverpool vs West Ham</div>
-                            <div class="match-time">15 Feb 2026 • 17:30</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Home Win</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.82</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-lost">❌ LOST</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Loss</div>
-                                <div class="detail-value" style="color: #ef4444;">-€50</div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Over 2.5</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.95</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Profit</div>
+                                    <div class="detail-value" style="color: #10b981;">+€67</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Chelsea vs Wolves</div>
-                            <div class="match-time">14 Feb 2026 • 20:15</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Under 3.5</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Liverpool vs West Ham</div>
+                                <div class="match-time">15 Feb 2026 • 17:30</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.88</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Profit</div>
-                                <div class="detail-value" style="color: #10b981;">+€45</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Man Utd vs Brighton</div>
-                            <div class="match-time">13 Feb 2026 • 19:45</div>
-                        </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Draw</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">3.2</div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
-                            </div>
-                            <div class="detail">
-                                <div class="detail-label">Profit</div>
-                                <div class="detail-value" style="color: #10b981;">+€112</div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Home Win</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.82</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-lost">❌ LOST</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Loss</div>
+                                    <div class="detail-value" style="color: #ef4444;">-€50</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="pick-row">
-                        <div class="pick-match">
-                            <div class="match-name">Aston Villa vs Everton</div>
-                            <div class="match-time">12 Feb 2026 • 14:30</div>
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Chelsea vs Wolves</div>
+                                <div class="match-time">14 Feb 2026 • 20:15</div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Under 3.5</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.88</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Profit</div>
+                                    <div class="detail-value" style="color: #10b981;">+€45</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pick-details">
-                            <div class="detail">
-                                <div class="detail-label">Prediction</div>
-                                <div class="detail-value">Home Win</div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Man Utd vs Brighton</div>
+                                <div class="match-time">13 Feb 2026 • 19:45</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Odds</div>
-                                <div class="detail-value">1.75</div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Draw</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">3.2</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Profit</div>
+                                    <div class="detail-value" style="color: #10b981;">+€112</div>
+                                </div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Aston Villa vs Everton</div>
+                                <div class="match-time">12 Feb 2026 • 14:30</div>
                             </div>
-                            <div class="detail">
-                                <div class="detail-label">Profit</div>
-                                <div class="detail-value" style="color: #10b981;">+€89</div>
+                            <div class="pick-details">
+                                <div class="detail">
+                                    <div class="detail-label">Prediction</div>
+                                    <div class="detail-value">Home Win</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Odds</div>
+                                    <div class="detail-value">1.75</div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value"><span class="status-badge status-won">✅ WON</span></div>
+                                </div>
+                                <div class="detail">
+                                    <div class="detail-label">Profit</div>
+                                    <div class="detail-value" style="color: #10b981;">+€89</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -963,6 +1246,13 @@
                         </div>
                         <div class="chart-value">13 picks</div>
                     </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">80-85%</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 87%;">87%</div>
+                        </div>
+                        <div class="chart-value">6 picks</div>
+                    </div>
                 </div>
 
                 <div class="chart-container">
@@ -997,18 +1287,54 @@
                     </div>
                 </div>
 
+                <div class="chart-container">
+                    <div class="chart-title">🎯 Best Performing Bet Types</div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Over/Under</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 74%;">74%</div>
+                        </div>
+                        <div class="chart-value">23 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Home Win</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 68%;">68%</div>
+                        </div>
+                        <div class="chart-value">18 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">BTTS</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 71%;">71%</div>
+                        </div>
+                        <div class="chart-value">14 picks</div>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="chart-label">Draw</div>
+                        <div class="chart-progress">
+                            <div class="chart-fill" style="width: 58%;">58%</div>
+                        </div>
+                        <div class="chart-value">9 picks</div>
+                    </div>
+                </div>
+
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">58%</div>
-                        <div class="stat-label">Longest Winning Streak</div>
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Longest Win Streak</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">€50</div>
                         <div class="stat-label">Average Stake</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">Over/Under</div>
-                        <div class="stat-label">Best Bet Type (68% WR)</div>
+                        <div class="stat-number">+15.2%</div>
+                        <div class="stat-label">Best Month ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">68</div>
+                        <div class="stat-label">Total Picks (Feb)</div>
                     </div>
                 </div>
             </div>
@@ -1033,6 +1359,8 @@
                         <input type="text" class="form-input" value="Pro Plan - €39/μήνα" disabled />
                     </div>
 
+                    <button class="btn btn-primary" style="margin-top: 1rem;">Αποθήκευση Αλλαγών</button>
+
                     <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; margin-top: 2rem; color: white;">🔔 Ειδοποιήσεις</h2>
                     
                     <div class="checkbox-group">
@@ -1050,12 +1378,17 @@
                         <label>Ειδοποιήσεις αποτελεσμάτων</label>
                     </div>
 
+                    <div class="checkbox-group">
+                        <input type="checkbox" />
+                        <label>SMS για picks υψηλής εμπιστοσύνης (>75%)</label>
+                    </div>
+
                     <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; margin-top: 2rem; color: white;">⚙️ Προτιμήσεις Στοιχήματος</h2>
                     
                     <div class="form-group">
                         <label class="form-label">Ελάχιστο Επίπεδο Εμπιστοσύνης</label>
-                        <input type="range" style="width: 100%;" min="50" max="90" value="60" />
-                        <div style="text-align: right; color: #9ca3af; margin-top: 0.3rem;">60%</div>
+                        <input type="range" class="range-slider" id="confidenceSlider" min="50" max="90" value="60" oninput="updateRangeValue(this.value)" />
+                        <div class="range-value" id="confidenceValue">60%</div>
                     </div>
 
                     <div class="form-group">
@@ -1068,6 +1401,13 @@
                         <input type="text" class="form-input" value="Premier League, LaLiga, Bundesliga" />
                     </div>
 
+                    <div class="form-group">
+                        <label class="form-label">Προτιμώμενα Τύποι Στοιχήματος</label>
+                        <input type="text" class="form-input" value="Over/Under, Home Win, BTTS" />
+                    </div>
+
+                    <button class="btn btn-primary" style="margin-top: 1rem;">Αποθήκευση Προτιμήσεων</button>
+
                     <div class="danger-zone">
                         <div class="danger-title">⚠️ Danger Zone</div>
                         <button class="btn btn-danger" style="width: 100%; margin-bottom: 0.8rem;">Ακύρωση Συνδρομής</button>
@@ -1079,6 +1419,22 @@
     </div>
 
     <script>
+        let thinkModeEnabled = false;
+
+        function toggleThinkMode() {
+            thinkModeEnabled = !thinkModeEnabled;
+            const toggle = document.getElementById('thinkToggle');
+            const reasoningBoxes = document.querySelectorAll('.ai-reasoning');
+            
+            if (thinkModeEnabled) {
+                toggle.classList.add('active');
+                reasoningBoxes.forEach(box => box.classList.add('show'));
+            } else {
+                toggle.classList.remove('active');
+                reasoningBoxes.forEach(box => box.classList.remove('show'));
+            }
+        }
+
         function switchTab(tabName) {
             // Hide all content
             document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
@@ -1097,6 +1453,10 @@
                 settings: 'Ρυθμίσεις'
             };
             document.getElementById('pageTitle').textContent = titles[tabName];
+        }
+
+        function updateRangeValue(value) {
+            document.getElementById('confidenceValue').textContent = value + '%';
         }
     </script>
 </body>
