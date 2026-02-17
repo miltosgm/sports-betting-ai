@@ -294,115 +294,7 @@
             color: var(--green);
         }
         
-        /* ========== FREE TIER BANNER ========== */
-        .free-tier-banner {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.2));
-            border: 2px solid rgba(251, 191, 36, 0.4);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .free-tier-banner.show {
-            display: flex;
-        }
-        
-        .free-tier-message {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .free-tier-message h3 {
-            color: var(--yellow);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .free-tier-message p {
-            color: #d1d5db;
-            font-size: 0.9rem;
-        }
-        
-        .free-tier-actions {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .btn-upgrade {
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-        
-        .btn-upgrade:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
-        }
-        
-        .btn-demo {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .btn-demo:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
-        /* Locked Content Overlay */
-        .locked-overlay {
-            position: relative;
-        }
-        
-        .locked-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 10;
-            border-radius: 12px;
-        }
-        
-        .locked-overlay::after {
-            content: '🔒 Upgrade to Pro';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 11;
-            background: linear-gradient(135deg, var(--yellow), var(--orange));
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            white-space: nowrap;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-        }
-        
-        .locked-overlay.basic::after {
-            content: '🔒 Upgrade to Basic';
-        }
+        /* Free tier styling removed - all features now accessible */
         
         /* ========== MAIN LAYOUT ========== */
         .container {
@@ -2294,7 +2186,7 @@
 
             <div class="user-info">
                 <div class="user-name">Γιάννης Μ.</div>
-                <div class="user-tier" id="userTier">Pro Plan • €39/μήνα</div>
+                <div class="user-tier" id="userTier">BetEdge AI Member</div>
             </div>
         </div>
 
@@ -2319,10 +2211,6 @@
                         </div>
                         
                         <div class="live-clock" id="liveClock">--:--:--</div>
-                        
-                        <button class="btn-demo" onclick="toggleFreeTier()" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 8px;">
-                            🎭 Demo Free
-                        </button>
                         
                         <div class="header-icon-btn" onclick="toggleSound()">
                             <span id="soundIcon">🔊</span>
@@ -2364,18 +2252,6 @@
 
             <!-- DASHBOARD TAB -->
             <div id="dashboard" class="content active">
-                <!-- Free Tier Banner -->
-                <div class="free-tier-banner" id="freeTierBanner">
-                    <div class="free-tier-message">
-                        <h3>🔒 Ξεκλειδώστε Premium Features</h3>
-                        <p>Upgrade σε Pro για AI Acca Builder, Value Bets, Bankroll Tools και πολλά άλλα!</p>
-                    </div>
-                    <div class="free-tier-actions">
-                        <button class="btn-upgrade" onclick="switchTab('settings')">Upgrade τώρα</button>
-                        <button class="btn-demo" onclick="toggleFreeTier()">Απόκρυψη</button>
-                    </div>
-                </div>
-
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">💰</div>
@@ -2471,7 +2347,7 @@
                             </div>
                         </div>
                         
-                        <div class="ai-reasoning locked-overlay">
+                        <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
                             <div class="reasoning-point">Arsenal away form: 7W-2D-1L (70% win rate away from home)</div>
                             <div class="reasoning-point">Wolves home struggles: 3W-2D-6L (27% home win rate)</div>
@@ -2546,7 +2422,7 @@
                     </div>
 
                     <!-- Pick 3 - Medium Value -->
-                    <div class="pick-row" onclick="expandPick(this)" class="locked-overlay">
+                    <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
                                 <div class="match-name">Tottenham vs Arsenal</div>
@@ -2691,7 +2567,7 @@
 
             <!-- AI ACCA TAB -->
             <div id="acca" class="content">
-                <div class="acca-card featured locked-overlay">
+                <div class="acca-card featured">
                     <div class="acca-header">
                         <div class="acca-title">🎰 Acca της Ημέρας</div>
                         <div class="acca-odds-big">@7.45</div>
@@ -3086,7 +2962,7 @@
                     </div>
                 </div>
                 
-                <div class="bankroll-section locked-overlay">
+                <div class="bankroll-section">
                     <div class="bankroll-title">📊 Bankroll Growth Simulator</div>
                     <div class="kelly-calculator">
                         <div class="form-group">
@@ -3133,74 +3009,9 @@
 
             <!-- SETTINGS TAB -->
             <div id="settings" class="content">
-                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">💎 Membership Plans</h2>
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">⚙️ Settings</h2>
                 
-                <!-- PRICING GRID -->
-                <div class="pricing-grid">
-                    <!-- Free Tier -->
-                    <div class="pricing-card">
-                        <div class="pricing-tier">FREE</div>
-                        <div class="pricing-price">€0</div>
-                        <div class="pricing-period">Δωρεάν για πάντα</div>
-                        
-                        <div class="pricing-features">
-                            <div class="pricing-feature">1-2 picks ανά ημέρα</div>
-                            <div class="pricing-feature">Βασικά stats</div>
-                            <div class="pricing-feature disabled">AI reasoning</div>
-                            <div class="pricing-feature disabled">Acca builder</div>
-                            <div class="pricing-feature disabled">Value bet alerts</div>
-                            <div class="pricing-feature disabled">Bankroll tools</div>
-                            <div class="pricing-feature disabled">Telegram alerts</div>
-                            <div class="pricing-feature disabled">In-play picks</div>
-                        </div>
-                        
-                        <button class="btn-pricing secondary" onclick="showToast('info', 'Free Plan', 'Δημιουργήστε λογαριασμό για να ξεκινήσετε!')">Get Started</button>
-                    </div>
-                    
-                    <!-- Basic Tier -->
-                    <div class="pricing-card">
-                        <div class="pricing-tier">BASIC</div>
-                        <div class="pricing-price">€9.99</div>
-                        <div class="pricing-period">/μήνα</div>
-                        
-                        <div class="pricing-features">
-                            <div class="pricing-feature">Όλα τα picks</div>
-                            <div class="pricing-feature">AI reasoning</div>
-                            <div class="pricing-feature">Basic analytics</div>
-                            <div class="pricing-feature">Telegram alerts</div>
-                            <div class="pricing-feature">Email support</div>
-                            <div class="pricing-feature disabled">Acca builder</div>
-                            <div class="pricing-feature disabled">Value bet alerts</div>
-                            <div class="pricing-feature disabled">Bankroll tools</div>
-                        </div>
-                        
-                        <button class="btn-pricing secondary" onclick="showToast('info', 'Upgrade', 'Λειτουργία αγοράς σύντομα!')">Upgrade</button>
-                    </div>
-                    
-                    <!-- Pro Tier -->
-                    <div class="pricing-card current featured">
-                        <div class="pricing-tier">PRO</div>
-                        <div class="pricing-price">€39</div>
-                        <div class="pricing-period">/μήνα</div>
-                        
-                        <div class="pricing-features">
-                            <div class="pricing-feature">Όλα τα picks</div>
-                            <div class="pricing-feature">AI reasoning</div>
-                            <div class="pricing-feature">Advanced analytics</div>
-                            <div class="pricing-feature">🎰 Acca builder</div>
-                            <div class="pricing-feature">🔥 Value bet alerts</div>
-                            <div class="pricing-feature">💰 Bankroll tools</div>
-                            <div class="pricing-feature">⚡ Priority picks</div>
-                            <div class="pricing-feature">📲 Telegram + SMS alerts</div>
-                            <div class="pricing-feature">🎯 In-play alerts</div>
-                            <div class="pricing-feature">Priority support</div>
-                        </div>
-                        
-                        <button class="btn-pricing primary" onclick="showToast('success', 'Current Plan', 'Είστε ήδη στο Pro plan!')">Current Plan</button>
-                    </div>
-                </div>
-                
-                <div style="max-width: 600px; margin-top: 3rem;">
+                <div style="max-width: 600px;">
                     <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: white;">📋 Προφίλ</h2>
                     
                     <div class="form-group" style="margin-bottom: 1.5rem;">
@@ -3236,8 +3047,6 @@
 
                     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); padding: 2rem; border-radius: 16px; margin-top: 3rem;">
                         <h3 style="color: var(--red); font-weight: 700; margin-bottom: 1.5rem;">⚠️ Danger Zone</h3>
-                        <button class="btn btn-danger" style="width: 100%; margin-bottom: 1rem;">Downgrade σε Basic</button>
-                        <button class="btn btn-danger" style="width: 100%; margin-bottom: 1rem;">Ακύρωση Συνδρομής</button>
                         <button class="btn btn-danger" style="width: 100%;">Διαγραφή Λογαριασμού</button>
                     </div>
                 </div>
@@ -3305,7 +3114,6 @@
         let thinkModeEnabled = false;
         let soundEnabled = true;
         let sidebarCollapsed = false;
-        let freeTierMode = false;
         let currentRiskProfile = 'conservative';
         
         // ========== LOGIN ==========
@@ -3355,26 +3163,6 @@
             }
             
             document.addEventListener('keydown', handleKeyboard);
-        }
-        
-        // ========== FREE TIER MODE ==========
-        function toggleFreeTier() {
-            freeTierMode = !freeTierMode;
-            const banner = document.getElementById('freeTierBanner');
-            const lockables = document.querySelectorAll('.locked-overlay');
-            const userTier = document.getElementById('userTier');
-            
-            if (freeTierMode) {
-                banner.classList.add('show');
-                lockables.forEach(el => el.classList.add('locked-overlay'));
-                userTier.textContent = 'Free Plan • €0/μήνα';
-                showToast('info', 'Free Tier Demo', 'Προβολή περιορισμένων features');
-            } else {
-                banner.classList.remove('show');
-                lockables.forEach(el => el.classList.remove('locked-overlay'));
-                userTier.textContent = 'Pro Plan • €39/μήνα';
-                showToast('success', 'Pro Mode', 'Πλήρης πρόσβαση');
-            }
         }
         
         // ========== LIVE CLOCK ==========
@@ -3475,11 +3263,7 @@
             
             if (thinkModeEnabled) {
                 toggle.classList.add('active');
-                reasoningBoxes.forEach(box => {
-                    if (!box.classList.contains('locked-overlay') || !freeTierMode) {
-                        box.classList.add('show');
-                    }
-                });
+                reasoningBoxes.forEach(box => box.classList.add('show'));
                 showToast('info', 'Think Mode ON', 'Εμφάνιση AI reasoning');
             } else {
                 toggle.classList.remove('active');
