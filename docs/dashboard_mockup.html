@@ -32,6 +32,7 @@
             --green: #10b981;
             --red: #ef4444;
             --yellow: #fbbf24;
+            --orange: #f97316;
             --gray-100: #f3f4f6;
             --gray-300: #d1d5db;
             --gray-500: #9ca3af;
@@ -291,6 +292,116 @@
         
         .login-demo strong {
             color: var(--green);
+        }
+        
+        /* ========== FREE TIER BANNER ========== */
+        .free-tier-banner {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.2));
+            border: 2px solid rgba(251, 191, 36, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .free-tier-banner.show {
+            display: flex;
+        }
+        
+        .free-tier-message {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .free-tier-message h3 {
+            color: var(--yellow);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .free-tier-message p {
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+        
+        .free-tier-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-upgrade {
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-upgrade:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-demo {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .btn-demo:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Locked Content Overlay */
+        .locked-overlay {
+            position: relative;
+        }
+        
+        .locked-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 10;
+            border-radius: 12px;
+        }
+        
+        .locked-overlay::after {
+            content: '🔒 Upgrade to Pro';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 11;
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+        
+        .locked-overlay.basic::after {
+            content: '🔒 Upgrade to Basic';
         }
         
         /* ========== MAIN LAYOUT ========== */
@@ -1063,6 +1174,93 @@
             transform: scale(1.1);
         }
         
+        /* ========== VALUE BET METER ========== */
+        .value-meter {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .value-meter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+        }
+        
+        .value-meter-stats {
+            display: flex;
+            gap: 1rem;
+            color: var(--gray-300);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .value-meter-edge {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        
+        .edge-positive {
+            color: var(--green);
+        }
+        
+        .edge-exceptional {
+            color: var(--orange);
+        }
+        
+        .value-bet-badge {
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            animation: valuePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes valuePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .value-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .value-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease, background 0.5s ease;
+        }
+        
+        .value-bar-fill.medium {
+            background: linear-gradient(90deg, var(--yellow), var(--green));
+        }
+        
+        .value-bar-fill.high {
+            background: linear-gradient(90deg, var(--green), var(--blue));
+        }
+        
+        .value-bar-fill.exceptional {
+            background: linear-gradient(90deg, var(--orange), var(--red));
+            animation: barGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes barGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(249, 115, 22, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.8); }
+        }
+        
         /* AI Reasoning Box */
         .ai-reasoning {
             margin-top: 1.5rem;
@@ -1127,6 +1325,396 @@
             font-weight: 700;
         }
         
+        /* ========== ACCA BUILDER ========== */
+        .acca-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .acca-card.featured {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(239, 68, 68, 0.1));
+            border: 2px solid rgba(249, 115, 22, 0.3);
+        }
+        
+        .acca-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .acca-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .acca-odds-big {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, var(--orange), var(--red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .acca-legs {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .acca-leg {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .acca-leg-info {
+            flex: 1;
+        }
+        
+        .acca-leg-match {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        
+        .acca-leg-pick {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+        
+        .acca-leg-stats {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .acca-leg-confidence {
+            color: var(--green);
+            font-weight: 700;
+        }
+        
+        .acca-leg-odds {
+            color: var(--blue);
+            font-weight: 700;
+        }
+        
+        .acca-returns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .acca-return-item {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .acca-return-stake {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-bottom: 0.3rem;
+        }
+        
+        .acca-return-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--green);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .acca-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-acca-copy {
+            flex: 1;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-acca-copy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* ========== BANKROLL TOOLS ========== */
+        .bankroll-section {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .bankroll-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .kelly-calculator {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .calculator-result-box {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--gray-300);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--green);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .risk-profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .risk-profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .risk-profile-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-4px);
+        }
+        
+        .risk-profile-card.active {
+            border-color: var(--blue);
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .risk-profile-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .risk-profile-name {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+        
+        .risk-profile-range {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+        
+        .stake-comparison {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stake-method {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .stake-method-name {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .stake-method-value {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stake-method-desc {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+        
+        /* ========== PRICING TABLE ========== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card.current {
+            border-color: var(--blue);
+            background: rgba(37, 99, 235, 0.1);
+            position: relative;
+        }
+        
+        .pricing-card.current::before {
+            content: '✓ CURRENT PLAN';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--orange);
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(239, 68, 68, 0.05));
+            transform: scale(1.05);
+        }
+        
+        .pricing-tier {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-period {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-feature {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--gray-300);
+        }
+        
+        .pricing-feature.disabled {
+            color: var(--gray-600);
+            text-decoration: line-through;
+        }
+        
+        .pricing-feature::before {
+            content: '✓ ';
+            color: var(--green);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        
+        .pricing-feature.disabled::before {
+            content: '✗ ';
+            color: var(--gray-600);
+        }
+        
+        .btn-pricing {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-pricing.primary {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+        }
+        
+        .btn-pricing.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-pricing:hover {
+            transform: translateY(-2px);
+        }
+        
         /* ========== CHARTS ========== */
         .chart-container {
             background: rgba(255, 255, 255, 0.04);
@@ -1181,7 +1769,7 @@
             font-size: 0.9rem;
         }
         
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 0.9rem 1rem;
             background: rgba(255, 255, 255, 0.05);
@@ -1193,7 +1781,7 @@
             transition: all 0.3s;
         }
         
-        .form-input:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
             border-color: var(--blue);
             background: rgba(255, 255, 255, 0.08);
@@ -1206,21 +1794,6 @@
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-        }
-        
-        .result-label {
-            font-size: 0.85rem;
-            color: var(--gray-300);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-        
-        .result-value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--green);
-            font-family: 'JetBrains Mono', monospace;
         }
         
         /* ========== FILTERS ========== */
@@ -1448,6 +2021,10 @@
             .search-bar {
                 min-width: 180px;
             }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1514,6 +2091,14 @@
                 width: auto;
             }
             
+            .stake-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .acca-returns {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             /* Bottom Nav for Mobile */
             .mobile-bottom-nav {
                 position: fixed;
@@ -1524,7 +2109,7 @@
                 backdrop-filter: blur(20px);
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 display: grid;
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(6, 1fr);
                 padding: 0.5rem;
                 z-index: 100;
             }
@@ -1538,7 +2123,7 @@
                 background: none;
                 border: none;
                 color: var(--gray-500);
-                font-size: 0.75rem;
+                font-size: 0.7rem;
                 font-weight: 600;
                 cursor: pointer;
                 transition: all 0.3s;
@@ -1549,7 +2134,7 @@
             }
             
             .mobile-nav-item span {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
         }
         
@@ -1693,6 +2278,9 @@
                     ⚽ Σημερινά Picks
                     <span class="nav-badge">7</span>
                 </button>
+                <button class="nav-item" onclick="switchTab('acca')">
+                    🎰 AI Acca
+                </button>
                 <button class="nav-item" onclick="switchTab('history')">
                     📜 Ιστορία
                 </button>
@@ -1706,7 +2294,7 @@
 
             <div class="user-info">
                 <div class="user-name">Γιάννης Μ.</div>
-                <div class="user-tier">Pro Plan • €39/μήνα</div>
+                <div class="user-tier" id="userTier">Pro Plan • €39/μήνα</div>
             </div>
         </div>
 
@@ -1731,6 +2319,10 @@
                         </div>
                         
                         <div class="live-clock" id="liveClock">--:--:--</div>
+                        
+                        <button class="btn-demo" onclick="toggleFreeTier()" style="padding: 0.5rem 1rem; font-size: 0.85rem; border-radius: 8px;">
+                            🎭 Demo Free
+                        </button>
                         
                         <div class="header-icon-btn" onclick="toggleSound()">
                             <span id="soundIcon">🔊</span>
@@ -1772,6 +2364,18 @@
 
             <!-- DASHBOARD TAB -->
             <div id="dashboard" class="content active">
+                <!-- Free Tier Banner -->
+                <div class="free-tier-banner" id="freeTierBanner">
+                    <div class="free-tier-message">
+                        <h3>🔒 Ξεκλειδώστε Premium Features</h3>
+                        <p>Upgrade σε Pro για AI Acca Builder, Value Bets, Bankroll Tools και πολλά άλλα!</p>
+                    </div>
+                    <div class="free-tier-actions">
+                        <button class="btn-upgrade" onclick="switchTab('settings')">Upgrade τώρα</button>
+                        <button class="btn-demo" onclick="toggleFreeTier()">Απόκρυψη</button>
+                    </div>
+                </div>
+
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">💰</div>
@@ -1813,6 +2417,7 @@
                         </div>
                     </div>
                     
+                    <!-- Pick 1 - High Value -->
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
@@ -1848,7 +2453,25 @@
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
-                        <div class="ai-reasoning">
+                        
+                        <!-- VALUE METER -->
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats">
+                                    <span>AI: 76%</span>
+                                    <span>|</span>
+                                    <span>Market: 53%</span>
+                                    <span>|</span>
+                                    <span class="value-meter-edge edge-positive">EDGE: +23%</span>
+                                </div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar">
+                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-reasoning locked-overlay">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
                             <div class="reasoning-point">Arsenal away form: 7W-2D-1L (70% win rate away from home)</div>
                             <div class="reasoning-point">Wolves home struggles: 3W-2D-6L (27% home win rate)</div>
@@ -1858,6 +2481,7 @@
                         </div>
                     </div>
 
+                    <!-- Pick 2 - Exceptional Value -->
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
@@ -1893,6 +2517,24 @@
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
+                        
+                        <!-- VALUE METER -->
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats">
+                                    <span>AI: 81%</span>
+                                    <span>|</span>
+                                    <span>Market: 58%</span>
+                                    <span>|</span>
+                                    <span class="value-meter-edge edge-exceptional">EDGE: +23%</span>
+                                </div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar">
+                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                            </div>
+                        </div>
+                        
                         <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
                             <div class="reasoning-point">Liverpool's attacking form: averaging 2.4 goals/game away</div>
@@ -1903,7 +2545,8 @@
                         </div>
                     </div>
 
-                    <div class="pick-row" onclick="expandPick(this)">
+                    <!-- Pick 3 - Medium Value -->
+                    <div class="pick-row" onclick="expandPick(this)" class="locked-overlay">
                         <div class="pick-main">
                             <div class="pick-match">
                                 <div class="match-name">Tottenham vs Arsenal</div>
@@ -1938,6 +2581,24 @@
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
+                        
+                        <!-- VALUE METER -->
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats">
+                                    <span>AI: 85%</span>
+                                    <span>|</span>
+                                    <span>Market: 63%</span>
+                                    <span>|</span>
+                                    <span class="value-meter-edge edge-positive">EDGE: +22%</span>
+                                </div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar">
+                                <div class="value-bar-fill exceptional" style="width: 22%;"></div>
+                            </div>
+                        </div>
+                        
                         <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
                             <div class="reasoning-point">North London Derby: Last 10 meetings → 9/10 BTTS hit (90%)</div>
@@ -1976,7 +2637,6 @@
                         <div class="picks-title">📅 Επερχόμενα Picks - Feb 18-23, 2026</div>
                     </div>
                     
-                    <!-- Same picks as dashboard but with full list -->
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
@@ -2010,9 +2670,244 @@
                                 <div class="action-btn" onclick="copyPick(event, 'Wolves vs Arsenal - Away Win @ 1.88')" title="Copy">📋</div>
                             </div>
                         </div>
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats">
+                                    <span>AI: 76%</span>
+                                    <span>|</span>
+                                    <span>Market: 53%</span>
+                                    <span>|</span>
+                                    <span class="value-meter-edge edge-exceptional">EDGE: +23%</span>
+                                </div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar">
+                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI ACCA TAB -->
+            <div id="acca" class="content">
+                <div class="acca-card featured locked-overlay">
+                    <div class="acca-header">
+                        <div class="acca-title">🎰 Acca της Ημέρας</div>
+                        <div class="acca-odds-big">@7.45</div>
                     </div>
                     
-                    <!-- Add more picks here... (keeping it shorter for brevity) -->
+                    <div class="acca-legs">
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Wolves vs Arsenal</div>
+                                <div class="acca-leg-pick">Away Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">76%</span>
+                                <span class="acca-leg-odds">@1.88</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
+                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">81%</span>
+                                <span class="acca-leg-odds">@1.72</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Tottenham vs Arsenal</div>
+                                <div class="acca-leg-pick">BTTS (Yes)</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">85%</span>
+                                <span class="acca-leg-odds">@1.58</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Man City vs Chelsea</div>
+                                <div class="acca-leg-pick">Home Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">78%</span>
+                                <span class="acca-leg-odds">@1.41</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-returns">
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€10</div>
+                            <div class="acca-return-value">€74.50</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€25</div>
+                            <div class="acca-return-value">€186.25</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€50</div>
+                            <div class="acca-return-value">€372.50</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€100</div>
+                            <div class="acca-return-value">€745.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-actions">
+                        <button class="btn-acca-copy" onclick="copyAcca('daily')">📋 Copy Acca</button>
+                    </div>
+                </div>
+                
+                <!-- Safe Acca -->
+                <div class="acca-card">
+                    <div class="acca-header">
+                        <div class="acca-title">🛡️ Safe Acca</div>
+                        <div class="acca-odds-big">@3.23</div>
+                    </div>
+                    
+                    <div class="acca-legs">
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
+                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">81%</span>
+                                <span class="acca-leg-odds">@1.72</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Wolves vs Arsenal</div>
+                                <div class="acca-leg-pick">Away Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">76%</span>
+                                <span class="acca-leg-odds">@1.88</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-returns">
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€10</div>
+                            <div class="acca-return-value">€32.30</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€25</div>
+                            <div class="acca-return-value">€80.75</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€50</div>
+                            <div class="acca-return-value">€161.50</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€100</div>
+                            <div class="acca-return-value">€323.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-actions">
+                        <button class="btn-acca-copy" onclick="copyAcca('safe')">📋 Copy Acca</button>
+                    </div>
+                </div>
+                
+                <!-- Risk Acca -->
+                <div class="acca-card">
+                    <div class="acca-header">
+                        <div class="acca-title">🎲 Risk Acca</div>
+                        <div class="acca-odds-big">@15.82</div>
+                    </div>
+                    
+                    <div class="acca-legs">
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Wolves vs Arsenal</div>
+                                <div class="acca-leg-pick">Away Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">76%</span>
+                                <span class="acca-leg-odds">@1.88</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
+                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">81%</span>
+                                <span class="acca-leg-odds">@1.72</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Tottenham vs Arsenal</div>
+                                <div class="acca-leg-pick">BTTS (Yes)</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">85%</span>
+                                <span class="acca-leg-odds">@1.58</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Man City vs Chelsea</div>
+                                <div class="acca-leg-pick">Home Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">78%</span>
+                                <span class="acca-leg-odds">@1.41</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Brighton vs Newcastle</div>
+                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">72%</span>
+                                <span class="acca-leg-odds">@1.85</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-returns">
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€10</div>
+                            <div class="acca-return-value">€158.20</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€25</div>
+                            <div class="acca-return-value">€395.50</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€50</div>
+                            <div class="acca-return-value">€791.00</div>
+                        </div>
+                        <div class="acca-return-item">
+                            <div class="acca-return-stake">€100</div>
+                            <div class="acca-return-value">€1,582.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="acca-actions">
+                        <button class="btn-acca-copy" onclick="copyAcca('risk')">📋 Copy Acca</button>
+                    </div>
                 </div>
             </div>
 
@@ -2098,8 +2993,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- More history items... -->
                 </div>
             </div>
 
@@ -2128,6 +3021,96 @@
                     </div>
                 </div>
                 
+                <!-- BANKROLL MANAGEMENT TOOLS -->
+                <div class="bankroll-section">
+                    <div class="bankroll-title">🧮 Kelly Criterion Calculator</div>
+                    <div class="kelly-calculator">
+                        <div class="form-group">
+                            <label class="form-label">Bankroll (€)</label>
+                            <input type="number" class="form-input" id="kellyBankroll" value="1000" oninput="calculateKelly()">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Odds</label>
+                            <input type="number" class="form-input" id="kellyOdds" value="1.88" step="0.01" oninput="calculateKelly()">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">AI Confidence (%)</label>
+                            <input type="number" class="form-input" id="kellyConfidence" value="76" min="0" max="100" oninput="calculateKelly()">
+                        </div>
+                        <div class="calculator-result-box">
+                            <div class="result-label">Optimal Kelly Stake</div>
+                            <div class="result-value" id="kellyResult">€72</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bankroll-section">
+                    <div class="bankroll-title">🎯 Risk Profile</div>
+                    <div class="risk-profiles">
+                        <div class="risk-profile-card active" onclick="selectRiskProfile(this, 'conservative')">
+                            <div class="risk-profile-emoji">🛡️</div>
+                            <div class="risk-profile-name">Conservative</div>
+                            <div class="risk-profile-range">1-2% bankroll</div>
+                        </div>
+                        <div class="risk-profile-card" onclick="selectRiskProfile(this, 'moderate')">
+                            <div class="risk-profile-emoji">⚖️</div>
+                            <div class="risk-profile-name">Moderate</div>
+                            <div class="risk-profile-range">3-5% bankroll</div>
+                        </div>
+                        <div class="risk-profile-card" onclick="selectRiskProfile(this, 'aggressive')">
+                            <div class="risk-profile-emoji">🔥</div>
+                            <div class="risk-profile-name">Aggressive</div>
+                            <div class="risk-profile-range">5-10% bankroll</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bankroll-section">
+                    <div class="bankroll-title">💸 Stake Calculator</div>
+                    <div class="stake-comparison">
+                        <div class="stake-method">
+                            <div class="stake-method-name">Flat Stake</div>
+                            <div class="stake-method-value" id="flatStake">€20</div>
+                            <div class="stake-method-desc">Same amount every bet</div>
+                        </div>
+                        <div class="stake-method">
+                            <div class="stake-method-name">Proportional</div>
+                            <div class="stake-method-value" id="propStake">€30</div>
+                            <div class="stake-method-desc">% of bankroll</div>
+                        </div>
+                        <div class="stake-method">
+                            <div class="stake-method-name">Kelly</div>
+                            <div class="stake-method-value" id="kellyStake">€72</div>
+                            <div class="stake-method-desc">Optimal by math</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bankroll-section locked-overlay">
+                    <div class="bankroll-title">📊 Bankroll Growth Simulator</div>
+                    <div class="kelly-calculator">
+                        <div class="form-group">
+                            <label class="form-label">Starting Bankroll (€)</label>
+                            <input type="number" class="form-input" value="1000">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Avg Odds</label>
+                            <input type="number" class="form-input" value="1.86" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Win Rate (%)</label>
+                            <input type="number" class="form-input" value="94">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Number of Bets</label>
+                            <input type="number" class="form-input" value="100">
+                        </div>
+                    </div>
+                    <div class="chart-wrapper" style="height: 300px; margin-top: 1.5rem;">
+                        <canvas id="simulatorChart"></canvas>
+                    </div>
+                </div>
+                
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-number">€86</div>
@@ -2150,7 +3133,74 @@
 
             <!-- SETTINGS TAB -->
             <div id="settings" class="content">
-                <div style="max-width: 600px;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">💎 Membership Plans</h2>
+                
+                <!-- PRICING GRID -->
+                <div class="pricing-grid">
+                    <!-- Free Tier -->
+                    <div class="pricing-card">
+                        <div class="pricing-tier">FREE</div>
+                        <div class="pricing-price">€0</div>
+                        <div class="pricing-period">Δωρεάν για πάντα</div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">1-2 picks ανά ημέρα</div>
+                            <div class="pricing-feature">Βασικά stats</div>
+                            <div class="pricing-feature disabled">AI reasoning</div>
+                            <div class="pricing-feature disabled">Acca builder</div>
+                            <div class="pricing-feature disabled">Value bet alerts</div>
+                            <div class="pricing-feature disabled">Bankroll tools</div>
+                            <div class="pricing-feature disabled">Telegram alerts</div>
+                            <div class="pricing-feature disabled">In-play picks</div>
+                        </div>
+                        
+                        <button class="btn-pricing secondary" onclick="showToast('info', 'Free Plan', 'Δημιουργήστε λογαριασμό για να ξεκινήσετε!')">Get Started</button>
+                    </div>
+                    
+                    <!-- Basic Tier -->
+                    <div class="pricing-card">
+                        <div class="pricing-tier">BASIC</div>
+                        <div class="pricing-price">€9.99</div>
+                        <div class="pricing-period">/μήνα</div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">Όλα τα picks</div>
+                            <div class="pricing-feature">AI reasoning</div>
+                            <div class="pricing-feature">Basic analytics</div>
+                            <div class="pricing-feature">Telegram alerts</div>
+                            <div class="pricing-feature">Email support</div>
+                            <div class="pricing-feature disabled">Acca builder</div>
+                            <div class="pricing-feature disabled">Value bet alerts</div>
+                            <div class="pricing-feature disabled">Bankroll tools</div>
+                        </div>
+                        
+                        <button class="btn-pricing secondary" onclick="showToast('info', 'Upgrade', 'Λειτουργία αγοράς σύντομα!')">Upgrade</button>
+                    </div>
+                    
+                    <!-- Pro Tier -->
+                    <div class="pricing-card current featured">
+                        <div class="pricing-tier">PRO</div>
+                        <div class="pricing-price">€39</div>
+                        <div class="pricing-period">/μήνα</div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">Όλα τα picks</div>
+                            <div class="pricing-feature">AI reasoning</div>
+                            <div class="pricing-feature">Advanced analytics</div>
+                            <div class="pricing-feature">🎰 Acca builder</div>
+                            <div class="pricing-feature">🔥 Value bet alerts</div>
+                            <div class="pricing-feature">💰 Bankroll tools</div>
+                            <div class="pricing-feature">⚡ Priority picks</div>
+                            <div class="pricing-feature">📲 Telegram + SMS alerts</div>
+                            <div class="pricing-feature">🎯 In-play alerts</div>
+                            <div class="pricing-feature">Priority support</div>
+                        </div>
+                        
+                        <button class="btn-pricing primary" onclick="showToast('success', 'Current Plan', 'Είστε ήδη στο Pro plan!')">Current Plan</button>
+                    </div>
+                </div>
+                
+                <div style="max-width: 600px; margin-top: 3rem;">
                     <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: white;">📋 Προφίλ</h2>
                     
                     <div class="form-group" style="margin-bottom: 1.5rem;">
@@ -2161,11 +3211,6 @@
                     <div class="form-group" style="margin-bottom: 1.5rem;">
                         <label class="form-label">Email</label>
                         <input type="email" class="form-input" value="giannis@example.com">
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label class="form-label">Membership</label>
-                        <input type="text" class="form-input" value="Pro Plan - €39/μήνα" disabled>
                     </div>
 
                     <button class="btn btn-primary">Αποθήκευση Αλλαγών</button>
@@ -2191,6 +3236,7 @@
 
                     <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); padding: 2rem; border-radius: 16px; margin-top: 3rem;">
                         <h3 style="color: var(--red); font-weight: 700; margin-bottom: 1.5rem;">⚠️ Danger Zone</h3>
+                        <button class="btn btn-danger" style="width: 100%; margin-bottom: 1rem;">Downgrade σε Basic</button>
                         <button class="btn btn-danger" style="width: 100%; margin-bottom: 1rem;">Ακύρωση Συνδρομής</button>
                         <button class="btn btn-danger" style="width: 100%;">Διαγραφή Λογαριασμού</button>
                     </div>
@@ -2208,6 +3254,10 @@
         <button class="mobile-nav-item" onclick="switchTab('picks')">
             <span>⚽</span>
             Picks
+        </button>
+        <button class="mobile-nav-item" onclick="switchTab('acca')">
+            <span>🎰</span>
+            Acca
         </button>
         <button class="mobile-nav-item" onclick="switchTab('history')">
             <span>📜</span>
@@ -2243,8 +3293,7 @@
                 <div class="notification-item-message">Liverpool Away Win - +€52 profit</div>
                 <div class="notification-item-time">2 ώρες πριν</div>
             </div>
-            <div class="notification-item">
-                <div class="notification-item-title">📊 Weekly Report</div>
+            <div class="notification-item-title">📊 Weekly Report</div>
                 <div class="notification-item-message">Your win rate this week: 94%</div>
                 <div class="notification-item-time">1 μέρα πριν</div>
             </div>
@@ -2256,6 +3305,8 @@
         let thinkModeEnabled = false;
         let soundEnabled = true;
         let sidebarCollapsed = false;
+        let freeTierMode = false;
+        let currentRiskProfile = 'conservative';
         
         // ========== LOGIN ==========
         function handleLogin(e) {
@@ -2264,7 +3315,6 @@
             const password = document.getElementById('loginPassword').value;
             
             if (email === 'demo@betedge.ai' && password === 'demo123') {
-                // Hide login screen
                 document.getElementById('loginScreen').style.animation = 'loginFadeOut 0.5s ease forwards';
                 setTimeout(() => {
                     document.getElementById('loginScreen').style.display = 'none';
@@ -2277,7 +3327,6 @@
             }
         }
         
-        // Add logout animation CSS
         const style = document.createElement('style');
         style.textContent = '@keyframes loginFadeOut { to { opacity: 0; transform: scale(0.95); } }';
         document.head.appendChild(style);
@@ -2297,16 +3346,35 @@
             setInterval(simulateLiveOdds, 5000);
             
             animateCounters();
-            
             initCharts();
+            calculateKelly();
+            calculateProfit();
             
-            // Show mobile bottom nav on small screens
             if (window.innerWidth <= 768) {
                 document.querySelector('.mobile-bottom-nav').style.display = 'grid';
             }
             
-            // Keyboard shortcuts
             document.addEventListener('keydown', handleKeyboard);
+        }
+        
+        // ========== FREE TIER MODE ==========
+        function toggleFreeTier() {
+            freeTierMode = !freeTierMode;
+            const banner = document.getElementById('freeTierBanner');
+            const lockables = document.querySelectorAll('.locked-overlay');
+            const userTier = document.getElementById('userTier');
+            
+            if (freeTierMode) {
+                banner.classList.add('show');
+                lockables.forEach(el => el.classList.add('locked-overlay'));
+                userTier.textContent = 'Free Plan • €0/μήνα';
+                showToast('info', 'Free Tier Demo', 'Προβολή περιορισμένων features');
+            } else {
+                banner.classList.remove('show');
+                lockables.forEach(el => el.classList.remove('locked-overlay'));
+                userTier.textContent = 'Pro Plan • €39/μήνα';
+                showToast('success', 'Pro Mode', 'Πλήρης πρόσβαση');
+            }
         }
         
         // ========== LIVE CLOCK ==========
@@ -2360,11 +3428,10 @@
         function simulateLiveOdds() {
             document.querySelectorAll('.odds-value[data-base-odds]').forEach(oddsEl => {
                 const baseOdds = parseFloat(oddsEl.getAttribute('data-base-odds'));
-                const variation = (Math.random() - 0.5) * 0.06; // ±0.03 max change
+                const variation = (Math.random() - 0.5) * 0.06;
                 const newOdds = (baseOdds + variation).toFixed(2);
                 oddsEl.textContent = newOdds;
                 
-                // Update arrow
                 const arrow = oddsEl.nextElementSibling;
                 if (arrow && arrow.classList.contains('odds-change')) {
                     arrow.textContent = newOdds > baseOdds ? '↗' : '↘';
@@ -2408,7 +3475,11 @@
             
             if (thinkModeEnabled) {
                 toggle.classList.add('active');
-                reasoningBoxes.forEach(box => box.classList.add('show'));
+                reasoningBoxes.forEach(box => {
+                    if (!box.classList.contains('locked-overlay') || !freeTierMode) {
+                        box.classList.add('show');
+                    }
+                });
                 showToast('info', 'Think Mode ON', 'Εμφάνιση AI reasoning');
             } else {
                 toggle.classList.remove('active');
@@ -2418,7 +3489,6 @@
         
         // ========== TAB SWITCHING ==========
         function switchTab(tabName) {
-            // Update content
             document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
@@ -2426,10 +3496,10 @@
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
             
-            // Update header
             const titles = {
                 dashboard: 'Dashboard',
                 picks: 'Σημερινά Picks',
+                acca: 'AI Acca',
                 history: 'Ιστορία',
                 analytics: 'Analytics',
                 settings: 'Ρυθμίσεις'
@@ -2437,10 +3507,8 @@
             document.getElementById('pageTitle').textContent = titles[tabName];
             document.getElementById('breadcrumbPage').textContent = titles[tabName];
             
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Re-init charts if analytics tab
             if (tabName === 'analytics') {
                 setTimeout(initCharts, 100);
             }
@@ -2543,7 +3611,6 @@
             const status = pickRow.querySelector('.status-won');
             if (!status) return;
             
-            // Confetti!
             confetti({
                 particleCount: 100,
                 spread: 70,
@@ -2551,6 +3618,18 @@
             });
             
             showToast('success', '🎉 Νίκη!', 'Congrats on this winning pick!');
+        }
+        
+        // ========== ACCA ACTIONS ==========
+        function copyAcca(type) {
+            const accaTexts = {
+                daily: 'Daily Acca @7.45:\n- Wolves vs Arsenal: Away Win @1.88\n- Forest vs Liverpool: Over 2.5 @1.72\n- Spurs vs Arsenal: BTTS @1.58\n- Man City vs Chelsea: Home Win @1.41',
+                safe: 'Safe Acca @3.23:\n- Forest vs Liverpool: Over 2.5 @1.72\n- Wolves vs Arsenal: Away Win @1.88',
+                risk: 'Risk Acca @15.82:\n- Wolves vs Arsenal: Away Win @1.88\n- Forest vs Liverpool: Over 2.5 @1.72\n- Spurs vs Arsenal: BTTS @1.58\n- Man City vs Chelsea: Home Win @1.41\n- Brighton vs Newcastle: Over 2.5 @1.85'
+            };
+            
+            navigator.clipboard.writeText(accaTexts[type]);
+            showToast('success', 'Acca Copied!', 'Το accumulator αντιγράφηκε στο clipboard');
         }
         
         // ========== PROFIT CALCULATOR ==========
@@ -2570,8 +3649,38 @@
                 profit >= 0 ? `+€${Math.floor(profit)}` : `-€${Math.floor(Math.abs(profit))}`;
         }
         
-        // Initialize calculator
-        setTimeout(calculateProfit, 100);
+        // ========== KELLY CRITERION ==========
+        function calculateKelly() {
+            const bankroll = parseFloat(document.getElementById('kellyBankroll').value) || 1000;
+            const odds = parseFloat(document.getElementById('kellyOdds').value) || 1.88;
+            const confidence = parseFloat(document.getElementById('kellyConfidence').value) / 100 || 0.76;
+            
+            const impliedProb = 1 / odds;
+            const edge = confidence - impliedProb;
+            const kellyPercent = edge / (odds - 1);
+            
+            const kellyStake = Math.max(0, bankroll * kellyPercent);
+            
+            document.getElementById('kellyResult').textContent = `€${Math.floor(kellyStake)}`;
+            document.getElementById('kellyStake').textContent = `€${Math.floor(kellyStake)}`;
+            
+            // Update stake comparison
+            const riskPercents = { conservative: 0.015, moderate: 0.04, aggressive: 0.075 };
+            const flatStake = bankroll * 0.02;
+            const propStake = bankroll * riskPercents[currentRiskProfile];
+            
+            document.getElementById('flatStake').textContent = `€${Math.floor(flatStake)}`;
+            document.getElementById('propStake').textContent = `€${Math.floor(propStake)}`;
+        }
+        
+        // ========== RISK PROFILE ==========
+        function selectRiskProfile(card, profile) {
+            document.querySelectorAll('.risk-profile-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            currentRiskProfile = profile;
+            calculateKelly();
+            showToast('info', 'Risk Profile', `${profile.toUpperCase()} επιλέχθηκε`);
+        }
         
         // ========== FILTERS & SEARCH ==========
         function filterHistory() {
@@ -2586,10 +3695,9 @@
         function handleKeyboard(e) {
             if (e.target.tagName === 'INPUT') return;
             
-            const tabs = ['dashboard', 'picks', 'history', 'analytics', 'settings'];
             const key = e.key;
             
-            if (key >= '1' && key <= '5') {
+            if (key >= '1' && key <= '6') {
                 const tabIndex = parseInt(key) - 1;
                 const tabButtons = document.querySelectorAll('.nav-item');
                 if (tabButtons[tabIndex]) {
@@ -2602,7 +3710,6 @@
         
         // ========== CHARTS ==========
         function initCharts() {
-            // Bankroll Chart
             const bankrollCtx = document.getElementById('bankrollChart');
             if (bankrollCtx && bankrollCtx.getContext) {
                 new Chart(bankrollCtx, {
@@ -2664,7 +3771,6 @@
                 });
             }
             
-            // Bet Type Donut Chart
             const betTypeCtx = document.getElementById('betTypeChart');
             if (betTypeCtx && betTypeCtx.getContext) {
                 new Chart(betTypeCtx, {
@@ -2700,7 +3806,6 @@
                 });
             }
             
-            // vs Flat Betting Chart
             const vsFlatCtx = document.getElementById('vsFlat');
             if (vsFlatCtx && vsFlatCtx.getContext) {
                 new Chart(vsFlatCtx, {
@@ -2770,12 +3875,11 @@
             }
         });
         
-        // Show periodic "New pick" toast
         setInterval(() => {
             if (Math.random() > 0.7) {
                 showToast('info', '🎯 New Pick', 'Check upcoming fixtures!');
             }
-        }, 120000); // Every 2 minutes
+        }, 120000);
     </script>
 </body>
 </html>
