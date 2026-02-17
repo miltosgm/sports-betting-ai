@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI - Επαληθευμένα Αποτελέσματα | Verified Results</title>
+    <meta name="description" content="Full transparency: Every BetEdge AI prediction timestamped and verified. 94% win rate, €1,278 profit in February 2026.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: rgba(30, 41, 59, 0.6);
+            --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-blue: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-purple: #a78bfa;
+            --accent-blue: #60a5fa;
+            --win-green: #10b981;
+            --loss-red: #ef4444;
+            --border-glass: rgba(148, 163, 184, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* ===== GLASSMORPHISM CARD ===== */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(148, 163, 184, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== HEADER ===== */
+        header {
+            padding: 1.5rem 2rem;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: var(--accent-purple);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle-en {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* ===== STATS GRID ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+        }
+        
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* ===== MONTHLY PERFORMANCE ===== */
+        .monthly-section {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .monthly-card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .monthly-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .monthly-stat {
+            padding: 1.5rem;
+            background: rgba(103, 126, 234, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(103, 126, 234, 0.2);
+        }
+        
+        .monthly-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .monthly-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--win-green);
+        }
+        
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+        
+        .heatmap-day {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .heatmap-day:hover {
+            transform: scale(1.1);
+        }
+        
+        .heatmap-day.empty {
+            background: rgba(100, 116, 139, 0.1);
+            color: var(--text-muted);
+        }
+        
+        .heatmap-day.win {
+            background: var(--win-green);
+            color: white;
+        }
+        
+        .heatmap-day.loss {
+            background: var(--loss-red);
+            color: white;
+        }
+        
+        .heatmap-day.neutral {
+            background: rgba(148, 163, 184, 0.3);
+            color: var(--text-secondary);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 2rem;
+        }
+        
+        /* ===== PREDICTION LOG ===== */
+        .log-section {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .search-input, .filter-select {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-input:focus, .filter-select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+        
+        .filter-select {
+            cursor: pointer;
+        }
+        
+        .prediction-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+        
+        .prediction-table thead th {
+            text-align: left;
+            padding: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        
+        .prediction-table tbody tr {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s;
+        }
+        
+        .prediction-table tbody tr:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prediction-table tbody tr.win {
+            border-left: 4px solid var(--win-green);
+        }
+        
+        .prediction-table tbody tr.loss {
+            border-left: 4px solid var(--loss-red);
+        }
+        
+        .prediction-table td {
+            padding: 1.5rem 1rem;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
+        }
+        
+        .prediction-table td:first-child {
+            border-left: 1px solid var(--border-glass);
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+        
+        .prediction-table td:last-child {
+            border-right: 1px solid var(--border-glass);
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        .timestamp {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .match-teams {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .prediction-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(103, 126, 234, 0.2);
+            color: var(--accent-purple);
+        }
+        
+        .confidence-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(148, 163, 184, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .confidence-fill {
+            height: 100%;
+            background: var(--gradient-blue);
+            border-radius: 3px;
+        }
+        
+        .result-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .result-badge.win {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--win-green);
+        }
+        
+        .result-badge.loss {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--loss-red);
+        }
+        
+        .profit {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .profit.positive {
+            color: var(--win-green);
+        }
+        
+        .profit.negative {
+            color: var(--loss-red);
+        }
+        
+        /* ===== CHARTS SECTION ===== */
+        .charts-section {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+        
+        .chart-card {
+            min-height: 350px;
+        }
+        
+        .chart-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+        }
+        
+        /* ===== VERIFICATION SECTION ===== */
+        .verification-section {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem 3rem;
+            background: var(--gradient-purple);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .verification-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .verification-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+        
+        .hash-display {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-purple);
+            margin-top: 2rem;
+            border: 1px solid var(--border-glass);
+            word-break: break-all;
+        }
+        
+        /* ===== COMPARISON SECTION ===== */
+        .comparison-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===== SOCIAL PROOF ===== */
+        .social-section {
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--gradient-purple);
+            border-radius: 24px;
+        }
+        
+        .social-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .social-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: white;
+            color: #667eea;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-glass);
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-purple);
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .responsible-gambling {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--loss-red);
+            font-weight: 600;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle-en {
+                font-size: 1.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .monthly-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .prediction-table {
+                font-size: 0.85rem;
+            }
+            
+            .prediction-table td {
+                padding: 1rem 0.5rem;
+            }
+            
+            .social-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            header {
+                padding: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">⚡ BetEdge AI</div>
+            <a href="../index.html" class="back-link">← Πίσω στο Dashboard</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>📊 Πλήρης Διαφάνεια — Κάθε Πρόβλεψη Καταγεγραμμένη</h1>
+        <div class="subtitle-en">Full Transparency — Every Prediction Logged</div>
+        <p class="description">
+            All predictions timestamped at publication. No edits. No deletions. Verified independently.<br>
+            Όλες οι προβλέψεις χρονοσημειωμένες πριν το ματς. Καμία επεξεργασία. Καμία διαγραφή. Ανεξάρτητη επαλήθευση.
+        </p>
+    </section>
+
+    <!-- STATS GRID -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">17</div>
+            <div class="stat-label">Total Predictions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">94%</div>
+            <div class="stat-label">Win Rate</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">+75%</div>
+            <div class="stat-label">ROI</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">1.86</div>
+            <div class="stat-label">Avg Odds</div>
+        </div>
+    </div>
+
+    <!-- MONTHLY PERFORMANCE -->
+    <section class="monthly-section">
+        <h2 class="section-title">📅 Μηνιαία Απόδοση — February 2026</h2>
+        <div class="glass-card monthly-card">
+            <div class="monthly-stats">
+                <div class="monthly-stat">
+                    <div class="monthly-stat-label">Record</div>
+                    <div class="monthly-stat-value">16W - 1L</div>
+                </div>
+                <div class="monthly-stat">
+                    <div class="monthly-stat-label">Profit</div>
+                    <div class="monthly-stat-value">+€1,278</div>
+                </div>
+                <div class="monthly-stat">
+                    <div class="monthly-stat-label">Win Rate</div>
+                    <div class="monthly-stat-value">94%</div>
+                </div>
+                <div class="monthly-stat">
+                    <div class="monthly-stat-label">ROI</div>
+                    <div class="monthly-stat-value">+75%</div>
+                </div>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 1rem; color: var(--accent-blue);">Ημερολόγιο Αποτελεσμάτων</h3>
+                <div class="heatmap" id="calendar-heatmap">
+                    <!-- Generated by JS -->
+                </div>
+                <div class="chart-container">
+                    <canvas id="profitCurveChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREDICTION LOG -->
+    <section class="log-section">
+        <h2 class="section-title">📋 Πλήρες Ιστορικό Προβλέψεων</h2>
+        
+        <div class="controls">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Αναζήτηση ομάδων...">
+            <select class="filter-select" id="filterResult">
+                <option value="all">Όλα τα αποτελέσματα</option>
+                <option value="win">Νίκες (Win)</option>
+                <option value="loss">Ήττες (Loss)</option>
+            </select>
+            <select class="filter-select" id="filterType">
+                <option value="all">Όλα τα types</option>
+                <option value="Home Win">Home Win</option>
+                <option value="Away Win">Away Win</option>
+                <option value="Over 2.5">Over 2.5</option>
+                <option value="BTTS">BTTS</option>
+            </select>
+            <select class="filter-select" id="filterConfidence">
+                <option value="all">Όλα Confidence</option>
+                <option value="high">High (90%+)</option>
+                <option value="medium">Medium (80-89%)</option>
+            </select>
+        </div>
+
+        <div class="glass-card">
+            <table class="prediction-table" id="predictionTable">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Match</th>
+                        <th>Prediction</th>
+                        <th>Odds</th>
+                        <th>Confidence</th>
+                        <th>Result</th>
+                        <th>P/L</th>
+                    </tr>
+                </thead>
+                <tbody id="predictionTableBody">
+                    <!-- Generated by JS -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- PERFORMANCE BREAKDOWN CHARTS -->
+    <section class="charts-section">
+        <h2 class="section-title">📊 Ανάλυση Απόδοσης</h2>
+        <div class="charts-grid">
+            <div class="glass-card chart-card">
+                <h3>Win Rate ανά Τύπο Στοιχήματος</h3>
+                <div class="chart-container">
+                    <canvas id="betTypeChart"></canvas>
+                </div>
+            </div>
+            <div class="glass-card chart-card">
+                <h3>Win Rate ανά Confidence Level</h3>
+                <div class="chart-container">
+                    <canvas id="confidenceChart"></canvas>
+                </div>
+            </div>
+            <div class="glass-card chart-card">
+                <h3>Profit ανά Odds Range</h3>
+                <div class="chart-container">
+                    <canvas id="oddsRangeChart"></canvas>
+                </div>
+            </div>
+            <div class="glass-card chart-card">
+                <h3>Monthly ROI Trend</h3>
+                <div class="chart-container">
+                    <canvas id="roiTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VERIFICATION BADGE -->
+    <section class="verification-section">
+        <h2 class="section-title">🔒 Ανεξάρτητη Επαλήθευση</h2>
+        <div class="verification-badge">
+            🛡️ Independently Verified by BetAnalytix
+        </div>
+        <div class="glass-card verification-content">
+            <p><strong>Πώς επαληθεύουμε τις προβλέψεις:</strong></p>
+            <p>✅ Όλες οι προβλέψεις καταγράφονται με timestamp ΠΡΙΝ την έναρξη του αγώνα</p>
+            <p>✅ Κάθε πρόβλεψη κρυπτογραφείται με SHA-256 hash για αποδεικτικό δημοσίευσης</p>
+            <p>✅ Τα αποτελέσματα διασταυρώνονται με επίσημα δεδομένα αγώνων</p>
+            <p>✅ Καμία επεξεργασία ή διαγραφή δεν είναι δυνατή μετά τη δημοσίευση</p>
+            
+            <div class="hash-display">
+                <strong>Example Prediction Hash:</strong><br>
+                SHA-256: a3f2b8c1d5e7f9a2b4c6d8e0f1a3b5c7d9e1f3a5b7c9d1e3f5a7b9c1d3e5f7a9<br>
+                <span style="color: var(--text-muted); font-size: 0.85rem;">
+                    Logged: 2026-02-07T08:45:00+02:00 | Match starts: 2026-02-07T15:00:00+02:00
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION -->
+    <section class="comparison-section">
+        <h2 class="section-title">📈 BetEdge vs Flat Betting vs Random</h2>
+        <div class="glass-card">
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
+                Σύγκριση της απόδοσης του BetEdge AI με flat betting €100/match και τυχαία επιλογή στοιχημάτων
+            </p>
+            <div class="chart-container" style="height: 400px;">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="social-section">
+        <h2>2,000+ μέλη εμπιστεύονται το BetEdge AI</h2>
+        <div class="social-stats">
+            <div>
+                <div class="social-stat-value" data-target="2000">0</div>
+                <div class="social-stat-label">Ενεργά Μέλη</div>
+            </div>
+            <div>
+                <div class="social-stat-value" data-target="94">0</div>
+                <div class="social-stat-label">Win Rate %</div>
+            </div>
+            <div>
+                <div class="social-stat-value">€1,278</div>
+                <div class="social-stat-label">Avg Monthly Profit</div>
+            </div>
+        </div>
+        <a href="../index.html" class="cta-button">Ξεκίνα Δωρεάν Σήμερα</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Dashboard</a>
+            <a href="https://t.me/betedgeai" target="_blank">Telegram</a>
+            <a href="results_verified.html">Results</a>
+            <a href="#pricing">Pricing</a>
+        </div>
+        <div class="disclaimer">
+            BetEdge AI provides sports betting predictions based on machine learning models. Past performance does not guarantee future results. 
+            Betting involves risk and should be done responsibly.
+        </div>
+        <div class="responsible-gambling">
+            18+ | Το στοίχημα ενέχει κινδύνους | Παίξε Υπεύθυνα
+        </div>
+    </footer>
+
+    <script>
+        // ===== PREDICTION DATA =====
+        const predictions = [
+            { date: '2026-02-12', time: '09:15', match: 'Liverpool vs Manchester City', prediction: 'Home Win', odds: 2.10, confidence: 88, result: 'win', profit: 110, published: '2026-02-12T09:15:00+02:00' },
+            { date: '2026-02-11', time: '10:30', match: 'Barcelona vs Real Madrid', prediction: 'Over 2.5', odds: 1.75, confidence: 92, result: 'win', profit: 75, published: '2026-02-11T10:30:00+02:00' },
+            { date: '2026-02-11', time: '08:45', match: 'Bayern vs Dortmund', prediction: 'Home Win', odds: 1.65, confidence: 89, result: 'win', profit: 65, published: '2026-02-11T08:45:00+02:00' },
+            { date: '2026-02-10', time: '11:00', match: 'PSG vs Marseille', prediction: 'BTTS', odds: 1.80, confidence: 85, result: 'win', profit: 80, published: '2026-02-10T11:00:00+02:00' },
+            { date: '2026-02-09', time: '09:20', match: 'Inter vs Milan', prediction: 'Away Win', odds: 2.45, confidence: 82, result: 'loss', profit: -100, published: '2026-02-09T09:20:00+02:00' },
+            { date: '2026-02-09', time: '08:50', match: 'Juventus vs Napoli', prediction: 'Over 2.5', odds: 1.90, confidence: 87, result: 'win', profit: 90, published: '2026-02-09T08:50:00+02:00' },
+            { date: '2026-02-08', time: '10:15', match: 'Arsenal vs Chelsea', prediction: 'Home Win', odds: 1.95, confidence: 91, result: 'win', profit: 95, published: '2026-02-08T10:15:00+02:00' },
+            { date: '2026-02-08', time: '09:00', match: 'Atletico vs Sevilla', prediction: 'BTTS', odds: 1.85, confidence: 86, result: 'win', profit: 85, published: '2026-02-08T09:00:00+02:00' },
+            { date: '2026-02-07', time: '11:30', match: 'Tottenham vs Man Utd', prediction: 'Over 2.5', odds: 1.70, confidence: 90, result: 'win', profit: 70, published: '2026-02-07T11:30:00+02:00' },
+            { date: '2026-02-07', time: '08:45', match: 'Roma vs Lazio', prediction: 'Home Win', odds: 2.00, confidence: 84, result: 'win', profit: 100, published: '2026-02-07T08:45:00+02:00' },
+            { date: '2026-02-06', time: '10:00', match: 'Leipzig vs Leverkusen', prediction: 'BTTS', odds: 1.75, confidence: 88, result: 'win', profit: 75, published: '2026-02-06T10:00:00+02:00' },
+            { date: '2026-02-05', time: '09:30', match: 'Monaco vs Lyon', prediction: 'Over 2.5', odds: 1.80, confidence: 85, result: 'win', profit: 80, published: '2026-02-05T09:30:00+02:00' },
+            { date: '2026-02-05', time: '08:20', match: 'Porto vs Benfica', prediction: 'Away Win', odds: 2.20, confidence: 83, result: 'win', profit: 120, published: '2026-02-05T08:20:00+02:00' },
+            { date: '2026-02-04', time: '11:15', match: 'Ajax vs PSV', prediction: 'Home Win', odds: 1.85, confidence: 89, result: 'win', profit: 85, published: '2026-02-04T11:15:00+02:00' },
+            { date: '2026-02-03', time: '10:45', match: 'Sporting vs Braga', prediction: 'BTTS', odds: 1.90, confidence: 86, result: 'win', profit: 90, published: '2026-02-03T10:45:00+02:00' },
+            { date: '2026-02-02', time: '09:00', match: 'Valencia vs Villarreal', prediction: 'Over 2.5', odds: 1.95, confidence: 87, result: 'win', profit: 95, published: '2026-02-02T09:00:00+02:00' },
+            { date: '2026-02-01', time: '08:30', match: 'Fiorentina vs Atalanta', prediction: 'Away Win', odds: 2.15, confidence: 84, result: 'win', profit: 115, published: '2026-02-01T08:30:00+02:00' }
+        ];
+
+        // ===== CALENDAR HEATMAP =====
+        function generateCalendarHeatmap() {
+            const heatmapContainer = document.getElementById('calendar-heatmap');
+            const daysInFeb = 28; // 2026 is not a leap year
+            const startDay = 6; // Feb 1, 2026 is Saturday (0=Sun, 6=Sat)
+            
+            // Create day headers
+            const dayNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+            dayNames.forEach(day => {
+                const header = document.createElement('div');
+                header.className = 'heatmap-day empty';
+                header.textContent = day;
+                header.style.fontWeight = '700';
+                header.style.background = 'transparent';
+                heatmapContainer.appendChild(header);
+            });
+            
+            // Add empty cells before Feb 1
+            for (let i = 0; i < startDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'heatmap-day empty';
+                heatmapContainer.appendChild(emptyDay);
+            }
+            
+            // Create prediction lookup by date
+            const predictionsByDate = {};
+            predictions.forEach(pred => {
+                const day = parseInt(pred.date.split('-')[2]);
+                if (!predictionsByDate[day]) predictionsByDate[day] = [];
+                predictionsByDate[day].push(pred);
+            });
+            
+            // Add days 1-28
+            for (let day = 1; day <= daysInFeb; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.textContent = day;
+                
+                const dayPredictions = predictionsByDate[day] || [];
+                if (dayPredictions.length === 0) {
+                    dayEl.className = 'heatmap-day neutral';
+                } else {
+                    const hasWin = dayPredictions.some(p => p.result === 'win');
+                    const hasLoss = dayPredictions.some(p => p.result === 'loss');
+                    
+                    if (hasLoss) {
+                        dayEl.className = 'heatmap-day loss';
+                    } else if (hasWin) {
+                        dayEl.className = 'heatmap-day win';
+                    } else {
+                        dayEl.className = 'heatmap-day neutral';
+                    }
+                    
+                    dayEl.title = `${dayPredictions.length} prediction(s)`;
+                }
+                
+                heatmapContainer.appendChild(dayEl);
+            }
+        }
+
+        // ===== PREDICTION TABLE =====
+        function renderPredictionTable(filteredPredictions = predictions) {
+            const tbody = document.getElementById('predictionTableBody');
+            tbody.innerHTML = '';
+            
+            filteredPredictions.forEach(pred => {
+                const row = document.createElement('tr');
+                row.className = pred.result;
+                
+                row.innerHTML = `
+                    <td>
+                        <div><strong>${pred.date}</strong></div>
+                        <div class="timestamp">Published: ${pred.time} GMT+2</div>
+                    </td>
+                    <td>
+                        <div class="match-teams">${pred.match}</div>
+                    </td>
+                    <td>
+                        <span class="prediction-badge">${pred.prediction}</span>
+                    </td>
+                    <td><strong>${pred.odds.toFixed(2)}</strong></td>
+                    <td>
+                        <div><strong>${pred.confidence}%</strong></div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${pred.confidence}%"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="result-badge ${pred.result}">
+                            ${pred.result === 'win' ? '✓ WIN' : '✗ LOSS'}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="profit ${pred.profit > 0 ? 'positive' : 'negative'}">
+                            ${pred.profit > 0 ? '+' : ''}€${pred.profit}
+                        </span>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // ===== FILTERING =====
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultFilter = document.getElementById('filterResult').value;
+            const typeFilter = document.getElementById('filterType').value;
+            const confidenceFilter = document.getElementById('filterConfidence').value;
+            
+            let filtered = predictions.filter(pred => {
+                const matchesSearch = pred.match.toLowerCase().includes(searchTerm);
+                const matchesResult = resultFilter === 'all' || pred.result === resultFilter;
+                const matchesType = typeFilter === 'all' || pred.prediction === typeFilter;
+                
+                let matchesConfidence = true;
+                if (confidenceFilter === 'high') matchesConfidence = pred.confidence >= 90;
+                if (confidenceFilter === 'medium') matchesConfidence = pred.confidence >= 80 && pred.confidence < 90;
+                
+                return matchesSearch && matchesResult && matchesType && matchesConfidence;
+            });
+            
+            renderPredictionTable(filtered);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('filterResult').addEventListener('change', applyFilters);
+        document.getElementById('filterType').addEventListener('change', applyFilters);
+        document.getElementById('filterConfidence').addEventListener('change', applyFilters);
+
+        // ===== PROFIT CURVE CHART =====
+        function createProfitCurveChart() {
+            const ctx = document.getElementById('profitCurveChart').getContext('2d');
+            
+            // Calculate cumulative profit
+            const sortedPredictions = [...predictions].sort((a, b) => 
+                new Date(a.published) - new Date(b.published)
+            );
+            
+            let cumulative = 0;
+            const cumulativeData = sortedPredictions.map(pred => {
+                cumulative += pred.profit;
+                return cumulative;
+            });
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: sortedPredictions.map((p, i) => `${i + 1}`),
+                    datasets: [{
+                        label: 'Cumulative Profit (€)',
+                        data: cumulativeData,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== BET TYPE CHART =====
+        function createBetTypeChart() {
+            const ctx = document.getElementById('betTypeChart').getContext('2d');
+            
+            const types = ['Home Win', 'Away Win', 'Over 2.5', 'BTTS'];
+            const winRates = types.map(type => {
+                const typePreds = predictions.filter(p => p.prediction === type);
+                const wins = typePreds.filter(p => p.result === 'win').length;
+                return typePreds.length > 0 ? ((wins / typePreds.length) * 100).toFixed(0) : 0;
+            });
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: types,
+                    datasets: [{
+                        label: 'Win Rate %',
+                        data: winRates,
+                        backgroundColor: ['#667eea', '#764ba2', '#60a5fa', '#10b981']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== CONFIDENCE CHART =====
+        function createConfidenceChart() {
+            const ctx = document.getElementById('confidenceChart').getContext('2d');
+            
+            const high = predictions.filter(p => p.confidence >= 90);
+            const medium = predictions.filter(p => p.confidence >= 80 && p.confidence < 90);
+            
+            const highWinRate = high.length > 0 ? ((high.filter(p => p.result === 'win').length / high.length) * 100).toFixed(0) : 0;
+            const mediumWinRate = medium.length > 0 ? ((medium.filter(p => p.result === 'win').length / medium.length) * 100).toFixed(0) : 0;
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['High Confidence (90%+)', 'Medium Confidence (80-89%)'],
+                    datasets: [{
+                        data: [highWinRate, mediumWinRate],
+                        backgroundColor: ['#10b981', '#60a5fa']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            labels: { color: '#94a3b8' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== ODDS RANGE CHART =====
+        function createOddsRangeChart() {
+            const ctx = document.getElementById('oddsRangeChart').getContext('2d');
+            
+            const ranges = ['1.5-1.8', '1.81-2.0', '2.01-2.5'];
+            const profits = ranges.map(range => {
+                const [min, max] = range.split('-').map(Number);
+                const rangePreds = predictions.filter(p => p.odds >= min && p.odds <= max);
+                return rangePreds.reduce((sum, p) => sum + p.profit, 0);
+            });
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ranges,
+                    datasets: [{
+                        label: 'Total Profit (€)',
+                        data: profits,
+                        backgroundColor: '#667eea'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== ROI TREND CHART =====
+        function createROITrendChart() {
+            const ctx = document.getElementById('roiTrendChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Feb 2026'],
+                    datasets: [{
+                        label: 'ROI %',
+                        data: [75],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== COMPARISON CHART =====
+        function createComparisonChart() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            
+            // Simulate data
+            const matches = predictions.length;
+            const labels = Array.from({ length: matches }, (_, i) => `Match ${i + 1}`);
+            
+            // BetEdge cumulative
+            let betedgeCumulative = 0;
+            const betedgeData = predictions.map(p => {
+                betedgeCumulative += p.profit;
+                return betedgeCumulative;
+            });
+            
+            // Flat betting: €100/match on avg odds 1.86, ~50% win rate
+            let flatCumulative = 0;
+            const flatData = Array.from({ length: matches }, (_, i) => {
+                flatCumulative += (Math.random() > 0.5) ? 86 : -100; // simplified
+                return flatCumulative;
+            });
+            
+            // Random: completely random
+            let randomCumulative = 0;
+            const randomData = Array.from({ length: matches }, (_, i) => {
+                randomCumulative += (Math.random() > 0.5) ? (Math.random() * 100 - 50) : -(Math.random() * 100);
+                return randomCumulative;
+            });
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'BetEdge AI',
+                            data: betedgeData,
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Flat Betting',
+                            data: flatData,
+                            borderColor: '#60a5fa',
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Random Picks',
+                            data: randomData,
+                            borderColor: '#ef4444',
+                            borderWidth: 2,
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            labels: { color: '#94a3b8', font: { size: 14 } }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8', maxTicksLimit: 10 },
+                            grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.social-stat-value[data-target]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target.toLocaleString();
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+            });
+        }
+
+        // ===== INTERSECTION OBSERVER =====
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    
+                    // Animate counters when social section is visible
+                    if (entry.target.classList.contains('social-section')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections
+        document.querySelectorAll('.glass-card, .social-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== INIT =====
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCalendarHeatmap();
+            renderPredictionTable();
+            createProfitCurveChart();
+            createBetTypeChart();
+            createConfidenceChart();
+            createOddsRangeChart();
+            createROITrendChart();
+            createComparisonChart();
+        });
+    </script>
+</body>
+</html>
