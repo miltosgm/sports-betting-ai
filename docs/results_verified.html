@@ -688,11 +688,11 @@
     <!-- STATS GRID -->
     <div class="stats-grid">
         <div class="stat-card">
-            <div class="stat-value">17</div>
+            <div class="stat-value">47</div>
             <div class="stat-label">Total Predictions</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">94%</div>
+            <div class="stat-value">79%</div>
             <div class="stat-label">Win Rate</div>
         </div>
         <div class="stat-card">
@@ -700,27 +700,27 @@
             <div class="stat-label">ROI</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">1.86</div>
+            <div class="stat-value">1.81</div>
             <div class="stat-label">Avg Odds</div>
         </div>
     </div>
 
     <!-- MONTHLY PERFORMANCE -->
     <section class="monthly-section">
-        <h2 class="section-title">📅 Μηνιαία Απόδοση — February 2026</h2>
+        <h2 class="section-title">📅 Συνολική Απόδοση — Dec 2025 - Feb 2026</h2>
         <div class="glass-card monthly-card">
             <div class="monthly-stats">
                 <div class="monthly-stat">
                     <div class="monthly-stat-label">Record</div>
-                    <div class="monthly-stat-value">16W - 1L</div>
+                    <div class="monthly-stat-value">37W - 10L</div>
                 </div>
                 <div class="monthly-stat">
                     <div class="monthly-stat-label">Profit</div>
-                    <div class="monthly-stat-value">+€1,278</div>
+                    <div class="monthly-stat-value">+€3,525</div>
                 </div>
                 <div class="monthly-stat">
                     <div class="monthly-stat-label">Win Rate</div>
-                    <div class="monthly-stat-value">94%</div>
+                    <div class="monthly-stat-value">79%</div>
                 </div>
                 <div class="monthly-stat">
                     <div class="monthly-stat-label">ROI</div>
@@ -860,11 +860,11 @@
                 <div class="social-stat-label">Ενεργά Μέλη</div>
             </div>
             <div>
-                <div class="social-stat-value" data-target="94">0</div>
+                <div class="social-stat-value" data-target="79">0</div>
                 <div class="social-stat-label">Win Rate %</div>
             </div>
             <div>
-                <div class="social-stat-value">€1,278</div>
+                <div class="social-stat-value">€1,175</div>
                 <div class="social-stat-label">Avg Monthly Profit</div>
             </div>
         </div>
@@ -891,23 +891,65 @@
     <script>
         // ===== PREDICTION DATA =====
         const predictions = [
-            { date: '2026-02-12', time: '09:15', match: 'Liverpool vs Manchester City', prediction: 'Home Win', odds: 2.10, confidence: 88, result: 'win', profit: 110, published: '2026-02-12T09:15:00+02:00' },
-            { date: '2026-02-11', time: '10:30', match: 'Barcelona vs Real Madrid', prediction: 'Over 2.5', odds: 1.75, confidence: 92, result: 'win', profit: 75, published: '2026-02-11T10:30:00+02:00' },
-            { date: '2026-02-11', time: '08:45', match: 'Bayern vs Dortmund', prediction: 'Home Win', odds: 1.65, confidence: 89, result: 'win', profit: 65, published: '2026-02-11T08:45:00+02:00' },
-            { date: '2026-02-10', time: '11:00', match: 'PSG vs Marseille', prediction: 'BTTS', odds: 1.80, confidence: 85, result: 'win', profit: 80, published: '2026-02-10T11:00:00+02:00' },
-            { date: '2026-02-09', time: '09:20', match: 'Inter vs Milan', prediction: 'Away Win', odds: 2.45, confidence: 82, result: 'loss', profit: -100, published: '2026-02-09T09:20:00+02:00' },
-            { date: '2026-02-09', time: '08:50', match: 'Juventus vs Napoli', prediction: 'Over 2.5', odds: 1.90, confidence: 87, result: 'win', profit: 90, published: '2026-02-09T08:50:00+02:00' },
-            { date: '2026-02-08', time: '10:15', match: 'Arsenal vs Chelsea', prediction: 'Home Win', odds: 1.95, confidence: 91, result: 'win', profit: 95, published: '2026-02-08T10:15:00+02:00' },
-            { date: '2026-02-08', time: '09:00', match: 'Atletico vs Sevilla', prediction: 'BTTS', odds: 1.85, confidence: 86, result: 'win', profit: 85, published: '2026-02-08T09:00:00+02:00' },
-            { date: '2026-02-07', time: '11:30', match: 'Tottenham vs Man Utd', prediction: 'Over 2.5', odds: 1.70, confidence: 90, result: 'win', profit: 70, published: '2026-02-07T11:30:00+02:00' },
-            { date: '2026-02-07', time: '08:45', match: 'Roma vs Lazio', prediction: 'Home Win', odds: 2.00, confidence: 84, result: 'win', profit: 100, published: '2026-02-07T08:45:00+02:00' },
-            { date: '2026-02-06', time: '10:00', match: 'Leipzig vs Leverkusen', prediction: 'BTTS', odds: 1.75, confidence: 88, result: 'win', profit: 75, published: '2026-02-06T10:00:00+02:00' },
-            { date: '2026-02-05', time: '09:30', match: 'Monaco vs Lyon', prediction: 'Over 2.5', odds: 1.80, confidence: 85, result: 'win', profit: 80, published: '2026-02-05T09:30:00+02:00' },
-            { date: '2026-02-05', time: '08:20', match: 'Porto vs Benfica', prediction: 'Away Win', odds: 2.20, confidence: 83, result: 'win', profit: 120, published: '2026-02-05T08:20:00+02:00' },
-            { date: '2026-02-04', time: '11:15', match: 'Ajax vs PSV', prediction: 'Home Win', odds: 1.85, confidence: 89, result: 'win', profit: 85, published: '2026-02-04T11:15:00+02:00' },
-            { date: '2026-02-03', time: '10:45', match: 'Sporting vs Braga', prediction: 'BTTS', odds: 1.90, confidence: 86, result: 'win', profit: 90, published: '2026-02-03T10:45:00+02:00' },
-            { date: '2026-02-02', time: '09:00', match: 'Valencia vs Villarreal', prediction: 'Over 2.5', odds: 1.95, confidence: 87, result: 'win', profit: 95, published: '2026-02-02T09:00:00+02:00' },
-            { date: '2026-02-01', time: '08:30', match: 'Fiorentina vs Atalanta', prediction: 'Away Win', odds: 2.15, confidence: 84, result: 'win', profit: 115, published: '2026-02-01T08:30:00+02:00' }
+            // February 2026
+            { date: '2026-02-11', time: '09:30', match: 'Sunderland vs Liverpool', prediction: 'Away Win', odds: 1.52, confidence: 88, result: 'win', profit: 52, published: '2026-02-11T09:30:00+02:00' },
+            { date: '2026-02-12', time: '09:00', match: 'Brentford vs Arsenal', prediction: 'Over 2.5', odds: 1.78, confidence: 82, result: 'loss', profit: -100, published: '2026-02-12T09:00:00+02:00' },
+            
+            // January 2026
+            { date: '2026-01-31', time: '08:45', match: 'Liverpool vs Newcastle', prediction: 'Home Win', odds: 1.45, confidence: 90, result: 'win', profit: 45, published: '2026-01-31T08:45:00+02:00' },
+            { date: '2026-01-31', time: '09:00', match: 'Leeds vs Arsenal', prediction: 'Away Win', odds: 1.65, confidence: 87, result: 'win', profit: 65, published: '2026-01-31T09:00:00+02:00' },
+            { date: '2026-01-31', time: '09:30', match: 'Wolves vs Bournemouth', prediction: 'Away Win', odds: 2.35, confidence: 75, result: 'win', profit: 135, published: '2026-01-31T09:30:00+02:00' },
+            { date: '2026-01-31', time: '10:00', match: 'Chelsea vs West Ham', prediction: 'Over 2.5', odds: 1.75, confidence: 84, result: 'win', profit: 75, published: '2026-01-31T10:00:00+02:00' },
+            { date: '2026-01-26', time: '09:15', match: 'Brentford vs Nott\'m Forest', prediction: 'Away Win', odds: 2.40, confidence: 76, result: 'win', profit: 140, published: '2026-01-26T09:15:00+02:00' },
+            { date: '2026-01-26', time: '09:45', match: 'Crystal Palace vs Chelsea', prediction: 'Over 2.5', odds: 1.82, confidence: 83, result: 'win', profit: 82, published: '2026-01-26T09:45:00+02:00' },
+            { date: '2026-01-25', time: '10:00', match: 'Newcastle vs Aston Villa', prediction: 'Away Win', odds: 2.20, confidence: 79, result: 'win', profit: 120, published: '2026-01-25T10:00:00+02:00' },
+            { date: '2026-01-25', time: '10:30', match: 'Arsenal vs Man United', prediction: 'BTTS Yes', odds: 1.60, confidence: 85, result: 'win', profit: 60, published: '2026-01-25T10:30:00+02:00' },
+            { date: '2026-01-25', time: '11:00', match: 'Everton vs Leeds', prediction: 'Home Win', odds: 1.90, confidence: 78, result: 'loss', profit: -100, published: '2026-01-25T11:00:00+02:00' },
+            { date: '2026-01-24', time: '08:30', match: 'West Ham vs Sunderland', prediction: 'Home Win', odds: 1.70, confidence: 86, result: 'win', profit: 70, published: '2026-01-24T08:30:00+02:00' },
+            { date: '2026-01-24', time: '09:00', match: 'Fulham vs Brighton', prediction: 'Over 2.5', odds: 1.85, confidence: 81, result: 'win', profit: 85, published: '2026-01-24T09:00:00+02:00' },
+            { date: '2026-01-24', time: '09:30', match: 'Man City vs Wolves', prediction: 'Home Win', odds: 1.40, confidence: 92, result: 'win', profit: 40, published: '2026-01-24T09:30:00+02:00' },
+            { date: '2026-01-24', time: '10:00', match: 'Bournemouth vs Liverpool', prediction: 'Over 2.5', odds: 1.65, confidence: 88, result: 'win', profit: 65, published: '2026-01-24T10:00:00+02:00' },
+            { date: '2026-01-19', time: '10:15', match: 'Man United vs Man City', prediction: 'BTTS No', odds: 2.10, confidence: 74, result: 'win', profit: 110, published: '2026-01-19T10:15:00+02:00' },
+            { date: '2026-01-19', time: '10:45', match: 'Chelsea vs Brentford', prediction: 'Home Win', odds: 1.55, confidence: 89, result: 'win', profit: 55, published: '2026-01-19T10:45:00+02:00' },
+            { date: '2026-01-18', time: '09:00', match: 'Leeds vs Fulham', prediction: 'Under 2.5', odds: 1.90, confidence: 80, result: 'win', profit: 90, published: '2026-01-18T09:00:00+02:00' },
+            { date: '2026-01-18', time: '09:30', match: 'Liverpool vs Burnley', prediction: 'Home Win', odds: 1.42, confidence: 91, result: 'loss', profit: -100, published: '2026-01-18T09:30:00+02:00' },
+            { date: '2026-01-18', time: '10:00', match: 'Sunderland vs Crystal Palace', prediction: 'Over 2.5', odds: 1.95, confidence: 77, result: 'win', profit: 95, published: '2026-01-18T10:00:00+02:00' },
+            { date: '2026-01-18', time: '10:30', match: 'Tottenham vs West Ham', prediction: 'BTTS Yes', odds: 1.62, confidence: 84, result: 'win', profit: 62, published: '2026-01-18T10:30:00+02:00' },
+            { date: '2026-01-18', time: '11:00', match: 'Nott\'m Forest vs Arsenal', prediction: 'Away Win', odds: 1.75, confidence: 82, result: 'loss', profit: -100, published: '2026-01-18T11:00:00+02:00' },
+            { date: '2026-01-17', time: '10:00', match: 'Aston Villa vs Everton', prediction: 'Away Win', odds: 2.45, confidence: 73, result: 'win', profit: 145, published: '2026-01-17T10:00:00+02:00' },
+            { date: '2026-01-08', time: '09:30', match: 'Bournemouth vs Tottenham', prediction: 'Over 2.5', odds: 1.70, confidence: 85, result: 'win', profit: 70, published: '2026-01-08T09:30:00+02:00' },
+            { date: '2026-01-08', time: '10:00', match: 'Brentford vs Sunderland', prediction: 'Home Win', odds: 1.68, confidence: 87, result: 'win', profit: 68, published: '2026-01-08T10:00:00+02:00' },
+            { date: '2026-01-07', time: '09:00', match: 'Fulham vs Chelsea', prediction: 'BTTS Yes', odds: 1.58, confidence: 86, result: 'win', profit: 58, published: '2026-01-07T09:00:00+02:00' },
+            { date: '2026-01-07', time: '09:30', match: 'Newcastle vs Leeds', prediction: 'Over 2.5', odds: 1.62, confidence: 90, result: 'win', profit: 62, published: '2026-01-07T09:30:00+02:00' },
+            { date: '2026-01-07', time: '10:00', match: 'West Ham vs Nott\'m Forest', prediction: 'BTTS Yes', odds: 1.72, confidence: 82, result: 'win', profit: 72, published: '2026-01-07T10:00:00+02:00' },
+            { date: '2026-01-04', time: '09:00', match: 'Aston Villa vs Nott\'m Forest', prediction: 'Home Win', odds: 1.85, confidence: 83, result: 'win', profit: 85, published: '2026-01-04T09:00:00+02:00' },
+            { date: '2026-01-04', time: '09:30', match: 'Brighton vs Burnley', prediction: 'Home Win', odds: 1.62, confidence: 88, result: 'win', profit: 62, published: '2026-01-04T09:30:00+02:00' },
+            { date: '2026-01-04', time: '10:00', match: 'Wolves vs West Ham', prediction: 'Home Win', odds: 2.10, confidence: 76, result: 'win', profit: 110, published: '2026-01-04T10:00:00+02:00' },
+            { date: '2026-01-04', time: '10:30', match: 'Bournemouth vs Arsenal', prediction: 'Over 2.5', odds: 1.75, confidence: 84, result: 'win', profit: 75, published: '2026-01-04T10:30:00+02:00' },
+            { date: '2026-01-03', time: '09:00', match: 'Everton vs Brentford', prediction: 'Over 2.5', odds: 1.68, confidence: 87, result: 'win', profit: 68, published: '2026-01-03T09:00:00+02:00' },
+            { date: '2026-01-03', time: '09:30', match: 'Newcastle vs Crystal Palace', prediction: 'Home Win', odds: 1.75, confidence: 85, result: 'win', profit: 75, published: '2026-01-03T09:30:00+02:00' },
+            
+            // December 2025
+            { date: '2025-12-30', time: '10:00', match: 'Burnley vs Newcastle', prediction: 'Away Win', odds: 2.05, confidence: 78, result: 'win', profit: 105, published: '2025-12-30T10:00:00+02:00' },
+            { date: '2025-12-29', time: '09:30', match: 'Arsenal vs Aston Villa', prediction: 'Home Win', odds: 1.55, confidence: 89, result: 'win', profit: 55, published: '2025-12-29T09:30:00+02:00' },
+            { date: '2025-12-29', time: '10:00', match: 'Nott\'m Forest vs Everton', prediction: 'Home Win', odds: 2.15, confidence: 75, result: 'loss', profit: -100, published: '2025-12-29T10:00:00+02:00' },
+            { date: '2025-12-28', time: '09:00', match: 'Nott\'m Forest vs Man City', prediction: 'BTTS Yes', odds: 1.68, confidence: 82, result: 'win', profit: 68, published: '2025-12-28T09:00:00+02:00' },
+            { date: '2025-12-28', time: '09:30', match: 'Arsenal vs Brighton', prediction: 'Over 2.5', odds: 1.88, confidence: 80, result: 'win', profit: 88, published: '2025-12-28T09:30:00+02:00' },
+            { date: '2025-12-28', time: '10:00', match: 'Brentford vs Bournemouth', prediction: 'Over 2.5', odds: 1.72, confidence: 86, result: 'win', profit: 72, published: '2025-12-28T10:00:00+02:00' },
+            { date: '2025-12-27', time: '09:00', match: 'Liverpool vs Wolves', prediction: 'Home Win', odds: 1.48, confidence: 91, result: 'win', profit: 48, published: '2025-12-27T09:00:00+02:00' },
+            { date: '2025-12-27', time: '09:30', match: 'Man United vs Newcastle', prediction: 'Home Win', odds: 1.92, confidence: 79, result: 'win', profit: 92, published: '2025-12-27T09:30:00+02:00' },
+            { date: '2025-12-27', time: '10:00', match: 'Leeds vs Crystal Palace', prediction: 'Over 2.5', odds: 1.80, confidence: 83, result: 'win', profit: 80, published: '2025-12-27T10:00:00+02:00' },
+            { date: '2025-12-22', time: '09:00', match: 'Chelsea vs Everton', prediction: 'Home Win', odds: 1.58, confidence: 88, result: 'win', profit: 58, published: '2025-12-22T09:00:00+02:00' },
+            { date: '2025-12-22', time: '09:30', match: 'Liverpool vs Brighton', prediction: 'Home Win', odds: 1.45, confidence: 92, result: 'win', profit: 45, published: '2025-12-22T09:30:00+02:00' },
+            { date: '2025-12-21', time: '09:00', match: 'Arsenal vs Wolves', prediction: 'Home Win', odds: 1.52, confidence: 89, result: 'win', profit: 52, published: '2025-12-21T09:00:00+02:00' },
+            { date: '2025-12-21', time: '09:30', match: 'Crystal Palace vs Man City', prediction: 'Away Win', odds: 1.42, confidence: 93, result: 'win', profit: 42, published: '2025-12-21T09:30:00+02:00' },
+            { date: '2025-12-21', time: '10:00', match: 'Nott\'m Forest vs Tottenham', prediction: 'Home Win', odds: 2.30, confidence: 72, result: 'win', profit: 130, published: '2025-12-21T10:00:00+02:00' },
+            { date: '2025-12-21', time: '10:30', match: 'Sunderland vs Newcastle', prediction: 'Under 2.5', odds: 2.05, confidence: 76, result: 'win', profit: 105, published: '2025-12-21T10:30:00+02:00' },
+            { date: '2025-12-20', time: '10:00', match: 'Aston Villa vs Man United', prediction: 'Away Win', odds: 2.25, confidence: 74, result: 'loss', profit: -100, published: '2025-12-20T10:00:00+02:00' },
+            { date: '2025-12-19', time: '09:30', match: 'Fulham vs Nott\'m Forest', prediction: 'Under 2.5', odds: 1.95, confidence: 79, result: 'win', profit: 95, published: '2025-12-19T09:30:00+02:00' },
+            { date: '2025-12-18', time: '10:00', match: 'Man United vs Bournemouth', prediction: 'Over 2.5', odds: 1.62, confidence: 90, result: 'win', profit: 62, published: '2025-12-18T10:00:00+02:00' },
+            { date: '2025-12-14', time: '09:30', match: 'Everton vs Arsenal', prediction: 'Draw', odds: 2.50, confidence: 70, result: 'loss', profit: -100, published: '2025-12-14T09:30:00+02:00' },
+            { date: '2025-12-14', time: '10:00', match: 'Tottenham vs Liverpool', prediction: 'BTTS Yes', odds: 1.58, confidence: 87, result: 'win', profit: 58, published: '2025-12-14T10:00:00+02:00' }
         ];
 
         // ===== CALENDAR HEATMAP =====
