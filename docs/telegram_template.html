@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI — Free Telegram Channel Preview</title>
+    <meta name="description" content="Δες πώς μοιάζει το FREE Telegram channel του BetEdge AI. Daily picks, value alerts, και AI insights — δωρεάν για πάντα.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .free-badge {
+            display: inline-block;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            padding: 60px 0;
+            align-items: start;
+        }
+
+        /* Telegram Chat Interface */
+        .telegram-container {
+            background: #17212b;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .telegram-header {
+            background: #2b5278;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .channel-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .channel-info h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 3px;
+        }
+
+        .channel-info p {
+            font-size: 0.85rem;
+            color: #8ab4d6;
+        }
+
+        .telegram-messages {
+            padding: 20px;
+            background: #0e1621;
+            min-height: 700px;
+            max-height: 800px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .message-author {
+            font-weight: 600;
+            color: #5ca3d4;
+            font-size: 0.95rem;
+        }
+
+        .message-time {
+            font-size: 0.8rem;
+            color: #6b8299;
+        }
+
+        .message-content {
+            background: #182533;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 3px solid #5ca3d4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .message.value-alert .message-content {
+            border-left-color: #f59e0b;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.05) 100%);
+        }
+
+        .message.result-win .message-content {
+            border-left-color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+
+        .message.result-loss .message-content {
+            border-left-color: #ef4444;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+        }
+
+        .message-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .message-body {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .message-body strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .bet-details {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .bet-details div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .bet-details div:last-child {
+            margin-bottom: 0;
+        }
+
+        .bet-details .label {
+            color: #94a3b8;
+        }
+
+        .bet-details .value {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .confidence-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            transition: width 0.3s;
+        }
+
+        .view-count {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            color: #6b8299;
+        }
+
+        .acca-legs {
+            margin-top: 10px;
+        }
+
+        .acca-leg {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-left: 2px solid #8b5cf6;
+        }
+
+        .acca-leg:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+        }
+
+        .stats-card, .comparison-card, .cta-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .stats-card h3, .comparison-card h3, .cta-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .stat-value {
+            color: #f1f5f9;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .stat-value.highlight {
+            color: #10b981;
+        }
+
+        .comparison-table {
+            margin-top: 20px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+        }
+
+        .comparison-row:first-child {
+            font-weight: 700;
+            color: #f1f5f9;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .feature {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .check {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .check.yes {
+            color: #10b981;
+        }
+
+        .check.no {
+            color: #64748b;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-note {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .telegram-messages {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>💬 Free Telegram Channel</h1>
+            <p class="subtitle">
+                Καθημερινά AI-powered picks, value alerts, και insights — δωρεάν για πάντα
+            </p>
+            <span class="free-badge">🎁 100% Free Forever</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Telegram Chat Mockup -->
+            <div class="telegram-container">
+                <div class="telegram-header">
+                    <div class="channel-avatar">⚡</div>
+                    <div class="channel-info">
+                        <h2>BetEdge AI — Free Picks</h2>
+                        <p>2,147 members · Daily posts</p>
+                    </div>
+                </div>
+
+                <div class="telegram-messages">
+                    <!-- Message 1: Daily Pick -->
+                    <div class="message">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">Today at 09:15</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                ⚽ DAILY PICK — Premier League
+                            </div>
+                            <div class="message-body">
+                                <strong>Brighton vs Manchester United</strong><br>
+                                <strong>Pick:</strong> Brighton Double Chance (Win or Draw)<br>
+                                <strong>Odds:</strong> @1.72<br>
+                                <strong>Stake:</strong> 3 units
+                                
+                                <div class="bet-details">
+                                    <div>
+                                        <span class="label">AI Prediction:</span>
+                                        <span class="value">Brighton 68% chance</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Expected Value:</span>
+                                        <span class="value" style="color: #10b981;">+10.2%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Confidence:</span>
+                                        <span class="value">87%</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 15px;">
+                                    <strong>🤖 AI Reasoning:</strong><br>
+                                    Brighton excellent home form (6W-2D-1L). Man United travel fatigue from Europa League Thursday + defensive issues away (1.8 goals conceded per game last 5). Expected goals model favors Brighton 1.8-1.2. Bookmakers overvalue United brand.
+                                </div>
+
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: 87%;"></div>
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 1,842 views</span>
+                                <span>🔥 127 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message 2: Value Alert -->
+                    <div class="message value-alert">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">Today at 11:42</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                🔥 VALUE ALERT — High Edge Detected
+                            </div>
+                            <div class="message-body">
+                                <strong>Newcastle vs Wolves</strong><br>
+                                <strong>Pick:</strong> Newcastle -1 Asian Handicap<br>
+                                <strong>Odds:</strong> @1.95<br>
+                                <strong>Stake:</strong> 4 units ⚠️
+                                
+                                <div class="bet-details">
+                                    <div>
+                                        <span class="label">AI Edge:</span>
+                                        <span class="value" style="color: #f59e0b;">+14.8%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Win Probability:</strong>
+                                        <span class="value">67%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Risk Level:</span>
+                                        <span class="value">Medium</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 15px;">
+                                    <strong>💎 Why This is Value:</strong><br>
+                                    Newcastle fortress at home (7W-1D-1L). Wolves injury crisis (3 starting defenders out) + disaster away form (1W-2D-6L). AI model shows 67% chance Newcastle wins by 2+ goals. Market underpricing due to recent Wolves cup win (irrelevant data).
+                                </div>
+
+                                <div style="margin-top: 12px; padding: 10px; background: rgba(245, 158, 11, 0.1); border-radius: 6px; font-size: 0.85rem;">
+                                    ⏰ <strong>Time-sensitive:</strong> Odds dropping fast. Current @1.95 → Expected @1.75 by kickoff.
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 2,103 views</span>
+                                <span>🔥 198 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message 3: Result Update (WIN) -->
+                    <div class="message result-win">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">Yesterday at 18:35</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                ✅ RESULT — Arsenal vs Aston Villa
+                            </div>
+                            <div class="message-body">
+                                <strong>Pick:</strong> Over 2.5 Goals @1.85<br>
+                                <strong>Result:</strong> 3-1 (4 goals) ✅ <strong>WON</strong>
+                                
+                                <div class="bet-details">
+                                    <div>
+                                        <span class="label">Stake:</span>
+                                        <span class="value">3 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Return:</span>
+                                        <span class="value" style="color: #10b981;">5.55 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Profit:</span>
+                                        <span class="value" style="color: #10b981;">+2.55 units</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 15px; color: #10b981;">
+                                    🎯 <strong>Model accuracy confirmed:</strong> Predicted 3.4 avg goals, actual 4. Both teams scored as expected. Villa didn't park the bus away — exactly as our model predicted.
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 1,654 views</span>
+                                <span>💚 241 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message 4: Weekly Summary -->
+                    <div class="message">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">Sunday at 22:00</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                📊 WEEKLY SUMMARY — Week 7
+                            </div>
+                            <div class="message-body">
+                                <strong>Performance This Week:</strong>
+                                
+                                <div class="bet-details">
+                                    <div>
+                                        <span class="label">Record:</span>
+                                        <span class="value">7W - 1L - 0P</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Win Rate:</span>
+                                        <span class="value">87.5%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Total Profit:</span>
+                                        <span class="value" style="color: #10b981;">+12.4 units</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">ROI:</span>
+                                        <span class="value" style="color: #10b981;">+52.1%</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 15px;">
+                                    <strong>🏆 Best Picks:</strong><br>
+                                    • Newcastle -1 AH ✅ (+3.8 units)<br>
+                                    • Brighton DNB ✅ (+2.7 units)<br>
+                                    • Liverpool Over 2.5 ✅ (+2.5 units)
+                                </div>
+
+                                <div style="margin-top: 15px;">
+                                    <strong>📈 Season Stats (7 weeks):</strong><br>
+                                    • Total Record: 42W - 11L - 2P<br>
+                                    • Win Rate: 76.4%<br>
+                                    • Total Profit: <span style="color: #10b981; font-weight: 700;">+€3,124</span> (€100 unit)<br>
+                                    • Average ROI: +8.2% per bet
+                                </div>
+
+                                <div style="margin-top: 12px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                                    🚀 <strong>On track for 2000+ units profit this season.</strong> Consistency is the key. Trust the model, manage your bankroll, stay disciplined.
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 2,456 views</span>
+                                <span>🔥 312 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message 5: Free Acca -->
+                    <div class="message">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">Today at 14:20</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                🎰 FREE ACCA OF THE DAY
+                            </div>
+                            <div class="message-body">
+                                <strong>3-Leg Accumulator — Combined @6.42</strong><br>
+                                <strong>Stake:</strong> 1 unit (conservative)
+                                
+                                <div class="acca-legs">
+                                    <div class="acca-leg">
+                                        <strong>Leg 1:</strong> Tottenham vs Forest — BTTS<br>
+                                        <span style="color: #94a3b8; font-size: 0.85rem;">@1.80 · Confidence: 81%</span>
+                                    </div>
+                                    <div class="acca-leg">
+                                        <strong>Leg 2:</strong> Arsenal Win<br>
+                                        <span style="color: #94a3b8; font-size: 0.85rem;">@1.65 · Confidence: 78%</span>
+                                    </div>
+                                    <div class="acca-leg">
+                                        <strong>Leg 3:</strong> Liverpool Win<br>
+                                        <span style="color: #94a3b8; font-size: 0.85rem;">@2.15 · Confidence: 72%</span>
+                                    </div>
+                                </div>
+
+                                <div class="bet-details" style="margin-top: 15px;">
+                                    <div>
+                                        <span class="label">Combined Probability:</span>
+                                        <span class="value">46.8%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Expected Value:</span>
+                                        <span class="value" style="color: #10b981;">+6.3%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Potential Return:</span>
+                                        <span class="value">6.42 units</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 12px; padding: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 6px; font-size: 0.85rem;">
+                                    ⚠️ <strong>Acca Disclaimer:</strong> Higher risk than singles. Only bet what you can afford to lose. We recommend 1-2 units max on accumulators.
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 1,923 views</span>
+                                <span>🎰 156 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message 6: Model Update -->
+                    <div class="message">
+                        <div class="message-header">
+                            <span class="message-author">BetEdge AI Bot</span>
+                            <span class="message-time">2 days ago at 16:45</span>
+                        </div>
+                        <div class="message-content">
+                            <div class="message-title">
+                                📊 MODEL UPDATE — Retraining Complete
+                            </div>
+                            <div class="message-body">
+                                <strong>BetEdge AI v2.4 is now live!</strong>
+                                
+                                <div style="margin-top: 15px;">
+                                    <strong>🔧 What's New:</strong><br>
+                                    • Trained on 1,200 new games (Dec-Jan data)<br>
+                                    • Enhanced travel fatigue detection (+15% accuracy)<br>
+                                    • Improved injury impact modeling<br>
+                                    • New feature: Referee bias adjustment
+                                </div>
+
+                                <div class="bet-details" style="margin-top: 15px;">
+                                    <div>
+                                        <span class="label">Backtest Win Rate:</span>
+                                        <span class="value" style="color: #10b981;">58.3%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Backtest ROI:</span>
+                                        <span class="value" style="color: #10b981;">+9.2%</span>
+                                    </div>
+                                    <div>
+                                        <span class="label">Confidence Score Accuracy:</span>
+                                        <span class="value">94.7%</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 15px;">
+                                    <strong>📈 Performance Improvements:</strong><br>
+                                    • Over/Under predictions: +4.2% accuracy<br>
+                                    • Value bet detection: +12% edge capture<br>
+                                    • Upset predictions: +8% accuracy
+                                </div>
+
+                                <div style="margin-top: 12px; padding: 10px; background: rgba(79, 70, 229, 0.1); border-radius: 6px;">
+                                    🚀 <strong>The model gets smarter every month.</strong> This is the power of machine learning — continuous improvement based on new data.
+                                </div>
+                            </div>
+                            <div class="view-count">
+                                <span>👁 2,287 views</span>
+                                <span>🤖 203 reactions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Stats Card -->
+                <div class="stats-card">
+                    <h3>📊 Channel Stats</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Members</span>
+                        <span class="stat-value highlight">2,147+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Daily Picks</span>
+                        <span class="stat-value">2-4 picks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Win Rate (Season)</span>
+                        <span class="stat-value highlight">76.4%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Profit</span>
+                        <span class="stat-value highlight">+€3,124</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average ROI</span>
+                        <span class="stat-value highlight">+8.2%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Cost</span>
+                        <span class="stat-value" style="color: #10b981;">FREE</span>
+                    </div>
+                </div>
+
+                <!-- Comparison Card -->
+                <div class="comparison-card">
+                    <h3>🆓 FREE vs 💎 PRO</h3>
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <span>Feature</span>
+                            <span style="text-align: center;">Free</span>
+                            <span style="text-align: center;">PRO</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Daily Picks</span>
+                            <span class="check yes">✓</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">AI Reasoning</span>
+                            <span class="check yes">✓</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Value Alerts</span>
+                            <span class="check yes">✓</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Weekly Summary</span>
+                            <span class="check yes">✓</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Model Updates</span>
+                            <span class="check yes">✓</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Live Dashboard</span>
+                            <span class="check no">—</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">All Leagues</span>
+                            <span class="check no">—</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Custom Bankroll</span>
+                            <span class="check no">—</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Live Odds Tracker</span>
+                            <span class="check no">—</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                        <div class="comparison-row">
+                            <span class="feature">Priority Support</span>
+                            <span class="check no">—</span>
+                            <span class="check yes">✓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Card -->
+                <div class="cta-card">
+                    <h3>🚀 Get Started</h3>
+                    <a href="https://t.me/betedgeai" class="cta-button">
+                        💬 Join Free Channel
+                    </a>
+                    <a href="/pricing" class="cta-button secondary">
+                        💎 Upgrade to PRO
+                    </a>
+                    <p class="cta-note">
+                        Free channel stays free forever.<br>
+                        No credit card required.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer style="background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 40px 0; margin-top: 80px; text-align: center;">
+        <div class="container">
+            <p style="color: #64748b; font-size: 0.9rem; line-height: 1.8;">
+                <strong style="color: #f87171;">⚠️ Responsible Gambling:</strong> Το στοίχημα μπορεί να προκαλέσει εθισμό. Παίξτε υπεύθυνα. 18+<br>
+                Το BetEdge AI παρέχει data-driven insights για εκπαιδευτικούς σκοπούς. Δεν εγγυόμαστε κέρδη.<br>
+                Past performance is not indicative of future results.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-scroll animation effect (optional)
+        const messagesContainer = document.querySelector('.telegram-messages');
+        
+        // Simulate new message appearing
+        function animateMessages() {
+            const messages = document.querySelectorAll('.message');
+            messages.forEach((msg, index) => {
+                msg.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        animateMessages();
+
+        // CTA Button tracking (placeholder)
+        document.querySelectorAll('.cta-button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                console.log('CTA clicked:', btn.textContent.trim());
+                // Add analytics tracking here
+            });
+        });
+    </script>
+</body>
+</html>

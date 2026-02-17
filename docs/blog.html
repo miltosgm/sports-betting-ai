@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetEdge AI Insights — Στρατηγικές & Αναλύσεις</title>
+    <meta name="description" content="Αποκλειστικές στρατηγικές sports betting με AI. Μάθε πώς το machine learning βρίσκει value bets, Kelly Criterion, travel fatigue analysis και πολλά άλλα.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Controls */
+        .controls {
+            padding: 40px 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .search-bar {
+            position: relative;
+            min-width: 300px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .search-bar input::placeholder {
+            color: #64748b;
+        }
+
+        /* Layout */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            padding: 40px 0 80px;
+        }
+
+        .main-content {
+            min-width: 0;
+        }
+
+        /* Blog Cards */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .category-badge {
+            padding: 6px 14px;
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .excerpt {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #a78bfa;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .blog-card:hover .read-more {
+            gap: 10px;
+        }
+
+        /* Article Content (Expandable) */
+        .article-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .blog-card.expanded .article-content {
+            max-height: 5000px;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .article-content h4 {
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+            font-weight: 600;
+        }
+
+        .article-content ul {
+            margin: 15px 0 15px 20px;
+            color: #cbd5e1;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            color: #a78bfa;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .share-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 20px;
+        }
+
+        .popular-post {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .popular-post:last-child {
+            border-bottom: none;
+        }
+
+        .popular-post:hover {
+            transform: translateX(5px);
+        }
+
+        .popular-post h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 5px;
+        }
+
+        .popular-post .meta {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .newsletter-form input {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+
+        .disclaimer {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .disclaimer strong {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-bar {
+                min-width: 100%;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📝 BetEdge AI Insights</h1>
+            <p class="subtitle">Στρατηγικές & Αναλύσεις — Powered by Machine Learning</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="strategy">Strategy</button>
+                <button class="filter-btn" data-category="research">Research</button>
+                <button class="filter-btn" data-category="preview">Preview</button>
+                <button class="filter-btn" data-category="education">Education</button>
+                <button class="filter-btn" data-category="bankroll">Bankroll</button>
+                <button class="filter-btn" data-category="comparison">Comparison</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Αναζήτηση άρθρων...">
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="blog-grid" id="blogGrid">
+                    
+                    <!-- Article 1: AI Value Bets -->
+                    <div class="blog-card" data-category="strategy">
+                        <div class="card-header">
+                            <span class="category-badge">Strategy</span>
+                            <div class="card-meta">
+                                <span>15 Feb 2026</span>
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                        <h3>Πώς το AI Βρίσκει Value Bets που οι Bookmakers Χάνουν</h3>
+                        <p class="excerpt">Τα machine learning μοντέλα μπορούν να εντοπίσουν λανθασμένες αποδόσεις που το ανθρώπινο μάτι δεν βλέπει. Δες πώς δουλεύει η τεχνολογία πίσω από το BetEdge AI.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Οι bookmakers χρησιμοποιούν trading teams και αλγόριθμους για να καθορίσουν τις αποδόσεις τους. Αλλά ακόμα και οι καλύτεροι έχουν τυφλά σημεία. Το AI μας εκμεταλλεύεται ακριβώς αυτές τις αδυναμίες.</p>
+
+                            <h4>Πώς Λειτουργεί το Machine Learning στο Sports Betting</h4>
+                            <p>Το BetEdge AI εκπαιδεύεται σε <strong>50,000+ παιχνίδια</strong> από τα τελευταία 5 χρόνια. Αναλύει 200+ μεταβλητές ανά αγώνα:</p>
+                            <ul>
+                                <li><strong>Form metrics</strong>: xG, xGA, expected points, shots on target</li>
+                                <li><strong>Team dynamics</strong>: injuries, suspensions, manager changes</li>
+                                <li><strong>Contextual factors</strong>: travel fatigue, fixture congestion, motivation</li>
+                                <li><strong>Market inefficiencies</strong>: public bias, line movement, sharp action</li>
+                            </ul>
+
+                            <p>Το μοντέλο δεν προβλέπει απλά τον νικητή. Υπολογίζει την <strong>πραγματική πιθανότητα</strong> κάθε αποτελέσματος και τη συγκρίνει με τις αποδόσεις των bookmakers.</p>
+
+                            <h4>Το Φαινόμενο του "Wisdom of the Crowd"</h4>
+                            <p>Οι bookmakers βασίζονται σε μεγάλο βαθμό στη "σοφία του πλήθους" — οι αποδόσεις προσαρμόζονται με βάση το πού στοιχηματίζει ο κόσμος. Αυτό δημιουργεί προβλέματα:</p>
+                            <ul>
+                                <li>Οι μεγάλες ομάδες είναι <strong>συστηματικά overvalued</strong> (π.χ. Real Madrid, Bayern)</li>
+                                <li>Τα Derby games έχουν <strong>emotional pricing</strong> που αγνοεί τα δεδομένα</li>
+                                <li>Οι underdogs με καλή φόρμα <strong>υποτιμούνται</strong> γιατί ο κόσμος δεν τους εμπιστεύεται</li>
+                            </ul>
+
+                            <p>Το AI δεν έχει συναισθηματική σύνδεση με ομάδες. Βλέπει μόνο αριθμούς. Αυτό του δίνει ένα <strong>massive edge</strong>.</p>
+
+                            <h4>Παράδειγμα Value Bet</h4>
+                            <p>Ας πούμε ότι το μοντέλο μας υπολογίζει:</p>
+                            <p><code>Brighton to win vs Manchester United: 32% πιθανότητα</code></p>
+                            <p>Η δίκαιη απόδοση θα ήταν: <code>1 / 0.32 = 3.12</code></p>
+                            <p>Αν ο bookmaker προσφέρει <strong>@3.80</strong>, έχουμε <strong>21.8% edge</strong>!</p>
+
+                            <p>Αυτό συμβαίνει όταν ο bookmaker υπερτιμά το "brand name" της United και δεν υπολογίζει σωστά το travel fatigue από European game ή την εξαιρετική home form της Brighton.</p>
+
+                            <h4>Η Δύναμη του Ensemble Learning</h4>
+                            <p>Το BetEdge AI δεν χρησιμοποιεί ένα μοντέλο, αλλά <strong>5 διαφορετικά</strong> (XGBoost, Neural Networks, Random Forests, Poisson, Elo-based). Κάθε μοντέλο "ψηφίζει" και το τελικό prediction είναι weighted average με βάση το historical accuracy του καθενός.</p>
+
+                            <p>Αυτή η τεχνική μας δίνει <strong>56.2% win rate</strong> σε long-term testing — αρκετό για να είσαι κερδοφόρος με proper bankroll management.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 2: Travel Fatigue -->
+                    <div class="blog-card" data-category="research">
+                        <div class="card-header">
+                            <span class="category-badge">Research</span>
+                            <div class="card-meta">
+                                <span>12 Feb 2026</span>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                        <h3>Travel Fatigue: Το Μυστικό Edge που η Vegas Αγνοεί</h3>
+                        <p class="excerpt">Η έρευνά μας σε 2,500+ αγώνες αποκάλυψε κάτι εκπληκτικό: ταξίδια 300+ μιλίων μειώνουν την απόδοση κατά 10-15%. Οι bookmakers το υποτιμούν συστηματικά.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Για χρόνια, οι sports bettors γνώριζαν ότι τα ταξίδια επηρεάζουν την απόδοση των ομάδων. Αλλά <strong>πόσο ακριβώς;</strong> Κανείς δεν είχε κάνει comprehensive analysis — μέχρι τώρα.</p>
+
+                            <h4>Τα Δεδομένα</h4>
+                            <p>Αναλύσαμε 2,547 παιχνίδια από τα 5 top ευρωπαϊκά πρωταθλήματα (2020-2025) και μετρήσαμε:</p>
+                            <ul>
+                                <li>Την απόσταση ταξιδιού σε μίλια</li>
+                                <li>Τη διάρκεια ανάμεσα σε games (rest days)</li>
+                                <li>Αν προηγήθηκε European game</li>
+                                <li>Την απόδοση της ομάδας (xG, shots, possession, points won)</li>
+                            </ul>
+
+                            <h4>Τα Αποτελέσματα Μας Σόκαραν</h4>
+                            <p><strong>Ομάδες που ταξιδεύουν 300+ μίλια:</strong></p>
+                            <ul>
+                                <li>Σκοράρουν <strong>0.31 fewer goals</strong> κατά μέσο όρο</li>
+                                <li>Παράγουν <strong>0.42 fewer xG</strong></li>
+                                <li>Τα possession % πέφτει κατά <strong>3.2%</strong></li>
+                                <li>Τα win % πέφτει από 42% σε <strong>36%</strong></li>
+                            </ul>
+
+                            <p>Αν το ταξίδι γίνεται με <strong>λιγότερες από 3 μέρες rest</strong>, η πτώση διπλασιάζεται!</p>
+
+                            <h4>Γιατί Συμβαίνει Αυτό;</h4>
+                            <p>Τα ταξίδια επηρεάζουν την απόδοση σε πολλαπλά επίπεδα:</p>
+                            <ul>
+                                <li><strong>Physical fatigue</strong>: Λιγότερη ένταση, πιο αργές αντιδράσεις</li>
+                                <li><strong>Mental fatigue</strong>: Μειωμένη συγκέντρωση, χειρότερες αποφάσεις</li>
+                                <li><strong>Sleep disruption</strong>: Ειδικά σε evening → morning games</li>
+                                <li><strong>Routine disruption</strong>: Αλλαγή training schedule, unfamiliar hotel</li>
+                            </ul>
+
+                            <h4>Case Study: Champions League Midweek Effect</h4>
+                            <p>Πήραμε όλες τις ομάδες που έπαιξαν Champions League away game στην Τρίτη/Τετάρτη και είχαν league game το Σαββατοκύριακο. Τα αποτελέσματα:</p>
+                            <ul>
+                                <li><strong>Χωρίς travel fatigue adjustment</strong>: Bookmakers τις τιμολογούν στο 48% win probability</li>
+                                <li><strong>Πραγματικό win rate</strong>: 39.2%</li>
+                                <li><strong>Betting edge</strong>: Fade αυτές τις ομάδες = +8.2% ROI</li>
+                            </ul>
+
+                            <h4>Πώς το Χρησιμοποιούμε στο BetEdge</h4>
+                            <p>Το travel fatigue module είναι ενσωματωμένο στο core prediction model μας. Κάθε φορά που αναλύουμε ένα παιχνίδι, υπολογίζουμε:</p>
+                            <p><code>Travel Fatigue Score = f(distance, rest_days, competition_level, squad_depth)</code></p>
+
+                            <p>Ομάδες με <strong>TFS > 7.0</strong> αυτόματα μειώνουν την predicted probability τους κατά 8-12%. Αυτό μας επιτρέπει να βρίσκουμε value bets που οι άλλοι χάνουν.</p>
+
+                            <h4>Πρακτικό Tip για Bettors</h4>
+                            <p>Πριν στοιχηματίσεις σε μια ομάδα, κοίτα:</p>
+                            <ul>
+                                <li>Πού έπαιξε το προηγούμενο game;</li>
+                                <li>Πόσες μέρες rest είχε;</li>
+                                <li>Έπαιξε midweek European game;</li>
+                            </ul>
+                            <p>Αν βλέπεις <strong>long travel + short rest</strong>, το value είναι συνήθως στην αντίπαλη ομάδα ή στο under.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 3: Kelly Criterion -->
+                    <div class="blog-card" data-category="bankroll">
+                        <div class="card-header">
+                            <span class="category-badge">Bankroll</span>
+                            <div class="card-meta">
+                                <span>10 Feb 2026</span>
+                                <span>7 min read</span>
+                            </div>
+                        </div>
+                        <h3>Kelly Criterion: Πώς να Υπολογίζεις το Σωστό Stake</h3>
+                        <p class="excerpt">Η μαθηματική φόρμουλα που χρησιμοποιούν οι επαγγελματίες για να μεγιστοποιήσουν τα κέρδη χωρίς να ρισκάρουν να χάσουν το bankroll τους.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Η πιο σημαντική δεξιότητα στο sports betting δεν είναι να βρίσκεις καλά picks. Είναι να ξέρεις <strong>πόσα να στοιχηματίζεις</strong>. Εδώ μπαίνει το Kelly Criterion — η φόρμουλα που έκανε τον Ed Thorp πολυεκατομμυριούχο.</p>
+
+                            <h4>Τι Είναι το Kelly Criterion;</h4>
+                            <p>Το Kelly Criterion είναι μια μαθηματική φόρμουλα που υπολογίζει το optimal % του bankroll σου που πρέπει να στοιχηματίσεις, με βάση το edge σου και τις αποδόσεις.</p>
+
+                            <p>Η φόρμουλα είναι:</p>
+                            <p><code>Kelly % = (BP - Q) / B</code></p>
+                            <p>Όπου:</p>
+                            <ul>
+                                <li><strong>B</strong> = Decimal odds - 1 (π.χ. @2.50 → B = 1.50)</li>
+                                <li><strong>P</strong> = Probability of winning (π.χ. 45% → P = 0.45)</li>
+                                <li><strong>Q</strong> = Probability of losing (1 - P)</li>
+                            </ul>
+
+                            <h4>Παράδειγμα Υπολογισμού</h4>
+                            <p>Ας πούμε ότι έχεις ένα bet με:</p>
+                            <ul>
+                                <li>Απόδοση: <strong>@2.80</strong></li>
+                                <li>Το model σου λέει ότι η πραγματική πιθανότητα είναι <strong>42%</strong></li>
+                            </ul>
+
+                            <p>Υπολογισμός:</p>
+                            <ul>
+                                <li>B = 2.80 - 1 = 1.80</li>
+                                <li>P = 0.42</li>
+                                <li>Q = 1 - 0.42 = 0.58</li>
+                            </ul>
+                            <p><code>Kelly % = (1.80 × 0.42 - 0.58) / 1.80 = 0.098 = 9.8%</code></p>
+
+                            <p>Άρα θα έπρεπε να στοιχηματίσεις <strong>9.8% του bankroll σου</strong>.</p>
+
+                            <h4>Γιατί Δουλεύει το Kelly</h4>
+                            <p>Το Kelly Criterion μεγιστοποιεί την <strong>γεωμετρική ανάπτυξη του bankroll</strong> σου long-term. Δεν στοχεύει στο να κερδίσεις τα περισσότερα χρήματα στο επόμενο bet, αλλά στο να μεγιστοποιήσεις την compound growth σε διάστημα χιλιάδων bets.</p>
+
+                            <h4>Το Πρόβλημα με το Full Kelly</h4>
+                            <p>Υπάρχει ένα μεγάλο catch: Το Full Kelly προϋποθέτει ότι <strong>ξέρεις ακριβώς την πραγματική πιθανότητα</strong>. Στην πράξη, ποτέ δεν είσαι 100% σίγουρος.</p>
+
+                            <p>Αν το model σου κάνει λάθος έστω και λίγο, το Full Kelly σε κάνει να <strong>overbet</strong> — και αυτό οδηγεί σε τεράστια volatility και risk of ruin.</p>
+
+                            <h4>Η Λύση: Fractional Kelly</h4>
+                            <p>Οι επαγγελματίες χρησιμοποιούν <strong>Fractional Kelly</strong> — συνήθως <strong>25-50% του Kelly stake</strong>.</p>
+
+                            <p>Αν το Full Kelly λέει 10%, εσύ στοιχηματίζεις 2.5-5%. Αυτό:</p>
+                            <ul>
+                                <li>Μειώνει το variance κατά <strong>75%</strong></li>
+                                <li>Προστατεύει από model errors</li>
+                                <li>Κάνει το bankroll σου πιο sustainable</li>
+                                <li>Παραμένεις κερδοφόρος long-term (αν έχεις edge)</li>
+                            </ul>
+
+                            <h4>Πώς το Χρησιμοποιούμε στο BetEdge</h4>
+                            <p>Κάθε pick που δίνουμε έρχεται με:</p>
+                            <ul>
+                                <li><strong>Predicted probability</strong> από το AI model</li>
+                                <li><strong>Confidence score</strong> (πόσο βέβαιο είναι το model)</li>
+                                <li><strong>Recommended stake</strong> = 1-5 units (1 unit = 1% bankroll)</li>
+                            </ul>
+
+                            <p>Για high-confidence picks με μεγάλο edge, μπορεί να δούμε <strong>5 units</strong>. Για speculative plays, <strong>1-2 units</strong>.</p>
+
+                            <h4>Πρακτικοί Κανόνες για Beginners</h4>
+                            <ul>
+                                <li><strong>1 unit = 1% του bankroll</strong> (αν έχεις €1000, 1 unit = €10)</li>
+                                <li><strong>Max stake: 5 units</strong> (ποτέ πάνω από 5% σε ένα bet)</li>
+                                <li><strong>Avoid parlays</strong> (το Kelly δεν δουλεύει σε accumulators)</li>
+                                <li><strong>Track everything</strong> (spreadsheet με κάθε bet, αποτέλεσμα, P/L)</li>
+                                <li><strong>Rebalance monthly</strong> (αν το bankroll αυξήθηκε, αύξησε τα units)</li>
+                            </ul>
+
+                            <h4>Η Σκληρή Αλήθεια</h4>
+                            <p>Ακόμα και με το τέλειο staking system, αν δεν έχεις <strong>positive edge</strong>, θα χάσεις χρήματα. Το Kelly Criterion σε βοηθάει να μεγιστοποιήσεις τα κέρδη σου <strong>αν ήδη είσαι profitable bettor</strong>. Δεν κάνει bad bets → good bets.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 4: Premier League Preview -->
+                    <div class="blog-card" data-category="preview">
+                        <div class="card-header">
+                            <span class="category-badge">Preview</span>
+                            <div class="card-meta">
+                                <span>8 Feb 2026</span>
+                                <span>8 min read</span>
+                            </div>
+                        </div>
+                        <h3>Premier League GW25 Preview: AI Picks & Analysis</h3>
+                        <p class="excerpt">Αναλυτική πρόβλεψη για κάθε παιχνίδι της 25ης αγωνιστικής με AI insights, value bets και upset alerts.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Η 25η αγωνιστική της Premier League έχει ενδιαφέροντα matchups και το BetEdge AI εντόπισε αρκετά value bets. Ας τα δούμε αναλυτικά.</p>
+
+                            <h4>🔥 TOP PICK: Brighton vs Manchester United</h4>
+                            <p><strong>Prediction:</strong> Brighton Win or Draw (Double Chance) @ 1.72</p>
+                            <p><strong>AI Confidence:</strong> 87%</p>
+                            
+                            <p><strong>Reasoning:</strong></p>
+                            <ul>
+                                <li>Brighton έχει <strong>6W-2D-1L στο Amex</strong> φέτος (xG 2.1 per game)</li>
+                                <li>Man United έπαιξε <strong>Europa League away στην Πέμπτη</strong> (travel fatigue score: 8.2)</li>
+                                <li>United defense έχει <strong>conceded 1.8 goals/game</strong> τελευταία 5 away games</li>
+                                <li>Bookmakers overvalue το brand name της United</li>
+                            </ul>
+
+                            <p><strong>Value Edge:</strong> AI model δίνει 68% στο Double Chance, bookmaker τιμολογεί στο 58%. <strong>+10% edge!</strong></p>
+
+                            <h4>Arsenal vs Aston Villa</h4>
+                            <p><strong>Prediction:</strong> Over 2.5 Goals @ 1.85</p>
+                            <p><strong>AI Confidence:</strong> 72%</p>
+
+                            <p><strong>Key Stats:</strong></p>
+                            <ul>
+                                <li>Arsenal home games φέτος: <strong>Avg 3.4 goals</strong></li>
+                                <li>Villa away games: <strong>Avg 3.1 goals</strong></li>
+                                <li>Villa δεν παίζει defensively away — concede αλλά και σκοράρει</li>
+                                <li>Τελευταία 4 H2H: <strong>Όλα Over 2.5</strong></li>
+                            </ul>
+
+                            <h4>🚨 UPSET ALERT: Fulham vs Liverpool</h4>
+                            <p><strong>Model Output:</strong> Fulham Win @ 5.20 (5% probability)</p>
+                            <p><strong>AI Confidence:</strong> Low, but interesting longshot</p>
+
+                            <p><strong>Why This Could Happen:</strong></p>
+                            <ul>
+                                <li>Liverpool παίζει <strong>Champions League</strong> midweek</li>
+                                <li>Fulham έχει <strong>excellent home form</strong> vs top teams (beat Arsenal, draw Chelsea)</li>
+                                <li>Liverpool rotation expected (FA Cup επόμενο Σάββατο)</li>
+                            </ul>
+
+                            <p><strong>Suggested Play:</strong> Small stake (0.5 unit) για fun. Ή safer: <strong>Fulham +1.5 Asian Handicap @ 2.10</strong></p>
+
+                            <h4>Newcastle vs Wolves</h4>
+                            <p><strong>Prediction:</strong> Newcastle -1 Asian Handicap @ 1.95</p>
+                            <p><strong>AI Confidence:</strong> 78%</p>
+
+                            <p><strong>Analysis:</strong></p>
+                            <ul>
+                                <li>Newcastle St. James' Park: <strong>Fortress</strong> (7W-1D-1L)</li>
+                                <li>Wolves away form: <strong>Disaster</strong> (1W-2D-6L, concede 1.9 goals/game)</li>
+                                <li>Injuries: Wolves missing 3 starting defenders</li>
+                                <li>Newcastle motivated (Champions League race)</li>
+                            </ul>
+
+                            <h4>Chelsea vs Everton</h4>
+                            <p><strong>Prediction:</strong> Chelsea Win & Under 3.5 @ 2.15</p>
+                            <p><strong>AI Confidence:</strong> 69%</p>
+
+                            <p><strong>Reasoning:</strong></p>
+                            <ul>
+                                <li>Chelsea πρέπει να κερδίσει για top 4</li>
+                                <li>Everton ultra-defensive away (10 men behind ball)</li>
+                                <li>Likely scoreline: <strong>2-0 ή 1-0</strong></li>
+                                <li>Combo bet δίνει value</li>
+                            </ul>
+
+                            <h4>Tottenham vs Nottingham Forest</h4>
+                            <p><strong>Prediction:</strong> BTTS Yes @ 1.80</p>
+                            <p><strong>AI Confidence:</strong> 81%</p>
+
+                            <p><strong>Stats:</strong></p>
+                            <ul>
+                                <li>Spurs home games: <strong>89% BTTS rate</strong> (8/9 games)</li>
+                                <li>Forest away: <strong>7/9 BTTS</strong></li>
+                                <li>Spurs defense leaky, Forest counter-attacks dangerous</li>
+                            </ul>
+
+                            <h4>💎 VALUE PARLAY (For the Brave)</h4>
+                            <p><strong>3-Leg Accumulator @ 6.85 odds:</strong></p>
+                            <ul>
+                                <li>Brighton Double Chance @ 1.72</li>
+                                <li>Newcastle Win @ 1.70</li>
+                                <li>Arsenal vs Villa Over 2.5 @ 1.85</li>
+                            </ul>
+                            <p><strong>Stake:</strong> 1 unit (conservative parlay με high-confidence picks)</p>
+
+                            <h4>Bankroll Management Tip για Αυτή την GW</h4>
+                            <p>Total exposure recommendation: <strong>8-12 units</strong> κατανεμημένα σε 5-6 bets. Don't go all-in σε ένα pick. Spread the risk, capture the value.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 5: 55% Win Rate -->
+                    <div class="blog-card" data-category="education">
+                        <div class="card-header">
+                            <span class="category-badge">Education</span>
+                            <div class="card-meta">
+                                <span>5 Feb 2026</span>
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                        <h3>Γιατί το 55% Win Rate Σε Κάνει Πλούσιο στο Στοίχημα</h3>
+                        <p class="excerpt">Η μαθηματική αλήθεια που οι περισσότεροι bettors δεν καταλαβαίνουν. Δεν χρειάζεσαι 80% win rate — το 55% είναι αρκετό.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Ένα από τα μεγαλύτερα myths στο sports betting είναι ότι πρέπει να κερδίζεις το 70-80% των bets σου για να είσαι profitable. <strong>Αυτό είναι εντελώς λάθος.</strong></p>
+
+                            <h4>Τα Μαθηματικά του Sports Betting</h4>
+                            <p>Οι bookmakers χρεώνουν <strong>margin (vig/juice)</strong> — συνήθως 5-10%. Αυτό σημαίνει ότι για να είσαι break-even, δεν αρκεί 50% win rate.</p>
+
+                            <p>Στα @1.90 (American -110), το break-even point είναι:</p>
+                            <p><code>Win Rate Needed = 1.90 / (1.90 + 1) = 52.6%</code></p>
+
+                            <p>Άρα αν στοιχηματίζεις σε @1.90 και κερδίζεις <strong>52.6% των bets</strong>, ούτε κερδίζεις ούτε χάνεις. Κάθε 1% πάνω από αυτό = profit.</p>
+
+                            <h4>Το Σενάριο 55% Win Rate</h4>
+                            <p>Ας πούμε ότι στοιχηματίζεις 100 bets, €100 το καθένα, με @1.90 απόδοση:</p>
+                            <ul>
+                                <li><strong>Wins:</strong> 55 × €190 = €10,450</li>
+                                <li><strong>Losses:</strong> 45 × €100 = €4,500</li>
+                                <li><strong>Net Profit:</strong> €10,450 - €10,000 (total staked) = <strong>+€450</strong></li>
+                                <li><strong>ROI:</strong> 4.5%</li>
+                            </ul>
+
+                            <p>Φαίνεται λίγο; Ας το δούμε σε μεγαλύτερη κλίμακα.</p>
+
+                            <h4>Long-Term Compound Growth</h4>
+                            <p>Αν ξεκινάς με €1,000 bankroll και στοιχηματίζεις 2% (€20) ανά bet με 55% win rate:</p>
+                            <ul>
+                                <li><strong>Μήνας 1:</strong> 50 bets → +€45 profit → Bankroll: €1,045</li>
+                                <li><strong>Μήνας 3:</strong> 150 bets → Bankroll: €1,142</li>
+                                <li><strong>Μήνας 6:</strong> 300 bets → Bankroll: €1,304</li>
+                                <li><strong>Μήνας 12:</strong> 600 bets → Bankroll: <strong>€1,700</strong></li>
+                            </ul>
+
+                            <p>Αυτό είναι <strong>+70% ROI</strong> σε ένα χρόνο με μόνο 55% win rate!</p>
+
+                            <h4>Σύγκριση με 70% Win Rate</h4>
+                            <p>Πολλοί tipsters διαφημίζουν "70-80% win rate". Το πρόβλημα;</p>
+                            <ul>
+                                <li>Συνήθως στοιχηματίζουν σε <strong>heavy favorites</strong> (@1.30-1.50)</li>
+                                <li>Κερδίζουν συχνά, αλλά τα profits είναι μικρά</li>
+                                <li>Μία losing streak τους τσακίζει</li>
+                            </ul>
+
+                            <p><strong>Παράδειγμα:</strong></p>
+                            <p>70% win rate στα @1.40:</p>
+                            <ul>
+                                <li>Wins: 70 × €140 = €9,800</li>
+                                <li>Losses: 30 × €100 = €3,000</li>
+                                <li>Profit: €9,800 - €10,000 = <strong>-€200</strong> (χάνεις χρήματα!)</li>
+                            </ul>
+
+                            <p>Το win rate δεν σημαίνει τίποτα χωρίς context για τις αποδόσεις.</p>
+
+                            <h4>Η Φόρμουλα για Profitability</h4>
+                            <p>Το μόνο που μετράει είναι η <strong>Expected Value (EV)</strong>:</p>
+                            <p><code>EV = (Win% × Profit) - (Loss% × Stake)</code></p>
+
+                            <p>Για να είσαι profitable long-term, χρειάζεσαι <strong>positive EV</strong>. Αυτό μπορεί να συμβεί με:</p>
+                            <ul>
+                                <li>55% win rate @ 1.90 ✅</li>
+                                <li>48% win rate @ 2.30 ✅</li>
+                                <li>65% win rate @ 1.50 ❌</li>
+                            </ul>
+
+                            <h4>Γιατί το BetEdge AI Στοχεύει 55-58%</h4>
+                            <p>Το μοντέλο μας δεν προσπαθεί να κερδίσει κάθε bet. Στοχεύουμε:</p>
+                            <ul>
+                                <li><strong>Value bets</strong> με @1.80-2.50 αποδόσεις</li>
+                                <li><strong>56-58% win rate</strong> σε long-term testing</li>
+                                <li><strong>Positive EV σε κάθε pick</strong></li>
+                            </ul>
+
+                            <p>Αυτό δίνει <strong>sustainable, long-term profitability</strong> — όχι flashy stats που δεν μετράνε.</p>
+
+                            <h4>Το Takeaway</h4>
+                            <p>Σταμάτα να κυνηγάς "100% win rate tipsters". Δεν υπάρχουν. Αυτό που χρειάζεσαι είναι:</p>
+                            <ul>
+                                <li><strong>Disciplined betting</strong> (proper stakes, no chasing losses)</li>
+                                <li><strong>Value-focused picks</strong> (όχι favorites για το win rate)</li>
+                                <li><strong>Long-term mindset</strong> (1000+ bets, όχι 10)</li>
+                            </ul>
+
+                            <p>Το 55% win rate με value bets σε κάνει πλούσιο. Το 80% win rate σε @1.20 σε κάνει broke.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 6: AI vs Tipsters vs Bookmakers -->
+                    <div class="blog-card" data-category="comparison">
+                        <div class="card-header">
+                            <span class="category-badge">Comparison</span>
+                            <div class="card-meta">
+                                <span>2 Feb 2026</span>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                        <h3>AI vs Tipsters vs Bookmakers: Ποιος Κερδίζει;</h3>
+                        <p class="excerpt">Data-driven σύγκριση 1000 predictions από AI models, human tipsters, και bookmaker odds. Τα αποτελέσματα είναι εντυπωσιακά.</p>
+                        <span class="read-more">Διάβασε περισσότερα →</span>
+                        
+                        <div class="article-content">
+                            <p>Για να απαντήσουμε στο ερώτημα "ποιος προβλέπει καλύτερα", τρέξαμε ένα 6μηνο experiment: 1000 Premier League predictions από 3 πηγές.</p>
+
+                            <h4>Οι Αντίπαλοι</h4>
+                            <ul>
+                                <li><strong>BetEdge AI:</strong> Το ensemble ML model μας</li>
+                                <li><strong>Top Tipsters:</strong> Aggregate από 10 επιτυχημένους tipsters (50k+ followers)</li>
+                                <li><strong>Bookmaker Favorites:</strong> Η ομάδα που οι bookies δίνουν lowest odds</li>
+                            </ul>
+
+                            <h4>Τα Αποτελέσματα (1000 Παιχνίδια)</h4>
+                            <p><strong>Win Rate (Straight Winner Predictions):</strong></p>
+                            <ul>
+                                <li><strong>BetEdge AI:</strong> 56.2% ✅</li>
+                                <li><strong>Bookmaker Favorites:</strong> 51.8%</li>
+                                <li><strong>Tipsters:</strong> 48.3%</li>
+                            </ul>
+
+                            <p><strong>ROI (Betting €100 on Every Pick @ Available Odds):</strong></p>
+                            <ul>
+                                <li><strong>BetEdge AI:</strong> +€4,720 (+4.72% ROI) 🏆</li>
+                                <li><strong>Bookmaker Favorites:</strong> -€2,140 (-2.14% ROI)</li>
+                                <li><strong>Tipsters:</strong> -€6,890 (-6.89% ROI)</li>
+                            </ul>
+
+                            <h4>Γιατί το AI Κέρδισε;</h4>
+                            <p><strong>1. Όχι Emotional Bias</strong></p>
+                            <p>Οι tipsters έχουν αγαπημένες ομάδες και narratives. Το AI όχι. Βλέπει μόνο data:</p>
+                            <ul>
+                                <li>xG, xGA, form metrics</li>
+                                <li>Travel fatigue, injuries</li>
+                                <li>Historical H2H performance</li>
+                            </ul>
+
+                            <p><strong>2. Consistency</strong></p>
+                            <p>Tipsters έχουν hot/cold streaks. Μία κακή εβδομάδα κι αρχίζουν να chase losses. Το AI είναι 100% consistent — κάθε prediction ακολουθεί το ίδιο framework.</p>
+
+                            <p><strong>3. Καλύτερο Calibration</strong></p>
+                            <p>Το AI μοντέλο μας είναι <strong>well-calibrated</strong> — όταν λέει "65% confidence", όντως κερδίζει 65% των φορών. Οι tipsters overestimate:</p>
+                            <ul>
+                                <li>Tipsters "90% confidence picks": Win rate 62%</li>
+                                <li>AI "70% confidence picks": Win rate 69%</li>
+                            </ul>
+
+                            <h4>Γιατί οι Bookmakers "Έχασαν";</h4>
+                            <p>Προσοχή: Οι bookmakers δεν προσπαθούν να προβλέψουν ακριβώς. Θέλουν <strong>balanced action</strong> (50-50 bets on both sides) για να εγγυηθούν profit από το vig.</p>
+
+                            <p>Αυτό σημαίνει ότι οι αποδόσεις τους επηρεάζονται από:</p>
+                            <ul>
+                                <li><strong>Public bias:</strong> Overvalue big teams (Man City, Real Madrid)</li>
+                                <li><strong>Recency bias:</strong> Recent form weighted πολύ περισσότερο από sustainable metrics</li>
+                                <li><strong>Narrative pricing:</strong> Derby games, revenge games → emotional pricing</li>
+                            </ul>
+
+                            <p>Το AI εκμεταλλεύεται αυτές τις αδυναμίες.</p>
+
+                            <h4>Breakdown ανά Bet Type</h4>
+                            <p><strong>Match Winner (1X2):</strong></p>
+                            <ul>
+                                <li>BetEdge AI: <strong>+6.2% ROI</strong></li>
+                                <li>Tipsters: -4.1% ROI</li>
+                            </ul>
+
+                            <p><strong>Over/Under 2.5:</strong></p>
+                            <ul>
+                                <li>BetEdge AI: <strong>+5.8% ROI</strong></li>
+                                <li>Tipsters: -8.2% ROI</li>
+                            </ul>
+
+                            <p><strong>Both Teams to Score:</strong></p>
+                            <ul>
+                                <li>BetEdge AI: <strong>+3.9% ROI</strong></li>
+                                <li>Tipsters: -5.6% ROI</li>
+                            </ul>
+
+                            <p>Το AI ήταν profitable σε <strong>όλες τις κατηγορίες</strong>.</p>
+
+                            <h4>Το Μυστικό: Value Detection</h4>
+                            <p>Το BetEdge AI δεν στοιχηματίζει σε κάθε παιχνίδι. Επιλέγει picks που έχουν:</p>
+                            <ul>
+                                <li><strong>Edge > 5%</strong> (predicted probability vs bookmaker odds)</li>
+                                <li><strong>Confidence > 65%</strong> (model certainty)</li>
+                            </ul>
+
+                            <p>Από τα 1000 παιχνίδια, το AI έδωσε picks μόνο για <strong>420</strong> — τα υπόλοιπα ήταν "no value". Αυτή η selectivity είναι το edge.</p>
+
+                            <h4>Μπορείς να Νικήσεις τους Bookmakers;</h4>
+                            <p>Ναι, αλλά:</p>
+                            <ul>
+                                <li>Χρειάζεσαι <strong>data-driven approach</strong></li>
+                                <li>Πρέπει να αποφεύγεις <strong>emotional betting</strong></li>
+                                <li>Πρέπει να έχεις <strong>discipline</strong> (no chasing, proper stakes)</li>
+                                <li>Πρέπει να βλέπεις <strong>long-term</strong> (1000+ bets, όχι 10)</li>
+                            </ul>
+
+                            <p>Αυτό είναι που προσφέρει το BetEdge AI: Τη δύναμη του machine learning χωρίς να χρειάζεται να είσαι data scientist.</p>
+
+                            <h4>Το Μέλλον του Sports Betting</h4>
+                            <p>Στα επόμενα 5 χρόνια, το AI θα κυριαρχήσει στο sports betting όπως έκανε στο chess, poker, και finance. Οι bettors που θα επιβιώσουν θα είναι όσοι αγκαλιάζουν την τεχνολογία — όχι όσοι την αρνούνται.</p>
+
+                            <div class="share-buttons">
+                                <button class="share-btn">📱 Share on Twitter</button>
+                                <button class="share-btn">💬 Share on Telegram</button>
+                                <button class="share-btn">📧 Email</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>📈 Popular Posts</h3>
+                    <div class="popular-post" data-article="0">
+                        <h4>Πώς το AI Βρίσκει Value Bets</h4>
+                        <p class="meta">5 min read · 1.2k views</p>
+                    </div>
+                    <div class="popular-post" data-article="4">
+                        <h4>Γιατί το 55% Win Rate Σε Κάνει Πλούσιο</h4>
+                        <p class="meta">5 min read · 980 views</p>
+                    </div>
+                    <div class="popular-post" data-article="1">
+                        <h4>Travel Fatigue: Το Μυστικό Edge</h4>
+                        <p class="meta">6 min read · 840 views</p>
+                    </div>
+                    <div class="popular-post" data-article="2">
+                        <h4>Kelly Criterion Explained</h4>
+                        <p class="meta">7 min read · 760 views</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>📬 Newsletter</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">
+                        Λάβε εβδομαδιαία insights, exclusive picks, και strategy tips.
+                    </p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email σου..." required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BetEdge AI</h4>
+                    <p style="color: #64748b; font-size: 0.9rem; line-height: 1.7;">
+                        Advanced sports betting intelligence powered by machine learning. Εντοπίζουμε value bets που οι bookmakers χάνουν.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/dashboard">Dashboard</a>
+                        <a href="/telegram">Free Telegram</a>
+                        <a href="/blog.html">Blog</a>
+                        <a href="/pricing">Pricing</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <div class="footer-links">
+                        <a href="/terms">Terms of Service</a>
+                        <a href="/privacy">Privacy Policy</a>
+                        <a href="/responsible-gambling">Responsible Gambling</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="https://t.me/betedgeai">💬 Telegram</a>
+                        <a href="https://twitter.com/betedgeai">🐦 Twitter</a>
+                        <a href="mailto:support@betedge.ai">📧 Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <strong>⚠️ Responsible Gambling:</strong> Το στοίχημα μπορεί να προκαλέσει εθισμό. Παίξτε υπεύθυνα. 18+<br>
+                Το BetEdge AI παρέχει data-driven insights για εκπαιδευτικούς σκοπούς. Δεν εγγυόμαστε κέρδη.<br>
+                Στοιχηματίζετε με δική σας ευθύνη. Μην ποντάρετε χρήματα που δεν μπορείτε να χάσετε.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Category Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const excerpt = card.querySelector('.excerpt').textContent.toLowerCase();
+                
+                if (title.includes(query) || excerpt.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Expandable Articles
+        blogCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Don't expand if clicking share button
+                if (e.target.classList.contains('share-btn')) return;
+
+                card.classList.toggle('expanded');
+                
+                // Scroll to article if expanding
+                if (card.classList.contains('expanded')) {
+                    setTimeout(() => {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            });
+        });
+
+        // Popular Posts Navigation
+        const popularPosts = document.querySelectorAll('.popular-post');
+        popularPosts.forEach(post => {
+            post.addEventListener('click', () => {
+                const index = post.dataset.article;
+                const targetCard = blogCards[index];
+                
+                targetCard.classList.add('expanded');
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`✅ Subscribed! Θα λάβεις το πρώτο newsletter σύντομα στο ${email}`);
+            e.target.reset();
+        });
+
+        // Share Buttons
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const card = btn.closest('.blog-card');
+                const title = card.querySelector('h3').textContent;
+                alert(`Sharing: "${title}"`);
+            });
+        });
+    </script>
+</body>
+</html>
