@@ -4518,17 +4518,18 @@
             <button class="mark-read-btn" onclick="markAllRead()">Σήμανση ως αναγνωσμένα</button>
         </div>
         <div class="notification-list">
-            <div class="notification-item unread">
+            <div class="notification-item unread" onclick="goToNotification('picks')" style="cursor:pointer;">
                 <div class="notification-item-title">🎯 New Pick Available!</div>
                 <div class="notification-item-message">Wolves vs Arsenal - 76% confidence</div>
                 <div class="notification-item-time">5 λεπτά πριν</div>
             </div>
-            <div class="notification-item unread">
+            <div class="notification-item unread" onclick="goToNotification('history')" style="cursor:pointer;">
                 <div class="notification-item-title">✅ Pick Won!</div>
                 <div class="notification-item-message">Liverpool Away Win - +€52 profit</div>
                 <div class="notification-item-time">2 ώρες πριν</div>
             </div>
-            <div class="notification-item-title">📊 Weekly Report</div>
+            <div class="notification-item" onclick="goToNotification('analytics')" style="cursor:pointer;">
+                <div class="notification-item-title">📊 Weekly Report</div>
                 <div class="notification-item-message">Your win rate this week: 94%</div>
                 <div class="notification-item-time">1 μέρα πριν</div>
             </div>
@@ -4748,6 +4749,18 @@
             document.getElementById('notificationPanel').classList.toggle('show');
         }
         
+        function goToNotification(tabName) {
+            // Close notification panel
+            document.getElementById('notificationPanel').classList.remove('show');
+            // Mark clicked item as read
+            event.currentTarget.classList.remove('unread');
+            // Update badge count
+            const unreadCount = document.querySelectorAll('.notification-item.unread').length;
+            document.getElementById('notificationBadge').textContent = unreadCount;
+            // Navigate to the relevant tab
+            switchTab(tabName);
+        }
+
         function markAllRead() {
             document.querySelectorAll('.notification-item').forEach(item => {
                 item.classList.remove('unread');
