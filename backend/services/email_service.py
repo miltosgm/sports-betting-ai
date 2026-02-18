@@ -8,7 +8,7 @@ from sendgrid.helpers.mail import Mail, Content, Email
 from datetime import datetime
 
 sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY', ''))
-FROM_EMAIL = os.getenv('FROM_EMAIL', 'predictions@betedge.com')
+FROM_EMAIL = os.getenv('FROM_EMAIL', 'predictions@kicklabai.com')
 
 
 def send_daily_picks_email(user_email, user_name, predictions, league='EPL'):
@@ -70,12 +70,12 @@ def send_daily_picks_email(user_email, user_name, predictions, league='EPL'):
     html_content += """
                 <div class="cta">
                     <p>Log in to place bets and track your performance</p>
-                    <a href="https://betedge.com/login" class="button">View Dashboard</a>
+                    <a href="https://kicklabai.com/login" class="button">View Dashboard</a>
                 </div>
                 
                 <div class="footer">
-                    <p>BetEdge AI Predictions | Powered by ML Ensemble</p>
-                    <p>© 2026 BetEdge. All rights reserved.</p>
+                    <p>Kick Lab AI Predictions | Powered by ML Ensemble</p>
+                    <p>© 2026 Kick Lab AI. All rights reserved.</p>
                 </div>
             </div>
         </body>
@@ -123,7 +123,7 @@ def send_bet_notification(user_email, user_name, prediction, action='placed'):
                     <strong>Prediction:</strong> {prediction['predicted_winner']}<br>
                     <strong>Confidence:</strong> {prediction['confidence']:.1f}%
                 </p>
-                <a href="https://betedge.com/dashboard" style="background: #2563eb; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">View Dashboard</a>
+                <a href="https://kicklabai.com/dashboard" style="background: #2563eb; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">View Dashboard</a>
             </div>
         </body>
     </html>
@@ -159,9 +159,9 @@ def send_subscription_confirmation(user_email, user_name, tier):
     <html>
         <body style="font-family: Arial, sans-serif;">
             <div style="max-width: 600px; margin: 0 auto;">
-                <h2>Welcome to BetEdge {tier.upper()}</h2>
+                <h2>Welcome to Kick Lab AI {tier.upper()}</h2>
                 <p>Hi {user_name},</p>
-                <p>Thank you for subscribing to BetEdge {tier.upper()} at {tier_info.get('price', 'N/A')}!</p>
+                <p>Thank you for subscribing to Kick Lab AI {tier.upper()} at {tier_info.get('price', 'N/A')}!</p>
                 
                 <h3>Your Plan Includes:</h3>
                 <ul>
@@ -169,7 +169,7 @@ def send_subscription_confirmation(user_email, user_name, tier):
                 </ul>
                 
                 <p>Your subscription is now active and you'll start receiving daily picks.</p>
-                <a href="https://betedge.com/dashboard" style="background: #2563eb; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">Go to Dashboard</a>
+                <a href="https://kicklabai.com/dashboard" style="background: #2563eb; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">Go to Dashboard</a>
             </div>
         </body>
     </html>
@@ -178,7 +178,7 @@ def send_subscription_confirmation(user_email, user_name, tier):
     message = Mail(
         from_email=FROM_EMAIL,
         to_emails=user_email,
-        subject='Welcome to BetEdge - Subscription Confirmed',
+        subject='Welcome to Kick Lab AI - Subscription Confirmed',
         html_content=html_content
     )
     

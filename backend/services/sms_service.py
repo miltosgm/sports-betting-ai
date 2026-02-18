@@ -43,7 +43,7 @@ def send_daily_picks_sms(phone_number, predictions, league='EPL'):
             f'→ {pred["predicted_winner"]} ({pred["confidence"]:.0f}%)'
         )
     
-    message += '\n\nBetEdge.com'
+    message += '\n\nKickLabAI.com'
     
     return send_sms_notification(phone_number, message)
 
@@ -62,6 +62,6 @@ def send_bet_result_sms(phone_number, prediction, result):
 def send_urgent_alert_sms(phone_number, message):
     """Send urgent alert (injury, line movement, etc)"""
     
-    sms_message = f'⚠️ BetEdge Alert:\n{message}\n\nCheck dashboard for details'
+    sms_message = f'⚠️ Kick Lab AI Alert:\n{message}\n\nCheck dashboard for details'
     
     return send_sms_notification(phone_number, sms_message)

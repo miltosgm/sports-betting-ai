@@ -1,5 +1,5 @@
 """
-BetEdge Backend API - Production Ready
+Kick Lab AI Backend API - Production Ready
 Complete user management, payments, predictions, and analytics
 """
 
@@ -8,6 +8,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import bcrypt
 import stripe
 import os
 from datetime import datetime, timedelta
@@ -16,8 +17,8 @@ from functools import wraps
 import jwt
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'betedge-secret-key-change-in-production')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///betedge.db'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'kicklab-secret-key-change-in-production')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///kicklab.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
@@ -66,10 +67,10 @@ class User(UserMixin, db.Model):
     bets = db.relationship('UserBet', backref='user', lazy=True, cascade='all, delete-orphan')
     
     def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+        self.password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
     
     def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return bcrypt.checkpw(password.encode('utf-8'), self.password_hash.encode('utf-8'))
     
     def to_dict(self):
         return {
@@ -358,6 +359,80 @@ def get_prediction_stats():
     }), 200
 
 
+# ==================== PUBLIC API ENDPOINTS (NO AUTH) ====================
+
+@app.route('/api/predictions/latest', methods=['GET'])
+def get_latest_predictions():
+    """Get latest predictions across all leagues (PUBLIC - for dashboard)"""
+    limit = request.args.get('limit', 10, type=int)
+    league = request.args.get('league')  # Optional filter
+    
+    query = Prediction.query.order_by(Prediction.date.desc())
+    
+    if league:
+        query = query.filter(Prediction.league == league)
+    
+    predictions = query.limit(limit).all()
+    
+    return jsonify({
+        'predictions': [p.to_dict() for p in predictions],
+        'count': len(predictions),
+        'timestamp': datetime.utcnow().isoformat()
+    }), 200
+
+
+@app.route('/api/stats', methods=['GET'])
+def get_global_stats():
+    """Get overall platform statistics (PUBLIC - for dashboard)"""
+    
+    # Get all completed predictions
+    all_predictions = Prediction.query.filter(
+        Prediction.actual_result != 'Pending'
+    ).all()
+    
+    total = len(all_predictions)
+    correct = sum(1 for p in all_predictions if p.actual_result == p.predicted_winner)
+    accuracy = (correct / total * 100) if total > 0 else 0
+    
+    # Calculate by league
+    leagues_stats = {}
+    for league in ['EPL', 'LaLiga', 'SerieA']:
+        league_preds = [p for p in all_predictions if p.league == league]
+        league_correct = sum(1 for p in league_preds if p.actual_result == p.predicted_winner)
+        league_total = len(league_preds)
+        
+        leagues_stats[league] = {
+            'total': league_total,
+            'correct': league_correct,
+            'accuracy': round((league_correct / league_total * 100), 1) if league_total > 0 else 0
+        }
+    
+    # Calculate total profit (simulated)
+    total_profit = sum(
+        (p.expected_value / 100) * 100  # Simulate $100 bets
+        for p in all_predictions
+        if p.actual_result == p.predicted_winner
+    )
+    
+    # Get recent predictions (last 10)
+    recent = Prediction.query.order_by(Prediction.date.desc()).limit(10).all()
+    
+    return jsonify({
+        'overall': {
+            'total_predictions': total,
+            'correct': correct,
+            'wrong': total - correct,
+            'accuracy_percent': round(accuracy, 1),
+            'win_rate': round(accuracy, 1),
+            'total_profit_simulated': round(total_profit, 2),
+            'roi_percent': round((total_profit / (total * 100)) * 100, 2) if total > 0 else 0
+        },
+        'by_league': leagues_stats,
+        'recent_predictions': [p.to_dict() for p in recent],
+        'timestamp': datetime.utcnow().isoformat()
+    }), 200
+
+
 # ==================== USER BETS ROUTES ====================
 
 @app.route('/api/bets/place', methods=['POST'])
@@ -565,7 +640,7 @@ def admin_add_prediction():
 
 def is_admin(user):
     """Check if user is admin"""
-    return user and user.email in ['miltos@betedge.com', 'admin@betedge.com']
+    return user and user.email in ['miltos@kicklabai.com', 'admin@kicklabai.com']
 
 
 # ==================== ERROR HANDLING ====================
@@ -584,4 +659,4 @@ def server_error(e):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=os.getenv('FLASK_ENV') == 'development', port=5000)
+    app.run(debug=os.getenv('FLASK_ENV') == 'development', port=5555)
