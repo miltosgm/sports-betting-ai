@@ -44,7 +44,7 @@ def fetch():
                 # Subtract 15 min half-time break if past first half
                 if elapsed > 45:
                     elapsed = elapsed - 15
-                minute = max(1, min(elapsed, 90))
+                minute = max(1, min(elapsed - 4, 90))  # -4 calibration: delayed KO + longer HT
             except:
                 minute = None
 
