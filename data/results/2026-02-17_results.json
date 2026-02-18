@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "home_team": "Arsenal",
+      "away_team": "Newcastle",
+      "prediction": "Home Win",
+      "odds": 1.88,
+      "outcome": "won",
+      "profit": 88,
+      "actual_score": "3-1"
+    },
+    {
+      "home_team": "Liverpool",
+      "away_team": "Everton",
+      "prediction": "Over 2.5 Goals",
+      "odds": 1.72,
+      "outcome": "won",
+      "profit": 72,
+      "actual_score": "4-0"
+    },
+    {
+      "home_team": "Chelsea",
+      "away_team": "Man United",
+      "prediction": "Home Win",
+      "odds": 1.65,
+      "outcome": "lost",
+      "profit": -100,
+      "actual_score": "1-2"
+    }
+  ],
+  "date": "2026-02-17"
+}

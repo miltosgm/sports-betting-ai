@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-02-18T09:18:41.588743",
+  "model_version": "v5_proper",
+  "predictions": [
+    {
+      "match_id": "arsenal-manchester-city-2026-02-19",
+      "home_team": "Arsenal",
+      "away_team": "Manchester City",
+      "date": "2026-02-19",
+      "kickoff": "17:30",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9336,
+      "probabilities": {
+        "home": 0.0664,
+        "draw": 0.0,
+        "away": 0.9336
+      },
+      "suggested_odds": {
+        "home": 15.05,
+        "draw": 100.0,
+        "away": 1.07
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Arsenal struggling at home: 0.7 PPG",
+        "Away team favored: 93% win probability",
+        "Manchester City leaky defense: 3.75 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1329
+      }
+    },
+    {
+      "match_id": "liverpool-chelsea-2026-02-19",
+      "home_team": "Liverpool",
+      "away_team": "Chelsea",
+      "date": "2026-02-19",
+      "kickoff": "20:00",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9481,
+      "probabilities": {
+        "home": 0.0519,
+        "draw": 0.0,
+        "away": 0.9481
+      },
+      "suggested_odds": {
+        "home": 19.27,
+        "draw": 100.0,
+        "away": 1.05
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Liverpool struggling at home: 0.7 PPG",
+        "Away team favored: 95% win probability",
+        "Chelsea leaky defense: 3.75 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1038
+      }
+    },
+    {
+      "match_id": "manchester-united-tottenham-2026-02-20",
+      "home_team": "Manchester United",
+      "away_team": "Tottenham",
+      "date": "2026-02-20",
+      "kickoff": "15:00",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9508,
+      "probabilities": {
+        "home": 0.0492,
+        "draw": 0.0,
+        "away": 0.9508
+      },
+      "suggested_odds": {
+        "home": 20.32,
+        "draw": 100.0,
+        "away": 1.05
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Manchester United struggling at home: 0.7 PPG",
+        "Away team favored: 95% win probability",
+        "Tottenham leaky defense: 3.75 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.0984
+      }
+    }
+  ]
+}
