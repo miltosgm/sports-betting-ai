@@ -6298,6 +6298,136 @@
         // Run on page load
         loadRealPicks();
 
+        // ========== LIVE SCORES ==========
+        const FOOTBALL_API_KEY = '187d23f874344449b4544acdee9e0fb7';
+        const CORS_PROXY = 'https://corsproxy.io/?';
+
+        const TEAM_SHORT = {
+            'Wolverhampton Wanderers FC': 'Wolves',
+            'Arsenal FC': 'Arsenal',
+            'Aston Villa FC': 'Aston Villa',
+            'Leeds United FC': 'Leeds',
+            'Brentford FC': 'Brentford',
+            'Brighton & Hove Albion FC': 'Brighton',
+            'Chelsea FC': 'Chelsea',
+            'Burnley FC': 'Burnley',
+            'West Ham United FC': 'West Ham',
+            'AFC Bournemouth': 'Bournemouth',
+            'Manchester City FC': 'Man City',
+            'Newcastle United FC': 'Newcastle',
+            'Sunderland AFC': 'Sunderland',
+            'Fulham FC': 'Fulham',
+            'Crystal Palace FC': 'Crystal Palace',
+            'Nottingham Forest FC': 'Nott\'m Forest',
+            'Liverpool FC': 'Liverpool',
+            'Tottenham Hotspur FC': 'Tottenham',
+            'Everton FC': 'Everton',
+            'Manchester United FC': 'Man Utd',
+        };
+
+        function shortName(full) {
+            return TEAM_SHORT[full] || full.replace(' FC','').replace(' AFC','');
+        }
+
+        async function fetchLiveScores() {
+            try {
+                const url = CORS_PROXY + encodeURIComponent(
+                    'https://api.football-data.org/v4/competitions/PL/matches?status=IN_PLAY,PAUSED,FINISHED'
+                );
+                const res = await fetch(url, {
+                    headers: { 'X-Auth-Token': FOOTBALL_API_KEY }
+                });
+                if (!res.ok) return;
+                const data = await res.json();
+                const matches = data.matches || [];
+
+                // Only today's matches
+                const today = new Date().toISOString().slice(0, 10);
+                const todayMatches = matches.filter(m => m.utcDate.slice(0, 10) === today);
+
+                todayMatches.forEach(m => {
+                    const home = shortName(m.homeTeam.name);
+                    const away = shortName(m.awayTeam.name);
+                    const hg = m.score.fullTime.home ?? m.score.halfTime.home ?? '-';
+                    const ag = m.score.fullTime.away ?? m.score.halfTime.away ?? '-';
+                    const status = m.status;
+                    const minute = m.minute || '';
+
+                    // Find matching pick row by match name text
+                    const allRows = document.querySelectorAll('.pick-row');
+                    allRows.forEach(row => {
+                        const nameEl = row.querySelector('.match-name');
+                        if (!nameEl) return;
+                        const text = nameEl.textContent;
+                        if (!text.includes(home) && !text.includes(away)) return;
+
+                        // Remove old live badge if exists
+                        const old = row.querySelector('.live-score-badge');
+                        if (old) old.remove();
+
+                        // Build badge
+                        const badge = document.createElement('div');
+                        badge.className = 'live-score-badge';
+
+                        if (status === 'IN_PLAY' || status === 'PAUSED') {
+                            badge.innerHTML = `
+                                <span class="live-dot-pulse">🔴 LIVE</span>
+                                <span class="live-score">${hg} - ${ag}</span>
+                                ${minute ? `<span class="live-minute">${minute}'</span>` : ''}
+                            `;
+                            badge.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.4);border-radius:8px;margin:6px 0;font-size:14px;font-weight:700;';
+                            // Also update status badge
+                            const statusBadge = row.querySelector('.status-badge');
+                            if (statusBadge) {
+                                statusBadge.textContent = `🔴 ${hg}-${ag} LIVE`;
+                                statusBadge.style.background = 'rgba(239,68,68,0.3)';
+                                statusBadge.style.color = '#ef4444';
+                            }
+                        } else if (status === 'FINISHED') {
+                            badge.innerHTML = `
+                                <span>⏱️ FT</span>
+                                <span class="live-score">${hg} - ${ag}</span>
+                            `;
+                            badge.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px 12px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);border-radius:8px;margin:6px 0;font-size:14px;font-weight:700;';
+                            const statusBadge = row.querySelector('.status-badge');
+                            if (statusBadge) {
+                                statusBadge.textContent = `⏱️ FT ${hg}-${ag}`;
+                                statusBadge.style.background = 'rgba(16,185,129,0.2)';
+                                statusBadge.style.color = '#10b981';
+                            }
+                        }
+
+                        // Insert after match-time
+                        const matchTime = row.querySelector('.match-time');
+                        if (matchTime) matchTime.after(badge);
+                    });
+                });
+
+                // Update last-refreshed indicator
+                const el = document.getElementById('live-scores-updated');
+                if (el) el.textContent = 'Live scores: ' + new Date().toLocaleTimeString('el-GR', {hour:'2-digit',minute:'2-digit'});
+
+            } catch(e) {
+                console.warn('Live scores fetch failed:', e);
+            }
+        }
+
+        // Add "last updated" indicator to picks header
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('#picks .picks-header .picks-title');
+            if (header) {
+                const upd = document.createElement('span');
+                upd.id = 'live-scores-updated';
+                upd.style.cssText = 'font-size:11px;color:#9ca3af;margin-left:10px;font-weight:400;';
+                upd.textContent = 'Live scores loading...';
+                header.appendChild(upd);
+            }
+        });
+
+        // Run immediately and every 60 seconds
+        setTimeout(fetchLiveScores, 2000);
+        setInterval(fetchLiveScores, 60000);
+
         // ========== LIVE ODDS WIDGET ==========
         const LIVE_ODDS_DATA = [
             { match: 'Wolves vs Arsenal',      home: 10.00, draw: 5.75, away: 1.27 },
