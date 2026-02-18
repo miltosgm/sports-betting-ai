@@ -5331,6 +5331,119 @@
                 showToast('info', '🎯 New Pick', 'Check upcoming fixtures!');
             }
         }, 120000);
+
+        // ========== DYNAMIC PICKS LOADER ==========
+        // Fetches real prediction data from JSON and re-renders the picks tab
+        async function loadRealPicks() {
+            // Try GitHub Pages path first, fall back to relative
+            const urls = [
+                'https://miltosgm.github.io/sports-betting-ai/data/predictions/latest.json',
+                '../data/predictions/latest.json',
+            ];
+
+            let picks = null;
+            for (const url of urls) {
+                try {
+                    const r = await fetch(url);
+                    if (r.ok) { picks = await r.json(); break; }
+                } catch(e) {}
+            }
+            if (!picks) return;
+
+            // Find the picks container
+            const picksSection = document.querySelector('#picks .picks-section');
+            if (!picksSection) return;
+
+            // Update header date range
+            const header = picksSection.querySelector('.picks-title');
+            if (header) {
+                const dates = picks.map(p => p.date).filter(Boolean);
+                const first = dates[0] || '';
+                const last = dates[dates.length-1] || '';
+                header.textContent = `📅 Επερχόμενα Picks — ${first} → ${last}`;
+            }
+
+            // Remove old pick rows
+            picksSection.querySelectorAll('.pick-row').forEach(el => el.remove());
+
+            // Render each pick
+            picks.forEach(p => {
+                const homeShort = p.home_short || p.home.replace(' FC','').replace(' AFC','');
+                const awayShort = p.away_short || p.away.replace(' FC','').replace(' AFC','');
+                const conf = p.confidence;
+                const edge = p.edge;
+                const isValue = edge > 0;
+                const confClass = conf >= 70 ? 'confidence-high' : conf >= 55 ? 'confidence-medium' : 'confidence-low';
+                const marketPct = p.odds > 0 ? Math.round(100 / p.odds) : 50;
+                const edgeAbs = Math.abs(edge).toFixed(1);
+                const edgeClass = isValue ? 'edge-positive' : 'edge-negative';
+                const badgeHtml = isValue
+                    ? `<span class="value-bet-badge">🔥 VALUE BET</span>`
+                    : `<span class="no-value-badge">❌ NO VALUE</span>`;
+                const barClass = isValue ? (edge >= 15 ? 'high' : 'medium') : 'negative';
+                const barWidth = Math.min(Math.abs(edge) * 1.5, 100).toFixed(0);
+
+                // Result badge if settled
+                let statusHtml = `<span class="status-badge status-pending">⏳ PENDING</span>`;
+                if (p.settled) {
+                    statusHtml = p.correct
+                        ? `<span class="status-badge status-won">✅ WON</span>`
+                        : `<span class="status-badge status-lost">❌ LOST</span>`;
+                }
+
+                const html = `
+                <div class="pick-row">
+                    <div class="pick-main">
+                        <div class="pick-match">
+                            <div class="match-name">${homeShort} vs ${awayShort}</div>
+                            <div class="match-time"><span>${p.date} • ${p.time}</span></div>
+                        </div>
+                        <div class="pick-details">
+                            <div class="detail">
+                                <div class="detail-label">Prediction</div>
+                                <div class="detail-value">${p.prediction}</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Confidence</div>
+                                <div class="detail-value"><span class="confidence-badge ${confClass}">${conf}%</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Odds</div>
+                                <div class="detail-value"><span class="odds-value">${p.odds.toFixed(2)}</span></div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value">${statusHtml}</div>
+                            </div>
+                        </div>
+                        <div class="pick-actions">
+                            <div class="action-btn" onclick="copyPick(event, '${homeShort} vs ${awayShort} - ${p.prediction} @ ${p.odds.toFixed(2)}')" title="Copy">📋</div>
+                        </div>
+                    </div>
+                    <div class="value-meter">
+                        <div class="value-meter-header">
+                            <div class="value-meter-stats">
+                                <span>AI: ${conf}%</span>
+                                <span>|</span>
+                                <span>Market: ${marketPct}%</span>
+                                <span>|</span>
+                                <span class="value-meter-edge ${edgeClass}">EDGE: ${edge > 0 ? '+' : ''}${edge}%</span>
+                            </div>
+                            ${badgeHtml}
+                        </div>
+                        <div class="value-bar">
+                            <div class="value-bar-fill ${barClass}" style="width: ${barWidth}%;"></div>
+                        </div>
+                    </div>
+                </div>`;
+                picksSection.insertAdjacentHTML('beforeend', html);
+            });
+
+            console.log(`✅ Loaded ${picks.length} real picks from JSON`);
+        }
+
+        // Run on page load
+        loadRealPicks();
     </script>
 </body>
 </html>
