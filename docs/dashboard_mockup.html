@@ -6400,19 +6400,20 @@
 
         async function fetchLiveScores() {
             try {
-                const url = CORS_PROXY + encodeURIComponent(
-                    'https://api.football-data.org/v4/competitions/PL/matches?status=IN_PLAY,PAUSED,FINISHED'
-                );
-                const res = await fetch(url, {
-                    headers: { 'X-Auth-Token': FOOTBALL_API_KEY }
-                });
-                if (!res.ok) return;
-                const data = await res.json();
-                const matches = data.matches || [];
-
-                // Only today's matches
-                const today = new Date().toISOString().slice(0, 10);
-                const todayMatches = matches.filter(m => m.utcDate.slice(0, 10) === today);
+                // Fetch from our own static JSON (updated every 2 min by cron — no CORS issues)
+                const urls = [
+                    'https://miltosgm.github.io/sports-betting-ai/data/live_scores.json',
+                    '../data/live_scores.json',
+                ];
+                let data = null;
+                for (const url of urls) {
+                    try {
+                        const res = await fetch(url + '?t=' + Date.now()); // bust cache
+                        if (res.ok) { data = await res.json(); break; }
+                    } catch(e) {}
+                }
+                if (!data) return;
+                const todayMatches = data.matches || [];
 
                 todayMatches.forEach(m => {
                     const home = shortName(m.homeTeam.name);
@@ -6474,7 +6475,7 @@
 
                 // Update last-refreshed indicator
                 const el = document.getElementById('live-scores-updated');
-                if (el) el.textContent = 'Live scores: ' + new Date().toLocaleTimeString('el-GR', {hour:'2-digit',minute:'2-digit'});
+                if (el) el.textContent = '🔄 ' + (data.updatedAtAthens || new Date().toLocaleTimeString('el-GR', {hour:'2-digit',minute:'2-digit'}));
 
             } catch(e) {
                 console.warn('Live scores fetch failed:', e);
