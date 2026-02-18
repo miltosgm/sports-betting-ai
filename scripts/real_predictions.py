@@ -26,17 +26,17 @@ BASE_URL = 'https://api.football-data.org/v4'
 
 # Real bet365 odds (Feb 18 2026)
 REAL_ODDS = {
-    "Wolverhampton Wanderers FC-Arsenal FC": {"home": 10.00, "draw": 5.75, "away": 1.27, "time": "20:00", "date": "Wed 18 Feb"},
-    "Aston Villa FC-Leeds United FC": {"home": 1.83, "draw": 3.60, "away": 4.50, "time": "15:00", "date": "Sat 21 Feb"},
-    "Brentford FC-Brighton & Hove Albion FC": {"home": 2.00, "draw": 3.60, "away": 3.60, "time": "15:00", "date": "Sat 21 Feb"},
-    "Chelsea FC-Burnley FC": {"home": 1.22, "draw": 6.50, "away": 12.00, "time": "15:00", "date": "Sat 21 Feb"},
-    "West Ham United FC-AFC Bournemouth": {"home": 2.35, "draw": 3.70, "away": 2.88, "time": "17:30", "date": "Sat 21 Feb"},
-    "Manchester City FC-Newcastle United FC": {"home": 1.42, "draw": 5.25, "away": 6.25, "time": "20:00", "date": "Sat 21 Feb"},
-    "Crystal Palace FC-Wolverhampton Wanderers FC": {"home": 1.57, "draw": 4.20, "away": 5.75, "time": "14:00", "date": "Sun 22 Feb"},
-    "Nottingham Forest FC-Liverpool FC": {"home": 4.10, "draw": 4.00, "away": 1.80, "time": "14:00", "date": "Sun 22 Feb"},
-    "Sunderland AFC-Fulham FC": {"home": 2.70, "draw": 3.25, "away": 2.70, "time": "14:00", "date": "Sun 22 Feb"},
-    "Tottenham Hotspur FC-Arsenal FC": {"home": 6.00, "draw": 4.00, "away": 1.57, "time": "16:30", "date": "Sun 22 Feb"},
-    "Everton FC-Manchester United FC": {"home": 3.60, "draw": 3.75, "away": 1.95, "time": "20:00", "date": "Mon 23 Feb"},
+    "Wolverhampton Wanderers FC-Arsenal FC": {"home": 10.00, "draw": 5.75, "away": 1.27, "time": "22:00", "date": "Wed 18 Feb"},
+    "Aston Villa FC-Leeds United FC": {"home": 1.83, "draw": 3.60, "away": 4.50, "time": "17:00", "date": "Sat 21 Feb"},
+    "Brentford FC-Brighton & Hove Albion FC": {"home": 2.00, "draw": 3.60, "away": 3.60, "time": "17:00", "date": "Sat 21 Feb"},
+    "Chelsea FC-Burnley FC": {"home": 1.22, "draw": 6.50, "away": 12.00, "time": "17:00", "date": "Sat 21 Feb"},
+    "West Ham United FC-AFC Bournemouth": {"home": 2.35, "draw": 3.70, "away": 2.88, "time": "19:30", "date": "Sat 21 Feb"},
+    "Manchester City FC-Newcastle United FC": {"home": 1.42, "draw": 5.25, "away": 6.25, "time": "22:00", "date": "Sat 21 Feb"},
+    "Crystal Palace FC-Wolverhampton Wanderers FC": {"home": 1.57, "draw": 4.20, "away": 5.75, "time": "16:00", "date": "Sun 22 Feb"},
+    "Nottingham Forest FC-Liverpool FC": {"home": 4.10, "draw": 4.00, "away": 1.80, "time": "16:00", "date": "Sun 22 Feb"},
+    "Sunderland AFC-Fulham FC": {"home": 2.70, "draw": 3.25, "away": 2.70, "time": "16:00", "date": "Sun 22 Feb"},
+    "Tottenham Hotspur FC-Arsenal FC": {"home": 6.00, "draw": 4.00, "away": 1.57, "time": "18:30", "date": "Sun 22 Feb"},
+    "Everton FC-Manchester United FC": {"home": 3.60, "draw": 3.75, "away": 1.95, "time": "22:00", "date": "Mon 23 Feb"},
 }
 
 # Aliases for matching API names to odds keys
