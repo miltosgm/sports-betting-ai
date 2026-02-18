@@ -217,7 +217,7 @@ class KickLabTelegramBot:
             
             # Filter value bets if requested
             if value_only:
-                predictions = [p for p in predictions if p.get('edge', 0) > 10]
+                predictions = [p for p in predictions if abs(p.get('edge', p.get('edge_pct', 0))) > 10]
                 if not predictions:
                     await self.bot.send_message(
                         chat_id=chat_id,
@@ -479,13 +479,36 @@ class KickLabTelegramBot:
         for prediction in predictions:
             home_team = prediction.get('home_team', 'Home')
             away_team = prediction.get('away_team', 'Away')
-            match_time = prediction.get('time', '15:00')
-            league = prediction.get('league', 'Premier League')
+            match_time = prediction.get('time', prediction.get('kickoff', '15:00'))
+            league = prediction.get('league', prediction.get('competition', 'Premier League'))
             pred_type = prediction.get('prediction', 'Home Win')
-            confidence = prediction.get('confidence', 0)
-            odds = prediction.get('odds', 1.50)
-            edge = prediction.get('edge', 0)
-            reasoning = prediction.get('reasoning', [])
+            # Handle confidence as decimal (0.76) or percentage (76)
+            raw_conf = prediction.get('confidence', 0)
+            confidence = raw_conf * 100 if raw_conf <= 1 else raw_conf
+            
+            # Handle odds: could be 'odds', 'odds_suggested', or 'suggested_odds' dict
+            odds = prediction.get('odds', None)
+            if odds is None:
+                odds = prediction.get('odds_suggested', None)
+            if odds is None:
+                suggested = prediction.get('suggested_odds', {})
+                if isinstance(suggested, dict):
+                    # Pick the odds for the predicted outcome
+                    pred_lower = pred_type.lower()
+                    if 'away' in pred_lower:
+                        odds = suggested.get('away', 1.50)
+                    elif 'home' in pred_lower:
+                        odds = suggested.get('home', 1.50)
+                    else:
+                        odds = suggested.get('draw', 1.50)
+                else:
+                    odds = 1.50
+            
+            # Handle edge: could be 'edge' or 'edge_pct'
+            edge = prediction.get('edge', prediction.get('edge_pct', 0))
+            edge = abs(edge) if edge < 0 else edge  # Show positive
+            
+            reasoning = prediction.get('reasoning', prediction.get('ai_reasoning', []))
             
             message += f"⚽ <b>{home_team} vs {away_team}</b>\n"
             message += f"🕐 {match_time} GMT+2 | {league}\n\n"
@@ -526,7 +549,22 @@ class KickLabTelegramBot:
             home_team = pick.get('home_team', 'Home')
             away_team = pick.get('away_team', 'Away')
             pred_type = pick.get('prediction', 'Home Win')
-            odds = pick.get('odds', 1.50)
+            # Same odds extraction logic
+            odds = pick.get('odds', None)
+            if odds is None:
+                odds = pick.get('odds_suggested', None)
+            if odds is None:
+                suggested = pick.get('suggested_odds', {})
+                if isinstance(suggested, dict):
+                    pred_lower = pred_type.lower()
+                    if 'away' in pred_lower:
+                        odds = suggested.get('away', 1.50)
+                    elif 'home' in pred_lower:
+                        odds = suggested.get('home', 1.50)
+                    else:
+                        odds = suggested.get('draw', 1.50)
+                else:
+                    odds = 1.50
             combined_odds *= odds
             
             emoji = ['1️⃣', '2️⃣', '3️⃣', '4️⃣'][i-1] if i <= 4 else f"{i}️⃣"
