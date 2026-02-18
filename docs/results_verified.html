@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BetEdge AI - Επαληθευμένα Αποτελέσματα | Verified Results</title>
-    <meta name="description" content="Full transparency: Every BetEdge AI prediction timestamped and verified. 94% win rate, €1,278 profit in February 2026.">
+    <title>Kick Lab AI - Επαληθευμένα Αποτελέσματα | Verified Results</title>
+    <meta name="description" content="Full transparency: Every Kick Lab AI prediction timestamped and verified. 94% win rate, €1,278 profit in February 2026.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -670,7 +670,7 @@
     <!-- HEADER -->
     <header>
         <div class="header-content">
-            <div class="logo">⚡ BetEdge AI</div>
+            <div class="logo">⚡ Kick Lab AI</div>
             <a href="../index.html" class="back-link">← Πίσω στο Dashboard</a>
         </div>
     </header>
@@ -840,10 +840,10 @@
 
     <!-- COMPARISON SECTION -->
     <section class="comparison-section">
-        <h2 class="section-title">📈 BetEdge vs Flat Betting vs Random</h2>
+        <h2 class="section-title">📈 KickLab vs Flat Betting vs Random</h2>
         <div class="glass-card">
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">
-                Σύγκριση της απόδοσης του BetEdge AI με flat betting €100/match και τυχαία επιλογή στοιχημάτων
+                Σύγκριση της απόδοσης του Kick Lab AI με flat betting €100/match και τυχαία επιλογή στοιχημάτων
             </p>
             <div class="chart-container" style="height: 400px;">
                 <canvas id="comparisonChart"></canvas>
@@ -853,7 +853,7 @@
 
     <!-- SOCIAL PROOF -->
     <section class="social-section">
-        <h2>2,000+ μέλη εμπιστεύονται το BetEdge AI</h2>
+        <h2>2,000+ μέλη εμπιστεύονται το Kick Lab AI</h2>
         <div class="social-stats">
             <div>
                 <div class="social-stat-value" data-target="2000">0</div>
@@ -875,12 +875,12 @@
     <footer>
         <div class="footer-links">
             <a href="../index.html">Dashboard</a>
-            <a href="https://t.me/betedgeai" target="_blank">Telegram</a>
+            <a href="https://t.me/kicklabai" target="_blank">Telegram</a>
             <a href="results_verified.html">Results</a>
             <a href="#pricing">Pricing</a>
         </div>
         <div class="disclaimer">
-            BetEdge AI provides sports betting predictions based on machine learning models. Past performance does not guarantee future results. 
+            Kick Lab AI provides sports betting predictions based on machine learning models. Past performance does not guarantee future results. 
             Betting involves risk and should be done responsibly.
         </div>
         <div class="responsible-gambling">
@@ -1288,11 +1288,11 @@
             const matches = predictions.length;
             const labels = Array.from({ length: matches }, (_, i) => `Match ${i + 1}`);
             
-            // BetEdge cumulative
-            let betedgeCumulative = 0;
-            const betedgeData = predictions.map(p => {
-                betedgeCumulative += p.profit;
-                return betedgeCumulative;
+            // KickLab cumulative
+            let kicklabCumulative = 0;
+            const kicklabData = predictions.map(p => {
+                kicklabCumulative += p.profit;
+                return kicklabCumulative;
             });
             
             // Flat betting: €100/match on avg odds 1.86, ~50% win rate
@@ -1315,8 +1315,8 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: 'BetEdge AI',
-                            data: betedgeData,
+                            label: 'Kick Lab AI',
+                            data: kicklabData,
                             borderColor: '#10b981',
                             backgroundColor: 'rgba(16, 185, 129, 0.1)',
                             borderWidth: 3,
