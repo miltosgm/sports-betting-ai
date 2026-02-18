@@ -4,7 +4,7 @@ Fetches live PL scores every 2 minutes and writes to data/live_scores.json
 Dashboard reads this static file — no CORS issues.
 """
 import json, requests, os, subprocess
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +38,6 @@ def fetch():
         minute = m.get('minute')
         if minute is None and m['status'] == 'IN_PLAY':
             try:
-                from datetime import timezone
                 kickoff = datetime.fromisoformat(m['utcDate'].replace('Z', '+00:00'))
                 now_utc = datetime.now(timezone.utc)
                 elapsed = int((now_utc - kickoff).total_seconds() / 60)
