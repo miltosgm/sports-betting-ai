@@ -2140,6 +2140,568 @@
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+
+        /* ========== LIVE ODDS WIDGET ========== */
+        .live-odds-widget {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .live-odds-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(147, 51, 234, 0.2));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .live-odds-title {
+            font-weight: 800;
+            color: white;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .live-odds-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        .odds-refresh-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--blue);
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .odds-refresh-btn:hover {
+            background: rgba(37, 99, 235, 0.2);
+        }
+
+        .live-odds-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+
+        .live-odds-table thead tr {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .live-odds-table th {
+            padding: 0.6rem 1rem;
+            text-align: center;
+            color: var(--gray-500);
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .live-odds-table th:first-child {
+            text-align: left;
+        }
+
+        .live-odds-table td {
+            padding: 0.55rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .live-odds-table td:first-child {
+            text-align: left;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.82rem;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .live-odds-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .live-odds-table tr:hover td {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .odds-home { color: #60a5fa; }
+        .odds-draw { color: var(--gray-300); }
+        .odds-away { color: #c084fc; }
+
+        /* ========== BANKROLL TRACKER ========== */
+        .bankroll-tracker-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bankroll-tracker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .bankroll-tracker-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .bankroll-amounts {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bankroll-amount-item {
+            flex: 1;
+        }
+
+        .bankroll-amount-label {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .bankroll-amount-value {
+            font-size: 1.4rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .bankroll-amount-value.positive { color: var(--green); }
+        .bankroll-amount-value.negative { color: var(--red); }
+        .bankroll-amount-value.neutral { color: white; }
+
+        .bankroll-chart-container {
+            height: 120px;
+            margin-bottom: 1.2rem;
+        }
+
+        .bankroll-mini-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .bankroll-mini-stat {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        .bms-label {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .bms-value {
+            font-size: 1rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            color: white;
+        }
+
+        .bms-value.positive { color: var(--green); }
+        .bms-value.negative { color: var(--red); }
+
+        /* ========== STREAKS & STATS PANEL ========== */
+        .streaks-panel {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .streaks-panel { grid-template-columns: repeat(2, 1fr); }
+            .bankroll-mini-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .streak-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .streak-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .streak-info {}
+
+        .streak-label {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .streak-value {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .streak-sub {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            margin-top: 0.15rem;
+        }
+
+        /* ========== H2H BADGES ========== */
+        .h2h-section {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .h2h-label {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .h2h-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+        }
+
+        .h2h-badge {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .h2h-win { background: rgba(16, 185, 129, 0.3); border: 1px solid rgba(16, 185, 129, 0.5); color: var(--green); }
+        .h2h-draw { background: rgba(156, 163, 175, 0.2); border: 1px solid rgba(156, 163, 175, 0.3); color: var(--gray-300); }
+        .h2h-loss { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.3); color: var(--red); }
+
+        .h2h-summary {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* ========== LEAGUE TABLE WIDGET ========== */
+        .league-table-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .league-table-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(37, 99, 235, 0.15));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .league-table-title {
+            font-weight: 800;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .league-table-scroll {
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .league-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.83rem;
+        }
+
+        .league-table thead tr {
+            background: rgba(255, 255, 255, 0.03);
+            position: sticky;
+            top: 0;
+        }
+
+        .league-table th {
+            padding: 0.6rem 0.8rem;
+            text-align: center;
+            color: var(--gray-500);
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .league-table th:nth-child(2) { text-align: left; }
+
+        .league-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .league-table td:nth-child(2) {
+            text-align: left;
+            color: white;
+            font-weight: 700;
+        }
+
+        .league-table td:first-child {
+            color: var(--gray-500);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        .league-table td:last-child {
+            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+        }
+
+        .league-table tr.has-pick td {
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .league-table tr.has-pick td:nth-child(2) {
+            color: #60a5fa;
+        }
+
+        .league-table tr:last-child td { border-bottom: none; }
+        .league-table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+
+        .pick-indicator {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #60a5fa;
+            border-radius: 50%;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+        }
+
+        /* ========== INJURY ALERT ========== */
+        .injury-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--red);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .injury-note {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--red);
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.15);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+        }
+
+        /* ========== PUSH NOTIFICATION BUTTON ========== */
+        .notif-enable-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--gray-300);
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .notif-enable-btn:hover {
+            background: rgba(37, 99, 235, 0.2);
+            border-color: rgba(37, 99, 235, 0.4);
+            color: white;
+        }
+
+        .notif-enable-btn.granted {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: var(--green);
+            cursor: default;
+        }
+
+        /* ========== MULTI-LEAGUE TAB ========== */
+        .league-section {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .league-section-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .league-section-flag {
+            font-size: 1.4rem;
+        }
+
+        .league-section-name {
+            font-size: 1rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .league-section-badge {
+            background: rgba(255, 193, 7, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.4);
+            color: #fbbf24;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-left: auto;
+        }
+
+        .league-pick-row {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 0.8fr 0.8fr 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .league-pick-row:last-child { border-bottom: none; }
+
+        .league-pick-row:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .lpr-match {
+            font-weight: 700;
+            color: white;
+            font-size: 0.88rem;
+        }
+
+        .lpr-pred {
+            font-size: 0.82rem;
+            color: var(--gray-300);
+        }
+
+        .lpr-conf {
+            text-align: center;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .lpr-odds {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .lpr-edge {
+            text-align: right;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: var(--green);
+        }
+
+        .lpr-table-head {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 0.8fr 0.8fr 1fr;
+            gap: 1rem;
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lpr-table-head span:nth-child(3),
+        .lpr-table-head span:nth-child(4) { text-align: center; }
+        .lpr-table-head span:last-child { text-align: right; }
+
+        @media (max-width: 768px) {
+            .live-odds-table th, .live-odds-table td { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
+            .league-pick-row { grid-template-columns: 1fr 1fr; }
+            .lpr-table-head { display: none; }
+            .bankroll-amounts { flex-direction: column; gap: 1rem; }
+            .streaks-panel { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -2199,6 +2761,9 @@
                     ⚽ Σημερινά Picks
                     <span class="nav-badge">7</span>
                 </button>
+                <button class="nav-item" onclick="switchTab('leagues')">
+                    🌍 Leagues
+                </button>
                 <button class="nav-item" onclick="switchTab('acca')">
                     🎰 AI Acca
                 </button>
@@ -2250,6 +2815,10 @@
                             <span class="notification-badge" id="notificationBadge">3</span>
                         </div>
                         
+                        <button class="notif-enable-btn" id="pushNotifBtn" onclick="enablePushNotifications()">
+                            🔔 Notifications
+                        </button>
+
                         <div class="think-toggle" id="thinkToggle" onclick="toggleThinkMode()">
                             <span class="think-label">🧠 Think</span>
                             <div class="toggle-switch">
@@ -2305,6 +2874,142 @@
                         <div class="stat-number" data-target="47">0</div>
                         <div class="stat-label">Total Picks</div>
                         <div class="stat-change neutral">Dec 2025 - Feb 2026</div>
+                    </div>
+                </div>
+
+                <!-- STREAKS & STATS PANEL -->
+                <div class="streaks-panel">
+                    <div class="streak-card">
+                        <div class="streak-icon">🔥</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Current Win Streak</div>
+                            <div class="streak-value">0</div>
+                            <div class="streak-sub">Feb 7 losses broke streak</div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">🏆</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Best Streak</div>
+                            <div class="streak-value">8 wins</div>
+                            <div class="streak-sub">Dec 2025</div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">📅</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Best Month</div>
+                            <div class="streak-value">Jan 2026</div>
+                            <div class="streak-sub">14W-3L</div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">💰</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Avg Odds</div>
+                            <div class="streak-value">1.86</div>
+                            <div class="streak-sub">All settled bets</div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">📊</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Total Bets</div>
+                            <div class="streak-value">50</div>
+                            <div class="streak-sub">37W-13L settled</div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon">✅</div>
+                        <div class="streak-info">
+                            <div class="streak-label">Win Rate</div>
+                            <div class="streak-value">74%</div>
+                            <div class="streak-sub">37W-13L (incl. Feb 7)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAPER TRADING BANKROLL TRACKER -->
+                <div class="bankroll-tracker-card">
+                    <div class="bankroll-tracker-header">
+                        <div class="bankroll-tracker-title">💳 Paper Trading Bankroll Tracker</div>
+                        <span style="font-size:0.78rem;color:var(--gray-500);">MW26 · 8 bets pending @ €100</span>
+                    </div>
+                    <div class="bankroll-amounts">
+                        <div class="bankroll-amount-item">
+                            <div class="bankroll-amount-label">Starting Bankroll</div>
+                            <div class="bankroll-amount-value neutral">€10,000</div>
+                        </div>
+                        <div class="bankroll-amount-item">
+                            <div class="bankroll-amount-label">Current Bankroll</div>
+                            <div class="bankroll-amount-value negative">€9,550</div>
+                        </div>
+                        <div class="bankroll-amount-item">
+                            <div class="bankroll-amount-label">Total P/L</div>
+                            <div class="bankroll-amount-value negative">-€450</div>
+                        </div>
+                    </div>
+                    <div class="bankroll-chart-container">
+                        <canvas id="bankrollTrackerChart"></canvas>
+                    </div>
+                    <div class="bankroll-mini-stats">
+                        <div class="bankroll-mini-stat">
+                            <div class="bms-label">Bets Placed</div>
+                            <div class="bms-value">3</div>
+                        </div>
+                        <div class="bankroll-mini-stat">
+                            <div class="bms-label">Win Rate</div>
+                            <div class="bms-value negative">0%</div>
+                        </div>
+                        <div class="bankroll-mini-stat">
+                            <div class="bms-label">Total P/L</div>
+                            <div class="bms-value negative">-€450</div>
+                        </div>
+                        <div class="bankroll-mini-stat">
+                            <div class="bms-label">ROI %</div>
+                            <div class="bms-value negative">-4.5%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LEAGUE TABLE WIDGET -->
+                <div class="league-table-card">
+                    <div class="league-table-header">
+                        <div class="league-table-title">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League Standings · Feb 2026</div>
+                        <span style="font-size:0.75rem;color:var(--gray-500);">🔵 = Has pick this week</span>
+                    </div>
+                    <div class="league-table-scroll">
+                        <table class="league-table">
+                            <thead>
+                                <tr>
+                                    <th>Pos</th>
+                                    <th>Team</th>
+                                    <th>Pts</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="has-pick"><td>1</td><td>Arsenal <span class="pick-indicator"></span></td><td>54</td></tr>
+                                <tr><td>2</td><td>Man City <span class="pick-indicator"></span></td><td>50</td></tr>
+                                <tr class="has-pick"><td>3</td><td>Liverpool <span class="pick-indicator"></span></td><td>49</td></tr>
+                                <tr class="has-pick"><td>4</td><td>Chelsea</td><td>44</td></tr>
+                                <tr class="has-pick"><td>5</td><td>Nottm Forest <span class="pick-indicator"></span></td><td>42</td></tr>
+                                <tr class="has-pick"><td>6</td><td>Aston Villa</td><td>40</td></tr>
+                                <tr class="has-pick"><td>7</td><td>Brentford <span class="pick-indicator"></span></td><td>38</td></tr>
+                                <tr><td>8</td><td>Tottenham <span class="pick-indicator"></span></td><td>36</td></tr>
+                                <tr><td>9</td><td>Newcastle</td><td>35</td></tr>
+                                <tr><td>10</td><td>Fulham <span class="pick-indicator"></span></td><td>34</td></tr>
+                                <tr><td>11</td><td>Brighton</td><td>32</td></tr>
+                                <tr class="has-pick"><td>12</td><td>Crystal Palace <span class="pick-indicator"></span></td><td>30</td></tr>
+                                <tr class="has-pick"><td>13</td><td>West Ham <span class="pick-indicator"></span></td><td>28</td></tr>
+                                <tr><td>14</td><td>Bournemouth</td><td>27</td></tr>
+                                <tr><td>15</td><td>Leeds</td><td>25</td></tr>
+                                <tr class="has-pick"><td>16</td><td>Man Utd <span class="pick-indicator"></span></td><td>23</td></tr>
+                                <tr class="has-pick"><td>17</td><td>Sunderland <span class="pick-indicator"></span></td><td>21</td></tr>
+                                <tr class="has-pick"><td>18</td><td>Everton <span class="pick-indicator"></span></td><td>20</td></tr>
+                                <tr><td>19</td><td>Burnley</td><td>12</td></tr>
+                                <tr class="has-pick"><td>20</td><td>Wolves</td><td>10</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -2537,6 +3242,33 @@
 
             <!-- PICKS TAB -->
             <div id="picks" class="content">
+
+                <!-- LIVE ODDS WIDGET -->
+                <div class="live-odds-widget">
+                    <div class="live-odds-header">
+                        <div class="live-odds-title">
+                            <span class="live-indicator"><span class="live-dot"></span>LIVE</span>
+                            bet365 Odds — MW26
+                        </div>
+                        <div class="live-odds-meta">
+                            <span>Last updated: <span id="oddsTimestamp">--:--</span></span>
+                            <button class="odds-refresh-btn" onclick="refreshOdds()">⟳ Refresh</button>
+                        </div>
+                    </div>
+                    <table class="live-odds-table">
+                        <thead>
+                            <tr>
+                                <th>Match</th>
+                                <th class="odds-home">Home</th>
+                                <th class="odds-draw">Draw</th>
+                                <th class="odds-away">Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liveOddsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="picks-section">
                     <div class="picks-header">
                         <div class="picks-title">📅 Επερχόμενα Picks - Feb 18-23, 2026</div>
@@ -2812,6 +3544,116 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            <!-- LEAGUES TAB -->
+            <div id="leagues" class="content">
+                <div style="padding:0.5rem 0 1rem; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                    <h2 style="font-size:1.4rem;font-weight:900;color:white;">🌍 Multi-League Picks</h2>
+                    <span style="background:rgba(251,191,36,0.2);border:1px solid rgba(251,191,36,0.4);color:#fbbf24;padding:0.25rem 0.8rem;border-radius:20px;font-size:0.72rem;font-weight:700;">🚧 BETA — Coming Soon</span>
+                </div>
+
+                <!-- LA LIGA -->
+                <div class="league-section">
+                    <div class="league-section-header" style="background:linear-gradient(135deg,rgba(196,20,42,0.2),rgba(196,20,42,0.05));">
+                        <div class="league-section-flag">🇪🇸</div>
+                        <div class="league-section-name">La Liga</div>
+                        <div class="league-section-badge">Coming Soon — Beta</div>
+                    </div>
+                    <div class="lpr-table-head">
+                        <span>Match</span>
+                        <span>Prediction</span>
+                        <span>Confidence</span>
+                        <span>Odds</span>
+                        <span style="text-align:right;">Edge</span>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Real Madrid vs Atlético Madrid</div>
+                        <div class="lpr-pred">Home Win</div>
+                        <div class="lpr-conf" style="color:#10b981;">71%</div>
+                        <div class="lpr-odds">2.10</div>
+                        <div class="lpr-edge">+8.3%</div>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Barcelona vs Sevilla</div>
+                        <div class="lpr-pred">Home Win</div>
+                        <div class="lpr-conf" style="color:#10b981;">78%</div>
+                        <div class="lpr-odds">1.65</div>
+                        <div class="lpr-edge">+5.1%</div>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Villarreal vs Valencia</div>
+                        <div class="lpr-pred">Draw</div>
+                        <div class="lpr-conf" style="color:#fbbf24;">44%</div>
+                        <div class="lpr-odds">3.20</div>
+                        <div class="lpr-edge">+7.8%</div>
+                    </div>
+                </div>
+
+                <!-- BUNDESLIGA -->
+                <div class="league-section">
+                    <div class="league-section-header" style="background:linear-gradient(135deg,rgba(255,0,0,0.15),rgba(255,0,0,0.05));">
+                        <div class="league-section-flag">🇩🇪</div>
+                        <div class="league-section-name">Bundesliga</div>
+                        <div class="league-section-badge">Coming Soon — Beta</div>
+                    </div>
+                    <div class="lpr-table-head">
+                        <span>Match</span>
+                        <span>Prediction</span>
+                        <span>Confidence</span>
+                        <span>Odds</span>
+                        <span style="text-align:right;">Edge</span>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Bayern Munich vs Dortmund</div>
+                        <div class="lpr-pred">Home Win</div>
+                        <div class="lpr-conf" style="color:#10b981;">74%</div>
+                        <div class="lpr-odds">1.80</div>
+                        <div class="lpr-edge">+6.2%</div>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Leverkusen vs Stuttgart</div>
+                        <div class="lpr-pred">Home Win</div>
+                        <div class="lpr-conf" style="color:#10b981;">68%</div>
+                        <div class="lpr-odds">1.95</div>
+                        <div class="lpr-edge">+4.5%</div>
+                    </div>
+                </div>
+
+                <!-- SERIE A -->
+                <div class="league-section">
+                    <div class="league-section-header" style="background:linear-gradient(135deg,rgba(37,99,235,0.2),rgba(37,99,235,0.05));">
+                        <div class="league-section-flag">🇮🇹</div>
+                        <div class="league-section-name">Serie A</div>
+                        <div class="league-section-badge">Coming Soon — Beta</div>
+                    </div>
+                    <div class="lpr-table-head">
+                        <span>Match</span>
+                        <span>Prediction</span>
+                        <span>Confidence</span>
+                        <span>Odds</span>
+                        <span style="text-align:right;">Edge</span>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Inter Milan vs Juventus</div>
+                        <div class="lpr-pred">Home Win</div>
+                        <div class="lpr-conf" style="color:#10b981;">66%</div>
+                        <div class="lpr-odds">2.05</div>
+                        <div class="lpr-edge">+3.8%</div>
+                    </div>
+                    <div class="league-pick-row">
+                        <div class="lpr-match">Napoli vs AC Milan</div>
+                        <div class="lpr-pred">Away Win</div>
+                        <div class="lpr-conf" style="color:#fbbf24;">55%</div>
+                        <div class="lpr-odds">2.40</div>
+                        <div class="lpr-edge">+2.1%</div>
+                    </div>
+                </div>
+
+                <div style="text-align:center;padding:2rem;color:var(--gray-500);font-size:0.88rem;">
+                    <p>🚀 Full multi-league picks coming soon. AI models are being trained on La Liga, Bundesliga &amp; Serie A data.</p>
+                    <p style="margin-top:0.5rem;">Expected launch: <strong style="color:var(--blue);">March 2026</strong></p>
                 </div>
             </div>
 
@@ -4718,6 +5560,10 @@
             <span>⚽</span>
             Picks
         </button>
+        <button class="mobile-nav-item" onclick="switchTab('leagues')">
+            <span>🌍</span>
+            Leagues
+        </button>
         <button class="mobile-nav-item" onclick="switchTab('acca')">
             <span>🎰</span>
             Acca
@@ -4938,6 +5784,7 @@
             const titles = {
                 dashboard: 'Dashboard',
                 picks: 'Σημερινά Picks',
+                leagues: '🌍 Leagues',
                 acca: 'AI Acca',
                 history: 'Ιστορία',
                 analytics: 'Analytics',
@@ -4950,6 +5797,12 @@
             
             if (tabName === 'analytics') {
                 setTimeout(initCharts, 100);
+            }
+            if (tabName === 'dashboard') {
+                setTimeout(initBankrollTrackerChart, 100);
+            }
+            if (tabName === 'picks') {
+                setTimeout(injectPickEnhancements, 100);
             }
         }
         
@@ -5444,6 +6297,230 @@
 
         // Run on page load
         loadRealPicks();
+
+        // ========== LIVE ODDS WIDGET ==========
+        const LIVE_ODDS_DATA = [
+            { match: 'Wolves vs Arsenal',      home: 10.00, draw: 5.75, away: 1.27 },
+            { match: 'Aston Villa vs Leeds',   home: 1.83,  draw: 3.60, away: 4.50 },
+            { match: 'Brentford vs Brighton',  home: 2.00,  draw: 3.60, away: 3.60 },
+            { match: 'Chelsea vs Burnley',     home: 1.22,  draw: 6.50, away: 12.00 },
+            { match: 'West Ham vs Bournemouth',home: 2.35,  draw: 3.70, away: 2.88 },
+            { match: 'Man City vs Newcastle',  home: 1.42,  draw: 5.25, away: 6.25 },
+            { match: 'Crystal Palace vs Wolves',home:1.57,  draw: 4.20, away: 5.75 },
+            { match: 'Nottm Forest vs Liverpool',home:4.10, draw: 4.00, away: 1.80 },
+            { match: 'Sunderland vs Fulham',   home: 2.70,  draw: 3.25, away: 2.70 },
+            { match: 'Tottenham vs Arsenal',   home: 6.00,  draw: 4.00, away: 1.57 },
+            { match: 'Everton vs Man Utd',     home: 3.60,  draw: 3.75, away: 1.95 }
+        ];
+
+        function renderLiveOddsTable() {
+            const tbody = document.getElementById('liveOddsTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = LIVE_ODDS_DATA.map(o => `
+                <tr>
+                    <td>${o.match}</td>
+                    <td class="odds-home">${o.home.toFixed(2)}</td>
+                    <td class="odds-draw">${o.draw.toFixed(2)}</td>
+                    <td class="odds-away">${o.away.toFixed(2)}</td>
+                </tr>
+            `).join('');
+            const ts = document.getElementById('oddsTimestamp');
+            if (ts) {
+                const now = new Date();
+                ts.textContent = now.toLocaleTimeString('el-GR', { hour: '2-digit', minute: '2-digit' });
+            }
+        }
+
+        function refreshOdds() {
+            renderLiveOddsTable();
+            showToast('success', 'Odds Updated', 'Live odds refreshed from bet365');
+        }
+
+        // Auto-refresh every 60 minutes
+        renderLiveOddsTable();
+        setInterval(renderLiveOddsTable, 60 * 60 * 1000);
+
+        // ========== BANKROLL TRACKER CHART ==========
+        function initBankrollTrackerChart() {
+            const ctx = document.getElementById('bankrollTrackerChart');
+            if (!ctx) return;
+            if (ctx._chartInstance) { ctx._chartInstance.destroy(); }
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Start', 'Feb 7 (L1)', 'Feb 7 (L2)', 'Feb 7 (L3)', 'MW26 Pending'],
+                    datasets: [{
+                        label: 'Bankroll (€)',
+                        data: [10000, 9850, 9700, 9550, 9550],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239,68,68,0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ef4444'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af', font: { size: 10 } } },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.05)' },
+                            ticks: { color: '#9ca3af', font: { size: 10 }, callback: v => '€'+v.toLocaleString() },
+                            min: 9400,
+                            max: 10100
+                        }
+                    }
+                }
+            });
+            ctx._chartInstance = chart;
+        }
+
+        // Initialize once the dashboard is visible
+        initBankrollTrackerChart();
+
+        // ========== H2H DATA & INJURY INJECTION ==========
+        const H2H_DATA = {
+            'Wolves vs Arsenal':        { results: ['L','L','D','L','W'], summary: 'Arsenal 3W-1D-1L' },
+            'Aston Villa vs Leeds':     { results: ['W','D','L','W','D'], summary: 'Villa 2W-2D-1L' },
+            'Brentford vs Brighton':    { results: ['L','D','W','W','D'], summary: 'Brentford 2W-2D-1L' },
+            'Chelsea vs Burnley':       { results: ['W','W','W','D','W'], summary: 'Chelsea 4W-1D-0L' },
+            'West Ham vs Bournemouth':  { results: ['D','L','W','D','L'], summary: 'Bournemouth 2W-2D-1L' },
+            'Man City vs Newcastle':    { results: ['W','W','D','W','L'], summary: 'City 3W-1D-1L' },
+            'Crystal Palace vs Wolves': { results: ['W','L','D','W','W'], summary: 'Palace 3W-1D-1L' },
+            "Nott'm Forest vs Liverpool": { results: ['L','D','L','L','W'], summary: 'Liverpool 3W-1D-1L' },
+            'Nottm Forest vs Liverpool':{ results: ['L','D','L','L','W'], summary: 'Liverpool 3W-1D-1L' },
+            'Sunderland vs Fulham':     { results: ['W','W','D','L','W'], summary: 'Sunderland 3W-1D-1L' },
+            'Tottenham vs Arsenal':     { results: ['L','D','L','W','L'], summary: 'Arsenal 3W-1D-1L' },
+            'Everton vs Man United':    { results: ['L','D','W','L','D'], summary: 'Man Utd 2W-2D-1L' },
+            'Everton vs Man Utd':       { results: ['L','D','W','L','D'], summary: 'Man Utd 2W-2D-1L' }
+        };
+
+        const INJURY_DATA = {
+            'Wolves vs Arsenal':        'Wolves: Hwang Hee-chan (striker) OUT',
+            'Man City vs Newcastle':    'Man City: Rodri OUT (long-term), De Bruyne (fitness doubt)',
+            'Tottenham vs Arsenal':     'Spurs: Richarlison OUT, Maddison (doubt)'
+        };
+
+        function buildH2HHtml(matchName) {
+            const h2h = H2H_DATA[matchName];
+            if (!h2h) return '';
+            const badges = h2h.results.map(r => {
+                if (r === 'W') return '<span class="h2h-badge h2h-win">W</span>';
+                if (r === 'D') return '<span class="h2h-badge h2h-draw">D</span>';
+                return '<span class="h2h-badge h2h-loss">L</span>';
+            }).join('');
+            return `
+                <div class="h2h-section">
+                    <div class="h2h-label">H2H (last 5)</div>
+                    <div class="h2h-badges">
+                        ${badges}
+                        <span class="h2h-summary">${h2h.summary}</span>
+                    </div>
+                </div>`;
+        }
+
+        function buildInjuryHtml(matchName) {
+            const inj = INJURY_DATA[matchName];
+            if (!inj) return '';
+            return `<div class="injury-note">🚑 ${inj}</div>`;
+        }
+
+        function injectPickEnhancements() {
+            const picksTab = document.getElementById('picks');
+            if (!picksTab) return;
+            const pickRows = picksTab.querySelectorAll('.pick-row');
+            pickRows.forEach(row => {
+                const matchNameEl = row.querySelector('.match-name');
+                if (!matchNameEl) return;
+                const matchName = matchNameEl.textContent.trim();
+
+                // Inject injury badge on match name
+                if (INJURY_DATA[matchName] && !row.querySelector('.injury-badge')) {
+                    matchNameEl.innerHTML = matchNameEl.textContent + ' <span class="injury-badge">🚑 Injury</span>';
+                }
+
+                // Inject H2H after value-meter
+                if (!row.querySelector('.h2h-section')) {
+                    const vm = row.querySelector('.value-meter');
+                    if (vm) {
+                        const h2hHtml = buildH2HHtml(matchName);
+                        const injHtml = buildInjuryHtml(matchName);
+                        if (h2hHtml || injHtml) {
+                            vm.insertAdjacentHTML('afterend', h2hHtml + injHtml);
+                        }
+                    }
+                }
+            });
+        }
+
+        // Run after a tiny delay to allow DOM to settle
+        setTimeout(injectPickEnhancements, 300);
+
+        // ========== PUSH NOTIFICATIONS ==========
+        function enablePushNotifications() {
+            const btn = document.getElementById('pushNotifBtn');
+            if (!btn) return;
+
+            const saved = localStorage.getItem('kicklab_notif_permission');
+            if (saved === 'granted') {
+                showToast('info', 'Already Enabled', 'Push notifications are already active');
+                return;
+            }
+
+            if (!('Notification' in window)) {
+                showToast('error', 'Not Supported', 'Your browser does not support notifications');
+                return;
+            }
+
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    localStorage.setItem('kicklab_notif_permission', 'granted');
+                    btn.textContent = '✅ Notifications ON';
+                    btn.classList.add('granted');
+                    showToast('success', 'Notifications Enabled!', 'You will be notified at 9AM with today\'s picks');
+
+                    // Schedule a notification for 9AM next day
+                    scheduleNextDayNotification();
+                } else {
+                    showToast('warning', 'Permission Denied', 'Please allow notifications in browser settings');
+                }
+            });
+        }
+
+        function scheduleNextDayNotification() {
+            const now = new Date();
+            const tomorrow9AM = new Date(now);
+            tomorrow9AM.setDate(tomorrow9AM.getDate() + 1);
+            tomorrow9AM.setHours(9, 0, 0, 0);
+            const msUntil9AM = tomorrow9AM - now;
+            setTimeout(() => {
+                if (Notification.permission === 'granted') {
+                    new Notification('⚡ Kick Lab AI', {
+                        body: "Today's picks are ready! Check your dashboard.",
+                        icon: 'https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/26a1.png'
+                    });
+                }
+                // Schedule again for next day
+                scheduleNextDayNotification();
+            }, msUntil9AM);
+        }
+
+        // Check saved permission on load
+        (function checkNotifPermission() {
+            const saved = localStorage.getItem('kicklab_notif_permission');
+            const btn = document.getElementById('pushNotifBtn');
+            if (saved === 'granted' && btn) {
+                btn.textContent = '✅ Notifications ON';
+                btn.classList.add('granted');
+                if (Notification.permission === 'granted') {
+                    scheduleNextDayNotification();
+                }
+            }
+        })();
     </script>
 </body>
 </html>
