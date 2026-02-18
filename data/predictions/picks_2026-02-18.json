@@ -11,7 +11,7 @@
     "away_prob": 69.0,
     "odds": 1.27,
     "edge": -9.7,
-    "time": "20:00",
+    "time": "22:00",
     "date": "Wed 18 Feb"
   },
   {
@@ -26,7 +26,7 @@
     "away_prob": 31.0,
     "odds": 3.6,
     "edge": 11.0,
-    "time": "15:00",
+    "time": "17:00",
     "date": "Sat 21 Feb"
   },
   {
@@ -41,7 +41,7 @@
     "away_prob": 15.0,
     "odds": 2.0,
     "edge": 19.9,
-    "time": "15:00",
+    "time": "17:00",
     "date": "Sat 21 Feb"
   },
   {
@@ -56,7 +56,7 @@
     "away_prob": 7.2,
     "odds": 1.22,
     "edge": -2.4,
-    "time": "15:00",
+    "time": "17:00",
     "date": "Sat 21 Feb"
   },
   {
@@ -71,7 +71,7 @@
     "away_prob": 41.9,
     "odds": 2.88,
     "edge": 7.2,
-    "time": "17:30",
+    "time": "19:30",
     "date": "Sat 21 Feb"
   },
   {
@@ -86,7 +86,7 @@
     "away_prob": 10.6,
     "odds": 1.42,
     "edge": 6.3,
-    "time": "20:00",
+    "time": "22:00",
     "date": "Sat 21 Feb"
   },
   {
@@ -101,7 +101,7 @@
     "away_prob": 18.5,
     "odds": 2.7,
     "edge": 29.1,
-    "time": "14:00",
+    "time": "16:00",
     "date": "Sun 22 Feb"
   },
   {
@@ -116,7 +116,7 @@
     "away_prob": 11.6,
     "odds": 1.57,
     "edge": 8.9,
-    "time": "14:00",
+    "time": "16:00",
     "date": "Sun 22 Feb"
   },
   {
@@ -131,7 +131,7 @@
     "away_prob": 57.5,
     "odds": 1.8,
     "edge": 2.0,
-    "time": "14:00",
+    "time": "16:00",
     "date": "Sun 22 Feb"
   },
   {
@@ -146,7 +146,7 @@
     "away_prob": 59.0,
     "odds": 1.57,
     "edge": -4.7,
-    "time": "16:30",
+    "time": "18:30",
     "date": "Sun 22 Feb"
   },
   {
@@ -161,7 +161,7 @@
     "away_prob": 51.9,
     "odds": 1.95,
     "edge": 0.6,
-    "time": "20:00",
+    "time": "22:00",
     "date": "Mon 23 Feb"
   }
 ]
