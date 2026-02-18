@@ -2716,7 +2716,7 @@
                 <input type="password" class="login-input" placeholder="Password" id="loginPassword" value="demo123">
                 
                 <label class="login-remember">
-                    <input type="checkbox" checked>
+                    <input type="checkbox" id="rememberMe" checked>
                     Να με θυμάσαι
                 </label>
                 
@@ -5506,6 +5506,13 @@
             <!-- SETTINGS TAB -->
             <div id="settings" class="content">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">⚙️ Settings</h2>
+                <div style="margin-bottom:2rem; padding:1.2rem 1.5rem; background:rgba(255,255,255,0.05); border-radius:12px; display:flex; align-items:center; justify-content:space-between;">
+                    <div>
+                        <div style="font-weight:600; color:white;">KickLab AI Member</div>
+                        <div style="font-size:0.85rem; color:#9ca3af;" id="sessionEmail">demo@kicklabai.com</div>
+                    </div>
+                    <button onclick="handleLogout()" style="padding:8px 20px; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.4); color:#ef4444; border-radius:8px; cursor:pointer; font-size:0.9rem; font-weight:600;">🚪 Αποσύνδεση</button>
+                </div>
                 
                 <div style="max-width: 600px;">
                     <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: white;">📋 Προφίλ</h2>
@@ -5618,23 +5625,85 @@
         let currentRiskProfile = 'conservative';
         
         // ========== LOGIN ==========
+        const VALID_USERS = [
+            { email: 'demo@kicklabai.com',  password: 'demo123' },
+            { email: 'admin@kicklabai.com', password: 'admin123' },
+        ];
+
+        function doLogin() {
+            document.getElementById('loginScreen').style.animation = 'loginFadeOut 0.5s ease forwards';
+            setTimeout(() => {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainContainer').classList.add('show');
+                showToast('success', 'Καλώς ήρθες!', 'Σύνδεση επιτυχής 🎉');
+                setSessionEmail();
+                initApp();
+            }, 500);
+        }
+
+        function setSessionEmail() {
+            const raw = localStorage.getItem('kl_session') || sessionStorage.getItem('kl_session');
+            if (!raw) return;
+            try {
+                const s = JSON.parse(raw);
+                const el = document.getElementById('sessionEmail');
+                if (el && s.email) el.textContent = s.email;
+            } catch(e) {}
+        }
+
         function handleLogin(e) {
             e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
+            const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
-            
-            if (email === 'demo@kicklabai.com' && password === 'demo123') {
-                document.getElementById('loginScreen').style.animation = 'loginFadeOut 0.5s ease forwards';
-                setTimeout(() => {
-                    document.getElementById('loginScreen').style.display = 'none';
-                    document.getElementById('mainContainer').classList.add('show');
-                    showToast('success', 'Καλώς ήρθες!', 'Σύνδεση επιτυχής 🎉');
-                    initApp();
-                }, 500);
+            const remember = document.getElementById('rememberMe') ? document.getElementById('rememberMe').checked : true;
+
+            const valid = VALID_USERS.find(u => u.email === email && u.password === password);
+            if (valid) {
+                // Persist session
+                const session = { email, loggedInAt: Date.now() };
+                if (remember) {
+                    localStorage.setItem('kl_session', JSON.stringify(session));
+                } else {
+                    sessionStorage.setItem('kl_session', JSON.stringify(session));
+                }
+                doLogin();
             } else {
                 showToast('error', 'Σφάλμα', 'Λάθος email ή password');
             }
         }
+
+        function handleLogout() {
+            localStorage.removeItem('kl_session');
+            sessionStorage.removeItem('kl_session');
+            location.reload();
+        }
+
+        // Auto-login if session exists
+        (function checkSession() {
+            const raw = localStorage.getItem('kl_session') || sessionStorage.getItem('kl_session');
+            if (!raw) return;
+            try {
+                const session = JSON.parse(raw);
+                // Session valid for 30 days
+                if (Date.now() - session.loggedInAt < 30 * 24 * 60 * 60 * 1000) {
+                    // Skip login screen immediately
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const ls = document.getElementById('loginScreen');
+                        const mc = document.getElementById('mainContainer');
+                        if (ls) ls.style.display = 'none';
+                        if (mc) mc.classList.add('show');
+                        setSessionEmail();
+                        initApp();
+                    });
+                } else {
+                    // Expired
+                    localStorage.removeItem('kl_session');
+                    sessionStorage.removeItem('kl_session');
+                }
+            } catch(e) {
+                localStorage.removeItem('kl_session');
+            }
+        })();
         
         const style = document.createElement('style');
         style.textContent = '@keyframes loginFadeOut { to { opacity: 0; transform: scale(0.95); } }';
