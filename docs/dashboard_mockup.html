@@ -6362,6 +6362,8 @@
             });
 
             console.log(`✅ Loaded ${picks.length} real picks from JSON`);
+            // Fetch live scores right after picks render
+            setTimeout(fetchLiveScores, 500);
         }
 
         // Run on page load
@@ -6416,20 +6418,24 @@
                 const todayMatches = data.matches || [];
 
                 todayMatches.forEach(m => {
-                    const home = shortName(m.homeTeam.name);
-                    const away = shortName(m.awayTeam.name);
-                    const hg = m.score.fullTime.home ?? m.score.halfTime.home ?? '-';
-                    const ag = m.score.fullTime.away ?? m.score.halfTime.away ?? '-';
+                    const hg = m.homeGoals !== null && m.homeGoals !== undefined ? m.homeGoals : '-';
+                    const ag = m.awayGoals !== null && m.awayGoals !== undefined ? m.awayGoals : '-';
                     const status = m.status;
                     const minute = m.minute || '';
+
+                    // Flexible name matching — use first meaningful word of each team
+                    const homeWords = (m.homeShort || m.home || '').replace(/ FC| AFC/g,'').split(' ').filter(w => w.length > 3);
+                    const awayWords = (m.awayShort || m.away || '').replace(/ FC| AFC/g,'').split(' ').filter(w => w.length > 3);
 
                     // Find matching pick row by match name text
                     const allRows = document.querySelectorAll('.pick-row');
                     allRows.forEach(row => {
                         const nameEl = row.querySelector('.match-name');
                         if (!nameEl) return;
-                        const text = nameEl.textContent;
-                        if (!text.includes(home) && !text.includes(away)) return;
+                        const text = nameEl.textContent.toLowerCase();
+                        const homeMatch = homeWords.some(w => text.includes(w.toLowerCase()));
+                        const awayMatch = awayWords.some(w => text.includes(w.toLowerCase()));
+                        if (!homeMatch && !awayMatch) return;
 
                         // Remove old live badge if exists
                         const old = row.querySelector('.live-score-badge');
@@ -6494,8 +6500,8 @@
             }
         });
 
-        // Run immediately and every 60 seconds
-        setTimeout(fetchLiveScores, 2000);
+        // Run after picks are loaded (5s delay) and then every 60 seconds
+        setTimeout(fetchLiveScores, 5000);
         setInterval(fetchLiveScores, 60000);
 
         // ========== LIVE ODDS WIDGET ==========
