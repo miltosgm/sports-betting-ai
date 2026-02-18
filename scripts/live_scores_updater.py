@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-OUTPUT = BASE_DIR / 'data' / 'live_scores.json'
+OUTPUT = BASE_DIR / "docs" / "data" / "live_scores.json"
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 
 API_KEY = os.getenv('FOOTBALL_DATA_API_KEY', '187d23f874344449b4544acdee9e0fb7')

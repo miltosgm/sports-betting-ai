@@ -9,6 +9,10 @@ echo "=== $(date) - Running daily picks ==="
 python3 scripts/real_predictions.py
 # Always update latest.json so dashboard always loads fresh data
 cp data/predictions/picks_$(date +%Y-%m-%d).json data/predictions/latest.json 2>/dev/null || true
+# Copy to docs/ so GitHub Pages can serve it
+mkdir -p docs/data/predictions
+cp data/predictions/latest.json docs/data/predictions/latest.json 2>/dev/null || true
+cp data/predictions/picks_$(date +%Y-%m-%d).json docs/data/predictions/ 2>/dev/null || true
 
 python3 - <<'PYEOF'
 import asyncio, os

@@ -6267,8 +6267,8 @@
         async function loadRealPicks() {
             // Try GitHub Pages path first, fall back to relative
             const urls = [
+                './data/predictions/latest.json',
                 'https://miltosgm.github.io/sports-betting-ai/data/predictions/latest.json',
-                '../data/predictions/latest.json',
             ];
 
             let picks = null;
@@ -6411,8 +6411,8 @@
         async function fetchLiveScores() {
             try {
                 const urls = [
+                    './data/live_scores.json',
                     'https://miltosgm.github.io/sports-betting-ai/data/live_scores.json',
-                    '../data/live_scores.json',
                 ];
                 let data = null;
                 for (const url of urls) {
