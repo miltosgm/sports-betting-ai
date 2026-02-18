@@ -1103,6 +1103,10 @@
             color: var(--orange);
         }
         
+        .edge-negative {
+            color: var(--red);
+        }
+        
         .value-bet-badge {
             background: linear-gradient(135deg, var(--orange), var(--red));
             color: white;
@@ -1119,6 +1123,18 @@
         @keyframes valuePulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+        
+        .no-value-badge {
+            background: linear-gradient(135deg, #666, #444);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
         
         .value-bar {
@@ -1146,6 +1162,14 @@
         .value-bar-fill.exceptional {
             background: linear-gradient(90deg, var(--orange), var(--red));
             animation: barGlow 2s ease-in-out infinite;
+        }
+        
+        .value-bar-fill.low {
+            background: linear-gradient(90deg, var(--yellow), var(--green));
+        }
+        
+        .value-bar-fill.negative {
+            background: linear-gradient(90deg, #666, var(--red));
         }
         
         @keyframes barGlow {
@@ -2287,7 +2311,7 @@
                 <div class="picks-section">
                     <div class="picks-header">
                         <div class="picks-title">
-                            🔴 Επερχόμενα Picks - Feb 18-22, 2026
+                            🔴 Επερχόμενα Picks - Feb 18-23, 2026
                             <span class="live-indicator">
                                 <span class="live-dot"></span>
                                 LIVE
@@ -2298,7 +2322,7 @@
                         </div>
                     </div>
                     
-                    <!-- Pick 1 - High Value -->
+                    <!-- Pick 1 - NO Value (Negative Edge) -->
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
@@ -2315,22 +2339,22 @@
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
-                                    <div class="detail-value"><span class="confidence-badge confidence-high">76%</span></div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">69%</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
                                     <div class="detail-value">
-                                        <span class="odds-value" data-base-odds="1.88">1.88</span>
-                                        <span class="odds-change">↗</span>
+                                        <span class="odds-value" data-base-odds="1.27">1.27</span>
+                                        <span class="odds-change">↘</span>
                                     </div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">EV</div>
-                                    <div class="detail-value" style="color: var(--green);">+3.5%</div>
+                                    <div class="detail-value" style="color: var(--red);">-9.7%</div>
                                 </div>
                             </div>
                             <div class="pick-actions">
-                                <div class="action-btn" onclick="copyPick(event, 'Wolves vs Arsenal - Away Win @ 1.88')" title="Copy">📋</div>
+                                <div class="action-btn" onclick="copyPick(event, 'Wolves vs Arsenal - Away Win @ 1.27')" title="Copy">📋</div>
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
@@ -2339,26 +2363,26 @@
                         <div class="value-meter">
                             <div class="value-meter-header">
                                 <div class="value-meter-stats">
-                                    <span>AI: 76%</span>
+                                    <span>AI: 69%</span>
                                     <span>|</span>
-                                    <span>Market: 53%</span>
+                                    <span>Market: 79%</span>
                                     <span>|</span>
-                                    <span class="value-meter-edge edge-positive">EDGE: +23%</span>
+                                    <span class="value-meter-edge edge-negative">EDGE: -9.7%</span>
                                 </div>
-                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                                <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
                             <div class="value-bar">
-                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                                <div class="value-bar-fill negative" style="width: 9.7%;"></div>
                             </div>
                         </div>
                         
                         <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
-                            <div class="reasoning-point">Arsenal away form: 7W-2D-1L (70% win rate away from home)</div>
-                            <div class="reasoning-point">Wolves home struggles: 3W-2D-6L (27% home win rate)</div>
-                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Minimal (London → Wolverhampton 150 miles)</div>
+                            <div class="reasoning-point">Arsenal strong away form: 69% win probability</div>
+                            <div class="reasoning-point">Wolves home struggles: Only 15.8% chance to win at home</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Overvalued by market:</span> Odds too short at 1.27 (Market: 79% vs AI: 69%)</div>
                             <div class="reasoning-point">Arsenal won last 4/5 meetings vs Wolves</div>
-                            <div class="reasoning-point">Wolves missing key striker (injury scraper: 90% ruled out)</div>
+                            <div class="reasoning-point">Negative edge makes this a SKIP despite high confidence</div>
                         </div>
                     </div>
 
@@ -2366,7 +2390,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Liverpool</div>
+                                <div class="match-name">Brentford vs Brighton</div>
                                 <div class="match-time">
                                     <span>Sat 21 Feb • 15:00</span>
                                     <span class="countdown-timer" data-kickoff="2026-02-21T15:00:00">05:10:15</span>
@@ -2375,26 +2399,26 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Over 2.5</div>
+                                    <div class="detail-value">Home Win</div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
-                                    <div class="detail-value"><span class="confidence-badge confidence-high">81%</span></div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">70%</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
                                     <div class="detail-value">
-                                        <span class="odds-value" data-base-odds="1.72">1.72</span>
+                                        <span class="odds-value" data-base-odds="2.00">2.00</span>
                                         <span class="odds-change">↗</span>
                                     </div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">EV</div>
-                                    <div class="detail-value" style="color: var(--green);">+4.2%</div>
+                                    <div class="detail-value" style="color: var(--green);">+19.9%</div>
                                 </div>
                             </div>
                             <div class="pick-actions">
-                                <div class="action-btn" onclick="copyPick(event, 'Forest vs Liverpool - Over 2.5 @ 1.72')" title="Copy">📋</div>
+                                <div class="action-btn" onclick="copyPick(event, 'Brentford vs Brighton - Home Win @ 2.00')" title="Copy">📋</div>
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
@@ -2403,62 +2427,62 @@
                         <div class="value-meter">
                             <div class="value-meter-header">
                                 <div class="value-meter-stats">
-                                    <span>AI: 81%</span>
+                                    <span>AI: 69.9%</span>
                                     <span>|</span>
-                                    <span>Market: 58%</span>
+                                    <span>Market: 50%</span>
                                     <span>|</span>
-                                    <span class="value-meter-edge edge-exceptional">EDGE: +23%</span>
+                                    <span class="value-meter-edge edge-exceptional">EDGE: +19.9%</span>
                                 </div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar">
-                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                                <div class="value-bar-fill exceptional" style="width: 19.9%;"></div>
                             </div>
                         </div>
                         
                         <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
-                            <div class="reasoning-point">Liverpool's attacking form: averaging 2.4 goals/game away</div>
-                            <div class="reasoning-point">Forest conceded 2+ goals in 6/8 home games vs top-6</div>
-                            <div class="reasoning-point"><span class="edge-highlight">Travel fatigue edge:</span> Liverpool traveled 180 miles → -1.8% defensive drop</div>
-                            <div class="reasoning-point">Last 5 meetings: 4/5 ended Over 2.5 goals (80% hit rate)</div>
-                            <div class="reasoning-point">Both teams' xG combined: 3.1 expected goals</div>
+                            <div class="reasoning-point">Brentford's strong home form: 69.9% win probability at home</div>
+                            <div class="reasoning-point">Brighton away struggles: Only 15% win chance on the road</div>
+                            <div class="reasoning-point"><span class="edge-highlight">Value opportunity:</span> Market odds of 2.00 underestimate Brentford (Market: 50% vs AI: 69.9%)</div>
+                            <div class="reasoning-point">Brentford's home defensive record solid this season</div>
+                            <div class="reasoning-point">Brighton traveling from south coast - potential fatigue factor</div>
                         </div>
                     </div>
 
-                    <!-- Pick 3 - Medium Value -->
+                    <!-- Pick 3 - HIGHEST Value -->
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Tottenham vs Arsenal</div>
+                                <div class="match-name">Sunderland vs Fulham</div>
                                 <div class="match-time">
-                                    <span>Sun 22 Feb • 16:30</span>
-                                    <span class="countdown-timer" data-kickoff="2026-02-22T16:30:00">06:11:45</span>
+                                    <span>Sun 22 Feb • 14:00</span>
+                                    <span class="countdown-timer" data-kickoff="2026-02-22T14:00:00">05:09:45</span>
                                 </div>
                             </div>
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">BTTS (Yes)</div>
+                                    <div class="detail-value">Home Win</div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
-                                    <div class="detail-value"><span class="confidence-badge confidence-high">85%</span></div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">66%</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
                                     <div class="detail-value">
-                                        <span class="odds-value" data-base-odds="1.58">1.58</span>
+                                        <span class="odds-value" data-base-odds="2.70">2.70</span>
                                         <span class="odds-change">↗</span>
                                     </div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">EV</div>
-                                    <div class="detail-value" style="color: var(--green);">+5.1%</div>
+                                    <div class="detail-value" style="color: var(--green);">+29.1%</div>
                                 </div>
                             </div>
                             <div class="pick-actions">
-                                <div class="action-btn" onclick="copyPick(event, 'Spurs vs Arsenal - BTTS @ 1.58')" title="Copy">📋</div>
+                                <div class="action-btn" onclick="copyPick(event, 'Sunderland vs Fulham - Home Win @ 2.70')" title="Copy">📋</div>
                                 <div class="action-btn" onclick="sharePick(event)" title="Share">📤</div>
                             </div>
                         </div>
@@ -2467,26 +2491,26 @@
                         <div class="value-meter">
                             <div class="value-meter-header">
                                 <div class="value-meter-stats">
-                                    <span>AI: 85%</span>
+                                    <span>AI: 66.2%</span>
                                     <span>|</span>
-                                    <span>Market: 63%</span>
+                                    <span>Market: 37%</span>
                                     <span>|</span>
-                                    <span class="value-meter-edge edge-positive">EDGE: +22%</span>
+                                    <span class="value-meter-edge edge-exceptional">EDGE: +29.1%</span>
                                 </div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar">
-                                <div class="value-bar-fill exceptional" style="width: 22%;"></div>
+                                <div class="value-bar-fill exceptional" style="width: 29.1%;"></div>
                             </div>
                         </div>
                         
                         <div class="ai-reasoning">
                             <div class="ai-reasoning-header">🧠 AI Reasoning</div>
-                            <div class="reasoning-point">North London Derby: Last 10 meetings → 9/10 BTTS hit (90%)</div>
-                            <div class="reasoning-point">Spurs scored in all 11 home games this season</div>
-                            <div class="reasoning-point">Arsenal scored in 9/10 away fixtures</div>
-                            <div class="reasoning-point"><span class="edge-highlight">High-scoring rivalry:</span> avg 3.4 total goals in last 8 derbies</div>
-                            <div class="reasoning-point">Both teams weak defensively: Spurs 1.5 conceded/game, Arsenal 1.3</div>
+                            <div class="reasoning-point">Sunderland's strong home form: 66.2% win probability at home</div>
+                            <div class="reasoning-point">Fulham away weakness: Only 18.5% win chance on the road</div>
+                            <div class="reasoning-point"><span class="edge-highlight">EXCEPTIONAL value:</span> Market odds of 2.70 heavily underestimate Sunderland (Market: 37% vs AI: 66.2%)</div>
+                            <div class="reasoning-point">Highest edge pick of the week at +29.1%</div>
+                            <div class="reasoning-point">Sunderland home fortress - solid defensive and attacking stats</div>
                         </div>
                     </div>
                 </div>
@@ -2534,12 +2558,12 @@
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
-                                    <div class="detail-value"><span class="confidence-badge confidence-high">76%</span></div>
+                                    <div class="detail-value"><span class="confidence-badge confidence-high">69%</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
                                     <div class="detail-value">
-                                        <span class="odds-value">1.88</span>
+                                        <span class="odds-value">1.27</span>
                                     </div>
                                 </div>
                                 <div class="detail">
@@ -2548,22 +2572,22 @@
                                 </div>
                             </div>
                             <div class="pick-actions">
-                                <div class="action-btn" onclick="copyPick(event, 'Wolves vs Arsenal - Away Win @ 1.88')" title="Copy">📋</div>
+                                <div class="action-btn" onclick="copyPick(event, 'Wolves vs Arsenal - Away Win @ 1.27')" title="Copy">📋</div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
                                 <div class="value-meter-stats">
-                                    <span>AI: 76%</span>
+                                    <span>AI: 69%</span>
                                     <span>|</span>
-                                    <span>Market: 53%</span>
+                                    <span>Market: 79%</span>
                                     <span>|</span>
-                                    <span class="value-meter-edge edge-exceptional">EDGE: +23%</span>
+                                    <span class="value-meter-edge edge-negative">EDGE: -9.7%</span>
                                 </div>
-                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                                <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
                             <div class="value-bar">
-                                <div class="value-bar-fill exceptional" style="width: 23%;"></div>
+                                <div class="value-bar-fill negative" style="width: 9.7%;"></div>
                             </div>
                         </div>
                     </div>
@@ -2575,18 +2599,18 @@
                                 <div class="match-time"><span>Sat 21 Feb • 15:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">74%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.72</span></div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Draw</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">39%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">3.60</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 74%</span><span>|</span><span>Market: 58%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +16%</span></div>
+                                <div class="value-meter-stats"><span>AI: 38.8%</span><span>|</span><span>Market: 28%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +11.0%</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 16%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill high" style="width: 11%;"></div></div>
                         </div>
                     </div>
 
@@ -2597,18 +2621,18 @@
                                 <div class="match-time"><span>Sat 21 Feb • 15:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Over 2.5</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">78%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.65</span></div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">80%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.22</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 78%</span><span>|</span><span>Market: 61%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +17%</span></div>
-                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                                <div class="value-meter-stats"><span>AI: 79.5%</span><span>|</span><span>Market: 82%</span><span>|</span><span class="value-meter-edge edge-negative">EDGE: -2.4%</span></div>
+                                <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 17%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill negative" style="width: 2.4%;"></div></div>
                         </div>
                     </div>
 
@@ -2620,17 +2644,17 @@
                             </div>
                             <div class="pick-details">
                                 <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">79%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.52</span></div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">77%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.42</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 79%</span><span>|</span><span>Market: 66%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +13%</span></div>
+                                <div class="value-meter-stats"><span>AI: 76.7%</span><span>|</span><span>Market: 70%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +6.3%</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill high" style="width: 13%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill high" style="width: 6.3%;"></div></div>
                         </div>
                     </div>
 
@@ -2641,18 +2665,18 @@
                                 <div class="match-time"><span>Sun 22 Feb • 14:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Over 2.5</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">81%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.72</span></div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">58%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.80</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 81%</span><span>|</span><span>Market: 58%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +23%</span></div>
+                                <div class="value-meter-stats"><span>AI: 57.5%</span><span>|</span><span>Market: 56%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +2.0%</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 23%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill low" style="width: 2%;"></div></div>
                         </div>
                     </div>
 
@@ -2663,18 +2687,18 @@
                                 <div class="match-time"><span>Sun 22 Feb • 16:30</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">BTTS (Yes)</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">85%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.58</span></div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">59%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.57</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 85%</span><span>|</span><span>Market: 63%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +22%</span></div>
-                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                                <div class="value-meter-stats"><span>AI: 59%</span><span>|</span><span>Market: 64%</span><span>|</span><span class="value-meter-edge edge-negative">EDGE: -4.7%</span></div>
+                                <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 22%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill negative" style="width: 4.7%;"></div></div>
                         </div>
                     </div>
 
@@ -2685,18 +2709,18 @@
                                 <div class="match-time"><span>Sat 21 Feb • 17:30</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">67%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.95</span></div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">42%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.88</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 67%</span><span>|</span><span>Market: 51%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +16%</span></div>
+                                <div class="value-meter-stats"><span>AI: 41.9%</span><span>|</span><span>Market: 35%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +7.2%</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 16%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill high" style="width: 7.2%;"></div></div>
                         </div>
                     </div>
 
@@ -2708,17 +2732,83 @@
                             </div>
                             <div class="pick-details">
                                 <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
-                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">69%</span></div></div>
-                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.05</span></div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">52%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.95</span></div></div>
                                 <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
                             </div>
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>AI: 69%</span><span>|</span><span>Market: 49%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +20%</span></div>
+                                <div class="value-meter-stats"><span>AI: 51.9%</span><span>|</span><span>Market: 51%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +0.6%</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
-                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 20%;"></div></div>
+                            <div class="value-bar"><div class="value-bar-fill low" style="width: 0.6%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Brentford vs Brighton</div>
+                                <div class="match-time"><span>Sat 21 Feb • 15:00</span></div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">70%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.00</span></div></div>
+                                <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
+                            </div>
+                        </div>
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats"><span>AI: 69.9%</span><span>|</span><span>Market: 50%</span><span>|</span><span class="value-meter-edge edge-exceptional">EDGE: +19.9%</span></div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 19.9%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Crystal Palace vs Wolves</div>
+                                <div class="match-time"><span>Sun 22 Feb • 14:00</span></div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">73%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.57</span></div></div>
+                                <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
+                            </div>
+                        </div>
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats"><span>AI: 72.6%</span><span>|</span><span>Market: 64%</span><span>|</span><span class="value-meter-edge edge-positive">EDGE: +8.9%</span></div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill high" style="width: 8.9%;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="pick-row">
+                        <div class="pick-main">
+                            <div class="pick-match">
+                                <div class="match-name">Sunderland vs Fulham</div>
+                                <div class="match-time"><span>Sun 22 Feb • 14:00</span></div>
+                            </div>
+                            <div class="pick-details">
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">66%</span></div></div>
+                                <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.70</span></div></div>
+                                <div class="detail"><div class="detail-label">Status</div><div class="detail-value"><span class="status-badge status-pending">⏳ PENDING</span></div></div>
+                            </div>
+                        </div>
+                        <div class="value-meter">
+                            <div class="value-meter-header">
+                                <div class="value-meter-stats"><span>AI: 66.2%</span><span>|</span><span>Market: 37%</span><span>|</span><span class="value-meter-edge edge-exceptional">EDGE: +29.1%</span></div>
+                                <span class="value-bet-badge">🔥 VALUE BET</span>
+                            </div>
+                            <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 29.1%;"></div></div>
                         </div>
                     </div>
 
@@ -2730,51 +2820,40 @@
                 <div class="acca-card featured">
                     <div class="acca-header">
                         <div class="acca-title">🎰 Acca της Ημέρας</div>
-                        <div class="acca-odds-big">@7.45</div>
+                        <div class="acca-odds-big">@7.67</div>
                     </div>
                     
                     <div class="acca-legs">
                         <div class="acca-leg">
                             <div class="acca-leg-info">
-                                <div class="acca-leg-match">Wolves vs Arsenal</div>
-                                <div class="acca-leg-pick">Away Win</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">76%</span>
-                                <span class="acca-leg-odds">@1.88</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
-                                <div class="acca-leg-pick">Over 2.5 Goals</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">81%</span>
-                                <span class="acca-leg-odds">@1.72</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Tottenham vs Arsenal</div>
-                                <div class="acca-leg-pick">BTTS (Yes)</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">85%</span>
-                                <span class="acca-leg-odds">@1.58</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Man City vs Chelsea</div>
+                                <div class="acca-leg-match">Brentford vs Brighton</div>
                                 <div class="acca-leg-pick">Home Win</div>
                             </div>
                             <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">78%</span>
-                                <span class="acca-leg-odds">@1.41</span>
+                                <span class="acca-leg-confidence">70%</span>
+                                <span class="acca-leg-odds">@2.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Sunderland vs Fulham</div>
+                                <div class="acca-leg-pick">Home Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">66%</span>
+                                <span class="acca-leg-odds">@2.70</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Man City vs Newcastle</div>
+                                <div class="acca-leg-pick">Home Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">77%</span>
+                                <span class="acca-leg-odds">@1.42</span>
                             </div>
                         </div>
                     </div>
@@ -2782,19 +2861,19 @@
                     <div class="acca-returns">
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€10</div>
-                            <div class="acca-return-value">€74.50</div>
+                            <div class="acca-return-value">€76.70</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€25</div>
-                            <div class="acca-return-value">€186.25</div>
+                            <div class="acca-return-value">€191.75</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€50</div>
-                            <div class="acca-return-value">€372.50</div>
+                            <div class="acca-return-value">€383.50</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€100</div>
-                            <div class="acca-return-value">€745.00</div>
+                            <div class="acca-return-value">€767.00</div>
                         </div>
                     </div>
                     
@@ -2807,29 +2886,29 @@
                 <div class="acca-card">
                     <div class="acca-header">
                         <div class="acca-title">🛡️ Safe Acca</div>
-                        <div class="acca-odds-big">@3.23</div>
+                        <div class="acca-odds-big">@2.23</div>
                     </div>
                     
                     <div class="acca-legs">
                         <div class="acca-leg">
                             <div class="acca-leg-info">
-                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
-                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                                <div class="acca-leg-match">Man City vs Newcastle</div>
+                                <div class="acca-leg-pick">Home Win</div>
                             </div>
                             <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">81%</span>
-                                <span class="acca-leg-odds">@1.72</span>
+                                <span class="acca-leg-confidence">77%</span>
+                                <span class="acca-leg-odds">@1.42</span>
                             </div>
                         </div>
                         
                         <div class="acca-leg">
                             <div class="acca-leg-info">
-                                <div class="acca-leg-match">Wolves vs Arsenal</div>
-                                <div class="acca-leg-pick">Away Win</div>
+                                <div class="acca-leg-match">Crystal Palace vs Wolves</div>
+                                <div class="acca-leg-pick">Home Win</div>
                             </div>
                             <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">76%</span>
-                                <span class="acca-leg-odds">@1.88</span>
+                                <span class="acca-leg-confidence">73%</span>
+                                <span class="acca-leg-odds">@1.57</span>
                             </div>
                         </div>
                     </div>
@@ -2837,19 +2916,19 @@
                     <div class="acca-returns">
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€10</div>
-                            <div class="acca-return-value">€32.30</div>
+                            <div class="acca-return-value">€22.30</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€25</div>
-                            <div class="acca-return-value">€80.75</div>
+                            <div class="acca-return-value">€55.75</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€50</div>
-                            <div class="acca-return-value">€161.50</div>
+                            <div class="acca-return-value">€111.50</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€100</div>
-                            <div class="acca-return-value">€323.00</div>
+                            <div class="acca-return-value">€223.00</div>
                         </div>
                     </div>
                     
@@ -2862,62 +2941,51 @@
                 <div class="acca-card">
                     <div class="acca-header">
                         <div class="acca-title">🎲 Risk Acca</div>
-                        <div class="acca-odds-big">@15.82</div>
+                        <div class="acca-odds-big">@55.94</div>
                     </div>
                     
                     <div class="acca-legs">
                         <div class="acca-leg">
                             <div class="acca-leg-info">
-                                <div class="acca-leg-match">Wolves vs Arsenal</div>
-                                <div class="acca-leg-pick">Away Win</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">76%</span>
-                                <span class="acca-leg-odds">@1.88</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Nott'm Forest vs Liverpool</div>
-                                <div class="acca-leg-pick">Over 2.5 Goals</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">81%</span>
-                                <span class="acca-leg-odds">@1.72</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Tottenham vs Arsenal</div>
-                                <div class="acca-leg-pick">BTTS (Yes)</div>
-                            </div>
-                            <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">85%</span>
-                                <span class="acca-leg-odds">@1.58</span>
-                            </div>
-                        </div>
-                        
-                        <div class="acca-leg">
-                            <div class="acca-leg-info">
-                                <div class="acca-leg-match">Man City vs Chelsea</div>
+                                <div class="acca-leg-match">Brentford vs Brighton</div>
                                 <div class="acca-leg-pick">Home Win</div>
                             </div>
                             <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">78%</span>
-                                <span class="acca-leg-odds">@1.41</span>
+                                <span class="acca-leg-confidence">70%</span>
+                                <span class="acca-leg-odds">@2.00</span>
                             </div>
                         </div>
                         
                         <div class="acca-leg">
                             <div class="acca-leg-info">
-                                <div class="acca-leg-match">Brighton vs Newcastle</div>
-                                <div class="acca-leg-pick">Over 2.5 Goals</div>
+                                <div class="acca-leg-match">Sunderland vs Fulham</div>
+                                <div class="acca-leg-pick">Home Win</div>
                             </div>
                             <div class="acca-leg-stats">
-                                <span class="acca-leg-confidence">72%</span>
-                                <span class="acca-leg-odds">@1.85</span>
+                                <span class="acca-leg-confidence">66%</span>
+                                <span class="acca-leg-odds">@2.70</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">West Ham vs Bournemouth</div>
+                                <div class="acca-leg-pick">Away Win</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">42%</span>
+                                <span class="acca-leg-odds">@2.88</span>
+                            </div>
+                        </div>
+                        
+                        <div class="acca-leg">
+                            <div class="acca-leg-info">
+                                <div class="acca-leg-match">Aston Villa vs Leeds</div>
+                                <div class="acca-leg-pick">Draw</div>
+                            </div>
+                            <div class="acca-leg-stats">
+                                <span class="acca-leg-confidence">39%</span>
+                                <span class="acca-leg-odds">@3.60</span>
                             </div>
                         </div>
                     </div>
@@ -2925,19 +2993,19 @@
                     <div class="acca-returns">
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€10</div>
-                            <div class="acca-return-value">€158.20</div>
+                            <div class="acca-return-value">€559.40</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€25</div>
-                            <div class="acca-return-value">€395.50</div>
+                            <div class="acca-return-value">€1,398.50</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€50</div>
-                            <div class="acca-return-value">€791.00</div>
+                            <div class="acca-return-value">€2,797.00</div>
                         </div>
                         <div class="acca-return-item">
                             <div class="acca-return-stake">€100</div>
-                            <div class="acca-return-value">€1,582.00</div>
+                            <div class="acca-return-value">€5,594.00</div>
                         </div>
                     </div>
                     
@@ -4680,7 +4748,7 @@
         <div class="notification-list">
             <div class="notification-item unread" onclick="goToNotification('picks')" style="cursor:pointer;">
                 <div class="notification-item-title">🎯 New Pick Available!</div>
-                <div class="notification-item-message">Wolves vs Arsenal - 76% confidence</div>
+                <div class="notification-item-message">Sunderland vs Fulham - 66% confidence, HIGHEST EDGE +29.1%</div>
                 <div class="notification-item-time">5 λεπτά πριν</div>
             </div>
             <div class="notification-item unread" onclick="goToNotification('history')" style="cursor:pointer;">
@@ -5006,9 +5074,9 @@
         // ========== ACCA ACTIONS ==========
         function copyAcca(type) {
             const accaTexts = {
-                daily: 'Daily Acca @7.45:\n- Wolves vs Arsenal: Away Win @1.88\n- Forest vs Liverpool: Over 2.5 @1.72\n- Spurs vs Arsenal: BTTS @1.58\n- Man City vs Chelsea: Home Win @1.41',
-                safe: 'Safe Acca @3.23:\n- Forest vs Liverpool: Over 2.5 @1.72\n- Wolves vs Arsenal: Away Win @1.88',
-                risk: 'Risk Acca @15.82:\n- Wolves vs Arsenal: Away Win @1.88\n- Forest vs Liverpool: Over 2.5 @1.72\n- Spurs vs Arsenal: BTTS @1.58\n- Man City vs Chelsea: Home Win @1.41\n- Brighton vs Newcastle: Over 2.5 @1.85'
+                daily: 'Daily Acca @7.67:\n- Brentford vs Brighton: Home Win @2.00\n- Sunderland vs Fulham: Home Win @2.70\n- Man City vs Newcastle: Home Win @1.42',
+                safe: 'Safe Acca @2.23:\n- Man City vs Newcastle: Home Win @1.42\n- Crystal Palace vs Wolves: Home Win @1.57',
+                risk: 'Risk Acca @55.94:\n- Brentford vs Brighton: Home Win @2.00\n- Sunderland vs Fulham: Home Win @2.70\n- West Ham vs Bournemouth: Away Win @2.88\n- Aston Villa vs Leeds: Draw @3.60'
             };
             
             navigator.clipboard.writeText(accaTexts[type]);
