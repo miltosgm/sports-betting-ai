@@ -6434,13 +6434,19 @@
                     ticker.style.display = 'block';
                     let html = '<span style="color:#ef4444;font-weight:700;font-size:13px;">🔴 LIVE SCORES</span>';
                     liveOrFinished.forEach(m => {
-                        const statusIcon = m.status === 'FINISHED' ? '⏱️ FT' : m.status === 'PAUSED' ? '⏸️ HT' : '🔴';
-                        const hg = m.homeGoals !== null ? m.homeGoals : '-';
-                        const ag = m.awayGoals !== null ? m.awayGoals : '-';
+                        const hg = m.homeGoals !== null && m.homeGoals !== undefined ? m.homeGoals : '-';
+                        const ag = m.awayGoals !== null && m.awayGoals !== undefined ? m.awayGoals : '-';
                         const hs = (m.homeShort || m.home || '').replace(' FC','').replace(' AFC','');
                         const as_ = (m.awayShort || m.away || '').replace(' FC','').replace(' AFC','');
-                        html += `<span style="margin-left:12px; padding:4px 10px; background:rgba(0,0,0,0.3); border-radius:20px; font-weight:700; color:white;">
-                            ${statusIcon} <span style="color:#9ca3af">${hs}</span> <span style="color:white; font-size:16px;">${hg} - ${ag}</span> <span style="color:#9ca3af">${as_}</span>
+                        let statusLabel = '';
+                        if (m.status === 'FINISHED') statusLabel = '⏱️ FT';
+                        else if (m.status === 'PAUSED') statusLabel = '⏸️ HT';
+                        else if (m.status === 'IN_PLAY') statusLabel = m.minute ? `🔴 ${m.minute}'` : '🔴 LIVE';
+                        html += `<span style="margin-left:12px; padding:4px 12px; background:rgba(0,0,0,0.3); border-radius:20px; font-weight:700; color:white; display:inline-flex; align-items:center; gap:6px;">
+                            <span style="color:#ef4444">${statusLabel}</span>
+                            <span style="color:#9ca3af; font-size:13px">${hs}</span>
+                            <span style="color:white; font-size:17px; font-weight:800;">${hg} - ${ag}</span>
+                            <span style="color:#9ca3af; font-size:13px">${as_}</span>
                         </span>`;
                     });
                     if (content) content.innerHTML = html;

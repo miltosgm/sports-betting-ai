@@ -25,18 +25,37 @@ def fetch():
     r.raise_for_status()
     matches = []
     for m in r.json().get('matches', []):
-        ht = m['score']['fullTime']['home']
-        at = m['score']['fullTime']['away']
+        # During live games, fullTime has the current score (not just FT)
+        # halfTime has the HT score
+        score = m['score']
+        ht = score['fullTime']['home']
+        at = score['fullTime']['away']
+        # If fullTime is null (pre-game), fall back to halfTime
         if ht is None:
-            ht = m['score']['halfTime']['home']
-            at = m['score']['halfTime']['away']
+            ht = score['halfTime']['home']
+            at = score['halfTime']['away']
+        # Calculate approximate minute if not provided (free tier limitation)
+        minute = m.get('minute')
+        if minute is None and m['status'] == 'IN_PLAY':
+            try:
+                from datetime import timezone
+                kickoff = datetime.fromisoformat(m['utcDate'].replace('Z', '+00:00'))
+                now_utc = datetime.now(timezone.utc)
+                elapsed = int((now_utc - kickoff).total_seconds() / 60)
+                # Subtract 15 min half-time break if past first half
+                if elapsed > 45:
+                    elapsed = elapsed - 15
+                minute = max(1, min(elapsed, 90))
+            except:
+                minute = None
+
         matches.append({
             'home': m['homeTeam']['name'],
             'away': m['awayTeam']['name'],
             'homeShort': m['homeTeam'].get('shortName', m['homeTeam']['name']),
             'awayShort': m['awayTeam'].get('shortName', m['awayTeam']['name']),
-            'status': m['status'],   # SCHEDULED, IN_PLAY, PAUSED, FINISHED, TIMED
-            'minute': m.get('minute'),
+            'status': m['status'],
+            'minute': minute,
             'homeGoals': ht,
             'awayGoals': at,
         })
