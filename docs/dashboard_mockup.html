@@ -3014,6 +3014,14 @@
                 </div>
 
                 <div class="picks-section">
+                    <!-- LIVE SCORES TICKER -->
+                    <div id="live-scores-ticker" style="display:none; margin-bottom:16px; padding:12px 16px; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.35); border-radius:12px; font-size:14px;">
+                        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;" id="live-scores-content">
+                            <span style="color:#ef4444; font-weight:700; font-size:13px;">🔴 LIVE SCORES</span>
+                        </div>
+                        <div style="font-size:11px; color:#6b7280; margin-top:4px;" id="live-scores-time">Updating...</div>
+                    </div>
+
                     <div class="picks-header">
                         <div class="picks-title">
                             🔴 Επερχόμενα Picks - Feb 18-23, 2026
@@ -6402,7 +6410,6 @@
 
         async function fetchLiveScores() {
             try {
-                // Fetch from our own static JSON (updated every 2 min by cron — no CORS issues)
                 const urls = [
                     'https://miltosgm.github.io/sports-betting-ai/data/live_scores.json',
                     '../data/live_scores.json',
@@ -6410,12 +6417,37 @@
                 let data = null;
                 for (const url of urls) {
                     try {
-                        const res = await fetch(url + '?t=' + Date.now()); // bust cache
+                        const res = await fetch(url + '?t=' + Date.now());
                         if (res.ok) { data = await res.json(); break; }
                     } catch(e) {}
                 }
                 if (!data) return;
                 const todayMatches = data.matches || [];
+
+                // ---- UPDATE TICKER ----
+                const liveOrFinished = todayMatches.filter(m => ['IN_PLAY','PAUSED','FINISHED'].includes(m.status));
+                const ticker = document.getElementById('live-scores-ticker');
+                const content = document.getElementById('live-scores-content');
+                const timeEl = document.getElementById('live-scores-time');
+
+                if (liveOrFinished.length > 0 && ticker) {
+                    ticker.style.display = 'block';
+                    let html = '<span style="color:#ef4444;font-weight:700;font-size:13px;">🔴 LIVE SCORES</span>';
+                    liveOrFinished.forEach(m => {
+                        const statusIcon = m.status === 'FINISHED' ? '⏱️ FT' : m.status === 'PAUSED' ? '⏸️ HT' : '🔴';
+                        const hg = m.homeGoals !== null ? m.homeGoals : '-';
+                        const ag = m.awayGoals !== null ? m.awayGoals : '-';
+                        const hs = (m.homeShort || m.home || '').replace(' FC','').replace(' AFC','');
+                        const as_ = (m.awayShort || m.away || '').replace(' FC','').replace(' AFC','');
+                        html += `<span style="margin-left:12px; padding:4px 10px; background:rgba(0,0,0,0.3); border-radius:20px; font-weight:700; color:white;">
+                            ${statusIcon} <span style="color:#9ca3af">${hs}</span> <span style="color:white; font-size:16px;">${hg} - ${ag}</span> <span style="color:#9ca3af">${as_}</span>
+                        </span>`;
+                    });
+                    if (content) content.innerHTML = html;
+                    if (timeEl) timeEl.textContent = '🔄 Updated: ' + (data.updatedAtAthens || '');
+                }
+
+                // ---- UPDATE INDIVIDUAL PICK ROWS ----
 
                 todayMatches.forEach(m => {
                     const hg = m.homeGoals !== null && m.homeGoals !== undefined ? m.homeGoals : '-';
