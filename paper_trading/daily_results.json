@@ -1,6 +1,6 @@
 {
   "start_date": "2026-02-07T17:24:50.640897",
-  "bankroll": 9577,
+  "bankroll": 9450,
   "bets": [
     {
       "date": "2026-02-07",
@@ -88,18 +88,20 @@
       "pick": "Away Win",
       "odds": 1.27,
       "stake": 100,
-      "result": "WIN",
-      "profit": 27.0
+      "result": "LOSS",
+      "profit": -100,
+      "actual_score": "2-2 (Draw)"
     }
   ],
   "metrics": {
     "total_bets": 5,
     "wins": 0,
-    "losses": 3,
+    "losses": 1,
     "pushes": 0,
     "pending": 2,
     "win_rate": 0.0,
     "roi": -4.5,
-    "bankroll_remaining": 9550
+    "bankroll_remaining": 9550,
+    "total_profit": -100
   }
 }

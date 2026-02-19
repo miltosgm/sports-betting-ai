@@ -14,9 +14,9 @@
     "time": "22:00",
     "date": "Wed 18 Feb",
     "settled": true,
-    "result": "Away Win",
-    "correct": true,
-    "score": "1-2"
+    "result": "Draw",
+    "correct": false,
+    "score": "2-2"
   },
   {
     "home": "Aston Villa FC",
