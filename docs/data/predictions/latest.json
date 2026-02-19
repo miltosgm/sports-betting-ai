@@ -1,20 +1,5 @@
 [
   {
-    "home": "Wolverhampton Wanderers FC",
-    "away": "Arsenal FC",
-    "home_short": "Wolverhampton Wanderers",
-    "away_short": "Arsenal",
-    "prediction": "Away Win",
-    "confidence": 69.0,
-    "home_prob": 15.8,
-    "draw_prob": 15.2,
-    "away_prob": 69.0,
-    "odds": 1.27,
-    "edge": -9.7,
-    "time": "22:00",
-    "date": "Wed 18 Feb"
-  },
-  {
     "home": "Aston Villa FC",
     "away": "Leeds United FC",
     "home_short": "Aston Villa",
@@ -126,11 +111,11 @@
     "away_short": "Liverpool",
     "prediction": "Away Win",
     "confidence": 57.5,
-    "home_prob": 16.6,
+    "home_prob": 16.7,
     "draw_prob": 25.9,
     "away_prob": 57.5,
     "odds": 1.8,
-    "edge": 2.0,
+    "edge": 1.9,
     "time": "16:00",
     "date": "Sun 22 Feb"
   },
@@ -155,12 +140,12 @@
     "home_short": "Everton",
     "away_short": "Manchester United",
     "prediction": "Away Win",
-    "confidence": 51.9,
-    "home_prob": 21.1,
-    "draw_prob": 27.0,
-    "away_prob": 51.9,
+    "confidence": 51.7,
+    "home_prob": 21.4,
+    "draw_prob": 26.9,
+    "away_prob": 51.7,
     "odds": 1.95,
-    "edge": 0.6,
+    "edge": 0.4,
     "time": "22:00",
     "date": "Mon 23 Feb"
   }

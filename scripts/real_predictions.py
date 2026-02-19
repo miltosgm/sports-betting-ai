@@ -504,7 +504,7 @@ def build_telegram_message(results):
 
     for r in all_picks:
         lines.append(f"⚽ {r['home_short']} vs {r['away_short']}")
-        lines.append(f"🕐 {r['time']} GMT+2 | Premier League")
+        lines.append(f"📅 {r['date']} | 🕐 {r['time']} GMT+2 | Premier League")
         lines.append("")
         lines.append(f"🎯 Prediction: <b>{r['prediction']}</b>")
         lines.append(f"📊 Confidence: <b>{r['confidence']}%</b>")
