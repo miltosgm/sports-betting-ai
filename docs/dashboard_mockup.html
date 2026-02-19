@@ -2074,8 +2074,8 @@
             }
 
             /* Hide verbose header items on mobile */
-            .live-clock { display: none; }
-            .notif-enable-btn { display: none; }
+            .live-clock { display: none !important; }
+            .notif-enable-btn { display: none !important; }
 
             /* Compact Think toggle on mobile */
             .think-toggle {
@@ -2235,14 +2235,14 @@
             /* Even smaller title */
             .header-title { font-size: 1.15rem; }
 
-            /* Stats: single column on very small phones */
+            /* Stats: keep 2 columns even on small phones — just tighter */
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 0.6rem;
             }
 
-            .stat-card { padding: 0.9rem 1rem; }
-            .stat-number { font-size: 2rem; }
+            .stat-card { padding: 0.9rem 0.6rem; }
+            .stat-number { font-size: 1.5rem; }
 
             /* Quick stats — stack to 2×2 */
             .quick-stat {
@@ -6130,7 +6130,7 @@
             calculateProfit();
             
             if (window.innerWidth <= 768) {
-                document.querySelector('.mobile-bottom-nav').style.display = 'grid';
+                document.querySelector('.mobile-bottom-nav').style.display = 'flex';
             }
             
             document.addEventListener('keydown', handleKeyboard);
@@ -6643,7 +6643,7 @@
         // ========== MOBILE RESPONSIVENESS ==========
         window.addEventListener('resize', () => {
             if (window.innerWidth <= 768) {
-                document.querySelector('.mobile-bottom-nav').style.display = 'grid';
+                document.querySelector('.mobile-bottom-nav').style.display = 'flex';
             } else {
                 document.querySelector('.mobile-bottom-nav').style.display = 'none';
             }
