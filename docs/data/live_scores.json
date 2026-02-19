@@ -1,16 +1,5 @@
 {
-  "updatedAt": "2026-02-18T23:58:23.982445+00:00",
-  "updatedAtAthens": "01:58",
-  "matches": [
-    {
-      "home": "Wolverhampton Wanderers FC",
-      "away": "Arsenal FC",
-      "homeShort": "Wolverhampton",
-      "awayShort": "Arsenal",
-      "status": "FINISHED",
-      "minute": null,
-      "homeGoals": 2,
-      "awayGoals": 2
-    }
-  ]
+  "updatedAt": "2026-02-19T00:00:25.381783+00:00",
+  "updatedAtAthens": "02:00",
+  "matches": []
 }
