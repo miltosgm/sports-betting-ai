@@ -6728,7 +6728,12 @@
             document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
             
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            // Highlight matching nav items by data-tab or onclick content
+            document.querySelectorAll('.nav-item[data-tab="'+tabName+'"]').forEach(el => el.classList.add('active'));
+            document.querySelectorAll('.mobile-nav-item').forEach(el => {
+                const fn = el.getAttribute('onclick') || '';
+                if (fn.includes("'"+tabName+"'") || fn.includes('"'+tabName+'"')) el.classList.add('active');
+            });
             
             const titles = {
                 dashboard: 'Dashboard',
@@ -8222,20 +8227,10 @@
             renderNews(team);
         }
 
-        // Hook into tab switching - load news when news tab is opened
+        // Preload news in background + hook tab switching
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('[data-tab="news"]').forEach(el => {
-                el.addEventListener('click', () => {
-                    if (allNewsArticles.length === 0) loadNews();
-                });
-            });
-            document.querySelectorAll('.mobile-nav-item').forEach(el => {
-                if (el.getAttribute('onclick') && el.getAttribute('onclick').includes('news')) {
-                    el.addEventListener('click', () => {
-                        if (allNewsArticles.length === 0) loadNews();
-                    });
-                }
-            });
+            // Preload news 3s after page load so it's ready instantly when tab is clicked
+            setTimeout(() => { if (allNewsArticles.length === 0) loadNews(); }, 3000);
         });
     </script>
 </body>
