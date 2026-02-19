@@ -3079,6 +3079,33 @@
             white-space: nowrap;
         }
         .export-csv-btn:hover { background: rgba(16, 185, 129, 0.28); }
+
+        /* ========== TEAM LOGOS ========== */
+        .team-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        .match-teams {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+        }
+        .team-vs {
+            font-size: 11px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+        .match-name-with-logos {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 15px;
+        }
     </style>
 </head>
 <body>
@@ -3439,7 +3466,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Wolves vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"><span>Wolves</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">
                                     <span>Wed 18 Feb • 22:00</span>
                                     <span class="countdown-timer" data-kickoff="2026-02-18T22:00:00">02:15:30</span>
@@ -3527,7 +3554,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Brighton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Brighton</span><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"></div>
                                 <div class="match-time">
                                     <span>Sat 21 Feb • 17:00</span>
                                     <span class="countdown-timer" data-kickoff="2026-02-21T17:00:00">05:10:15</span>
@@ -3615,7 +3642,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Sunderland vs Fulham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"><span>Sunderland</span><span class="team-vs">vs</span><span>Fulham</span><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"></div>
                                 <div class="match-time">
                                     <span>Sun 22 Feb • 16:00</span>
                                     <span class="countdown-timer" data-kickoff="2026-02-22T16:00:00">05:09:45</span>
@@ -3765,7 +3792,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Wolves vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"><span>Wolves</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time"><span>Wed 18 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -3799,7 +3826,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Aston Villa vs Leeds</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"><span>Aston Villa</span><span class="team-vs">vs</span><span>Leeds</span><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"></div>
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -3832,7 +3859,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Chelsea vs Burnley</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"><span>Chelsea</span><span class="team-vs">vs</span><span>Burnley</span><img src="https://crests.football-data.org/328.png" class="team-logo" onerror="this.style.display='none'" alt="Burnley"></div>
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -3865,7 +3892,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Man City vs Newcastle</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/65.png" class="team-logo" onerror="this.style.display='none'" alt="Man City"><span>Man City</span><span class="team-vs">vs</span><span>Newcastle</span><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"></div>
                                 <div class="match-time"><span>Sat 21 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -3898,7 +3925,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Liverpool</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"><span>Nott'm Forest</span><span class="team-vs">vs</span><span>Liverpool</span><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"></div>
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -3931,7 +3958,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Tottenham vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/73.png" class="team-logo" onerror="this.style.display='none'" alt="Tottenham"><span>Tottenham</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time"><span>Sun 22 Feb • 18:30</span></div>
                             </div>
                             <div class="pick-details">
@@ -3964,7 +3991,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">West Ham vs Bournemouth</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"><span>West Ham</span><span class="team-vs">vs</span><span>Bournemouth</span><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"></div>
                                 <div class="match-time"><span>Sat 21 Feb • 19:30</span></div>
                             </div>
                             <div class="pick-details">
@@ -3997,7 +4024,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Everton vs Man United</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"><span>Everton</span><span class="team-vs">vs</span><span>Man United</span><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"></div>
                                 <div class="match-time"><span>Mon 23 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -4030,7 +4057,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Brighton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Brighton</span><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"></div>
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -4063,7 +4090,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Crystal Palace vs Wolves</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"><span>Crystal Palace</span><span class="team-vs">vs</span><span>Wolves</span><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"></div>
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -4096,7 +4123,7 @@
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Sunderland vs Fulham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"><span>Sunderland</span><span class="team-vs">vs</span><span>Fulham</span><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"></div>
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
@@ -4471,7 +4498,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Sunderland vs Liverpool</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"><span>Sunderland</span><span class="team-vs">vs</span><span>Liverpool</span><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"></div>
                                 <div class="match-time">Wed 11 Feb 2026 • Final: 0-1</div>
                             </div>
                             <div class="pick-details">
@@ -4498,7 +4525,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">Thu 12 Feb 2026 • Final: 1-1</div>
                             </div>
                             <div class="pick-details">
@@ -4533,7 +4560,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Liverpool vs Newcastle</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"><span>Liverpool</span><span class="team-vs">vs</span><span>Newcastle</span><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"></div>
                                 <div class="match-time">Fri 31 Jan 2026 • Final: 4-1</div>
                             </div>
                             <div class="pick-details">
@@ -4560,7 +4587,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Leeds vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"><span>Leeds</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">Fri 31 Jan 2026 • Final: 0-4</div>
                             </div>
                             <div class="pick-details">
@@ -4587,7 +4614,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Wolves vs Bournemouth</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"><span>Wolves</span><span class="team-vs">vs</span><span>Bournemouth</span><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"></div>
                                 <div class="match-time">Fri 31 Jan 2026 • Final: 0-2</div>
                             </div>
                             <div class="pick-details">
@@ -4614,7 +4641,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Chelsea vs West Ham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"><span>Chelsea</span><span class="team-vs">vs</span><span>West Ham</span><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"></div>
                                 <div class="match-time">Fri 31 Jan 2026 • Final: 3-2</div>
                             </div>
                             <div class="pick-details">
@@ -4642,7 +4669,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Nott'm Forest</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Nott'm Forest</span><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"></div>
                                 <div class="match-time">Sun 26 Jan 2026 • Final: 0-2</div>
                             </div>
                             <div class="pick-details">
@@ -4669,7 +4696,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Crystal Palace vs Chelsea</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"><span>Crystal Palace</span><span class="team-vs">vs</span><span>Chelsea</span><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"></div>
                                 <div class="match-time">Sun 26 Jan 2026 • Final: 1-3</div>
                             </div>
                             <div class="pick-details">
@@ -4696,7 +4723,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Newcastle vs Aston Villa</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"><span>Newcastle</span><span class="team-vs">vs</span><span>Aston Villa</span><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"></div>
                                 <div class="match-time">Sat 25 Jan 2026 • Final: 0-2</div>
                             </div>
                             <div class="pick-details">
@@ -4723,7 +4750,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Arsenal vs Man United</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"><span>Arsenal</span><span class="team-vs">vs</span><span>Man United</span><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"></div>
                                 <div class="match-time">Sat 25 Jan 2026 • Final: 2-3</div>
                             </div>
                             <div class="pick-details">
@@ -4750,7 +4777,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Everton vs Leeds</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"><span>Everton</span><span class="team-vs">vs</span><span>Leeds</span><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"></div>
                                 <div class="match-time">Sat 25 Jan 2026 • Final: 1-1</div>
                             </div>
                             <div class="pick-details">
@@ -4778,7 +4805,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">West Ham vs Sunderland</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"><span>West Ham</span><span class="team-vs">vs</span><span>Sunderland</span><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"></div>
                                 <div class="match-time">Fri 24 Jan 2026 • Final: 3-1</div>
                             </div>
                             <div class="pick-details">
@@ -4805,7 +4832,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Fulham vs Brighton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"><span>Fulham</span><span class="team-vs">vs</span><span>Brighton</span><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"></div>
                                 <div class="match-time">Fri 24 Jan 2026 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -4832,7 +4859,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Man City vs Wolves</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/65.png" class="team-logo" onerror="this.style.display='none'" alt="Man City"><span>Man City</span><span class="team-vs">vs</span><span>Wolves</span><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"></div>
                                 <div class="match-time">Fri 24 Jan 2026 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -4859,7 +4886,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Bournemouth vs Liverpool</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"><span>Bournemouth</span><span class="team-vs">vs</span><span>Liverpool</span><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"></div>
                                 <div class="match-time">Fri 24 Jan 2026 • Final: 3-2</div>
                             </div>
                             <div class="pick-details">
@@ -4887,7 +4914,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Man United vs Man City</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"><span>Man United</span><span class="team-vs">vs</span><span>Man City</span><img src="https://crests.football-data.org/65.png" class="team-logo" onerror="this.style.display='none'" alt="Man City"></div>
                                 <div class="match-time">Sun 19 Jan 2026 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -4914,7 +4941,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Chelsea vs Brentford</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"><span>Chelsea</span><span class="team-vs">vs</span><span>Brentford</span><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"></div>
                                 <div class="match-time">Sun 19 Jan 2026 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -4941,7 +4968,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Leeds vs Fulham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"><span>Leeds</span><span class="team-vs">vs</span><span>Fulham</span><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"></div>
                                 <div class="match-time">Sat 18 Jan 2026 • Final: 1-0</div>
                             </div>
                             <div class="pick-details">
@@ -4968,7 +4995,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Liverpool vs Burnley</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"><span>Liverpool</span><span class="team-vs">vs</span><span>Burnley</span><img src="https://crests.football-data.org/328.png" class="team-logo" onerror="this.style.display='none'" alt="Burnley"></div>
                                 <div class="match-time">Sat 18 Jan 2026 • Final: 1-1</div>
                             </div>
                             <div class="pick-details">
@@ -4995,7 +5022,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Sunderland vs Crystal Palace</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"><span>Sunderland</span><span class="team-vs">vs</span><span>Crystal Palace</span><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"></div>
                                 <div class="match-time">Sat 18 Jan 2026 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5022,7 +5049,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Tottenham vs West Ham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/73.png" class="team-logo" onerror="this.style.display='none'" alt="Tottenham"><span>Tottenham</span><span class="team-vs">vs</span><span>West Ham</span><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"></div>
                                 <div class="match-time">Sat 18 Jan 2026 • Final: 1-2</div>
                             </div>
                             <div class="pick-details">
@@ -5049,7 +5076,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"><span>Nott'm Forest</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">Sat 18 Jan 2026 • Final: 0-0</div>
                             </div>
                             <div class="pick-details">
@@ -5076,7 +5103,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Aston Villa vs Everton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"><span>Aston Villa</span><span class="team-vs">vs</span><span>Everton</span><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"></div>
                                 <div class="match-time">Fri 17 Jan 2026 • Final: 0-1</div>
                             </div>
                             <div class="pick-details">
@@ -5104,7 +5131,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Bournemouth vs Tottenham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"><span>Bournemouth</span><span class="team-vs">vs</span><span>Tottenham</span><img src="https://crests.football-data.org/73.png" class="team-logo" onerror="this.style.display='none'" alt="Tottenham"></div>
                                 <div class="match-time">Wed 8 Jan 2026 • Final: 3-2</div>
                             </div>
                             <div class="pick-details">
@@ -5131,7 +5158,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Sunderland</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Sunderland</span><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"></div>
                                 <div class="match-time">Wed 8 Jan 2026 • Final: 3-0</div>
                             </div>
                             <div class="pick-details">
@@ -5158,7 +5185,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Fulham vs Chelsea</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"><span>Fulham</span><span class="team-vs">vs</span><span>Chelsea</span><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"></div>
                                 <div class="match-time">Tue 7 Jan 2026 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5185,7 +5212,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Newcastle vs Leeds</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"><span>Newcastle</span><span class="team-vs">vs</span><span>Leeds</span><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"></div>
                                 <div class="match-time">Tue 7 Jan 2026 • Final: 4-3</div>
                             </div>
                             <div class="pick-details">
@@ -5212,7 +5239,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">West Ham vs Nott'm Forest</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"><span>West Ham</span><span class="team-vs">vs</span><span>Nott'm Forest</span><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"></div>
                                 <div class="match-time">Tue 7 Jan 2026 • Final: 1-2</div>
                             </div>
                             <div class="pick-details">
@@ -5240,7 +5267,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Aston Villa vs Nott'm Forest</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"><span>Aston Villa</span><span class="team-vs">vs</span><span>Nott'm Forest</span><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"></div>
                                 <div class="match-time">Sat 4 Jan 2026 • Final: 3-1</div>
                             </div>
                             <div class="pick-details">
@@ -5267,7 +5294,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brighton vs Burnley</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"><span>Brighton</span><span class="team-vs">vs</span><span>Burnley</span><img src="https://crests.football-data.org/328.png" class="team-logo" onerror="this.style.display='none'" alt="Burnley"></div>
                                 <div class="match-time">Sat 4 Jan 2026 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -5294,7 +5321,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Wolves vs West Ham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"><span>Wolves</span><span class="team-vs">vs</span><span>West Ham</span><img src="https://crests.football-data.org/563.png" class="team-logo" onerror="this.style.display='none'" alt="West Ham"></div>
                                 <div class="match-time">Sat 4 Jan 2026 • Final: 3-0</div>
                             </div>
                             <div class="pick-details">
@@ -5321,7 +5348,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Bournemouth vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"><span>Bournemouth</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">Sat 4 Jan 2026 • Final: 2-3</div>
                             </div>
                             <div class="pick-details">
@@ -5348,7 +5375,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Everton vs Brentford</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"><span>Everton</span><span class="team-vs">vs</span><span>Brentford</span><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"></div>
                                 <div class="match-time">Fri 3 Jan 2026 • Final: 2-4</div>
                             </div>
                             <div class="pick-details">
@@ -5375,7 +5402,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Newcastle vs Crystal Palace</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"><span>Newcastle</span><span class="team-vs">vs</span><span>Crystal Palace</span><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"></div>
                                 <div class="match-time">Fri 3 Jan 2026 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -5410,7 +5437,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Burnley vs Newcastle</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/328.png" class="team-logo" onerror="this.style.display='none'" alt="Burnley"><span>Burnley</span><span class="team-vs">vs</span><span>Newcastle</span><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"></div>
                                 <div class="match-time">Mon 30 Dec 2025 • Final: 1-3</div>
                             </div>
                             <div class="pick-details">
@@ -5437,7 +5464,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Arsenal vs Aston Villa</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"><span>Arsenal</span><span class="team-vs">vs</span><span>Aston Villa</span><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"></div>
                                 <div class="match-time">Sun 29 Dec 2025 • Final: 4-1</div>
                             </div>
                             <div class="pick-details">
@@ -5464,7 +5491,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Everton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"><span>Nott'm Forest</span><span class="team-vs">vs</span><span>Everton</span><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"></div>
                                 <div class="match-time">Sun 29 Dec 2025 • Final: 0-2</div>
                             </div>
                             <div class="pick-details">
@@ -5491,7 +5518,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Man City</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"><span>Nott'm Forest</span><span class="team-vs">vs</span><span>Man City</span><img src="https://crests.football-data.org/65.png" class="team-logo" onerror="this.style.display='none'" alt="Man City"></div>
                                 <div class="match-time">Sat 28 Dec 2025 • Final: 1-2</div>
                             </div>
                             <div class="pick-details">
@@ -5518,7 +5545,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Arsenal vs Brighton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"><span>Arsenal</span><span class="team-vs">vs</span><span>Brighton</span><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"></div>
                                 <div class="match-time">Sat 28 Dec 2025 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5545,7 +5572,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Brentford vs Bournemouth</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/402.png" class="team-logo" onerror="this.style.display='none'" alt="Brentford"><span>Brentford</span><span class="team-vs">vs</span><span>Bournemouth</span><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"></div>
                                 <div class="match-time">Sat 28 Dec 2025 • Final: 4-1</div>
                             </div>
                             <div class="pick-details">
@@ -5572,7 +5599,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Liverpool vs Wolves</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"><span>Liverpool</span><span class="team-vs">vs</span><span>Wolves</span><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"></div>
                                 <div class="match-time">Fri 27 Dec 2025 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5599,7 +5626,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Man United vs Newcastle</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"><span>Man United</span><span class="team-vs">vs</span><span>Newcastle</span><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"></div>
                                 <div class="match-time">Fri 27 Dec 2025 • Final: 1-0</div>
                             </div>
                             <div class="pick-details">
@@ -5626,7 +5653,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Leeds vs Crystal Palace</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/341.png" class="team-logo" onerror="this.style.display='none'" alt="Leeds"><span>Leeds</span><span class="team-vs">vs</span><span>Crystal Palace</span><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"></div>
                                 <div class="match-time">Fri 27 Dec 2025 • Final: 4-1</div>
                             </div>
                             <div class="pick-details">
@@ -5654,7 +5681,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Chelsea vs Everton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/61.png" class="team-logo" onerror="this.style.display='none'" alt="Chelsea"><span>Chelsea</span><span class="team-vs">vs</span><span>Everton</span><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"></div>
                                 <div class="match-time">Sun 22 Dec 2025 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -5681,7 +5708,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Liverpool vs Brighton</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"><span>Liverpool</span><span class="team-vs">vs</span><span>Brighton</span><img src="https://crests.football-data.org/397.png" class="team-logo" onerror="this.style.display='none'" alt="Brighton"></div>
                                 <div class="match-time">Sun 22 Dec 2025 • Final: 2-0</div>
                             </div>
                             <div class="pick-details">
@@ -5708,7 +5735,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Arsenal vs Wolves</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"><span>Arsenal</span><span class="team-vs">vs</span><span>Wolves</span><img src="https://crests.football-data.org/76.png" class="team-logo" onerror="this.style.display='none'" alt="Wolves"></div>
                                 <div class="match-time">Sat 21 Dec 2025 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5735,7 +5762,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Crystal Palace vs Man City</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/354.png" class="team-logo" onerror="this.style.display='none'" alt="Crystal Palace"><span>Crystal Palace</span><span class="team-vs">vs</span><span>Man City</span><img src="https://crests.football-data.org/65.png" class="team-logo" onerror="this.style.display='none'" alt="Man City"></div>
                                 <div class="match-time">Sat 21 Dec 2025 • Final: 0-3</div>
                             </div>
                             <div class="pick-details">
@@ -5762,7 +5789,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Nott'm Forest vs Tottenham</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"><span>Nott'm Forest</span><span class="team-vs">vs</span><span>Tottenham</span><img src="https://crests.football-data.org/73.png" class="team-logo" onerror="this.style.display='none'" alt="Tottenham"></div>
                                 <div class="match-time">Sat 21 Dec 2025 • Final: 3-0</div>
                             </div>
                             <div class="pick-details">
@@ -5789,7 +5816,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Sunderland vs Newcastle</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/71.png" class="team-logo" onerror="this.style.display='none'" alt="Sunderland"><span>Sunderland</span><span class="team-vs">vs</span><span>Newcastle</span><img src="https://crests.football-data.org/67.png" class="team-logo" onerror="this.style.display='none'" alt="Newcastle"></div>
                                 <div class="match-time">Sat 21 Dec 2025 • Final: 1-0</div>
                             </div>
                             <div class="pick-details">
@@ -5816,7 +5843,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Aston Villa vs Man United</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/58.png" class="team-logo" onerror="this.style.display='none'" alt="Aston Villa"><span>Aston Villa</span><span class="team-vs">vs</span><span>Man United</span><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"></div>
                                 <div class="match-time">Fri 20 Dec 2025 • Final: 2-1</div>
                             </div>
                             <div class="pick-details">
@@ -5843,7 +5870,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Fulham vs Nott'm Forest</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/63.png" class="team-logo" onerror="this.style.display='none'" alt="Fulham"><span>Fulham</span><span class="team-vs">vs</span><span>Nott'm Forest</span><img src="https://crests.football-data.org/351.png" class="team-logo" onerror="this.style.display='none'" alt="Nott'm Forest"></div>
                                 <div class="match-time">Thu 19 Dec 2025 • Final: 1-0</div>
                             </div>
                             <div class="pick-details">
@@ -5870,7 +5897,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Man United vs Bournemouth</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/66.png" class="team-logo" onerror="this.style.display='none'" alt="Man United"><span>Man United</span><span class="team-vs">vs</span><span>Bournemouth</span><img src="https://crests.football-data.org/1044.png" class="team-logo" onerror="this.style.display='none'" alt="Bournemouth"></div>
                                 <div class="match-time">Wed 18 Dec 2025 • Final: 4-4</div>
                             </div>
                             <div class="pick-details">
@@ -5897,7 +5924,7 @@
                     <div class="pick-row">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Everton vs Arsenal</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/62.png" class="team-logo" onerror="this.style.display='none'" alt="Everton"><span>Everton</span><span class="team-vs">vs</span><span>Arsenal</span><img src="https://crests.football-data.org/57.png" class="team-logo" onerror="this.style.display='none'" alt="Arsenal"></div>
                                 <div class="match-time">Sat 14 Dec 2025 • Final: 0-1</div>
                             </div>
                             <div class="pick-details">
@@ -5924,7 +5951,7 @@
                     <div class="pick-row" onclick="celebrateWin(this)">
                         <div class="pick-main">
                             <div class="pick-match">
-                                <div class="match-name">Tottenham vs Liverpool</div>
+                                <div class="match-name match-name-with-logos"><img src="https://crests.football-data.org/73.png" class="team-logo" onerror="this.style.display='none'" alt="Tottenham"><span>Tottenham</span><span class="team-vs">vs</span><span>Liverpool</span><img src="https://crests.football-data.org/64.png" class="team-logo" onerror="this.style.display='none'" alt="Liverpool"></div>
                                 <div class="match-time">Sat 14 Dec 2025 • Final: 1-2</div>
                             </div>
                             <div class="pick-details">
@@ -6214,6 +6241,55 @@
     </div>
 
     <script>
+        // ── Team Logos ──────────────────────────────────────────────────────
+        const TEAM_LOGOS = {
+            'Arsenal': 'https://crests.football-data.org/57.png',
+            'Arsenal FC': 'https://crests.football-data.org/57.png',
+            'Aston Villa': 'https://crests.football-data.org/58.png',
+            'Brentford': 'https://crests.football-data.org/402.png',
+            'Brighton': 'https://crests.football-data.org/397.png',
+            'Brighton & Hove Albion': 'https://crests.football-data.org/397.png',
+            'Brighton Hove': 'https://crests.football-data.org/397.png',
+            'Burnley': 'https://crests.football-data.org/328.png',
+            'Chelsea': 'https://crests.football-data.org/61.png',
+            'Crystal Palace': 'https://crests.football-data.org/354.png',
+            'Everton': 'https://crests.football-data.org/62.png',
+            'Fulham': 'https://crests.football-data.org/63.png',
+            'Leeds United': 'https://crests.football-data.org/341.png',
+            'Leeds': 'https://crests.football-data.org/341.png',
+            'Liverpool': 'https://crests.football-data.org/64.png',
+            'Man City': 'https://crests.football-data.org/65.png',
+            'Manchester City': 'https://crests.football-data.org/65.png',
+            'Man United': 'https://crests.football-data.org/66.png',
+            'Manchester United': 'https://crests.football-data.org/66.png',
+            'Newcastle': 'https://crests.football-data.org/67.png',
+            'Newcastle United': 'https://crests.football-data.org/67.png',
+            'Nottingham Forest': 'https://crests.football-data.org/351.png',
+            "Nott'm Forest": 'https://crests.football-data.org/351.png',
+            'Nottingham': 'https://crests.football-data.org/351.png',
+            'Sunderland': 'https://crests.football-data.org/71.png',
+            'Tottenham': 'https://crests.football-data.org/73.png',
+            'Tottenham Hotspur': 'https://crests.football-data.org/73.png',
+            'Spurs': 'https://crests.football-data.org/73.png',
+            'West Ham': 'https://crests.football-data.org/563.png',
+            'West Ham United': 'https://crests.football-data.org/563.png',
+            'Wolves': 'https://crests.football-data.org/76.png',
+            'Wolverhampton': 'https://crests.football-data.org/76.png',
+            'Wolverhampton Wanderers': 'https://crests.football-data.org/76.png',
+            'Bournemouth': 'https://crests.football-data.org/1044.png',
+            'AFC Bournemouth': 'https://crests.football-data.org/1044.png',
+        };
+
+        function getTeamLogo(name, size = 28) {
+            const key = Object.keys(TEAM_LOGOS).find(k =>
+                name && (name.toLowerCase().includes(k.toLowerCase()) || k.toLowerCase().includes(name.toLowerCase()))
+            );
+            const url = key ? TEAM_LOGOS[key] : null;
+            if (!url) return '';
+            return `<img src="${url}" alt="${name}" class="team-logo" style="width:${size}px;height:${size}px;object-fit:contain;border-radius:3px;" onerror="this.style.display='none'">`;
+        }
+        // ────────────────────────────────────────────────────────────────────
+
         // ========== GLOBAL STATE ==========
         let thinkModeEnabled = true;
         let soundEnabled = true;
@@ -6959,7 +7035,7 @@
                 <div class="pick-row" onclick="expandPick(this)">
                     <div class="pick-main">
                         <div class="pick-match">
-                            <div class="match-name">${homeShort} vs ${awayShort}</div>
+                            <div class="match-name match-name-with-logos">${getTeamLogo(homeShort)}<span>${homeShort}</span><span class="team-vs">vs</span><span>${awayShort}</span>${getTeamLogo(awayShort)}</div>
                             <div class="match-time"><span>${p.date} • ${p.time}</span></div>
                         </div>
                         <div class="pick-details">
