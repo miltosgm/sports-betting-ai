@@ -6913,8 +6913,50 @@
                         : `<span class="status-badge status-lost">❌ LOST</span>`;
                 }
 
+                // Build reasoning verdict text
+                const homePct = p.home_prob ? p.home_prob.toFixed(1) : null;
+                const drawPct = p.draw_prob ? p.draw_prob.toFixed(1) : null;
+                const awayPct = p.away_prob ? p.away_prob.toFixed(1) : null;
+                const impliedPct = (100 / p.odds).toFixed(1);
+
+                let verdictClass = isValue ? (edge >= 15 ? 'bet exceptional' : 'bet') : (edge < -3 ? 'skip' : 'neutral-verdict');
+                let verdictIcon = isValue ? (edge >= 15 ? '⭐' : '🔥') : (edge < -3 ? '⚠️' : '⚡');
+                let verdictText = '';
+                if (edge >= 15) {
+                    verdictText = `<strong>Exceptional value (+${edge}%):</strong> Our AI gives ${p.prediction} a ${conf}% probability — market implies only ${impliedPct}% at odds ${p.odds.toFixed(2)}. Strong mispricing detected.`;
+                } else if (edge >= 5) {
+                    verdictText = `<strong>Good value (+${edge}%):</strong> ${p.prediction} at ${conf}% confidence vs market ${impliedPct}%. Consistent edge at this price level.`;
+                } else if (edge > 0) {
+                    verdictText = `<strong>Marginal value (+${edge}%):</strong> AI and market are close — ${conf}% vs ${impliedPct}%. Thin edge, size stakes conservatively.`;
+                } else {
+                    verdictText = `<strong>Skip:</strong> ${p.prediction} confidence is ${conf}% but market prices ${impliedPct}% at odds ${p.odds.toFixed(2)}. Negative edge of ${edge}% — no value here.`;
+                }
+
+                const reasoningHtml = `
+                    <div class="ai-reasoning">
+                        <div class="ai-reasoning-header">🔍 Why this Pick?</div>
+                        <div class="reasoning-grid">
+                            <div class="reasoning-stat">
+                                <span class="rsLabel">🤖 AI probability</span>
+                                <span class="rsValue positive">${p.prediction}: ${conf}%</span>
+                            </div>
+                            <div class="reasoning-stat">
+                                <span class="rsLabel">📊 Market implied</span>
+                                <span class="rsValue ${isValue ? 'positive' : 'warn'}">@ ${p.odds.toFixed(2)} → ${impliedPct}% implied</span>
+                            </div>
+                            ${homePct ? `<div class="reasoning-stat"><span class="rsLabel">🏠 Home Win prob</span><span class="rsValue neutral">${homePct}%</span></div>` : ''}
+                            ${drawPct ? `<div class="reasoning-stat"><span class="rsLabel">🤝 Draw prob</span><span class="rsValue neutral">${drawPct}%</span></div>` : ''}
+                            ${awayPct ? `<div class="reasoning-stat"><span class="rsLabel">✈️ Away Win prob</span><span class="rsValue neutral">${awayPct}%</span></div>` : ''}
+                            <div class="reasoning-stat">
+                                <span class="rsLabel">📈 Edge vs market</span>
+                                <span class="rsValue ${isValue ? 'positive' : 'negative'}">${edge > 0 ? '+' : ''}${edge}% ${isValue ? '(value)' : '(overpriced)'}</span>
+                            </div>
+                        </div>
+                        <div class="reasoning-verdict ${verdictClass}">${verdictIcon} ${verdictText}</div>
+                    </div>`;
+
                 const html = `
-                <div class="pick-row">
+                <div class="pick-row" onclick="expandPick(this)">
                     <div class="pick-main">
                         <div class="pick-match">
                             <div class="match-name">${homeShort} vs ${awayShort}</div>
@@ -6934,8 +6976,8 @@
                                 <div class="detail-value"><span class="odds-value">${p.odds.toFixed(2)}</span></div>
                             </div>
                             <div class="detail">
-                                <div class="detail-label">Status</div>
-                                <div class="detail-value">${statusHtml}</div>
+                                <div class="detail-label">EV</div>
+                                <div class="detail-value" style="color:${isValue ? 'var(--green)' : 'var(--red)'};">${edge > 0 ? '+' : ''}${edge}%</div>
                             </div>
                         </div>
                         <div class="pick-actions">
@@ -6957,6 +6999,7 @@
                             <div class="value-bar-fill ${barClass}" style="width: ${barWidth}%;"></div>
                         </div>
                     </div>
+                    ${reasoningHtml}
                 </div>`;
                 picksSection.insertAdjacentHTML('beforeend', html);
             });
