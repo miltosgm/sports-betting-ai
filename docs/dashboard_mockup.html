@@ -3138,6 +3138,142 @@
             font-weight: 700;
             font-size: 15px;
         }
+    /* ===== NEWS TAB ===== */
+    .news-filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .news-filter-btn {
+        padding: 5px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.04);
+        color: #9ca3af;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    .news-filter-btn.active, .news-filter-btn:hover {
+        background: rgba(37,99,235,0.2);
+        border-color: rgba(37,99,235,0.5);
+        color: #93c5fd;
+    }
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    @media (max-width: 640px) {
+        .news-grid { grid-template-columns: 1fr; }
+    }
+    .news-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: border-color 0.2s, transform 0.2s;
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+    .news-card:hover {
+        border-color: rgba(37,99,235,0.4);
+        transform: translateY(-2px);
+    }
+    .news-card-image {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        background: rgba(255,255,255,0.05);
+    }
+    .news-card-image-placeholder {
+        width: 100%;
+        height: 160px;
+        background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(147,51,234,0.15));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
+    }
+    .news-card-body {
+        padding: 14px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .news-card-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+    .news-source-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .news-time {
+        font-size: 11px;
+        color: #4b5563;
+    }
+    .news-card-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #e5e7eb;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .news-card-desc {
+        font-size: 12px;
+        color: #6b7280;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .news-team-tags {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+        margin-top: auto;
+    }
+    .news-team-tag {
+        font-size: 10px;
+        padding: 2px 8px;
+        border-radius: 12px;
+        background: rgba(37,99,235,0.15);
+        color: #93c5fd;
+        font-weight: 600;
+    }
+    .news-loading {
+        grid-column: 1/-1;
+        text-align: center;
+        color: #6b7280;
+        padding: 40px;
+        font-size: 14px;
+    }
+    .news-empty {
+        grid-column: 1/-1;
+        text-align: center;
+        color: #6b7280;
+        padding: 40px;
+        font-size: 14px;
+    }
     </style>
 </head>
 <body>
@@ -3208,6 +3344,9 @@
                 </button>
                 <button class="nav-item" onclick="switchTab('analytics')">
                     📈 Analytics
+                </button>
+                <button class="nav-item" data-tab="news" onclick="switchTab('news')">
+                    📰 News
                 </button>
                 <button class="nav-item" onclick="switchTab('settings')">
                     ⚙️ Ρυθμίσεις
@@ -6158,6 +6297,39 @@
                 </div>
             </div>
 
+            <!-- NEWS TAB -->
+            <div id="news" class="content" style="display:none;">
+
+                <!-- Team filter tabs -->
+                <div class="news-filters" id="newsFilters">
+                    <button class="news-filter-btn active" onclick="filterNews('all', this)">🌍 All News</button>
+                    <button class="news-filter-btn" onclick="filterNews('Arsenal', this)">Arsenal</button>
+                    <button class="news-filter-btn" onclick="filterNews('Liverpool', this)">Liverpool</button>
+                    <button class="news-filter-btn" onclick="filterNews('Chelsea', this)">Chelsea</button>
+                    <button class="news-filter-btn" onclick="filterNews('Manchester City', this)">Man City</button>
+                    <button class="news-filter-btn" onclick="filterNews('Tottenham', this)">Spurs</button>
+                    <button class="news-filter-btn" onclick="filterNews('Manchester United', this)">Man Utd</button>
+                    <button class="news-filter-btn" onclick="filterNews('Brentford', this)">Brentford</button>
+                    <button class="news-filter-btn" onclick="filterNews('Sunderland', this)">Sunderland</button>
+                </div>
+
+                <!-- News header -->
+                <div class="picks-header" style="margin-bottom: 16px;">
+                    <div class="picks-title">📰 Latest Football News</div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span id="newsUpdatedAt" style="font-size:12px; color:#6b7280;"></span>
+                        <button class="btn-secondary" onclick="loadNews(true)" style="padding:6px 12px; font-size:12px;">🔄 Refresh</button>
+                    </div>
+                </div>
+
+                <!-- News grid -->
+                <div id="newsGrid" class="news-grid">
+                    <!-- Populated by JS -->
+                    <div class="news-loading">⏳ Loading latest news...</div>
+                </div>
+
+            </div>
+
             <!-- SETTINGS TAB -->
             <div id="settings" class="content">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">⚙️ Settings</h2>
@@ -6222,10 +6394,6 @@
             <span>⚽</span>
             Picks
         </button>
-        <button class="mobile-nav-item" onclick="switchTab('leagues')">
-            <span>🌍</span>
-            Leagues
-        </button>
         <button class="mobile-nav-item" onclick="switchTab('acca')">
             <span>🎰</span>
             Acca
@@ -6237,6 +6405,10 @@
         <button class="mobile-nav-item" onclick="switchTab('analytics')">
             <span>📈</span>
             Stats
+        </button>
+        <button class="mobile-nav-item" onclick="switchTab('news')">
+            <span>📰</span>
+            News
         </button>
         <button class="mobile-nav-item" onclick="switchTab('settings')">
             <span>⚙️</span>
@@ -6565,6 +6737,7 @@
                 acca: 'AI Acca',
                 history: 'Ιστορία',
                 analytics: 'Analytics',
+                news: '📰 News',
                 settings: 'Ρυθμίσεις'
             };
             document.getElementById('pageTitle').textContent = titles[tabName];
@@ -6580,6 +6753,9 @@
             }
             if (tabName === 'picks') {
                 setTimeout(injectPickEnhancements, 100);
+            }
+            if (tabName === 'news') {
+                if (allNewsArticles.length === 0) loadNews();
             }
         }
         
@@ -7963,6 +8139,104 @@
                 }
             }
         })();
+
+        // ===== NEWS =====
+        let allNewsArticles = [];
+        let activeNewsFilter = 'all';
+
+        async function loadNews(forceRefresh = false) {
+            const grid = document.getElementById('newsGrid');
+            if (!grid) return;
+
+            // Show loading
+            grid.innerHTML = '<div class="news-loading">⏳ Loading latest news...</div>';
+
+            try {
+                const url = `./data/news.json?t=${forceRefresh ? Date.now() : Math.floor(Date.now()/300000)}`;
+                const r = await fetch(url);
+                if (!r.ok) throw new Error('Failed to fetch news');
+                const data = await r.json();
+
+                allNewsArticles = data.articles || [];
+
+                // Update timestamp
+                const updatedEl = document.getElementById('newsUpdatedAt');
+                if (updatedEl && data.updated) {
+                    const dt = new Date(data.updated);
+                    const mins = Math.floor((Date.now() - dt) / 60000);
+                    updatedEl.textContent = `Updated ${mins < 2 ? 'just now' : mins + 'm ago'}`;
+                }
+
+                renderNews(activeNewsFilter);
+            } catch(e) {
+                grid.innerHTML = '<div class="news-empty">⚠️ Could not load news. Try refreshing.</div>';
+                console.error('News load error:', e);
+            }
+        }
+
+        function renderNews(filter) {
+            const grid = document.getElementById('newsGrid');
+            if (!grid) return;
+
+            const articles = filter === 'all'
+                ? allNewsArticles
+                : allNewsArticles.filter(a =>
+                    (a.teams || []).some(t => t.toLowerCase().includes(filter.toLowerCase()))
+                  );
+
+            if (articles.length === 0) {
+                grid.innerHTML = `<div class="news-empty">No news found for ${filter}. Try "All News".</div>`;
+                return;
+            }
+
+            grid.innerHTML = articles.map(a => {
+                const imageHtml = a.image
+                    ? `<img class="news-card-image" src="${a.image}" alt="" onerror="this.parentElement.innerHTML='<div class=\\'news-card-image-placeholder\\'>⚽</div>'" loading="lazy">`
+                    : `<div class="news-card-image-placeholder">⚽</div>`;
+
+                const teamTags = (a.teams || []).map(t =>
+                    `<span class="news-team-tag">${t}</span>`
+                ).join('');
+
+                return `
+                <a class="news-card" href="${a.link}" target="_blank" rel="noopener">
+                    ${imageHtml}
+                    <div class="news-card-body">
+                        <div class="news-card-meta">
+                            <span class="news-source-badge">${a.source_logo} ${a.source}</span>
+                            <span class="news-time">${a.published_ago}</span>
+                        </div>
+                        <div class="news-card-title">${a.title}</div>
+                        ${a.description ? `<div class="news-card-desc">${a.description}</div>` : ''}
+                        ${teamTags ? `<div class="news-team-tags">${teamTags}</div>` : ''}
+                    </div>
+                </a>`;
+            }).join('');
+        }
+
+        function filterNews(team, btn) {
+            activeNewsFilter = team;
+            // Update active button
+            document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            renderNews(team);
+        }
+
+        // Hook into tab switching - load news when news tab is opened
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-tab="news"]').forEach(el => {
+                el.addEventListener('click', () => {
+                    if (allNewsArticles.length === 0) loadNews();
+                });
+            });
+            document.querySelectorAll('.mobile-nav-item').forEach(el => {
+                if (el.getAttribute('onclick') && el.getAttribute('onclick').includes('news')) {
+                    el.addEventListener('click', () => {
+                        if (allNewsArticles.length === 0) loadNews();
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
