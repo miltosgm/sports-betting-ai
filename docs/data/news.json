@@ -1,29 +1,54 @@
 {
-  "updated": "2026-02-19T20:00:30.486719+00:00",
+  "updated": "2026-02-19T20:30:14.024572+00:00",
   "count": 30,
   "articles": [
     {
       "title": "Manchester United v Atlético Madrid: Women’s Champions League playoff – live",
       "link": "https://www.theguardian.com/football/live/2026/feb/19/manchester-united-v-atletico-madrid-womens-champions-league-playoff-live",
-      "description": "⚽ Champions League updates from the 8pm GMT kick-off⚽ Live scores | Follow us on Bluesky | You can email SarahHere is how Arsenal booked their spot in the quarter-finals, where they will play Chelsea:",
+      "description": "⚽ Champions League updates from the 8pm GMT kick-off⚽ Live scores | Follow us on Bluesky | You can email SarahA great piece to read before this game begins:Here is how Arsenal booked their spot in the",
       "image": "",
-      "published": "2026-02-19T19:43:30+00:00",
-      "published_ago": "17m ago",
+      "published": "2026-02-19T20:15:20+00:00",
+      "published_ago": "14m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
         "Arsenal",
-        "Chelsea",
         "Manchester United"
       ]
     },
     {
-      "title": "Fenerbahce 0-3 Nottingham Forest: Europa League playoff, first leg – live reaction",
-      "link": "https://www.theguardian.com/football/live/2026/feb/19/fenerbahce-v-nottingham-forest-europa-league-playoff-first-leg-live",
-      "description": "Goals from Murillo, Igor Jesus and Morgan Gibbs-White give Vitor Pereira a winning start as Forest head coachI was at Dyche’s final game in charge and Omari Hutchinson was underwhelming, to say the le",
+      "title": "Ismaïla Sarr strike earns Crystal Palace Conference League draw at Zrinjski",
+      "link": "https://www.theguardian.com/football/2026/feb/19/zrinjski-mostar-crystal-palace-conference-league-playoff-first-leg-match-report",
+      "description": "Crystal Palace’s Conference League hopes hang in the balance after a 1-1 draw against Bosnia and Herzegovina’s Zrinjski Mostar in the first leg of their knockout phase playoff.Oliver Glasner had reinf",
       "image": "",
-      "published": "2026-02-19T19:42:34+00:00",
-      "published_ago": "17m ago",
+      "published": "2026-02-19T20:02:38+00:00",
+      "published_ago": "27m ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Crystal Palace"
+      ]
+    },
+    {
+      "title": "Is England on course for fifth Champions League spot?",
+      "link": "https://www.bbc.com/sport/football/articles/cj0npqv9rylo?at_medium=RSS&at_campaign=rss",
+      "description": "Could the Premier League get an extra place in the Champions League again? This is how it looks at the end of the league phases.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/93c9/live/5b39a1a0-fc67-11f0-a7b3-13a56b7a31f4.jpg",
+      "published": "2026-02-19T20:01:16+00:00",
+      "published_ago": "28m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Nottingham Forest on verge of progress after thrashing Fenerbahce",
+      "link": "https://www.theguardian.com/football/2026/feb/19/fenerbahce-nottingham-forest-europa-league-playoff-first-leg-match-report",
+      "description": "For Nottingham Forest, and particularly Vítor Pereira and the 1,200 supporters who signed up to this trip to Istanbul, an evening they will not forget in a hurry. Pereira’s first match in charge could",
+      "image": "",
+      "published": "2026-02-19T19:46:37+00:00",
+      "published_ago": "43m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -36,7 +61,7 @@
       "description": "BBC Sport football expert Chris Sutton takes on Embrace bassist Steve Firth plus the BBC readers and AI with his predictions for this weekend's Premier League fixtures.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/be6f/live/5236b240-0d7f-11f1-b7e1-afb6d0884c18.png",
       "published": "2026-02-19T19:16:39+00:00",
-      "published_ago": "43m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -62,7 +87,7 @@
       "description": "England forward Bukayo Saka commits his future to Premier League leaders Arsenal by signing a new five-year deal.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/16aa/live/5eaa90a0-ed6d-11f0-88e7-5d06f9172e94.jpg",
       "published": "2026-02-19T17:28:03+00:00",
-      "published_ago": "2h ago",
+      "published_ago": "3h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -116,7 +141,7 @@
       "description": "Chelsea head coach Liam Rosenior says anyone found guilty of racist behaviour in football \"shouldn't be in the game\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a01e/live/1f4b02c0-0db4-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T16:04:47+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -129,7 +154,7 @@
       "description": "Chelsea head coach Liam Rosenior believes anyone found guilty of racism should not work in football after Real Madrid's Vinicius Jr allegedly received racist abuse from Benfica's Gianluca Prestianni i",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/05c8/live/de035dc0-0daa-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T16:02:45+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -155,7 +180,7 @@
       "description": "Max Rushden is joined by Barry Glendenning, Philippe Auclair and Paul Watson as Arsenal feel the heat and Inter are caught cold in Norway Continue reading...",
       "image": "",
       "published": "2026-02-19T15:17:44+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -169,7 +194,7 @@
       "description": "What if games ended at 90 minutes, set-pieces goals were scrapped, or shots that hit the woodwork counted?By Opta AnalystA league table is a pretty helpful barometer of each team’s fortunes. That’s wh",
       "image": "",
       "published": "2026-02-19T15:14:23+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -210,7 +235,7 @@
       "description": "Late Wolves leveller means seven dropped points from winning positions in 2026 – and Manchester City are lurkingIt was left to Bukayo Saka to sum up the mood in Arsenal’s dressing room. “Very flat,” a",
       "image": "",
       "published": "2026-02-19T13:15:07+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -225,7 +250,7 @@
       "description": "Inside the Hungarian midfielder's season as the main character at Liverpool, his friendship with Mohamed Salah and why the Reds are keen to extend his contract.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/400f/live/336fe630-0d8c-11f1-ab35-e1029910cb11.jpg",
       "published": "2026-02-19T12:05:48+00:00",
-      "published_ago": "7h ago",
+      "published_ago": "8h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -238,7 +263,7 @@
       "description": "Liverpool head coach Arne Slot says \"we should always try to do more\" after Real Madrid's Vinicius Jr allegedly received racist abuse from Benfica's Gianluca Prestianni in the first leg of their Champ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d3a0/live/3c697900-0d86-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T12:03:24+00:00",
-      "published_ago": "7h ago",
+      "published_ago": "8h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -264,7 +289,7 @@
       "description": "Scotland midfielder John McGinn describes VAR as \"a mess\" as three players are sent off in Aberdeen's Scottish Cup win over Motherwell at Pittodrie.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9aab/live/5e8ac540-0d7a-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T10:17:25+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -277,7 +302,7 @@
       "description": "£125m summer signing broke a leg in DecemberHe should rejoin team training late March or early AprilArne Slot is expecting Alexander Isak to be available for a Liverpool return in April. The striker f",
       "image": "",
       "published": "2026-02-19T10:14:05+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -290,7 +315,7 @@
       "description": "With Chelsea facing leaky Burnley at Stamford Bridge this week, FPL managers have a tough choice of captain between Cole Palmer and Joao Pedro.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/816b/live/eaee5180-0c50-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T09:21:36+00:00",
-      "published_ago": "10h ago",
+      "published_ago": "11h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -330,7 +355,7 @@
       "description": "As a club coach with Arsenal, Juventus and Lyon and an international coach with Australia, Joe Montemurro has experience of pressure from both sides as he talks to BBC Sport.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/33b0/live/8476fec0-08e5-11f1-b046-7389c3987914.jpg",
       "published": "2026-02-19T07:25:32+00:00",
-      "published_ago": "12h ago",
+      "published_ago": "13h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -356,7 +381,7 @@
       "description": "After blowing a two-goal lead to draw against the Premier League's bottom club Wolves, there will be no dodging the questions on whether Arsenal are mentally ready to end their 22-year wait to become ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/56e0/live/75d41b00-0d22-11f1-b5e2-dd58fc65f0f6.jpg",
       "published": "2026-02-19T00:21:00+00:00",
-      "published_ago": "19h ago",
+      "published_ago": "20h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -371,40 +396,11 @@
       "description": "BBC Sport pundit Leon Osman says he can see Anthony Gordon scoring more goals in the Champions League if Newcastle United continue to play him up front with Nick Woltemade in behind, after the English",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4b30/live/016ad0f0-0d23-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T00:00:37+00:00",
-      "published_ago": "19h ago",
+      "published_ago": "20h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Newcastle"
-      ]
-    },
-    {
-      "title": "Man Utd regret Rashford decision - Thursday's gossip",
-      "link": "https://www.bbc.com/sport/football/articles/cr738ezd21jo?at_medium=RSS&at_campaign=rss",
-      "description": "Manchester United have regrets over Marcus Rashford deal, Marcos Senesi wants to join Barcelona, Liam Delap could leave Chelsea this summer, plus more.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6574/live/862650f0-0d0d-11f1-b7e1-afb6d0884c18.png",
-      "published": "2026-02-18T23:20:53+00:00",
-      "published_ago": "20h ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Chelsea",
-        "Manchester United"
-      ]
-    },
-    {
-      "title": "Arsenal were nowhere near our standards - Arteta",
-      "link": "https://www.bbc.com/sport/football/videos/cz9q53xzwwno?at_medium=RSS&at_campaign=rss",
-      "description": "Mikel Arteta says he is \"incredibly disappointed\" with his side losing a two goal lead, as Arsenal draw 2-2 against bottom of the table Wolves at Molineux in the Premier League.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/cfd2/live/b3738b70-0d1e-11f1-b5e2-dd58fc65f0f6.jpg",
-      "published": "2026-02-18T23:15:05+00:00",
-      "published_ago": "20h ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Arsenal",
-        "Wolverhampton",
-        "Premier League"
       ]
     }
   ]
