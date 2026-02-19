@@ -1,0 +1,365 @@
+{
+  "generated_at": "2026-02-19T09:00:40.534906",
+  "model_version": "v5_proper",
+  "predictions": [
+    {
+      "match_id": "aston-villa-fc-leeds-united-fc-2026-02-21",
+      "home_team": "Aston Villa FC",
+      "away_team": "Leeds United FC",
+      "date": "2026-02-21",
+      "kickoff": "15:00",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9437,
+      "probabilities": {
+        "home": 0.0563,
+        "draw": 0.0,
+        "away": 0.9437
+      },
+      "suggested_odds": {
+        "home": 17.75,
+        "draw": 100.0,
+        "away": 1.06
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Aston Villa FC struggling at home: 0.7 PPG",
+        "Leeds United FC strong away form: 3.5 PPG",
+        "Away team favored: 94% win probability",
+        "Leeds United FC leaky defense: 3.30 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1127
+      }
+    },
+    {
+      "match_id": "brentford-fc-brighton-&-hove-albion-fc-2026-02-21",
+      "home_team": "Brentford FC",
+      "away_team": "Brighton & Hove Albion FC",
+      "date": "2026-02-21",
+      "kickoff": "15:00",
+      "competition": "Premier League",
+      "prediction": "Home Win",
+      "confidence": 0.6887,
+      "probabilities": {
+        "home": 0.6887,
+        "draw": 0.0,
+        "away": 0.3113
+      },
+      "suggested_odds": {
+        "home": 1.45,
+        "draw": 100.0,
+        "away": 3.21
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Brentford FC struggling at home: 0.6 PPG",
+        "Brighton & Hove Albion FC strong away form: 3.4 PPG",
+        "Strong home advantage: 69% win probability",
+        "Brighton & Hove Albion FC leaky defense: 4.40 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": true,
+        "confidence": 0.6226
+      }
+    },
+    {
+      "match_id": "chelsea-fc-burnley-fc-2026-02-21",
+      "home_team": "Chelsea FC",
+      "away_team": "Burnley FC",
+      "date": "2026-02-21",
+      "kickoff": "15:00",
+      "competition": "Premier League",
+      "prediction": "Home Win",
+      "confidence": 0.6793,
+      "probabilities": {
+        "home": 0.6793,
+        "draw": 0.0,
+        "away": 0.3207
+      },
+      "suggested_odds": {
+        "home": 1.47,
+        "draw": 100.0,
+        "away": 3.12
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Chelsea FC struggling at home: 0.8 PPG",
+        "Burnley FC strong away form: 3.9 PPG",
+        "Strong home advantage: 68% win probability",
+        "Burnley FC leaky defense: 5.50 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": true,
+        "confidence": 0.6413
+      }
+    },
+    {
+      "match_id": "west-ham-united-fc-afc-bournemouth-2026-02-21",
+      "home_team": "West Ham United FC",
+      "away_team": "AFC Bournemouth",
+      "date": "2026-02-21",
+      "kickoff": "17:30",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9484,
+      "probabilities": {
+        "home": 0.0516,
+        "draw": 0.0,
+        "away": 0.9484
+      },
+      "suggested_odds": {
+        "home": 19.36,
+        "draw": 100.0,
+        "away": 1.05
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "West Ham United FC struggling at home: 0.8 PPG",
+        "AFC Bournemouth strong away form: 2.9 PPG",
+        "Away team favored: 95% win probability",
+        "AFC Bournemouth leaky defense: 3.85 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1033
+      }
+    },
+    {
+      "match_id": "manchester-city-fc-newcastle-united-fc-2026-02-21",
+      "home_team": "Manchester City FC",
+      "away_team": "Newcastle United FC",
+      "date": "2026-02-21",
+      "kickoff": "20:00",
+      "competition": "Premier League",
+      "prediction": "Home Win",
+      "confidence": 0.6887,
+      "probabilities": {
+        "home": 0.6887,
+        "draw": 0.0,
+        "away": 0.3113
+      },
+      "suggested_odds": {
+        "home": 1.45,
+        "draw": 100.0,
+        "away": 3.21
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Manchester City FC struggling at home: 0.9 PPG",
+        "Newcastle United FC strong away form: 3.0 PPG",
+        "Strong home advantage: 69% win probability",
+        "Newcastle United FC leaky defense: 4.81 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": true,
+        "confidence": 0.6225
+      }
+    },
+    {
+      "match_id": "sunderland-afc-fulham-fc-2026-02-22",
+      "home_team": "Sunderland AFC",
+      "away_team": "Fulham FC",
+      "date": "2026-02-22",
+      "kickoff": "14:00",
+      "competition": "Premier League",
+      "prediction": "Home Win",
+      "confidence": 0.7032,
+      "probabilities": {
+        "home": 0.7032,
+        "draw": 0.0,
+        "away": 0.2968
+      },
+      "suggested_odds": {
+        "home": 1.42,
+        "draw": 100.0,
+        "away": 3.37
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Sunderland AFC struggling at home: 0.6 PPG",
+        "Fulham FC strong away form: 3.2 PPG",
+        "Strong home advantage: 70% win probability",
+        "Fulham FC leaky defense: 3.30 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": true,
+        "confidence": 0.5936
+      }
+    },
+    {
+      "match_id": "crystal-palace-fc-wolverhampton-wanderers-fc-2026-02-22",
+      "home_team": "Crystal Palace FC",
+      "away_team": "Wolverhampton Wanderers FC",
+      "date": "2026-02-22",
+      "kickoff": "14:00",
+      "competition": "Premier League",
+      "prediction": "Home Win",
+      "confidence": 0.7035,
+      "probabilities": {
+        "home": 0.7035,
+        "draw": 0.0,
+        "away": 0.2965
+      },
+      "suggested_odds": {
+        "home": 1.42,
+        "draw": 100.0,
+        "away": 3.37
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Crystal Palace FC struggling at home: 0.6 PPG",
+        "Wolverhampton Wanderers FC strong away form: 4.0 PPG",
+        "Strong home advantage: 70% win probability",
+        "Wolverhampton Wanderers FC leaky defense: 2.20 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": true,
+        "confidence": 0.5929
+      }
+    },
+    {
+      "match_id": "nottingham-forest-fc-liverpool-fc-2026-02-22",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Liverpool FC",
+      "date": "2026-02-22",
+      "kickoff": "14:00",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9682,
+      "probabilities": {
+        "home": 0.0318,
+        "draw": 0.0,
+        "away": 0.9682
+      },
+      "suggested_odds": {
+        "home": 31.47,
+        "draw": 100.0,
+        "away": 1.03
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Nottingham Forest FC struggling at home: 0.8 PPG",
+        "Liverpool FC strong away form: 2.6 PPG",
+        "Away team favored: 97% win probability"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.0636
+      }
+    },
+    {
+      "match_id": "tottenham-hotspur-fc-arsenal-fc-2026-02-22",
+      "home_team": "Tottenham Hotspur FC",
+      "away_team": "Arsenal FC",
+      "date": "2026-02-22",
+      "kickoff": "16:30",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9448,
+      "probabilities": {
+        "home": 0.0552,
+        "draw": 0.0,
+        "away": 0.9448
+      },
+      "suggested_odds": {
+        "home": 18.11,
+        "draw": 100.0,
+        "away": 1.06
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Tottenham Hotspur FC struggling at home: 0.5 PPG",
+        "Arsenal FC strong away form: 2.1 PPG",
+        "Away team favored: 94% win probability",
+        "Arsenal FC leaky defense: 3.44 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1105
+      }
+    },
+    {
+      "match_id": "everton-fc-manchester-united-fc-2026-02-23",
+      "home_team": "Everton FC",
+      "away_team": "Manchester United FC",
+      "date": "2026-02-23",
+      "kickoff": "20:00",
+      "competition": "Premier League",
+      "prediction": "Away Win",
+      "confidence": 0.9471,
+      "probabilities": {
+        "home": 0.0529,
+        "draw": 0.0,
+        "away": 0.9471
+      },
+      "suggested_odds": {
+        "home": 18.92,
+        "draw": 100.0,
+        "away": 1.06
+      },
+      "value_bet": false,
+      "edge_pct": -5.0,
+      "ai_reasoning": [
+        "Everton FC struggling at home: 0.5 PPG",
+        "Manchester United FC strong away form: 2.4 PPG",
+        "Away team favored: 95% win probability",
+        "Manchester United FC leaky defense: 3.44 GA/game"
+      ],
+      "over_25": {
+        "prediction": true,
+        "confidence": 0.8
+      },
+      "btts": {
+        "prediction": false,
+        "confidence": 0.1057
+      }
+    }
+  ]
+}
