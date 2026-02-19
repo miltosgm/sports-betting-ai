@@ -12,7 +12,11 @@
     "odds": 1.27,
     "edge": -9.7,
     "time": "22:00",
-    "date": "Wed 18 Feb"
+    "date": "Wed 18 Feb",
+    "settled": true,
+    "result": "Away Win",
+    "correct": true,
+    "score": "1-2"
   },
   {
     "home": "Aston Villa FC",

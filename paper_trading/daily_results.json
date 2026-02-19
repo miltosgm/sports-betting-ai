@@ -1,6 +1,6 @@
 {
   "start_date": "2026-02-07T17:24:50.640897",
-  "bankroll": 10000,
+  "bankroll": 9577,
   "bets": [
     {
       "date": "2026-02-07",
@@ -81,6 +81,15 @@
           "profit": 0
         }
       ]
+    },
+    {
+      "date": "2026-02-18",
+      "match": "Wolves vs Arsenal",
+      "pick": "Away Win",
+      "odds": 1.27,
+      "stake": 100,
+      "result": "WIN",
+      "profit": 27.0
     }
   ],
   "metrics": {
