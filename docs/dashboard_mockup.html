@@ -2087,7 +2087,7 @@
             .toggle-slider { width: 16px; height: 16px; }
             .think-toggle.active .toggle-slider { left: 18px; }
             
-            /* Quick stats — compact, wrapping */
+            /* Quick stats — 2 per row */
             .quick-stats {
                 flex-wrap: wrap;
                 gap: 0.5rem;
@@ -2097,7 +2097,7 @@
             .quick-stat {
                 padding: 0.4rem 0.7rem;
                 font-size: 0.78rem;
-                flex: 1 1 auto;
+                flex: 0 0 calc(50% - 0.25rem);
                 min-width: 0;
             }
 
@@ -2178,33 +2178,37 @@
                 grid-template-columns: 1fr;
             }
             
-            /* Bottom Nav for Mobile — 7 items */
+            /* Bottom Nav for Mobile — 7 items, no overflow */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: 0;
                 left: 0;
                 right: 0;
+                width: 100%;
                 background: rgba(10, 14, 39, 0.95);
                 backdrop-filter: blur(20px);
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
                 display: grid;
-                grid-template-columns: repeat(7, 1fr);
-                padding: 0.4rem 0.2rem;
+                grid-template-columns: repeat(7, minmax(0, 1fr));
+                padding: 0.3rem 0;
                 z-index: 100;
+                overflow: hidden;
             }
             
             .mobile-nav-item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 0.2rem;
-                padding: 0.4rem 0.1rem;
+                gap: 0.15rem;
+                padding: 0.35rem 0;
                 background: none;
                 border: none;
                 color: var(--gray-500);
-                font-size: 0.62rem;
+                font-size: 0.58rem;
                 font-weight: 600;
                 cursor: pointer;
+                overflow: hidden;
+                white-space: nowrap;
                 transition: all 0.3s;
             }
             
@@ -2213,7 +2217,7 @@
             }
             
             .mobile-nav-item span {
-                font-size: 1.3rem;
+                font-size: 1.15rem;
             }
         }
         
