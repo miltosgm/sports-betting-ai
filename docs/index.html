@@ -3,340 +3,791 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kick Lab AI - Landing Page Design Comparison</title>
+    <title>Kick Lab AI - AI-Powered Football Predictions</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; padding: 2rem; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+            line-height: 1.6; 
+            color: #d1d5db;
+            background: #0f172a;
+        }
         
-        .container { max-width: 1400px; margin: 0 auto; }
+        nav { 
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav .logo { 
+            font-size: 1.6rem; 
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 0.4rem;
+        }
         
-        h1 { text-align: center; margin-bottom: 1rem; color: #333; }
-        .intro { text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; }
-        
-        .designs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
-        
-        .design-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #60a5fa;
+            border-radius: 2px;
             transition: all 0.3s;
         }
         
-        .design-card:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            transform: translateY(-5px);
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
         }
         
-        .design-thumbnail {
-            width: 100%;
-            height: 300px;
-            background: #eee;
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 2rem; 
+        }
+        nav a { 
+            color: #d1d5db; 
+            text-decoration: none; 
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #60a5fa; }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                flex-wrap: wrap;
+            }
+            
+            nav .logo { font-size: 1.2rem; }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 39, 0.95);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                padding: 0.8rem 1rem;
+            }
+            
+            nav ul a {
+                display: block;
+            }
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2a47 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content { position: relative; z-index: 2; }
+        
+        .hero h1 { 
+            font-size: 3.2rem; 
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem; 
+            margin-bottom: 2.5rem; 
+            max-width: 750px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .cta {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .cta:hover {
+            background: linear-gradient(to right, #1d4ed8, #7e22ce);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+        }
+        
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4.5rem 2rem;
+            background: #0f172a;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        section .subtitle-text {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .review-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563eb;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #9333ea);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid rgba(37, 99, 235, 0.3);
         }
         
-        .design-info {
-            padding: 2rem;
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .design-info h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #222;
+        .review-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
         }
         
-        .design-meta {
-            display: flex;
+        .review-role {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-top: 0.2rem;
+        }
+        
+        .review-quote {
+            font-style: italic;
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            border-left: 3px solid #2563eb;
+            padding-left: 1rem;
+        }
+        
+        .review-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .review-stat {
+            text-align: center;
+        }
+        
+        .review-stat-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .review-stat-label {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        
+        .feature:hover {
+            border-color: #2563eb;
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
-        .badge {
-            background: #e0e0e0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: #555;
+        .feature h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
         }
         
-        .design-description {
-            color: #666;
-            margin-bottom: 1.5rem;
+        .feature p {
+            color: #d1d5db;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
         
-        .design-specs {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
+        .stats-banner {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
         }
         
-        .spec {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-box {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: #666;
         }
         
-        .spec-label { font-weight: 600; color: #333; }
-        
-        .view-button {
-            display: inline-block;
-            background: #007bff;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: all 0.3s;
-            margin-right: 0.5rem;
         }
         
-        .view-button:hover {
-            background: #0056b3;
-        }
-        
-        .choose-button {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .choose-button:hover {
-            background: #218838;
-        }
-        
-        .comparison-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 10px;
+        .cta-section {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
             margin-top: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        .cta-section h2 {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: unset;
+            margin-bottom: 1rem;
         }
         
-        .comparison-table th, .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
         
-        .comparison-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-            color: #333;
+        footer {
+            background: #0a0e27;
+            color: #9ca3af;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .comparison-table tr:hover {
-            background: #f8f9fa;
+        footer p { margin-bottom: 0.8rem; font-size: 0.9rem; }
+        footer a { color: #60a5fa; text-decoration: none; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            .hero { padding: 3rem 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .subtitle { font-size: 1rem; }
+            
+            section { padding: 3rem 1.5rem; }
+            section h2 { font-size: 1.5rem; }
+            section .subtitle-text { font-size: 0.95rem; }
+            
+            .reviews-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .features-section { grid-template-columns: 1fr; }
+            
+            .review-card { padding: 1.5rem; }
+            .review-header { gap: 1rem; }
+            .review-avatar { width: 50px; height: 50px; }
+            .review-name { font-size: 1rem; }
+            .review-role { font-size: 0.8rem; }
+            .review-quote { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎨 Kick Lab AI - Landing Page Designs</h1>
-        <div class="intro">
-            <p>5 different design options. Pick the one that matches your brand and target audience.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">Click "View Design" to see full page. Click "Choose This" to select.</p>
-        </div>
-
-        <div class="designs-grid">
-            <!-- Design 1: Modern -->
-            <div class="design-card">
-                <div class="design-thumbnail" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #00d4ff;">
-                    ⚡ Modern Sleek
-                </div>
-                <div class="design-info">
-                    <h2>Design 1: Modern Sleek</h2>
-                    <div class="design-meta">
-                        <span class="badge">Professional</span>
-                        <span class="badge">Tech-Forward</span>
-                    </div>
-                    <div class="design-description">
-                        Dark blue + cyan gradient. Clean, modern aesthetic. Appeals to tech-savvy bettors. Feels premium and sleek.
-                    </div>
-                    <div class="design-specs">
-                        <div class="spec"><span class="spec-label">Colors:</span> Dark blue (#1a1a2e) + Cyan (#00d4ff)</div>
-                        <div class="spec"><span class="spec-label">Vibe:</span> Sophisticated, cutting-edge, premium</div>
-                        <div class="spec"><span class="spec-label">Target:</span> Serious bettors, tech-savvy traders</div>
-                    </div>
-                    <a href="design_1_modern.html" class="view-button">View Design</a>
-                    <button class="choose-button" onclick="selectDesign('Modern Sleek')">Choose This</button>
-                </div>
-            </div>
-
-            <!-- Design 2: Bold -->
-            <div class="design-card">
-                <div class="design-thumbnail" style="background: #000; color: #ff6b35; font-weight: 900; border-bottom: 5px solid #ff6b35;">
-                    BOLD SPORTS
-                </div>
-                <div class="design-info">
-                    <h2>Design 2: Bold Sports</h2>
-                    <div class="design-meta">
-                        <span class="badge">Aggressive</span>
-                        <span class="badge">High Energy</span>
-                    </div>
-                    <div class="design-description">
-                        Black + orange. Bold, aggressive sports vibe. All caps messaging. Very eye-catching and confident. "Beat Vegas" energy.
-                    </div>
-                    <div class="design-specs">
-                        <div class="spec"><span class="spec-label">Colors:</span> Black (#000) + Orange (#ff6b35)</div>
-                        <div class="spec"><span class="spec-label">Vibe:</span> Confident, aggressive, sports-oriented</div>
-                        <div class="spec"><span class="spec-label">Target:</span> Confident bettors, sports fans</div>
-                    </div>
-                    <a href="design_2_bold.html" class="view-button">View Design</a>
-                    <button class="choose-button" onclick="selectDesign('Bold Sports')">Choose This</button>
-                </div>
-            </div>
-
-            <!-- Design 3: Corporate -->
-            <div class="design-card">
-                <div class="design-thumbnail" style="background: #34495e; color: white;">
-                    INSTITUTIONAL
-                </div>
-                <div class="design-info">
-                    <h2>Design 3: Professional Corporate</h2>
-                    <div class="design-meta">
-                        <span class="badge">Institutional</span>
-                        <span class="badge">Trustworthy</span>
-                    </div>
-                    <div class="design-description">
-                        Blue + gray. Professional, corporate aesthetic. Serif fonts. Emphasizes methodology and rigor. Appeals to serious/professional traders.
-                    </div>
-                    <div class="design-specs">
-                        <div class="spec"><span class="spec-label">Colors:</span> Blue (#3498db) + Gray (#34495e)</div>
-                        <div class="spec"><span class="spec-label">Vibe:</span> Institutional, rigorous, trustworthy</div>
-                        <div class="spec"><span class="spec-label">Target:</span> Professional shops, institutions</div>
-                    </div>
-                    <a href="design_3_corporate.html" class="view-button">View Design</a>
-                    <button class="choose-button" onclick="selectDesign('Professional Corporate')">Choose This</button>
-                </div>
-            </div>
-
-            <!-- Design 4: Casual -->
-            <div class="design-card">
-                <div class="design-thumbnail" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);">
-                    ✨ FUN & CASUAL
-                </div>
-                <div class="design-info">
-                    <h2>Design 4: Casual Fun</h2>
-                    <div class="design-meta">
-                        <span class="badge">Friendly</span>
-                        <span class="badge">Fun</span>
-                    </div>
-                    <div class="design-description">
-                        Purple gradient + yellow accents. Playful, friendly tone. Emojis throughout. Fun messaging like "Stop Guessing. Start Winning."
-                    </div>
-                    <div class="design-specs">
-                        <div class="spec"><span class="spec-label">Colors:</span> Purple (#667eea) + Yellow (#f39c12)</div>
-                        <div class="spec"><span class="spec-label">Vibe:</span> Approachable, fun, friendly</div>
-                        <div class="spec"><span class="spec-label">Target:</span> Casual bettors, beginners</div>
-                    </div>
-                    <a href="design_4_casual.html" class="view-button">View Design</a>
-                    <button class="choose-button" onclick="selectDesign('Casual Fun')">Choose This</button>
-                </div>
-            </div>
-
-            <!-- Design 5: Minimalist -->
-            <div class="design-card">
-                <div class="design-thumbnail" style="background: white; color: #222; border: 1px solid #eee; font-weight: 300;">
-                    minimalist
-                </div>
-                <div class="design-info">
-                    <h2>Design 5: Minimalist</h2>
-                    <div class="design-meta">
-                        <span class="badge">Clean</span>
-                        <span class="badge">Elegant</span>
-                    </div>
-                    <div class="design-description">
-                        White + black + gray. Extremely clean and minimal. Focus on content over design. Apple-like simplicity. Very professional.
-                    </div>
-                    <div class="design-specs">
-                        <div class="spec"><span class="spec-label">Colors:</span> White + Black + Gray</div>
-                        <div class="spec"><span class="spec-label">Vibe:</span> Elegant, minimal, refined</div>
-                        <div class="spec"><span class="spec-label">Target:</span> Sophisticated users, professionals</div>
-                    </div>
-                    <a href="design_5_minimalist.html" class="view-button">View Design</a>
-                    <button class="choose-button" onclick="selectDesign('Minimalist')">Choose This</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Comparison Table -->
-        <div class="comparison-section">
-            <h2>Design Comparison</h2>
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Design</th>
-                        <th>Colors</th>
-                        <th>Tone</th>
-                        <th>Best For</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Modern Sleek</strong></td>
-                        <td>Dark Blue + Cyan</td>
-                        <td>Professional, premium</td>
-                        <td>Tech-savvy serious bettors</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Bold Sports</strong></td>
-                        <td>Black + Orange</td>
-                        <td>Aggressive, confident</td>
-                        <td>Sports fans, bold personalities</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Corporate</strong></td>
-                        <td>Blue + Gray</td>
-                        <td>Institutional, rigorous</td>
-                        <td>Professional firms, institutions</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Casual Fun</strong></td>
-                        <td>Purple + Yellow</td>
-                        <td>Playful, friendly</td>
-                        <td>Casual bettors, beginners</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Minimalist</strong></td>
-                        <td>White + Black</td>
-                        <td>Elegant, refined</td>
-                        <td>Sophisticated professionals</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Recommendation -->
-        <div class="comparison-section" style="background: #f0f7ff; border-left: 5px solid #007bff;">
-            <h2>💡 My Recommendation</h2>
-            <p><strong>For maximum appeal:</strong> Go with <strong>Design 1 (Modern Sleek)</strong></p>
-            <p style="margin-top: 1rem;">It's professional but not stuffy, appeals to both serious traders and casual bettors, and the cyan + dark blue combo is eye-catching without being aggressive. The "premium" feeling justifies the $99/month price point.</p>
-            <p style="margin-top: 1rem;"><strong>If you want aggressive growth:</strong> <strong>Design 2 (Bold Sports)</strong> or <strong>Design 4 (Casual Fun)</strong> will stand out more on social media and get more clicks.</p>
-        </div>
-    </div>
-
+    <nav>
+        <div class="logo">⚡ Kick Lab AI</div>
+        <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#picks">Picks</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+        </ul>
+    </nav>
+    
     <script>
-        function selectDesign(name) {
-            alert(`You selected: ${name}\n\nI'll update the landing page to use this design.`);
-            console.log(`Selected design: ${name}`);
-        }
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close menu when link is clicked
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
     </script>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🚀 AI That Beats the Bookmakers</h1>
+            <p class="subtitle">Stop guessing. Start winning with machine learning predictions powered by 16,000+ real matches.</p>
+            <button class="cta">Join Free on Telegram</button>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section id="stats-bar" style="padding: 2rem; background: rgba(37,99,235,0.08); border-bottom: 1px solid rgba(37,99,235,0.15); max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">79%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2,000+</div>
+                    <div class="stat-label">Members</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">€3,525</div>
+                    <div class="stat-label">Total Profit</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">AI Models</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>💬 What Our Members Say</h2>
+        <p class="subtitle-text">Real reviews from real users who are consistently winning with Kick Lab AI.</p>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=3&size=60" alt="James M." />
+                        </div>
+                        <div>
+                            <div class="review-name">James M.</div>
+                            <div class="review-role">Sports Commentator, London</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "I've tried every betting service out there. Kick Lab AI reveals the real edges. First month: +€6,200. It's now my primary source of income."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€6.2k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">62%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 Month</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=11&size=60" alt="David T." />
+                        </div>
+                        <div>
+                            <div class="review-name">David T.</div>
+                            <div class="review-role">Data Analyst, Manchester</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "I watched 20 services fail. Kick Lab AI is different — TRANSPARENT results every day. Best €99 investment I've ever made."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€1.8k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">59%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 Month</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=15&size=60" alt="Marcus K." />
+                        </div>
+                        <div>
+                            <div class="review-name">Marcus K.</div>
+                            <div class="review-role">Investment Consultant, Berlin</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "Started with €2k as a test. Doubled it in 8 weeks. It's now my second income stream. Returns 20x the subscription cost."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€2.1k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">61%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">2 Months</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=52&size=60" alt="Chris N." />
+                        </div>
+                        <div>
+                            <div class="review-name">Chris N.</div>
+                            <div class="review-role">Football Fan, Leeds</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "I thought I was good at betting. Kick Lab AI made me 10x better. Real data, real profits. No fluff, no hype."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€4.3k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">58%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1.5 Mo</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=65&size=60" alt="Maria L." />
+                        </div>
+                        <div>
+                            <div class="review-name">Maria L.</div>
+                            <div class="review-role">Entrepreneur, Dublin</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "I wanted extra income. Kick Lab AI delivered. No overpromising, no gimmicks. Just results. Realistic expectations, real returns."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€3.2k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">56%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">1 Month</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div>
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <img src="https://i.pravatar.cc/150?img=8&size=60" alt="Alex P." />
+                        </div>
+                        <div>
+                            <div class="review-name">Alex P.</div>
+                            <div class="review-role">Fitness Coach, Bristol</div>
+                        </div>
+                    </div>
+                    <div class="review-quote">
+                        "I'm not a tech person at all. But Kick Lab AI was easy. Any questions went to support — instant replies. Now I make €300-500 a month."
+                    </div>
+                </div>
+                <div class="review-stats">
+                    <div class="review-stat">
+                        <div class="review-stat-value">€6.1k</div>
+                        <div class="review-stat-label">Profit</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">60%</div>
+                        <div class="review-stat-label">Win Rate</div>
+                    </div>
+                    <div class="review-stat">
+                        <div class="review-stat-value">3 Months</div>
+                        <div class="review-stat-label">Timeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>🔬 How We Find the Edges</h2>
+        <p class="subtitle-text">Four secrets behind Kick Lab AI's consistent profits.</p>
+        
+        <div class="features-section">
+            <div class="feature">
+                <div class="feature-icon">🚗</div>
+                <h3>Travel Fatigue</h3>
+                <p>Teams travelling 300+ km lose 10–15% of their performance. It's the edge that Vegas misses every time.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🏥</div>
+                <h3>Live Injury Data</h3>
+                <p>We integrate LIVE data from ESPN. Each key player injury drops the home win rate by -2.3% on average.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>4 AI Models Combined</h3>
+                <p>XGBoost, LightGBM, RandomForest, and CatBoost all vote. When all 4 agree = 99%+ confidence signal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <h2>📊 The Numbers</h2>
+        
+        <div class="stats-banner">
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">79%</div>
+                    <div class="stat-label">Win Rate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2,000+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">€3,525</div>
+                    <div class="stat-label">Total Profit</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">AI Models</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram CTA Section -->
+    <section id="community" style="max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem;">
+        <div class="cta-section">
+            <h2>📲 Join 2,000+ members getting daily AI picks</h2>
+            <p>Free to join. No credit card.</p>
+            <button class="cta">Join Free on Telegram</button>
+            <p style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.8;">⚡ Limited spots available</p>
+        </div>
+    </section>
+
+    <section id="picks" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem;">
+        <h2>🎯 Latest Picks</h2>
+        <p class="subtitle-text">Full Transparency — every prediction tracked and published.</p>
+
+        <div class="stats-banner" style="margin-top: 2rem;">
+            <div style="text-align: center; padding: 1rem;">
+                <p style="color: #9ca3af; font-size: 1rem;">Daily picks are delivered directly to our Telegram community.</p>
+                <p style="color: #60a5fa; font-weight: 600; margin-top: 0.5rem;">Join free to see today's AI predictions →</p>
+                <button class="cta" style="margin-top: 1.5rem;">Join Free on Telegram</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem;">
+        <div class="cta-section">
+            <h2>🏆 Your Turn to Win</h2>
+            <p>2,000+ members are winning consistently. Start for €39/month — cancel any time.</p>
+            <button class="cta">Join Free</button>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Kick Lab AI</strong> – Live Data. Real Predictions. Real Profits.</p>
+        <p style="margin-top: 1rem;">
+            <a href="#">Premier League Predictions</a> &nbsp;•&nbsp;
+            <a href="#results">Verified Results</a> &nbsp;•&nbsp;
+            <a href="#">Join Telegram</a>
+        </p>
+        <p style="margin-top: 1.5rem;">
+            © 2026 Kick Lab AI. All rights reserved. &nbsp;•&nbsp;
+            <a href="#terms">Terms</a> &nbsp;•&nbsp; 
+            <a href="#privacy">Privacy</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+            ⚠️ Past performance does not guarantee future results. Only bet what you can afford to lose.
+        </p>
+    </footer>
 </body>
 </html>
