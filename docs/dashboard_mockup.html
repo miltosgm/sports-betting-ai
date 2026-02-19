@@ -967,6 +967,38 @@
             font-family: 'JetBrains Mono', monospace;
         }
         
+
+        .prediction-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            font-family: 'Inter', -apple-system, sans-serif;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+        .prediction-badge.home-win {
+            background: rgba(37, 99, 235, 0.18);
+            border: 1px solid rgba(37, 99, 235, 0.45);
+            color: #93c5fd;
+        }
+        .prediction-badge.away-win {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #6ee7b7;
+        }
+        .prediction-badge.draw {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #fcd34d;
+        }
+        /* Mobile: keep badge readable */
+        @media (max-width: 480px) {
+            .prediction-badge { font-size: 0.88rem; padding: 4px 10px; }
+        }
         .odds-value {
             display: flex;
             align-items: center;
@@ -3475,7 +3507,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
@@ -3563,7 +3595,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
@@ -3651,7 +3683,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Confidence</div>
@@ -3796,7 +3828,7 @@
                                 <div class="match-time"><span>Wed 18 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">69%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.27</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--red);">-9.7%</div></div>
@@ -3830,7 +3862,7 @@
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Draw</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge draw">🤝 Draw</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">39%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">3.60</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+11.0%</div></div>
@@ -3863,7 +3895,7 @@
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">80%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.22</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--red);">-2.4%</div></div>
@@ -3896,7 +3928,7 @@
                                 <div class="match-time"><span>Sat 21 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">77%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.42</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+6.3%</div></div>
@@ -3929,7 +3961,7 @@
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">58%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.80</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+1.9%</div></div>
@@ -3962,7 +3994,7 @@
                                 <div class="match-time"><span>Sun 22 Feb • 18:30</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">59%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.57</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--red);">-4.7%</div></div>
@@ -3995,7 +4027,7 @@
                                 <div class="match-time"><span>Sat 21 Feb • 19:30</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">42%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.88</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+7.2%</div></div>
@@ -4028,7 +4060,7 @@
                                 <div class="match-time"><span>Mon 23 Feb • 22:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Away Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-medium">52%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.95</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+0.4%</div></div>
@@ -4061,7 +4093,7 @@
                                 <div class="match-time"><span>Sat 21 Feb • 17:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">70%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.00</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+19.9%</div></div>
@@ -4094,7 +4126,7 @@
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">73%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">1.57</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+8.9%</div></div>
@@ -4127,7 +4159,7 @@
                                 <div class="match-time"><span>Sun 22 Feb • 16:00</span></div>
                             </div>
                             <div class="pick-details">
-                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value">Home Win</div></div>
+                                <div class="detail"><div class="detail-label">Prediction</div><div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div></div>
                                 <div class="detail"><div class="detail-label">Confidence</div><div class="detail-value"><span class="confidence-badge confidence-high">66%</span></div></div>
                                 <div class="detail"><div class="detail-label">Odds</div><div class="detail-value"><span class="odds-value">2.70</span></div></div>
                                 <div class="detail"><div class="detail-label">EV</div><div class="detail-value" style="color:var(--green);">+29.1%</div></div>
@@ -4504,7 +4536,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4566,7 +4598,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4593,7 +4625,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4620,7 +4652,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4675,7 +4707,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4729,7 +4761,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4783,7 +4815,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4811,7 +4843,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4865,7 +4897,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -4947,7 +4979,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5001,7 +5033,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5082,7 +5114,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5109,7 +5141,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5164,7 +5196,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5273,7 +5305,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5300,7 +5332,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5327,7 +5359,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5408,7 +5440,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5443,7 +5475,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5470,7 +5502,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5497,7 +5529,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5605,7 +5637,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5632,7 +5664,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5687,7 +5719,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5714,7 +5746,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5741,7 +5773,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5768,7 +5800,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5795,7 +5827,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Home Win</div>
+                                    <div class="detail-value"><span class="prediction-badge home-win">🏠 Home Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5849,7 +5881,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Away Win</div>
+                                    <div class="detail-value"><span class="prediction-badge away-win">✈️ Away Win</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -5930,7 +5962,7 @@
                             <div class="pick-details">
                                 <div class="detail">
                                     <div class="detail-label">Prediction</div>
-                                    <div class="detail-value">Draw</div>
+                                    <div class="detail-value"><span class="prediction-badge draw">🤝 Draw</span></div>
                                 </div>
                                 <div class="detail">
                                     <div class="detail-label">Odds</div>
@@ -7041,7 +7073,11 @@
                         <div class="pick-details">
                             <div class="detail">
                                 <div class="detail-label">Prediction</div>
-                                <div class="detail-value">${p.prediction}</div>
+                                <div class="detail-value">
+                                <span class="prediction-badge ${p.prediction === 'Home Win' ? 'home-win' : p.prediction === 'Away Win' ? 'away-win' : 'draw'}">
+                                    ${p.prediction === 'Home Win' ? '🏠' : p.prediction === 'Away Win' ? '✈️' : '🤝'} ${p.prediction}
+                                </span>
+                            </div>
                             </div>
                             <div class="detail">
                                 <div class="detail-label">Confidence</div>
