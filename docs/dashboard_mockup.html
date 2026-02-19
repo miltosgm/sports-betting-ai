@@ -2184,15 +2184,14 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                width: 100%;
+                width: 100vw;
                 background: rgba(10, 14, 39, 0.95);
                 backdrop-filter: blur(20px);
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
-                display: grid;
-                grid-template-columns: repeat(7, minmax(0, 1fr));
+                display: flex;
+                flex-direction: row;
                 padding: 0.3rem 0;
                 z-index: 100;
-                overflow: hidden;
             }
             
             .mobile-nav-item {
@@ -2207,8 +2206,9 @@
                 font-size: 0.58rem;
                 font-weight: 600;
                 cursor: pointer;
+                flex: 1;
+                min-width: 0;
                 overflow: hidden;
-                white-space: nowrap;
                 transition: all 0.3s;
             }
             
