@@ -6377,6 +6377,23 @@
         // Run on page load
         loadRealPicks();
 
+        // Hide hardcoded pick rows for past games
+        (function hidePastPicks() {
+            const pastMatches = ['Wolves vs Arsenal', 'Wed 18 Feb'];
+            document.querySelectorAll('.pick-row').forEach(row => {
+                const text = row.textContent;
+                if (pastMatches.some(m => text.includes(m))) {
+                    row.style.display = 'none';
+                }
+            });
+            // Update date range titles
+            document.querySelectorAll('.picks-title').forEach(el => {
+                if (el.textContent.includes('Feb 18')) {
+                    el.innerHTML = el.innerHTML.replace('Feb 18-23', 'Feb 19-23').replace('18-23', '19-23');
+                }
+            });
+        })();
+
         // ========== LIVE SCORES ==========
         const FOOTBALL_API_KEY = '187d23f874344449b4544acdee9e0fb7';
         const CORS_PROXY = 'https://corsproxy.io/?';
@@ -6544,7 +6561,6 @@
 
         // ========== LIVE ODDS WIDGET ==========
         const LIVE_ODDS_DATA = [
-            { match: 'Wolves vs Arsenal',      home: 10.00, draw: 5.75, away: 1.27 },
             { match: 'Aston Villa vs Leeds',   home: 1.83,  draw: 3.60, away: 4.50 },
             { match: 'Brentford vs Brighton',  home: 2.00,  draw: 3.60, away: 3.60 },
             { match: 'Chelsea vs Burnley',     home: 1.22,  draw: 6.50, away: 12.00 },
