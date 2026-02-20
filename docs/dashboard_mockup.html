@@ -3360,6 +3360,49 @@
     .odds-range-bets { font-size: 11px; color: #9ca3af; margin: 6px 0; }
     .odds-range-profit { font-size: 15px; font-weight: 700; }
     .odds-range-profit.positive { color: #10b981; }
+        /* ========== ACADEMY TAB ========== */
+        .academy-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+        .academy-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 18px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .academy-card:hover, .academy-card.open {
+            border-color: rgba(37,99,235,0.4);
+        }
+        .academy-card-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .academy-icon { font-size: 28px; flex-shrink: 0; }
+        .academy-meta { flex: 1; }
+        .academy-title { font-size: 15px; font-weight: 700; color: #e5e7eb; }
+        .academy-sub { font-size: 11px; color: #6b7280; margin-top: 2px; }
+        .academy-expand-icon { color: #6b7280; font-size: 12px; transition: transform 0.2s; }
+        .academy-card.open .academy-expand-icon { transform: rotate(180deg); }
+        .academy-desc {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+        .academy-body {
+            font-size: 13px;
+            color: #d1d5db;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            line-height: 1.7;
+        }
     </style>
 </head>
 <body>
@@ -3434,6 +3477,7 @@
                 <button class="nav-item" data-tab="news" onclick="switchTab('news')">
                     📰 News
                 </button>
+                <button class="nav-item" data-tab="academy" onclick="switchTab('academy')">🎓 Academy</button>
                 <button class="nav-item" onclick="switchTab('settings')">
                     ⚙️ Ρυθμίσεις
                 </button>
@@ -6455,6 +6499,108 @@
 
             </div>
 
+            <!-- ACADEMY TAB -->
+            <div id="academy" class="content">
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; flex-wrap:wrap; gap:12px;">
+                    <div>
+                        <h2 style="font-size:1.8rem; font-weight:800; color:white; margin-bottom:4px;">🎓 EV Academy</h2>
+                        <p style="font-size:0.9rem; color:#9ca3af;">Master value betting — one concept at a time. Tap any lesson to expand.</p>
+                    </div>
+                    <div style="background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.3); border-radius:10px; padding:10px 18px; text-align:center;">
+                        <div style="font-size:1.4rem; font-weight:800; color:#60a5fa;">6</div>
+                        <div style="font-size:11px; color:#9ca3af;">Lessons</div>
+                    </div>
+                </div>
+
+                <div class="academy-grid">
+
+                    <!-- Lesson 1 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">📐</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">What is Expected Value (EV)?</div>
+                                <div class="academy-sub">3 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">The mathematical foundation of profitable betting — why a losing bet can still be 'right'.</div>
+                        <div class="academy-body" style="display:none;">Expected Value (EV) is the average outcome if you made the same bet thousands of times. A bet with +EV means that, on average, you profit. Example: if a coin flip pays €2 on heads but costs €1 to play, the EV is +€0.50 per flip. In sports betting, we look for bets where the bookmaker's implied probability is lower than the true probability. If Man City truly win 65% of the time but the bookmaker prices them at 60% implied, that's a +EV bet — even if City lose tonight.</div>
+                    </div>
+
+                    <!-- Lesson 2 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">📈</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">What is Closing Line Value (CLV)?</div>
+                                <div class="academy-sub">4 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">The industry gold standard for proving your model has real edge — without waiting 1,000 bets.</div>
+                        <div class="academy-body" style="display:none;">Closing Line Value measures whether you beat the market. When you place a bet at 9AM and the odds shorten to a lower number by kick-off, you 'beat the closing line'. Sharp bookmakers like Pinnacle have the world's best odds compilers. When they move a line, it reflects new information. If you consistently get in before they move, you're ahead of the market. Example: We post Arsenal Away Win @ 1.57. By kick-off, Pinnacle closes at 1.45. We beat the closing line by +8.3% — proof of edge, regardless of the match result. KickLab tracks your average CLV in the Analytics tab.</div>
+                    </div>
+
+                    <!-- Lesson 3 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">💰</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">How Kelly Criterion Works</div>
+                                <div class="academy-sub">5 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">The optimal staking formula used by professional gamblers and Wall Street quants alike.</div>
+                        <div class="academy-body" style="display:none;">Kelly Criterion tells you exactly what percentage of your bankroll to bet, given your edge and the odds. Formula: Kelly % = Edge / (Odds − 1). Example: Edge = 10%, Odds = 2.00 → Kelly = 10% / (2.00 − 1) = 10%. On a €10,000 bankroll, that's €1,000. But full Kelly is aggressive — one bad run wipes you out. Most pros use ¼ Kelly (2.5% here = €250). KickLab uses ¼ Kelly for all stake recommendations. This keeps you in the game through variance while still compounding your edge.</div>
+                    </div>
+
+                    <!-- Lesson 4 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">📉</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">Understanding Variance &amp; Losing Streaks</div>
+                                <div class="academy-sub">4 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">Why you can do everything right and still lose for weeks — and why that's completely fine.</div>
+                        <div class="academy-body" style="display:none;">Even with a 77% win rate, losing streaks happen. At 77% win rate, the probability of losing 3 in a row is 1.2%. Sounds rare — but across 100 betting days, you'll hit it several times. The mistake most bettors make: quitting after a bad week, just before the model's edge reasserts. Variance is the short-term noise. EV is the long-term signal. Professional bettors track EV, not results. KickLab's Analytics tab shows your actual P/L vs EV curve — when they diverge, it's variance, not model failure. Stay the course.</div>
+                    </div>
+
+                    <!-- Lesson 5 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">⚖️</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">Value Betting vs Tips Services</div>
+                                <div class="academy-sub">3 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">Why following a tipster is fundamentally different from systematic value betting.</div>
+                        <div class="academy-body" style="display:none;">Traditional tips services sell picks — you trust their judgement on individual games. Value betting is different: it's a systematic process of finding mispricings between the true probability and the bookmaker's odds. Tips services: rely on expert opinion, no statistical framework, results often not independently verified. Value betting: mathematical framework, every pick has a calculated edge, verifiable via CLV, works over large samples. KickLab combines both: ML-driven predictions (systematic) with human-readable reasoning (why this pick). You always know the edge before you bet.</div>
+                    </div>
+
+                    <!-- Lesson 6 -->
+                    <div class="academy-card" onclick="toggleLesson(this)">
+                        <div class="academy-card-header">
+                            <div class="academy-icon">🏦</div>
+                            <div class="academy-meta">
+                                <div class="academy-title">Building Your Betting Bankroll</div>
+                                <div class="academy-sub">5 min read</div>
+                            </div>
+                            <div class="academy-expand-icon">▼</div>
+                        </div>
+                        <div class="academy-desc">How to structure your bankroll, how much to start with, and how to grow it systematically.</div>
+                        <div class="academy-body" style="display:none;">Start with an amount you're comfortable losing entirely — the model has edge, but variance means short-term losses are real. Recommended starting bankroll: €500–€2,000 for beginners. Spread across 3–4 bookmakers (max €500 per bookie to avoid restrictions). Use ¼ Kelly staking — never bet more than 3% of bankroll on a single pick. Withdraw profits quarterly, reinvest 50% to compound growth. At 2.5% ROI and ¼ Kelly, a €1,000 bankroll betting 100 picks/month grows to ~€1,340 in 3 months. Discipline beats size. A small bankroll with strict staking outperforms a large bankroll with reckless betting every time.</div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- SETTINGS TAB -->
             <div id="settings" class="content">
                 <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: white;">⚙️ Settings</h2>
@@ -6534,6 +6680,10 @@
         <button class="mobile-nav-item" onclick="switchTab('news')">
             <span>📰</span>
             News
+        </button>
+        <button class="mobile-nav-item" onclick="switchTab('academy')">
+            <span>🎓</span>
+            Academy
         </button>
         <button class="mobile-nav-item" onclick="switchTab('settings')">
             <span>⚙️</span>
@@ -6868,6 +7018,7 @@
                 history: 'Ιστορία',
                 analytics: 'Analytics',
                 news: '📰 News',
+                academy: '🎓 Academy',
                 settings: 'Ρυθμίσεις'
             };
             document.getElementById('pageTitle').textContent = titles[tabName];
@@ -6890,6 +7041,14 @@
             }
         }
         
+        // ========== ACADEMY LESSONS ==========
+        function toggleLesson(card) {
+            const body = card.querySelector('.academy-body');
+            const isOpen = card.classList.contains('open');
+            card.classList.toggle('open', !isOpen);
+            body.style.display = isOpen ? 'none' : 'block';
+        }
+
         // ========== SIDEBAR TOGGLE ==========
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -7964,11 +8123,19 @@
             const edge = edgeEl ? parseFloat(edgeEl.textContent.replace('EDGE:','').replace('%','').trim()) : 0;
             const conf = confEl ? parseInt(confEl.textContent) : 0;
 
+            // Read Kelly-recommended stake if available
+            let kellyDefaultStake = 100;
+            const kellyEl = row.querySelector('.kelly-rec strong');
+            if (kellyEl) {
+                const kellyVal = parseFloat(kellyEl.textContent.replace('€',''));
+                if (!isNaN(kellyVal)) kellyDefaultStake = kellyVal;
+            }
+
             const form = document.createElement('div');
             form.className = 'bet-logger-form';
             form.innerHTML = `
                 <label>Stake: €</label>
-                <input type="number" class="bet-stake-input" value="100" min="1" step="1" placeholder="€100">
+                <input type="number" class="bet-stake-input" value="${kellyDefaultStake}" min="1" step="1" placeholder="Stake (€)">
                 <button class="bet-logger-submit" onclick="logBetSubmit(this.closest('.pick-row'), '${match.replace(/'/g,"\'")}', ${odds}, ${edge}, ${conf})">Log Bet</button>
                 <button class="bet-logger-cancel" onclick="this.closest('.bet-logger-form').remove()">Cancel</button>
             `;
