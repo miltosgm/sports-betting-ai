@@ -1,16 +1,29 @@
 {
-  "updated": "2026-02-20T09:30:02.967017+00:00",
+  "updated": "2026-02-20T10:00:03.640400+00:00",
   "count": 30,
   "articles": [
     {
       "title": "North London derby buildup, Europa League reaction, Premier League team news and more – live",
       "link": "https://www.theguardian.com/football/live/2026/feb/20/north-london-derby-buildup-europa-league-reaction-premier-league-team-news-and-more-live",
-      "description": "⚽ Latest news, previews and updates before the weekend⚽ 10 things to look out for | And email JohnA good night in the Europa League and Conference League for English teams.Less so Celtic, ouch. Contin",
+      "description": "⚽ Latest news, previews and updates before the weekend⚽ 10 things to look out for | And email JohnMichael Carrick has offered insight into how he is managing Kobbie Mainoo. The 20-year-old was not sta",
       "image": "",
-      "published": "2026-02-20T09:13:48+00:00",
-      "published_ago": "16m ago",
+      "published": "2026-02-20T09:46:07+00:00",
+      "published_ago": "13m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "All your FPL stats and Premier League team news in one place",
+      "link": "https://www.bbc.com/sport/articles/cy4wk8k98j7o?at_medium=RSS&at_campaign=rss",
+      "description": "Every key bit of Premier League team news and the most important Fantasy Premier League statistics - all in one place.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9f21/live/e7231920-9917-11f0-af62-91486a511a31.jpg",
+      "published": "2026-02-20T08:49:33+00:00",
+      "published_ago": "1h ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
       "teams": [
         "Premier League"
       ]
@@ -21,7 +34,7 @@
       "description": "In his BBC Sport column, ex-Premier League boss Tony Pulis explains why more matches in a shorter space of time might mean more injuries, and why the expansion of tournaments does not help players or ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a08b/live/35d69260-b98c-11f0-aa13-0b0479f6f42a.jpg",
       "published": "2026-02-20T08:32:27+00:00",
-      "published_ago": "57m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -62,7 +75,7 @@
       "description": "Former Manchester United captain Wayne Rooney says he hopes Pep Guardiola will stay at Manchester City beyond this season because he has set 'a benchmark' for all other managers.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/286f/live/edd4afd0-0dd5-11f1-ad76-15be5b81d03d.jpg",
       "published": "2026-02-20T06:41:00+00:00",
-      "published_ago": "2h ago",
+      "published_ago": "3h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -89,7 +102,7 @@
       "description": "Mark Chapman speaks to Manchester United head coach Michael Carrick.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0n20vp7.jpg",
       "published": "2026-02-20T06:00:00+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -102,7 +115,7 @@
       "description": "A deep dive into Manchester City - title hopes, Guardiola’s future & Phil Foden’s form.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0lxths6.jpg",
       "published": "2026-02-20T06:00:00+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -143,11 +156,24 @@
       "description": "Jess Park provided a timely demonstration of her qualities as her superb, long-range goal capped a confident individual performance that helped Manchester United progress to the Women’s Champions Leag",
       "image": "",
       "published": "2026-02-19T21:55:49+00:00",
-      "published_ago": "11h ago",
+      "published_ago": "12h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
         "Manchester United"
+      ]
+    },
+    {
+      "title": "Ismaïla Sarr’s strike earns Crystal Palace Conference League draw at Zrinjski",
+      "link": "https://www.theguardian.com/football/2026/feb/19/zrinjski-mostar-crystal-palace-conference-league-playoff-first-leg-match-report",
+      "description": "Crystal Palace’s Conference League hopes hang in the balance after a 1-1 draw against Bosnia and Herzegovina’s Zrinjski Mostar in the first leg of their knockout phase playoff.Oliver Glasner had reinf",
+      "image": "",
+      "published": "2026-02-19T20:02:38+00:00",
+      "published_ago": "13h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Crystal Palace"
       ]
     },
     {
@@ -156,7 +182,7 @@
       "description": "For Nottingham Forest, and particularly Vítor Pereira and the 1,200 supporters who signed up to this trip, an evening in Istanbul they will not forget in a hurry.After just three training sessions, Pe",
       "image": "",
       "published": "2026-02-19T19:46:37+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -182,7 +208,7 @@
       "description": "‘When you see a player upset, normally it’s for a reason’Head coach reacts to Vinícius Júnior’s racism claimsLiam Rosenior has called for players and coaches found guilty of racism to be banned from f",
       "image": "",
       "published": "2026-02-19T17:30:51+00:00",
-      "published_ago": "15h ago",
+      "published_ago": "16h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -209,7 +235,7 @@
       "description": "Sign up now! Sign up now! Sign up now? Sign up now!Top of the league, Wembley trip booked, sweeping through Europe, and blessed with a cushty FA Cup draw – it’s fair to say the Arsenal garden is in fu",
       "image": "",
       "published": "2026-02-19T16:56:59+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -222,7 +248,7 @@
       "description": "Arsenal's disappointing 2-2 draw at Wolves on Wednesday has similarities to what happened to the Gunners 18 years ago.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47ab/live/be333d30-0da5-11f1-9fe5-57999fe11004.jpg",
       "published": "2026-02-19T16:43:58+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -236,7 +262,7 @@
       "description": "Chelsea manager Sonia Bompastor has called for the rules to be changed over goalkeeper timeouts.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6c7b/live/5c9168a0-0dae-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T16:37:59+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -275,7 +301,7 @@
       "description": "Manchester City and United States midfielder Sam Coffey speaks to BBC Sport about using her platform for good, settling into her new home, and her friendship with Emma Hayes.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0d08/live/c4690b80-0c33-11f1-aea9-35917f4e91eb.jpg",
       "published": "2026-02-19T15:56:24+00:00",
-      "published_ago": "17h ago",
+      "published_ago": "18h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -328,7 +354,7 @@
       "description": "The BBC will televise Wrexham v Chelsea and Wolves v Liverpool in the fifth round of the FA Cup in March.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/64cb/live/0c0ec480-0d82-11f1-a355-f9c151a9e8be.jpg",
       "published": "2026-02-19T13:44:14+00:00",
-      "published_ago": "19h ago",
+      "published_ago": "20h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -376,32 +402,6 @@
       "source_logo": "🔴",
       "teams": [
         "Liverpool"
-      ]
-    },
-    {
-      "title": "Leicester and Premier League appeal over club’s six-point deduction",
-      "link": "https://www.theguardian.com/football/2026/feb/19/leicester-premier-league-appeal-six-point-deduction",
-      "description": "Club unhappy sanction applied in ChampionshipPremier League seeking additional punishmentLeicester City’s legal battle with the Premier League continues to rumble on as both parties formally lodged ap",
-      "image": "",
-      "published": "2026-02-19T11:35:51+00:00",
-      "published_ago": "21h ago",
-      "source": "The Guardian",
-      "source_logo": "🔵",
-      "teams": [
-        "Premier League"
-      ]
-    },
-    {
-      "title": "'Scottish VAR a mess' - McGinn critical of replay use",
-      "link": "https://www.bbc.com/sport/football/articles/czj1nw3gnz7o?at_medium=RSS&at_campaign=rss",
-      "description": "Scotland midfielder John McGinn describes VAR as \"a mess\" as three players are sent off in Aberdeen's Scottish Cup win over Motherwell at Pittodrie.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9aab/live/5e8ac540-0d7a-11f1-9972-d3f265c101c6.jpg",
-      "published": "2026-02-19T10:17:25+00:00",
-      "published_ago": "23h ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "EPL"
       ]
     }
   ]
