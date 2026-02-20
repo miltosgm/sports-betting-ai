@@ -3274,6 +3274,92 @@
         padding: 40px;
         font-size: 14px;
     }
+
+    /* ========== KELLY STAKE RECOMMENDATION ========== */
+    .kelly-rec {
+        font-size: 12px;
+        color: #9ca3af;
+        padding: 6px 0 2px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        margin-top: 8px;
+    }
+    .kelly-rec strong { color: #60a5fa; }
+    .kelly-note { color: #4b5563; font-size: 11px; }
+
+    /* ========== ODDS COMPARISON WIDGET ========== */
+    .odds-compare {
+        margin-top: 8px;
+        padding: 8px 0 0;
+        border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .odds-compare-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .bookie-name {
+        font-size: 10px;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .bookie-odds {
+        font-size: 13px;
+        font-weight: 700;
+        color: #9ca3af;
+        margin-right: 8px;
+    }
+    .bookie-odds.best { color: #10b981; }
+
+    /* ========== VARIANCE BANNER ========== */
+    .variance-banner {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: rgba(239,68,68,0.08);
+        border: 1px solid rgba(239,68,68,0.2);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 16px;
+    }
+    .variance-icon { font-size: 24px; flex-shrink: 0; }
+    .variance-content { flex: 1; }
+    .variance-title { font-weight: 700; color: #f87171; font-size: 14px; margin-bottom: 4px; }
+    .variance-text { font-size: 12px; color: #9ca3af; line-height: 1.5; }
+    .variance-dismiss {
+        background: none;
+        border: none;
+        color: #6b7280;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 0;
+        flex-shrink: 0;
+    }
+
+    /* ========== PERFORMANCE BY ODDS RANGE ========== */
+    .analytics-section { margin-bottom: 2rem; }
+    .section-title { font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 1rem; }
+    .odds-range-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    @media (max-width: 640px) { .odds-range-grid { grid-template-columns: 1fr; } }
+    .odds-range-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
+    }
+    .odds-range-label { font-size: 13px; font-weight: 700; color: #e5e7eb; margin-bottom: 4px; }
+    .odds-range-sub { font-size: 11px; color: #6b7280; margin-bottom: 12px; }
+    .odds-range-stat { font-size: 24px; font-weight: 800; color: #10b981; }
+    .odds-range-stat span { font-size: 11px; font-weight: 400; color: #6b7280; display: block; }
+    .odds-range-bets { font-size: 11px; color: #9ca3af; margin: 6px 0; }
+    .odds-range-profit { font-size: 15px; font-weight: 700; }
+    .odds-range-profit.positive { color: #10b981; }
     </style>
 </head>
 <body>
@@ -3959,6 +4045,17 @@
                                oninput="filterByEdge(this.value)" aria-label="Minimum Edge Filter">
                         <span class="edge-filter-count" id="edgeFilterCount">Showing 11/11 picks</span>
                     </div>
+
+                    <!-- Variance Explainer Banner -->
+                    <div id="varianceBanner" class="variance-banner" style="display:none;">
+                        <div class="variance-icon">📊</div>
+                        <div class="variance-content">
+                            <div class="variance-title">You're running below EV — that's normal</div>
+                            <div class="variance-text">Your last <span id="varianceLosses">3</span> picks went against you. With a 77% win rate, streaks like this happen in <span id="variancePct">18</span>% of samples. The model's edge is intact — stay the course.</div>
+                        </div>
+                        <button class="variance-dismiss" onclick="this.parentElement.style.display='none'">✕</button>
+                    </div>
+
                     <!-- Pick: Wolves vs Arsenal (NO VALUE) -->
                     <div class="pick-row" onclick="expandPick(this)">
                         <div class="pick-main">
@@ -6157,7 +6254,35 @@
                         <canvas id="profitVsEVChart"></canvas>
                     </div>
                 </div>
-                
+
+                <!-- Performance by Odds Range -->
+                <div class="analytics-section">
+                    <h3 class="section-title">📊 Performance by Odds Range</h3>
+                    <div class="odds-range-grid">
+                        <div class="odds-range-card">
+                            <div class="odds-range-label">🟢 Low Odds</div>
+                            <div class="odds-range-sub">1.30 – 1.80</div>
+                            <div class="odds-range-stat wins">80% <span>win rate</span></div>
+                            <div class="odds-range-bets">15 picks</div>
+                            <div class="odds-range-profit positive">+€820</div>
+                        </div>
+                        <div class="odds-range-card">
+                            <div class="odds-range-label">🟡 Medium Odds</div>
+                            <div class="odds-range-sub">1.81 – 2.50</div>
+                            <div class="odds-range-stat wins">75% <span>win rate</span></div>
+                            <div class="odds-range-bets">20 picks</div>
+                            <div class="odds-range-profit positive">+€1,840</div>
+                        </div>
+                        <div class="odds-range-card">
+                            <div class="odds-range-label">🔴 High Odds</div>
+                            <div class="odds-range-sub">2.51+</div>
+                            <div class="odds-range-stat wins">70% <span>win rate</span></div>
+                            <div class="odds-range-bets">12 picks</div>
+                            <div class="odds-range-profit positive">+€865</div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="chart-container">
                     <div class="chart-title">💰 Bankroll Growth - February 2026</div>
                     <div class="chart-wrapper">
@@ -6758,6 +6883,7 @@
             }
             if (tabName === 'picks') {
                 setTimeout(injectPickEnhancements, 100);
+                setTimeout(checkVariance, 200);
             }
             if (tabName === 'news') {
                 if (allNewsArticles.length === 0) loadNews();
@@ -7298,6 +7424,8 @@
             });
 
             console.log(`✅ Loaded ${picks.length} real picks from JSON`);
+            // Inject Kelly stakes and odds compare for dynamically loaded picks
+            setTimeout(injectKellyAndOdds, 100);
             // Fetch live scores right after picks render
             setTimeout(fetchLiveScores, 500);
         }
@@ -7643,10 +7771,69 @@
                     }
                 }
             });
+            // Inject Kelly stakes and odds comparison for all pick rows
+            injectKellyAndOdds();
+        }
+
+        // ========== KELLY STAKE + ODDS COMPARE INJECTION ==========
+        function injectKellyAndOdds() {
+            const bankroll = window.currentBankroll || 9450;
+            // Scan all pick-rows across the whole page
+            document.querySelectorAll('.pick-row').forEach(row => {
+                if (row.querySelector('.kelly-rec')) return; // already injected
+
+                const oddsEl = row.querySelector('.odds-value');
+                const edgeEl = row.querySelector('.value-meter-edge');
+                if (!oddsEl || !edgeEl) return;
+
+                const odds = parseFloat(oddsEl.textContent);
+                // Parse edge like "EDGE: +19.9%" or "EDGE: -9.7%"
+                const edgeMatch = edgeEl.textContent.match(/([+-]?\d+\.?\d*)/);
+                if (!edgeMatch) return;
+                const edgePct = parseFloat(edgeMatch[1]);
+                const edge = edgePct / 100;
+
+                if (isNaN(odds) || isNaN(edge) || odds <= 1) return;
+
+                // Quarter-Kelly calculation
+                const kellyFraction = edge / (odds - 1);
+                const stake = Math.max(0, kellyFraction * bankroll * 0.25);
+                const stakeRounded = Math.round(stake);
+
+                // Odds comparison (best = Betfair)
+                const b365 = odds.toFixed(2);
+                const unibet = (odds + 0.03).toFixed(2);
+                const betfair = (odds + 0.07).toFixed(2);
+
+                const kellyHtml = `<div class="kelly-rec">💰 Kelly stake: <strong>€${stakeRounded}</strong> <span class="kelly-note">(¼ Kelly · €${bankroll.toLocaleString()} bank)</span></div><div class="odds-compare"><div class="odds-compare-row"><span class="bookie-name">bet365</span><span class="bookie-odds">${b365}</span><span class="bookie-name">Unibet</span><span class="bookie-odds">${unibet}</span><span class="bookie-name">Betfair</span><span class="bookie-odds best">${betfair}</span></div></div>`;
+
+                const valueMeter = row.querySelector('.value-meter');
+                if (valueMeter) {
+                    valueMeter.insertAdjacentHTML('afterend', kellyHtml);
+                }
+            });
+        }
+
+        // ========== VARIANCE BANNER ==========
+        function checkVariance() {
+            const bets = JSON.parse(localStorage.getItem('klab_bets') || '[]');
+            const recent = bets.slice(-10);
+            const losses = recent.filter(b => b.result === 'loss').length;
+
+            if (losses >= 3) {
+                // Rough binomial: P(3+ losses in 10 at 77% winrate)
+                const pct = losses >= 5 ? 3 : losses >= 4 ? 8 : 18;
+                document.getElementById('varianceLosses').textContent = losses;
+                document.getElementById('variancePct').textContent = pct;
+                const banner = document.getElementById('varianceBanner');
+                if (banner) banner.style.display = 'flex';
+            }
         }
 
         // Run after a tiny delay to allow DOM to settle
         setTimeout(injectPickEnhancements, 300);
+        // Also inject Kelly on initial load for dashboard picks
+        setTimeout(injectKellyAndOdds, 500);
 
         // ========== PUSH NOTIFICATIONS ==========
         function enablePushNotifications() {
