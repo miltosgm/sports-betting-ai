@@ -1,14 +1,28 @@
 {
-  "updated": "2026-02-20T06:30:02.820479+00:00",
+  "updated": "2026-02-20T07:30:03.438982+00:00",
   "count": 30,
   "articles": [
+    {
+      "title": "I want Guardiola to stay at Man City - Rooney",
+      "link": "https://www.bbc.com/sport/football/articles/c3v79g57kppo?at_medium=RSS&at_campaign=rss",
+      "description": "Former Manchester United captain Wayne Rooney says he hopes Pep Guardiola will stay at Manchester City beyond this season because he has set 'a benchmark' for all other managers.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/286f/live/edd4afd0-0dd5-11f1-ad76-15be5b81d03d.jpg",
+      "published": "2026-02-20T06:41:00+00:00",
+      "published_ago": "49m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Manchester City",
+        "Manchester United"
+      ]
+    },
     {
       "title": "Trusting Mainoo, academy pride and the 'ultimate role'",
       "link": "https://www.bbc.com/sport/football/articles/ceqvrv29pzvo?at_medium=RSS&at_campaign=rss",
       "description": "Manchester United caretaker manager Michael Carrick speaks about trusting academy graduate and 'huge talent' Kobbie Mainoo.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/02ca/live/7d8fc6a0-0dcc-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-20T06:11:34+00:00",
-      "published_ago": "18m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -21,7 +35,7 @@
       "description": "Mark Chapman speaks to Manchester United head coach Michael Carrick.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0n20vp7.jpg",
       "published": "2026-02-20T06:00:00+00:00",
-      "published_ago": "30m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -29,12 +43,12 @@
       ]
     },
     {
-      "title": "The Wayne Rooney Show",
+      "title": "Rooney Reviews: Man City - Why I Want Pep to stay and are they title favourites?",
       "link": "https://www.bbc.co.uk/sounds/play/p0myv158?at_medium=RSS&at_campaign=rss",
       "description": "A deep dive into Manchester City - title hopes, Guardiola’s future & Phil Foden’s form.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0lxths6.jpg",
       "published": "2026-02-20T06:00:00+00:00",
-      "published_ago": "30m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -47,7 +61,7 @@
       "description": "Tottenham’s Tudor age begins with a north London derby, Guardiola ponders Haaland’s role and Wirtz has a chance to flummox ForestAston Villa, third in the Premier League, chasing Champions League qual",
       "image": "",
       "published": "2026-02-20T00:01:17+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -62,7 +76,7 @@
       "description": "Vitor Pereira asks his Nottingham Forest players to \"express themselves\" prior to their commanding victory at Fenerbahce in the first leg of their Europa League knockout round play-off tie.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/367a/live/e0e24480-0ddb-11f1-8aca-8d545890fa70.jpg",
       "published": "2026-02-19T22:01:05+00:00",
-      "published_ago": "8h ago",
+      "published_ago": "9h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -75,7 +89,7 @@
       "description": "Jess Park provided a timely demonstration of her qualities as her superb, long-range goal capped a confident individual performance that helped Manchester United progress to the Women’s Champions Leag",
       "image": "",
       "published": "2026-02-19T21:55:49+00:00",
-      "published_ago": "8h ago",
+      "published_ago": "9h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -88,7 +102,7 @@
       "description": "Crystal Palace’s Conference League hopes hang in the balance after a 1-1 draw against Bosnia and Herzegovina’s Zrinjski Mostar in the first leg of their knockout phase playoff.Oliver Glasner had reinf",
       "image": "",
       "published": "2026-02-19T20:02:38+00:00",
-      "published_ago": "10h ago",
+      "published_ago": "11h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -101,7 +115,7 @@
       "description": "Could the Premier League get an extra place in the Champions League again? This is how it looks at the end of the league phases.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/93c9/live/5b39a1a0-fc67-11f0-a7b3-13a56b7a31f4.jpg",
       "published": "2026-02-19T20:01:16+00:00",
-      "published_ago": "10h ago",
+      "published_ago": "11h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -114,7 +128,7 @@
       "description": "For Nottingham Forest, and particularly Vítor Pereira and the 1,200 supporters who signed up to this trip, an evening in Istanbul they will not forget in a hurry.After just three training sessions, Pe",
       "image": "",
       "published": "2026-02-19T19:46:37+00:00",
-      "published_ago": "10h ago",
+      "published_ago": "11h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -127,7 +141,7 @@
       "description": "BBC Sport football expert Chris Sutton takes on Embrace bassist Steve Firth plus the BBC readers and AI with his predictions for this weekend's Premier League fixtures.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/be6f/live/5236b240-0d7f-11f1-b7e1-afb6d0884c18.png",
       "published": "2026-02-19T19:16:39+00:00",
-      "published_ago": "11h ago",
+      "published_ago": "12h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -140,7 +154,7 @@
       "description": "‘When you see a player upset, normally it’s for a reason’Head coach reacts to Vinícius Júnior’s racism claimsLiam Rosenior has called for players and coaches found guilty of racism to be banned from f",
       "image": "",
       "published": "2026-02-19T17:30:51+00:00",
-      "published_ago": "12h ago",
+      "published_ago": "13h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -153,7 +167,7 @@
       "description": "England forward Bukayo Saka commits his future to Premier League leaders Arsenal by signing a new five-year deal.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/16aa/live/5eaa90a0-ed6d-11f0-88e7-5d06f9172e94.jpg",
       "published": "2026-02-19T17:28:03+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -167,7 +181,7 @@
       "description": "Sign up now! Sign up now! Sign up now? Sign up now!Top of the league, Wembley trip booked, sweeping through Europe, and blessed with a cushty FA Cup draw – it’s fair to say the Arsenal garden is in fu",
       "image": "",
       "published": "2026-02-19T16:56:59+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -180,7 +194,7 @@
       "description": "Arsenal's disappointing 2-2 draw at Wolves on Wednesday has similarities to what happened to the Gunners 18 years ago.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47ab/live/be333d30-0da5-11f1-9fe5-57999fe11004.jpg",
       "published": "2026-02-19T16:43:58+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -194,7 +208,7 @@
       "description": "Chelsea manager Sonia Bompastor has called for the rules to be changed over goalkeeper timeouts.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6c7b/live/5c9168a0-0dae-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T16:37:59+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -207,7 +221,7 @@
       "description": "Chelsea head coach Liam Rosenior says anyone found guilty of racist behaviour in football \"shouldn't be in the game\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a01e/live/1f4b02c0-0db4-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T16:04:47+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -220,7 +234,7 @@
       "description": "Chelsea head coach Liam Rosenior believes anyone found guilty of racism should not work in football after Real Madrid's Vinicius Jr allegedly received racist abuse from Benfica's Gianluca Prestianni i",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/05c8/live/de035dc0-0daa-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T16:02:45+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -233,7 +247,7 @@
       "description": "Manchester City and United States midfielder Sam Coffey speaks to BBC Sport about using her platform for good, settling into her new home, and her friendship with Emma Hayes.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0d08/live/c4690b80-0c33-11f1-aea9-35917f4e91eb.jpg",
       "published": "2026-02-19T15:56:24+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -246,7 +260,7 @@
       "description": "Max Rushden is joined by Barry Glendenning, Philippe Auclair and Paul Watson as Arsenal feel the heat and Inter are caught cold in Norway Continue reading...",
       "image": "",
       "published": "2026-02-19T15:17:44+00:00",
-      "published_ago": "15h ago",
+      "published_ago": "16h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -260,7 +274,7 @@
       "description": "What if games ended at 90 minutes, set-pieces goals were scrapped, or shots that hit the woodwork counted?By Opta AnalystA league table is a pretty helpful barometer of each team’s fortunes. That’s wh",
       "image": "",
       "published": "2026-02-19T15:14:23+00:00",
-      "published_ago": "15h ago",
+      "published_ago": "16h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -273,7 +287,7 @@
       "description": "Those who have worked with midfielder reflect on his career as he prepares to make a 654th top-flight appearanceJames Milner was the most dedicated and professional young player I’ve met. He also took",
       "image": "",
       "published": "2026-02-19T14:00:14+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -286,7 +300,7 @@
       "description": "The BBC will televise Wrexham v Chelsea and Wolves v Liverpool in the fifth round of the FA Cup in March.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/64cb/live/0c0ec480-0d82-11f1-a355-f9c151a9e8be.jpg",
       "published": "2026-02-19T13:44:14+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -301,7 +315,7 @@
       "description": "Late Wolves leveller means seven dropped points from winning positions in 2026 – and Manchester City are lurkingIt was left to Bukayo Saka to sum up the mood in Arsenal’s dressing room. “Very flat,” a",
       "image": "",
       "published": "2026-02-19T13:15:07+00:00",
-      "published_ago": "17h ago",
+      "published_ago": "18h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -316,7 +330,7 @@
       "description": "Inside the Hungarian midfielder's season as the main character at Liverpool, his friendship with Mohamed Salah and why the Reds are keen to extend his contract.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/400f/live/336fe630-0d8c-11f1-ab35-e1029910cb11.jpg",
       "published": "2026-02-19T12:05:48+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -329,7 +343,7 @@
       "description": "Liverpool head coach Arne Slot says \"we should always try to do more\" after Real Madrid's Vinicius Jr allegedly received racist abuse from Benfica's Gianluca Prestianni in the first leg of their Champ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d3a0/live/3c697900-0d86-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T12:03:24+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -342,7 +356,7 @@
       "description": "Club unhappy sanction applied in ChampionshipPremier League seeking additional punishmentLeicester City’s legal battle with the Premier League continues to rumble on as both parties formally lodged ap",
       "image": "",
       "published": "2026-02-19T11:35:51+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -355,7 +369,7 @@
       "description": "Scotland midfielder John McGinn describes VAR as \"a mess\" as three players are sent off in Aberdeen's Scottish Cup win over Motherwell at Pittodrie.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9aab/live/5e8ac540-0d7a-11f1-9972-d3f265c101c6.jpg",
       "published": "2026-02-19T10:17:25+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -368,7 +382,7 @@
       "description": "£125m summer signing broke a leg in DecemberHe should rejoin team training late March or early AprilArne Slot is expecting Alexander Isak to be available for a Liverpool return in April. The striker f",
       "image": "",
       "published": "2026-02-19T10:14:05+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -381,25 +395,12 @@
       "description": "With Chelsea facing leaky Burnley at Stamford Bridge this week, FPL managers have a tough choice of captain between Cole Palmer and Joao Pedro.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/816b/live/eaee5180-0c50-11f1-b7e1-afb6d0884c18.jpg",
       "published": "2026-02-19T09:21:36+00:00",
-      "published_ago": "21h ago",
+      "published_ago": "22h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Burnley",
         "Chelsea"
-      ]
-    },
-    {
-      "title": "Ex-Newcastle defender Beye appointed Marseille coach",
-      "link": "https://www.bbc.com/sport/football/articles/cyv9q5ng2v8o?at_medium=RSS&at_campaign=rss",
-      "description": "Marseille appoint former captain Habib Beye as head coach, a week after his sacking from Ligue 1 side Rennes.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7f61/live/e7e82140-0d5f-11f1-a735-c999a8fb3aea.jpg",
-      "published": "2026-02-19T08:34:23+00:00",
-      "published_ago": "21h ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Newcastle"
       ]
     }
   ]
