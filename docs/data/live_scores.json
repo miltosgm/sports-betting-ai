@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-02-21T15:04:27.358753+00:00",
-  "updatedAtAthens": "17:04",
+  "updatedAt": "2026-02-21T15:06:29.485209+00:00",
+  "updatedAtAthens": "17:06",
   "matches": [
     {
       "home": "Aston Villa FC",
       "away": "Leeds United FC",
       "homeShort": "Aston Villa",
       "awayShort": "Leeds United",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "Brentford FC",
       "away": "Brighton & Hove Albion FC",
       "homeShort": "Brentford",
       "awayShort": "Brighton Hove",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "Chelsea FC",
       "away": "Burnley FC",
       "homeShort": "Chelsea",
       "awayShort": "Burnley",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "West Ham United FC",
