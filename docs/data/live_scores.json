@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-21T15:54:26.719771+00:00",
-  "updatedAtAthens": "17:54",
+  "updatedAt": "2026-02-21T15:56:25.950227+00:00",
+  "updatedAtAthens": "17:56",
   "matches": [
     {
       "home": "Aston Villa FC",
@@ -18,7 +18,7 @@
       "homeShort": "Brentford",
       "awayShort": "Brighton Hove",
       "status": "IN_PLAY",
-      "minute": 35,
+      "minute": 37,
       "homeGoals": 0,
       "awayGoals": 2
     },
