@@ -1,14 +1,28 @@
 {
-  "updated": "2026-02-21T18:30:11.104165+00:00",
+  "updated": "2026-02-21T19:00:19.660991+00:00",
   "count": 30,
   "articles": [
+    {
+      "title": "'Like a dream' - Abraham relishing Villa return",
+      "link": "https://www.bbc.com/sport/football/articles/cj0dm8p8049o?at_medium=RSS&at_campaign=rss",
+      "description": "Seven years since firing them into the Premier League, Tammy Abraham is back scoring goals at Aston Villa to keep their fans and players dreaming of glory.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1686/live/d683cc60-0f53-11f1-9a2a-8fa7cf422a25.jpg",
+      "published": "2026-02-21T18:55:48+00:00",
+      "published_ago": "4m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Aston Villa",
+        "Premier League"
+      ]
+    },
     {
       "title": "West Ham v Bournemouth: Premier League – live",
       "link": "https://www.theguardian.com/football/live/2026/feb/21/west-ham-v-bournemouth-premier-league-live",
       "description": "⚽ Updates from the 5.30pm (GMT) kick-off⚽ Live scores | Follow us on Bluesky | And email Taha9 min: Summerville shows off his quick feet inside his own half as West Ham try and counter.8 min: It’s an ",
       "image": "",
-      "published": "2026-02-21T18:20:13+00:00",
-      "published_ago": "9m ago",
+      "published": "2026-02-21T18:54:43+00:00",
+      "published_ago": "5m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -18,12 +32,40 @@
       ]
     },
     {
+      "title": "Manchester City v Newcastle: Premier League – live",
+      "link": "https://www.theguardian.com/football/live/2026/feb/21/manchester-city-v-newcastle-premier-league-live",
+      "description": "⚽ Premier League updates from the 8pm GMT kick-off⚽ Live scores | Follow us on Bluesky | And email ScottBoth teams are in if-it-ain’t-broke mode. Manchester City name the same starting XI from their l",
+      "image": "",
+      "published": "2026-02-21T18:51:28+00:00",
+      "published_ago": "8m ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Manchester City",
+        "Newcastle",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "'I still feel I can contribute' - Milner on breaking Premier League record",
+      "link": "https://www.bbc.com/sport/football/videos/czj1kyv4xvdo?at_medium=RSS&at_campaign=rss",
+      "description": "James Milner reacts to breaking the record for most appearances in the Premier League.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/885e/live/e6f59a70-0f4d-11f1-9120-a910fc22c6ac.jpg",
+      "published": "2026-02-21T18:16:00+00:00",
+      "published_ago": "44m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
       "title": "Parker 'proud' of Burnley's 'resilience'",
       "link": "https://www.bbc.com/sport/football/videos/c4g26jkr7zyo?at_medium=RSS&at_campaign=rss",
       "description": "Burnley head coach Scott Parker says he is \"proud\" of his side's \"resilience\" in their 1-1 Premier League draw with Chelsea at Stamford Bridge.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4e65/live/195fb8e0-0f50-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:13:26+00:00",
-      "published_ago": "16m ago",
+      "published_ago": "46m ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -38,7 +80,7 @@
       "description": "Aston Villa manager Unai Emery remains upbeat after their draw with Leeds United, saying the result is a point gained rather than two points lost.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ff97/live/e6d28210-0f4d-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T18:09:57+00:00",
-      "published_ago": "20m ago",
+      "published_ago": "50m ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -52,7 +94,7 @@
       "description": "Chelsea head coach Liam Rosenior believes his side lacked the ruthlessness in their 1-1 draw with Burnley at Stamford Bridge in the Premier League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2222/live/fdb72fb0-0f4f-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:09:42+00:00",
-      "published_ago": "20m ago",
+      "published_ago": "50m ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -67,7 +109,7 @@
       "description": "James Milner has broken the Premier League appearance record, 24 years after making his debut as a 16-year-old.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8d31/live/4e3045e0-0784-11f1-b5e2-dd58fc65f0f6.png",
       "published": "2026-02-21T18:03:09+00:00",
-      "published_ago": "27m ago",
+      "published_ago": "57m ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -80,7 +122,7 @@
       "description": "Leeds United manager Daniel Farke is \"disappointed\" with his side's late draw against Aston Villa but believes the result is a \"fair outcome\" in an \"equal game\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d6a1/live/36e78630-0f4c-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T17:58:58+00:00",
-      "published_ago": "31m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -94,7 +136,7 @@
       "description": "Brighton's James Milner starts against Brentford to break the all-time Premier League appearance record in his 654th match.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8895/live/e1479080-0f50-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T17:53:58+00:00",
-      "published_ago": "36m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -109,7 +151,7 @@
       "description": "Aston Villa striker Tammy Abraham tells Final Score \"anything can happen\" in the Premier League title race and that his side have to keep pushing to get close to Arsenal.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ba2c/live/f686b330-0f4c-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T17:49:19+00:00",
-      "published_ago": "40m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -121,7 +163,7 @@
     {
       "title": "Tammy Abraham salvages late point for Aston Villa to deny battling Leeds",
       "link": "https://www.theguardian.com/football/2026/feb/21/aston-villa-leeds-premier-league-match-report",
-      "description": "It felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser. Anton Stach’s incredible free-kick looked set to secure the win for Leeds until the 88th ",
+      "description": "This felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser against Leeds. Unai Emery’s side have only won once in their past four Premier League ho",
       "image": "",
       "published": "2026-02-21T17:13:55+00:00",
       "published_ago": "1h ago",
@@ -129,13 +171,14 @@
       "source_logo": "🔵",
       "teams": [
         "Aston Villa",
-        "Leeds"
+        "Leeds",
+        "Premier League"
       ]
     },
     {
       "title": "Flemming earns last-gasp draw for Burnley after Chelsea’s Fofana sees red",
       "link": "https://www.theguardian.com/football/2026/feb/21/chelsea-burnley-premier-league-match-report",
-      "description": "Chelsea got what they deserved here. They had been coasting to fourth courtesy of an early João Pedro goal, but the second-half dismissal of Wesley Fofana gave a glimmer to a Burnley team previously c",
+      "description": "Another late slip from Chelsea. They were coasting courtesy of an early João Pedro goal but the second-half dismissal of Wesley Fofana offered a glimmer to a Burnley team previously clinging on. In a ",
       "image": "",
       "published": "2026-02-21T17:13:02+00:00",
       "published_ago": "1h ago",
@@ -149,7 +192,7 @@
     {
       "title": "James Milner breaks appearance record to help Brighton win at Brentford",
       "link": "https://www.theguardian.com/football/2026/feb/21/brentford-brighton-premier-league-match-report",
-      "description": "Brighton marked James Milner’s record-breaking 654th Premier League appearance with a much-needed win at Brentford.The pressure had mounted on the Brighton manager Fabian Hürzeler after a run of one l",
+      "description": "James Milner showed he can still contribute during his record-breaking 654th Premier League appearance as Brighton won at Brentford. Milner’s inclusion meant he moved past Gareth Barry’s record tally ",
       "image": "",
       "published": "2026-02-21T17:07:14+00:00",
       "published_ago": "1h ago",
@@ -167,7 +210,7 @@
       "description": "Sporting director Johan Lange says Igor Tudor could be given the Tottenham job on a permanent basis if he impresses during the remainder of the season.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47a7/live/fd126310-0e71-11f1-9acc-6bf6c7adf476.jpg",
       "published": "2026-02-21T10:59:32+00:00",
-      "published_ago": "7h ago",
+      "published_ago": "8h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -180,7 +223,7 @@
       "description": "Pedro Neto has been criticised for lacking a \"killer instinct\", but the Chelsea winger's shape-shifting role goes some way to explain that.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e73/live/d1c39e40-0d7c-11f1-8e6b-0f78c649f3c2.jpg",
       "published": "2026-02-21T08:47:42+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -206,25 +249,11 @@
       "description": "Wolves teenager Mateus Mane looks certain to leave Molineux, Liam Delap is wanted on Merseyside and Casemiro has interest from Europe as well as North and South America.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/09cf/live/6c5393e0-0ea7-11f1-801d-ed3cff6bf876.png",
       "published": "2026-02-20T22:59:15+00:00",
-      "published_ago": "19h ago",
+      "published_ago": "20h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Wolverhampton"
-      ]
-    },
-    {
-      "title": "Tudor promises Spurs will avoid relegation but accepts club are in ‘emergency situation’",
-      "link": "https://www.theguardian.com/football/2026/feb/20/igor-tudor-tottenham-premier-league-football",
-      "description": "New coach starts tenure against Arsenal on SundayTudor insists ‘we have enormous quality in the squad’Igor Tudor has said Tottenham are in “an emergency situation” but issued a guarantee that his new ",
-      "image": "",
-      "published": "2026-02-20T22:30:51+00:00",
-      "published_ago": "19h ago",
-      "source": "The Guardian",
-      "source_logo": "🔵",
-      "teams": [
-        "Arsenal",
-        "Tottenham"
       ]
     },
     {
@@ -260,7 +289,7 @@
       "description": "Here’s how to follow along with our coverage – the finest writing and up-to-the-minute reports Continue reading...",
       "image": "",
       "published": "2026-02-20T18:37:34+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -362,21 +391,6 @@
       ]
     },
     {
-      "title": "Target Liverpool, Brentford & Bournemouth - the FPL talking point",
-      "link": "https://www.bbc.com/sport/football/articles/cwy67024kleo?at_medium=RSS&at_campaign=rss",
-      "description": "FPL expert Heisenberg and the FPL podcast team assess the Premier League clubs with favourable fixture lists in the next gameweeks.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9435/live/e7bd2bf0-0da7-11f1-9fe5-57999fe11004.jpg",
-      "published": "2026-02-20T08:26:33+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Brentford",
-        "Liverpool",
-        "Bournemouth"
-      ]
-    },
-    {
       "title": "'It's the ultimate role' - Carrick on Man Utd job",
       "link": "https://www.bbc.com/sport/football/videos/cddnelqr4plo?at_medium=RSS&at_campaign=rss",
       "description": "Manchester United interim boss Michael Carrick joins Mark Chapman to discuss the club's academy, midfielder Kobbie Mainoo and whether he sees himself managing United beyond this season.",
@@ -400,19 +414,6 @@
       "source_logo": "🔴",
       "teams": [
         "Manchester United"
-      ]
-    },
-    {
-      "title": "Sutton's predictions v Embrace bassist Steve Firth",
-      "link": "https://www.bbc.com/sport/football/articles/cx2j8wljzp3o?at_medium=RSS&at_campaign=rss",
-      "description": "BBC Sport football expert Chris Sutton takes on Embrace bassist Steve Firth plus the BBC readers and AI with his predictions for this weekend's Premier League fixtures.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/be6f/live/5236b240-0d7f-11f1-b7e1-afb6d0884c18.png",
-      "published": "2026-02-19T19:16:39+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Premier League"
       ]
     }
   ]
