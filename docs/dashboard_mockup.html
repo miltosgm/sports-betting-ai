@@ -3407,6 +3407,97 @@
             border-top: 1px solid rgba(255,255,255,0.06);
             line-height: 1.7;
         }
+
+        .vm-info-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.1);
+          color: #9ca3af;
+          font-size: 10px;
+          cursor: pointer;
+          margin-left: 6px;
+          flex-shrink: 0;
+          font-style: normal;
+          line-height: 1;
+          transition: background 0.2s;
+        }
+        .vm-info-btn:hover {
+          background: rgba(37,99,235,0.3);
+          color: #93c5fd;
+        }
+        .vm-info-popup {
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,0.7);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+        }
+        .vm-info-popup-inner {
+          background: #1e293b;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 16px;
+          padding: 24px;
+          max-width: 400px;
+          width: 100%;
+          position: relative;
+        }
+        .vm-info-close {
+          position: absolute;
+          top: 12px;
+          right: 14px;
+          background: none;
+          border: none;
+          color: #6b7280;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .vm-info-title {
+          font-size: 15px;
+          font-weight: 700;
+          color: white;
+          margin-bottom: 16px;
+        }
+        .vm-info-section {
+          margin-bottom: 14px;
+        }
+        .vm-info-label {
+          font-size: 13px;
+          font-weight: 700;
+          color: #e5e7eb;
+          margin-bottom: 4px;
+        }
+        .vm-info-text {
+          font-size: 12px;
+          color: #9ca3af;
+          line-height: 1.6;
+        }
+        .vm-info-example {
+          margin-top: 16px;
+          padding: 12px;
+          background: rgba(37,99,235,0.1);
+          border: 1px solid rgba(37,99,235,0.2);
+          border-radius: 10px;
+        }
+        .vm-info-example-title {
+          font-size: 11px;
+          font-weight: 700;
+          color: #60a5fa;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 6px;
+        }
+        .vm-info-example-text {
+          font-size: 12px;
+          color: #d1d5db;
+          line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -3813,6 +3904,7 @@
                                     <span>Bookmaker: 79%</span>
                                     <span>|</span>
                                     <span class="value-meter-edge edge-negative">Our Edge: -9.7%</span>
+                                    <span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span>
                                 </div>
                                 <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
@@ -3901,6 +3993,7 @@
                                     <span>Bookmaker: 50%</span>
                                     <span>|</span>
                                     <span class="value-meter-edge edge-exceptional">Our Edge: +19.9%</span>
+                                    <span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span>
                                 </div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
@@ -3989,6 +4082,7 @@
                                     <span>Bookmaker: 37%</span>
                                     <span>|</span>
                                     <span class="value-meter-edge edge-exceptional">Our Edge: +29.1%</span>
+                                    <span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span>
                                 </div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
@@ -4121,7 +4215,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 69%</span><span>|</span><span>Bookmaker: 79%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -9.7%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 69%</span><span>|</span><span>Bookmaker: 79%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -9.7%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill negative" style="width: 9.7%;"></div></div>
@@ -4154,7 +4248,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 38.8%</span><span>|</span><span>Bookmaker: 28%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +11.0%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 38.8%</span><span>|</span><span>Bookmaker: 28%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +11.0%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill high" style="width: 11%;"></div></div>
@@ -4187,7 +4281,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 79.5%</span><span>|</span><span>Bookmaker: 82%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -2.4%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 79.5%</span><span>|</span><span>Bookmaker: 82%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -2.4%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill negative" style="width: 2.4%;"></div></div>
@@ -4220,7 +4314,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 76.7%</span><span>|</span><span>Bookmaker: 70%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +6.3%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 76.7%</span><span>|</span><span>Bookmaker: 70%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +6.3%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill high" style="width: 6.3%;"></div></div>
@@ -4253,7 +4347,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 57.5%</span><span>|</span><span>Bookmaker: 56%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +1.9%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 57.5%</span><span>|</span><span>Bookmaker: 56%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +1.9%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill low" style="width: 2%;"></div></div>
@@ -4286,7 +4380,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 59%</span><span>|</span><span>Bookmaker: 64%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -4.7%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 59%</span><span>|</span><span>Bookmaker: 64%</span><span>|</span><span class="value-meter-edge edge-negative">Our Edge: -4.7%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="no-value-badge">❌ NO VALUE</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill negative" style="width: 4.7%;"></div></div>
@@ -4319,7 +4413,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 41.9%</span><span>|</span><span>Bookmaker: 35%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +7.2%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 41.9%</span><span>|</span><span>Bookmaker: 35%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +7.2%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill high" style="width: 7.2%;"></div></div>
@@ -4352,7 +4446,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 51.9%</span><span>|</span><span>Bookmaker: 51%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +0.4%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 51.9%</span><span>|</span><span>Bookmaker: 51%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +0.4%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill low" style="width: 0.6%;"></div></div>
@@ -4385,7 +4479,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 69.9%</span><span>|</span><span>Bookmaker: 50%</span><span>|</span><span class="value-meter-edge edge-exceptional">Our Edge: +19.9%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 69.9%</span><span>|</span><span>Bookmaker: 50%</span><span>|</span><span class="value-meter-edge edge-exceptional">Our Edge: +19.9%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 19.9%;"></div></div>
@@ -4418,7 +4512,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 72.6%</span><span>|</span><span>Bookmaker: 64%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +8.9%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 72.6%</span><span>|</span><span>Bookmaker: 64%</span><span>|</span><span class="value-meter-edge edge-positive">Our Edge: +8.9%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill high" style="width: 8.9%;"></div></div>
@@ -4451,7 +4545,7 @@
                         </div>
                         <div class="value-meter">
                             <div class="value-meter-header">
-                                <div class="value-meter-stats"><span>Kick Lab AI: 66.2%</span><span>|</span><span>Bookmaker: 37%</span><span>|</span><span class="value-meter-edge edge-exceptional">Our Edge: +29.1%</span></div>
+                                <div class="value-meter-stats"><span>Kick Lab AI: 66.2%</span><span>|</span><span>Bookmaker: 37%</span><span>|</span><span class="value-meter-edge edge-exceptional">Our Edge: +29.1%</span><span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span></div>
                                 <span class="value-bet-badge">🔥 VALUE BET</span>
                             </div>
                             <div class="value-bar"><div class="value-bar-fill exceptional" style="width: 29.1%;"></div></div>
@@ -7574,6 +7668,7 @@
                                 <span>Bookmaker: ${marketPct}%</span>
                                 <span>|</span>
                                 <span class="value-meter-edge ${edgeClass}">Our Edge: ${edge > 0 ? '+' : ''}${edge}%</span>
+                                <span class="vm-info-btn" onclick="showValueMeterInfo(event)" title="How are these calculated?">&#x2139;</span>
                             </div>
                             ${badgeHtml}
                         </div>
@@ -8590,6 +8685,35 @@
             // Preload news 3s after page load so it's ready instantly when tab is clicked
             setTimeout(() => { if (allNewsArticles.length === 0) loadNews(); }, 3000);
         });
+
+        function showValueMeterInfo(e) {
+          e.stopPropagation();
+          const popup = document.getElementById('vmInfoPopup');
+          if (!popup) return;
+          popup.style.display = 'flex';
+        }
     </script>
+    <div id="vmInfoPopup" class="vm-info-popup" style="display:none;" onclick="this.style.display='none'">
+      <div class="vm-info-popup-inner" onclick="event.stopPropagation()">
+        <button class="vm-info-close" onclick="document.getElementById('vmInfoPopup').style.display='none'">&#x2715;</button>
+        <div class="vm-info-title">&#x1F4CA; How we calculate these numbers</div>
+        <div class="vm-info-section">
+          <div class="vm-info-label">&#x1F916; Kick Lab AI %</div>
+          <div class="vm-info-text">Our AI model (trained on 16,000+ Premier League games) analyses travel distance, team form, injuries, home advantage and 48 other factors to calculate the true probability of this outcome happening.</div>
+        </div>
+        <div class="vm-info-section">
+          <div class="vm-info-label">&#x1F3E6; Bookmaker %</div>
+          <div class="vm-info-text">Converted directly from the bookmaker odds. Odds of 3.60 = 1 ÷ 3.60 = 27.8%. This is what the bookmaker thinks the probability is — including their profit margin.</div>
+        </div>
+        <div class="vm-info-section">
+          <div class="vm-info-label">&#x1F525; Our Edge %</div>
+          <div class="vm-info-text">The difference between our AI probability and the bookmaker's implied probability. A positive number means we think the outcome is more likely than the bookmaker does — that gap is where the value is. Bigger gap = stronger bet.</div>
+        </div>
+        <div class="vm-info-example">
+          <div class="vm-info-example-title">Example</div>
+          <div class="vm-info-example-text">Kick Lab AI says 39.8% · Bookmaker says 28% · Our Edge = +11.8%<br>The bookmaker underpriced this outcome — that is the bet.</div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
