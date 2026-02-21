@@ -1,13 +1,28 @@
 {
-  "updated": "2026-02-21T22:00:22.221261+00:00",
+  "updated": "2026-02-21T22:30:13.722977+00:00",
   "count": 30,
   "articles": [
     {
-      "title": "Manchester City v Newcastle: Premier League – live",
+      "title": "Match of the Day",
+      "link": "https://www.bbc.co.uk/iplayer/live/bbcone?at_medium=RSS&at_campaign=rss",
+      "description": "Highlights from five Premier League games, including Man City against Newcastle United.",
+      "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0n1x24f.jpg",
+      "published": "2026-02-22T08:55:00+00:00",
+      "published_ago": "just now",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Manchester City",
+        "Newcastle",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Manchester City 2-1 Newcastle: Premier League – live reaction",
       "link": "https://www.theguardian.com/football/live/2026/feb/21/manchester-city-v-newcastle-premier-league-live",
       "description": "⚽ Premier League updates from the 8pm GMT kick-off⚽ Live scores | Follow us on Bluesky | And email ScottNewcastle get the ball rolling! “No-one actually believes we’ll win this game, do they?” sighs T",
       "image": "",
-      "published": "2026-02-21T21:49:27+00:00",
+      "published": "2026-02-21T22:19:17+00:00",
       "published_ago": "10m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
@@ -23,7 +38,7 @@
       "description": "Burnley say they are \"disgusted\" by online racist abuse directed at midfielder Hannibal Mejbri after the Clarets' Premier League match at Chelsea on Saturday.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8ef3/live/5e7c6870-0f5e-11f1-8c6e-2da2e1a0e6bb.jpg",
       "published": "2026-02-21T20:28:37+00:00",
-      "published_ago": "1h ago",
+      "published_ago": "2h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -94,7 +109,7 @@
       "description": "James Milner reacts to breaking the record for most appearances in the Premier League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/885e/live/e6f59a70-0f4d-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:16:00+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -107,7 +122,7 @@
       "description": "Burnley head coach Scott Parker says he is \"proud\" of his side's \"resilience\" in their 1-1 Premier League draw with Chelsea at Stamford Bridge.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4e65/live/195fb8e0-0f50-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:13:26+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -122,7 +137,7 @@
       "description": "Aston Villa manager Unai Emery remains upbeat after their draw with Leeds United, saying the result is a point gained rather than two points lost.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ff97/live/e6d28210-0f4d-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T18:09:57+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -136,7 +151,7 @@
       "description": "Chelsea head coach Liam Rosenior believes his side lacked the ruthlessness in their 1-1 draw with Burnley at Stamford Bridge in the Premier League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2222/live/fdb72fb0-0f4f-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:09:42+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -151,7 +166,7 @@
       "description": "James Milner has broken the Premier League appearance record, 24 years after making his debut as a 16-year-old.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8d31/live/4e3045e0-0784-11f1-b5e2-dd58fc65f0f6.png",
       "published": "2026-02-21T18:03:09+00:00",
-      "published_ago": "3h ago",
+      "published_ago": "4h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -208,7 +223,7 @@
       "description": "This felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser against Leeds. Unai Emery’s side have won only once in their past four Premier League ho",
       "image": "",
       "published": "2026-02-21T17:13:55+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -223,7 +238,7 @@
       "description": "Another late slip from Chelsea. They were coasting courtesy of an early João Pedro goal but the second-half dismissal of Wesley Fofana offered a glimmer to a Burnley team previously clinging on. In a ",
       "image": "",
       "published": "2026-02-21T17:13:02+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -237,7 +252,7 @@
       "description": "James Milner showed he can still contribute during his record-breaking 654th Premier League appearance as Brighton won at Brentford. Milner’s inclusion meant he moved past Gareth Barry’s record tally ",
       "image": "",
       "published": "2026-02-21T17:07:14+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -278,7 +293,7 @@
       "description": "Jess Park scores a stunner in Manchester United's 2-0 win over Atletico Madrid, sealing their place in the quarter-finals of the Women's Champions League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4973/live/f7dfa6d0-0e78-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T08:28:45+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -291,7 +306,7 @@
       "description": "What's eating Arsenal? Sunday's North London derby is now a test of the Gunners' \"bottle\", says chief football writer Phil McNulty.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6d0e/live/e36f2b50-0e67-11f1-9f23-b3f349b149c7.jpg",
       "published": "2026-02-21T07:04:14+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -399,19 +414,6 @@
       "description": "Former Premier League striker Benni McCarthy says his former manager Jose Mourinho should apologise for his \"very wrong\" comments after the alleged racial abuse of Vinicius Jr during Real Madrid's 1-0",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a305/live/f5c43fb0-0e5e-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-20T13:23:08+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Premier League"
-      ]
-    },
-    {
-      "title": "'Bigger does not mean better' - why more matches is not for good of the game",
-      "link": "https://www.bbc.com/sport/football/articles/cdjmly2rgp2o?at_medium=RSS&at_campaign=rss",
-      "description": "In his BBC Sport column, ex-Premier League boss Tony Pulis explains why more matches in a shorter space of time might mean more injuries, and why the expansion of tournaments does not help players or ",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a08b/live/35d69260-b98c-11f0-aa13-0b0479f6f42a.jpg",
-      "published": "2026-02-20T08:32:27+00:00",
       "published_ago": "1d ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
