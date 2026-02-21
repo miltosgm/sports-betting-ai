@@ -2284,6 +2284,30 @@
             .detail-label { font-size: 10px; }
             .detail-value { font-size: 12px; }
 
+            /* Value meter - stack pill below stats on mobile */
+            .value-meter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .value-meter-stats {
+                gap: 0.4rem;
+                font-size: 11px;
+                flex-wrap: wrap;
+            }
+            .value-meter-edge { font-size: 11px; }
+            .vm-info-pill {
+                font-size: 10px;
+                padding: 2px 8px;
+                align-self: flex-start;
+            }
+
+            /* Kelly + odds compare tighter */
+            .kelly-rec { font-size: 11px; }
+            .odds-compare-row { gap: 4px; }
+            .bookie-name { font-size: 9px; }
+            .bookie-odds { font-size: 11px; }
+
             /* Reasoning grid already 1-col from 520px rule */
             .ai-reasoning { padding: 12px; }
             .rsLabel { font-size: 10px; }
@@ -3428,6 +3452,20 @@
           background: rgba(37,99,235,0.2);
           border-color: rgba(37,99,235,0.4);
           color: #93c5fd;
+        }
+        @media (max-width: 640px) {
+          .value-meter-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+          .value-meter-stats {
+            gap: 0.5rem;
+            font-size: 12px;
+            flex-wrap: wrap;
+          }
+          .value-meter-edge { font-size: 12px; }
+          .vm-info-pill { font-size: 10px; padding: 2px 8px; }
         }
         .vm-info-popup {
           position: fixed;
