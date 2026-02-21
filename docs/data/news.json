@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-21T20:30:15.737409+00:00",
+  "updated": "2026-02-21T21:00:22.200005+00:00",
   "count": 30,
   "articles": [
     {
@@ -7,8 +7,8 @@
       "link": "https://www.theguardian.com/football/live/2026/feb/21/manchester-city-v-newcastle-premier-league-live",
       "description": "⚽ Premier League updates from the 8pm GMT kick-off⚽ Live scores | Follow us on Bluesky | And email ScottNewcastle get the ball rolling! “No-one actually believes we’ll win this game, do they?” sighs T",
       "image": "",
-      "published": "2026-02-21T20:14:06+00:00",
-      "published_ago": "16m ago",
+      "published": "2026-02-21T20:53:11+00:00",
+      "published_ago": "7m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -18,12 +18,27 @@
       ]
     },
     {
+      "title": "Burnley 'disgusted' by racist abuse sent to Mejbri",
+      "link": "https://www.bbc.com/sport/football/articles/c24dv38q224o?at_medium=RSS&at_campaign=rss",
+      "description": "Burnley say they are \"disgusted\" by online racist abuse directed at midfielder Hannibal Mejbri after the Clarets' Premier League match at Chelsea on Saturday.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8ef3/live/5e7c6870-0f5e-11f1-8c6e-2da2e1a0e6bb.jpg",
+      "published": "2026-02-21T20:28:37+00:00",
+      "published_ago": "31m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Burnley",
+        "Chelsea",
+        "Premier League"
+      ]
+    },
+    {
       "title": "All change at Spurs again and Igor Tudor has a relegation battle on his hands | Jonathan Wilson",
       "link": "https://www.theguardian.com/football/2026/feb/21/tottenham-igor-tudor-premier-league-relegation-football",
       "description": "Tottenham have rolled the dice and an injury-ravaged side’s anxiety may only get worse as West Ham close the gapWhen did the reality dawn? Perhaps it was towards the end of the first half of West Ham’",
       "image": "",
       "published": "2026-02-21T20:00:17+00:00",
-      "published_ago": "29m ago",
+      "published_ago": "1h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -34,10 +49,10 @@
     {
       "title": "West Ham miss chance to boost survival hopes with wasteful draw against Bournemouth",
       "link": "https://www.theguardian.com/football/2026/feb/21/west-ham-bournemouth-premier-league-match-report",
-      "description": "When it comes to the back end of May and West Ham United are reflecting on the season that was, there is every chance that this soggy Saturday will go down as a missed opportunity that proved crucial ",
+      "description": "When it comes to the back end of May and West Ham reflect on the season that was, there is every chance that this soggy Saturday will go down as a missed opportunity that proved decisive in their surv",
       "image": "",
       "published": "2026-02-21T19:42:12+00:00",
-      "published_ago": "48m ago",
+      "published_ago": "1h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -51,7 +66,7 @@
       "description": "Chelsea have more red cards than any side in the Premier League this season, and boss Liam Rosenior says they have \"set fire\" to points.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b8ad/live/24e9bcc0-0f59-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T19:31:46+00:00",
-      "published_ago": "58m ago",
+      "published_ago": "1h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -65,7 +80,7 @@
       "description": "Seven years since firing them into the Premier League, Tammy Abraham is back scoring goals at Aston Villa to keep their fans and players dreaming of glory.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1686/live/d683cc60-0f53-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T18:55:48+00:00",
-      "published_ago": "1h ago",
+      "published_ago": "2h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -149,7 +164,7 @@
       "description": "Leeds United manager Daniel Farke is \"disappointed\" with his side's late draw against Aston Villa but believes the result is a \"fair outcome\" in an \"equal game\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d6a1/live/36e78630-0f4c-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T17:58:58+00:00",
-      "published_ago": "2h ago",
+      "published_ago": "3h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -163,7 +178,7 @@
       "description": "Brighton's James Milner starts against Brentford to break the all-time Premier League appearance record in his 654th match.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8895/live/e1479080-0f50-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T17:53:58+00:00",
-      "published_ago": "2h ago",
+      "published_ago": "3h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -178,7 +193,7 @@
       "description": "Aston Villa striker Tammy Abraham tells Final Score \"anything can happen\" in the Premier League title race and that his side have to keep pushing to get close to Arsenal.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ba2c/live/f686b330-0f4c-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T17:49:19+00:00",
-      "published_ago": "2h ago",
+      "published_ago": "3h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -237,7 +252,7 @@
       "description": "Sporting director Johan Lange says Igor Tudor could be given the Tottenham job on a permanent basis if he impresses during the remainder of the season.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47a7/live/fd126310-0e71-11f1-9acc-6bf6c7adf476.jpg",
       "published": "2026-02-21T10:59:32+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -250,7 +265,7 @@
       "description": "Pedro Neto has been criticised for lacking a \"killer instinct\", but the Chelsea winger's shape-shifting role goes some way to explain that.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e73/live/d1c39e40-0d7c-11f1-8e6b-0f78c649f3c2.jpg",
       "published": "2026-02-21T08:47:42+00:00",
-      "published_ago": "11h ago",
+      "published_ago": "12h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -289,7 +304,7 @@
       "description": "Wolves teenager Mateus Mane looks certain to leave Molineux, Liam Delap is wanted on Merseyside and Casemiro has interest from Europe as well as North and South America.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/09cf/live/6c5393e0-0ea7-11f1-801d-ed3cff6bf876.png",
       "published": "2026-02-20T22:59:15+00:00",
-      "published_ago": "21h ago",
+      "published_ago": "22h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -402,19 +417,6 @@
       "source_logo": "🔴",
       "teams": [
         "Premier League"
-      ]
-    },
-    {
-      "title": "'It's the ultimate role' - Carrick on Man Utd job",
-      "link": "https://www.bbc.com/sport/football/videos/cddnelqr4plo?at_medium=RSS&at_campaign=rss",
-      "description": "Manchester United interim boss Michael Carrick joins Mark Chapman to discuss the club's academy, midfielder Kobbie Mainoo and whether he sees himself managing United beyond this season.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/bd8a/live/dc4f89b0-0d9e-11f1-b7e1-afb6d0884c18.jpg",
-      "published": "2026-02-20T06:19:48+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Manchester United"
       ]
     }
   ]
