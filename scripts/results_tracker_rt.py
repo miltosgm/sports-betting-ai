@@ -180,7 +180,7 @@ async def post_message(text):
     return r.message_id
 
 
-def build_free_win_message(pick, result_data, season_wins, season_total):
+def build_free_win_message(pick, result_data, season_wins=0, season_total=0):
     """Build a win-only message for the free public channel"""
     home_s = normalize(pick['home'])
     away_s = normalize(pick['away'])
@@ -189,7 +189,6 @@ def build_free_win_message(pick, result_data, season_wins, season_total):
     odds = pick.get('odds', 0)
     edge = pick.get('edge', 0)
     profit = round((odds - 1) * 100, 0)  # based on €100 stake
-    win_rate = round(season_wins / season_total * 100) if season_total > 0 else 0
 
     lines = [
         f"✅ <b>WIN — {home_s} {score} {away_s}</b>",
@@ -197,8 +196,6 @@ def build_free_win_message(pick, result_data, season_wins, season_total):
         f"📌 Our pick: <b>{predicted} @ {odds:.2f}</b>",
         f"📊 AI Advantage: <b>+{edge:.1f}%</b>",
         f"💰 <b>+€{int(profit)} profit</b> (€100 stake)",
-        f"",
-        f"📈 Season record: <b>{season_wins}W-{season_total - season_wins}L ({win_rate}%)</b>",
         f"",
         f"🔒 Get all AI picks daily:",
         f"👉 <a href='https://kicklabai.com'>kicklabai.com</a>",
@@ -328,7 +325,7 @@ def main():
         # Post wins only to free public channel
         if correct:
             try:
-                free_msg = build_free_win_message(pick, result_data, wins_all, len(settled_all))
+                free_msg = build_free_win_message(pick, result_data)
                 asyncio.run(post_free_win(free_msg))
             except Exception as e:
                 print(f"  ⚠️ Failed to post to free channel: {e}")
