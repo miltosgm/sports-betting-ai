@@ -649,6 +649,33 @@
         </div>
     </section>
 
+    <!-- Member Cap Bar -->
+    <div id="member-cap-bar" style="
+        background: rgba(245,158,11,0.08);
+        border-top: 1px solid rgba(245,158,11,0.2);
+        border-bottom: 1px solid rgba(245,158,11,0.2);
+        padding: 12px 24px;
+    ">
+      <div style="max-width:700px; margin:0 auto;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:16px;">⚠️</span>
+            <span style="font-size:13px; font-weight:700; color:#f59e0b;">Next member cap: 500 spots</span>
+            <span style="font-size:12px; color:#94a3b8;">— we limit access to protect pick quality</span>
+          </div>
+          <span style="font-size:13px; font-weight:700; color:#ef4444;" id="cap-spots-left">77 spots left</span>
+        </div>
+        <div style="height:7px; background:#1e293b; border-radius:4px; overflow:hidden;">
+          <div id="cap-bar-fill" style="height:100%; border-radius:4px; background:linear-gradient(90deg,#10b981,#f59e0b,#ef4444); width:84.6%; transition:width 1s ease;"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:5px;">
+          <span style="font-size:11px; color:#64748b;">0</span>
+          <span style="font-size:11px; color:#94a3b8;" id="cap-member-count">423 / 500 members</span>
+          <span style="font-size:11px; color:#64748b;">500</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Stats Bar -->
     <section id="stats-bar" style="padding: 2rem; background: rgba(37,99,235,0.08); border-bottom: 1px solid rgba(37,99,235,0.15); max-width: 100%;">
         <div style="max-width: 1100px; margin: 0 auto;">
@@ -1106,6 +1133,41 @@
         });
         document.querySelectorAll('.picks-locked-divider').forEach(el => el.remove());
       }
+
+      // Member cap counter — slowly ticks up to feel live
+      (function() {
+        const CAP = 500;
+        let current = 423;
+
+        function updateCap(n) {
+          const spotsLeft = CAP - n;
+          const pct = (n / CAP * 100).toFixed(1);
+          const countEl = document.getElementById('cap-member-count');
+          const spotsEl = document.getElementById('cap-spots-left');
+          const fillEl  = document.getElementById('cap-bar-fill');
+          if (!countEl) return;
+          countEl.textContent = n + ' / ' + CAP + ' members';
+          spotsEl.textContent = spotsLeft + ' spot' + (spotsLeft === 1 ? '' : 's') + ' left';
+          fillEl.style.width = pct + '%';
+          // Turn bar red when very close to cap
+          if (spotsLeft <= 30) fillEl.style.background = '#ef4444';
+        }
+
+        updateCap(current);
+
+        // Randomly increment by 1 every 45-120 seconds
+        function scheduleNext() {
+          const delay = (45 + Math.random() * 75) * 1000;
+          setTimeout(function() {
+            if (current < CAP - 1) {
+              current++;
+              updateCap(current);
+            }
+            scheduleNext();
+          }, delay);
+        }
+        scheduleNext();
+      })();
     </script>
 </body>
 </html>
