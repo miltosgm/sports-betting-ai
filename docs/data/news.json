@@ -1,7 +1,22 @@
 {
-  "updated": "2026-02-21T13:00:02.915234+00:00",
+  "updated": "2026-02-21T13:30:03.184961+00:00",
   "count": 30,
   "articles": [
+    {
+      "title": "Aston Villa v Leeds, Chelsea v Burnley, EFL and more: Saturday football clockwatch – live",
+      "link": "https://www.theguardian.com/football/live/2026/feb/21/aston-villa-leeds-chelsea-burnley-premier-league-championship-clockwatch-live",
+      "description": "⚽ Latest updates from the Premier League and beyond⚽ Live scores | Follow us on Bluesky | And email DomCurrent scores in the Championship:Hull 0-1 QPRStoke 1-0 LeicesterSwansea 1-0 Bristol CityWest Br",
+      "image": "",
+      "published": "2026-02-21T13:11:49+00:00",
+      "published_ago": "18m ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Aston Villa",
+        "Burnley",
+        "Chelsea"
+      ]
+    },
     {
       "title": "Tudor could stay at Tottenham for 'long time'",
       "link": "https://www.bbc.com/sport/football/articles/cy9g0xyl1g9o?at_medium=RSS&at_campaign=rss",
@@ -34,7 +49,7 @@
       "description": "Jess Park scores a stunner in Manchester United's 2-0 win over Atletico Madrid, sealing their place in the quarter-finals of the Women's Champions League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4973/live/f7dfa6d0-0e78-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T08:28:45+00:00",
-      "published_ago": "4h ago",
+      "published_ago": "5h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -47,7 +62,7 @@
       "description": "What's eating Arsenal? Sunday's North London derby is now a test of the Gunners' \"bottle\", says chief football writer Phil McNulty.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6d0e/live/e36f2b50-0e67-11f1-9f23-b3f349b149c7.jpg",
       "published": "2026-02-21T07:04:14+00:00",
-      "published_ago": "5h ago",
+      "published_ago": "6h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -68,19 +83,6 @@
       ]
     },
     {
-      "title": "‘I won the league with Liverpool’: Arne Slot responds to Wayne Rooney jibe",
-      "link": "https://www.theguardian.com/football/2026/feb/20/i-won-the-league-with-liverpool-arne-slot-responds-to-wayne-rooney-jibe",
-      "description": "Rooney claimed coach lacked ‘aura’ to manage club‘Jürgen Klopp and me both won the league’Arne Slot has responded to Wayne Rooney’s claim that the Liverpool head coach does not have the “aura” to mana",
-      "image": "",
-      "published": "2026-02-20T22:30:51+00:00",
-      "published_ago": "14h ago",
-      "source": "The Guardian",
-      "source_logo": "🔵",
-      "teams": [
-        "Liverpool"
-      ]
-    },
-    {
       "title": "Tudor promises Spurs will avoid relegation but accepts club are in ‘emergency situation’",
       "link": "https://www.theguardian.com/football/2026/feb/20/igor-tudor-tottenham-premier-league-football",
       "description": "New coach starts tenure against Arsenal on SundayTudor insists ‘we have enormous quality in the squad’Igor Tudor has said Tottenham are in “an emergency situation” but issued a guarantee that his new ",
@@ -95,18 +97,16 @@
       ]
     },
     {
-      "title": "Mikel Arteta rules out ‘bottlers’ jibe but accepts Arsenal must take title criticism",
-      "link": "https://www.theguardian.com/football/2026/feb/20/mikel-arteta-tottenham-arsenal-premier-league-title",
-      "description": "‘It’s not part of my vocabulary. I wouldn’t use that word’Arsenal visit Tottenham in Premier League on SundayMikel Arteta has insisted the word “bottlers” is not in his vocabulary and that Arsenal mus",
+      "title": "‘I won the league with Liverpool’: Arne Slot responds to Wayne Rooney jibe",
+      "link": "https://www.theguardian.com/football/2026/feb/20/i-won-the-league-with-liverpool-arne-slot-responds-to-wayne-rooney-jibe",
+      "description": "Rooney claimed coach lacked ‘aura’ to manage club‘Jürgen Klopp and me both won the league’Arne Slot has responded to Wayne Rooney’s claim that the Liverpool head coach does not have the “aura” to mana",
       "image": "",
       "published": "2026-02-20T22:30:51+00:00",
       "published_ago": "14h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
-        "Arsenal",
-        "Tottenham",
-        "Premier League"
+        "Liverpool"
       ]
     },
     {
@@ -115,7 +115,7 @@
       "description": "Fans turned on manager during match on ThursdayClub decide against change with big games coming upCrystal Palace have decided against sacking Oliver Glasner despite his latest public outburst on Frida",
       "image": "",
       "published": "2026-02-20T21:26:02+00:00",
-      "published_ago": "15h ago",
+      "published_ago": "16h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -128,7 +128,7 @@
       "description": "Playmaker, out of favour under Mikel Arteta, has scored 18 of his 38 Premier League goals at business end of the seasonEberechi Eze was asked in an interview this week if there is a motto that he live",
       "image": "",
       "published": "2026-02-20T20:00:48+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -210,7 +210,7 @@
       "description": "Conor McNamara joins John Murray & Ian Dennis to talk Premier League, travel & language.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0m29vn0.jpg",
       "published": "2026-02-20T14:18:00+00:00",
-      "published_ago": "22h ago",
+      "published_ago": "23h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -223,7 +223,7 @@
       "description": "Crystal Palace manager Oliver Glasner has cast doubt on his immediate future at Selhurst Park after admitting he's \"not good enough\" in the role, following the club's 1-1 draw against Zrinjski in the ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b67a/live/52888440-0e5a-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-20T14:10:04+00:00",
-      "published_ago": "22h ago",
+      "published_ago": "23h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -236,7 +236,7 @@
       "description": "Former Premier League striker Benni McCarthy says his former manager Jose Mourinho should apologise for his \"very wrong\" comments after the alleged racial abuse of Vinicius Jr during Real Madrid's 1-0",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a305/live/f5c43fb0-0e5e-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-20T13:23:08+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -249,7 +249,7 @@
       "description": "Sources tell BBC Sport that Crystal Palace's board is considering Oliver Glasner's future at the club.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7466/live/0d541080-0e58-11f1-9dfd-b903070cb164.jpg",
       "published": "2026-02-20T13:15:55+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -262,7 +262,7 @@
       "description": "Former Manchester United, Spurs, Everton and Arsenal players are preparing for AS Trencin’s clash with Zemplin Michalovce“I wish I’d done it a bit younger,” says the former Manchester United midfielde",
       "image": "",
       "published": "2026-02-20T13:00:11+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
