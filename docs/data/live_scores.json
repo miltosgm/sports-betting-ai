@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-02-21T17:02:27.013632+00:00",
-  "updatedAtAthens": "19:02",
+  "updatedAt": "2026-02-21T17:04:27.314930+00:00",
+  "updatedAtAthens": "19:04",
   "matches": [
     {
       "home": "Aston Villa FC",
       "away": "Leeds United FC",
       "homeShort": "Aston Villa",
       "awayShort": "Leeds United",
-      "status": "IN_PLAY",
-      "minute": 90,
+      "status": "FINISHED",
+      "minute": null,
       "homeGoals": 1,
       "awayGoals": 1
     },
