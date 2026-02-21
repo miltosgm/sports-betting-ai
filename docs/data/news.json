@@ -1,14 +1,59 @@
 {
-  "updated": "2026-02-21T17:30:09.166129+00:00",
+  "updated": "2026-02-21T18:00:20.091235+00:00",
   "count": 30,
   "articles": [
+    {
+      "title": "Milner breaks Premier League appearance record",
+      "link": "https://www.bbc.com/sport/football/articles/cjrqdnj2199o?at_medium=RSS&at_campaign=rss",
+      "description": "Brighton's James Milner starts against Brentford to break the all-time Premier League appearance record of 653.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9177/live/55a46b60-0f38-11f1-9977-e990726ff5e1.jpg",
+      "published": "2026-02-21T17:53:58+00:00",
+      "published_ago": "6m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Brentford",
+        "Brighton",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "We're so close, we have to keep pushing - Abraham",
+      "link": "https://www.bbc.com/sport/football/videos/c795qwqx9rdo?at_medium=RSS&at_campaign=rss",
+      "description": "Aston Villa striker Tammy Abraham tells Final Score \"anything can happen\" in the Premier League title race and that his side have to keep pushing to get close to Arsenal.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ba2c/live/f686b330-0f4c-11f1-9120-a910fc22c6ac.jpg",
+      "published": "2026-02-21T17:49:19+00:00",
+      "published_ago": "11m ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Arsenal",
+        "Aston Villa",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "West Ham v Bournemouth: Premier League – live",
+      "link": "https://www.theguardian.com/football/live/2026/feb/21/west-ham-v-bournemouth-premier-league-live",
+      "description": "⚽ Updates from the 5.30pm (GMT) kick-off⚽ Live scores | Follow us on Bluesky | And email Taha9 min: Summerville shows off his quick feet inside his own half as West Ham try and counter.8 min: It’s an ",
+      "image": "",
+      "published": "2026-02-21T17:44:20+00:00",
+      "published_ago": "16m ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "West Ham",
+        "Bournemouth",
+        "Premier League"
+      ]
+    },
     {
       "title": "Tammy Abraham salvages late point for Aston Villa to deny battling Leeds",
       "link": "https://www.theguardian.com/football/2026/feb/21/aston-villa-leeds-premier-league-match-report",
       "description": "It felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser. Anton Stach’s incredible free-kick looked set to secure the win for Leeds until the 88th ",
       "image": "",
       "published": "2026-02-21T17:13:55+00:00",
-      "published_ago": "16m ago",
+      "published_ago": "46m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -17,12 +62,12 @@
       ]
     },
     {
-      "title": "Flemming rescues last-gasp point for Burnley after Chelsea’s Fofana sees red",
+      "title": "Flemming earns last-gasp draw for Burnley after Chelsea’s Fofana sees red",
       "link": "https://www.theguardian.com/football/2026/feb/21/chelsea-burnley-premier-league-match-report",
-      "description": "Chelsea got what they deserved here. Coasting to fourth courtesy of an early João Pedro goal the second-half dismissal of Wesley Fofana gave a glimmer to a Burnley team previously clinging on. Liam Ro",
+      "description": "Chelsea got what they deserved here. They had been coasting to fourth courtesy of an early João Pedro goal, but the second-half dismissal of Wesley Fofana gave a glimmer to a Burnley team previously c",
       "image": "",
       "published": "2026-02-21T17:13:02+00:00",
-      "published_ago": "17m ago",
+      "published_ago": "47m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -31,44 +76,14 @@
       ]
     },
     {
-      "title": "West Ham v Bournemouth: Premier League – live",
-      "link": "https://www.theguardian.com/football/live/2026/feb/21/west-ham-v-bournemouth-premier-league-live",
-      "description": "⚽ Updates from the 5.30pm (GMT) kick-off⚽ Live scores | Follow us on Bluesky | And email TahaWest Ham make one change from the side that drew against Manchester United: Freddie Potts is suspended afte",
-      "image": "",
-      "published": "2026-02-21T17:11:53+00:00",
-      "published_ago": "18m ago",
-      "source": "The Guardian",
-      "source_logo": "🔵",
-      "teams": [
-        "Manchester United",
-        "West Ham",
-        "Bournemouth"
-      ]
-    },
-    {
       "title": "James Milner breaks appearance record to help Brighton win at Brentford",
       "link": "https://www.theguardian.com/football/2026/feb/21/brentford-brighton-premier-league-match-report",
       "description": "Brighton marked James Milner’s record-breaking 654th Premier League appearance with a much-needed win at Brentford.The pressure had mounted on the Brighton manager Fabian Hürzeler after a run of one l",
       "image": "",
       "published": "2026-02-21T17:07:14+00:00",
-      "published_ago": "22m ago",
+      "published_ago": "53m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
-      "teams": [
-        "Brentford",
-        "Brighton",
-        "Premier League"
-      ]
-    },
-    {
-      "title": "Milner breaks Premier League appearance record",
-      "link": "https://www.bbc.com/sport/football/articles/cjrqdnj2199o?at_medium=RSS&at_campaign=rss",
-      "description": "Brighton's James Milner starts against Brentford to break the all-time Premier League appearance record of 653.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9177/live/55a46b60-0f38-11f1-9977-e990726ff5e1.jpg",
-      "published": "2026-02-21T15:47:19+00:00",
-      "published_ago": "1h ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
       "teams": [
         "Brentford",
         "Brighton",
@@ -81,7 +96,7 @@
       "description": "Sporting director Johan Lange says Igor Tudor could be given the Tottenham job on a permanent basis if he impresses during the remainder of the season.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47a7/live/fd126310-0e71-11f1-9acc-6bf6c7adf476.jpg",
       "published": "2026-02-21T10:59:32+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -94,7 +109,7 @@
       "description": "Pedro Neto has been criticised for lacking a \"killer instinct\", but the Chelsea winger's shape-shifting role goes some way to explain that.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e73/live/d1c39e40-0d7c-11f1-8e6b-0f78c649f3c2.jpg",
       "published": "2026-02-21T08:47:42+00:00",
-      "published_ago": "8h ago",
+      "published_ago": "9h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -120,7 +135,7 @@
       "description": "Wolves teenager Mateus Mane looks certain to leave Molineux, Liam Delap is wanted on Merseyside and Casemiro has interest from Europe as well as North and South America.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/09cf/live/6c5393e0-0ea7-11f1-801d-ed3cff6bf876.png",
       "published": "2026-02-20T22:59:15+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -133,7 +148,7 @@
       "description": "New coach starts tenure against Arsenal on SundayTudor insists ‘we have enormous quality in the squad’Igor Tudor has said Tottenham are in “an emergency situation” but issued a guarantee that his new ",
       "image": "",
       "published": "2026-02-20T22:30:51+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -174,7 +189,7 @@
       "description": "Here’s how to follow along with our coverage – the finest writing and up-to-the-minute reports Continue reading...",
       "image": "",
       "published": "2026-02-20T18:37:34+00:00",
-      "published_ago": "22h ago",
+      "published_ago": "23h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -188,7 +203,7 @@
       "description": "Sign up now! Sign up now! Sign up now? Sign up now!So much for the glory game, for daring to do. For Tottenham Hotspur, this season’s highest aspiration – beyond an unlikely Bigger Cup triumph – now r",
       "image": "",
       "published": "2026-02-20T17:59:03+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -288,19 +303,6 @@
         "Brentford",
         "Liverpool",
         "Bournemouth"
-      ]
-    },
-    {
-      "title": "How do Brentford keep appointing the right managers?",
-      "link": "https://www.bbc.com/sport/football/articles/c15x9nlykg2o?at_medium=RSS&at_campaign=rss",
-      "description": "Keith Andrews is impressing at Brentford in his first season as a manager, but how do the Bees keep getting their appointments so right?",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4628/live/4ca94390-0aac-11f1-ae99-1d5a1345a595.jpg",
-      "published": "2026-02-20T08:22:39+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Brentford"
       ]
     },
     {
