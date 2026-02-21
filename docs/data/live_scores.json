@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-21T18:02:28.896513+00:00",
-  "updatedAtAthens": "20:02",
+  "updatedAt": "2026-02-21T18:04:32.177944+00:00",
+  "updatedAtAthens": "20:04",
   "matches": [
     {
       "home": "Aston Villa FC",
@@ -38,7 +38,7 @@
       "homeShort": "West Ham",
       "awayShort": "Bournemouth",
       "status": "IN_PLAY",
-      "minute": 28,
+      "minute": 30,
       "homeGoals": 0,
       "awayGoals": 0
     },
