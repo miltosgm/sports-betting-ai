@@ -30,6 +30,8 @@ BASE_URL = 'https://api.football-data.org/v4'
 
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
+FREE_BOT_TOKEN = os.getenv('FREE_BOT_TOKEN')
+FREE_CHANNEL_ID = os.getenv('FREE_CHANNEL_ID')
 
 TEAM_NORMALIZE = {
     'Wolverhampton Wanderers FC': 'Wolverhampton Wanderers',
@@ -178,6 +180,52 @@ async def post_message(text):
     return r.message_id
 
 
+def build_free_win_message(pick, result_data, season_wins, season_total):
+    """Build a win-only message for the free public channel"""
+    home_s = normalize(pick['home'])
+    away_s = normalize(pick['away'])
+    score = result_data['score']
+    predicted = pick['prediction']
+    odds = pick.get('odds', 0)
+    edge = pick.get('edge', 0)
+    profit = round((odds - 1) * 100, 0)  # based on €100 stake
+    win_rate = round(season_wins / season_total * 100) if season_total > 0 else 0
+
+    lines = [
+        f"✅ <b>WIN — {home_s} {score} {away_s}</b>",
+        f"",
+        f"📌 Our pick: <b>{predicted} @ {odds:.2f}</b>",
+        f"📊 AI Advantage: <b>+{edge:.1f}%</b>",
+        f"💰 <b>+€{int(profit)} profit</b> (€100 stake)",
+        f"",
+        f"📈 Season record: <b>{season_wins}W-{season_total - season_wins}L ({win_rate}%)</b>",
+        f"",
+        f"🔒 Get all AI picks daily:",
+        f"👉 <a href='https://kicklabai.com'>kicklabai.com</a>",
+        f"",
+        f"#PremierLeague #WinningPick #KickLabAI",
+    ]
+    return "\n".join(lines)
+
+
+async def post_free_win(text):
+    """Post win to the free public channel"""
+    if not FREE_BOT_TOKEN or not FREE_CHANNEL_ID:
+        print("⚠️ Free channel not configured, skipping")
+        return
+    try:
+        bot = Bot(token=FREE_BOT_TOKEN)
+        r = await bot.send_message(
+            chat_id=FREE_CHANNEL_ID,
+            text=text,
+            parse_mode='HTML',
+            disable_web_page_preview=True,
+        )
+        print(f"✅ Posted to free channel, message ID: {r.message_id}")
+    except Exception as e:
+        print(f"⚠️ Failed to post to free channel: {e}")
+
+
 def update_predictions_file(predictions, finished, pred_file):
     """Update predictions JSON with settled results and save"""
     updated = []
@@ -258,6 +306,10 @@ def main():
     # Update predictions file with all finished matches (not just new ones)
     updated = update_predictions_file(predictions, finished, pred_file)
 
+    # Count season totals for record display
+    settled_all = [p for p in updated if p.get('settled')]
+    wins_all = sum(1 for p in settled_all if p.get('correct'))
+
     # Post each new result to Telegram
     for pick, result_data, correct, key in new_results:
         icon = "✅" if correct else "❌"
@@ -265,20 +317,26 @@ def main():
         away_s = normalize(pick['away'])
         print(f"  {icon} {home_s} vs {away_s}: {result_data['score']} (predicted {pick['prediction']})")
 
+        # Post full result (win or loss) to main private channel
         msg = build_result_message(pick, result_data, correct)
         try:
             asyncio.run(post_message(msg))
             posted_keys.add(key)
         except Exception as e:
-            print(f"  ⚠️ Failed to post: {e}")
+            print(f"  ⚠️ Failed to post to main channel: {e}")
+
+        # Post wins only to free public channel
+        if correct:
+            try:
+                free_msg = build_free_win_message(pick, result_data, wins_all, len(settled_all))
+                asyncio.run(post_free_win(free_msg))
+            except Exception as e:
+                print(f"  ⚠️ Failed to post to free channel: {e}")
 
     # Save updated state
     save_state(posted_keys)
 
-    # Summary log
-    settled_all = [p for p in updated if p.get('settled')]
-    wins_all = sum(1 for p in settled_all if p.get('correct'))
-    print(f"\n📊 Session total: {wins_all}/{len(settled_all)} correct")
+    print(f"\n📊 Season total: {wins_all}/{len(settled_all)} correct")
 
 
 if __name__ == '__main__':
