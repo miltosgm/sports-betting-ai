@@ -6881,7 +6881,7 @@
             initBetLogger();
             renderMyBets();
             initProfitVsEVChart();
-            initMarket BeatBadges();
+            initMarketBeatBadges();
             
             if (window.innerWidth <= 768) {
                 document.querySelector('.mobile-bottom-nav').style.display = 'flex';
@@ -8413,7 +8413,7 @@
 
         // ========== FEATURE 6: Market Beat BADGES ==========
         // Market Beat data per history pick (realistic estimates based on edge)
-        const Market Beat_HISTORY_DATA = [
+        const MARKETBEAT_HISTORY_DATA = [
             { match: 'Sunderland vs Liverpool',   postedOdds: 1.52, closedOdds: 1.45, clv: 4.8,  status: 'won'  },
             { match: 'Brentford vs Arsenal',       postedOdds: 1.88, closedOdds: 1.94, clv: -3.2, status: 'lost' },
             { match: 'Liverpool vs Newcastle',     postedOdds: 1.62, closedOdds: 1.55, clv: 4.5,  status: 'won'  },
@@ -8436,13 +8436,13 @@
             { match: 'Arsenal vs Chelsea',         postedOdds: 2.20, closedOdds: 2.10, clv: 4.8,  status: 'won'  }
         ];
 
-        function getMarket BeatClass(clv) {
+        function getMarketBeatClass(clv) {
             if (clv >= 2) return 'clv-positive';
             if (clv >= -1) return 'clv-neutral';
             return 'clv-negative';
         }
 
-        function initMarket BeatBadges() {
+        function initMarketBeatBadges() {
             const historyTab = document.getElementById('history');
             if (!historyTab) return;
 
@@ -8460,15 +8460,15 @@
                 // Use named data if available, otherwise cycle through the array
                 const matchEl = row.querySelector('.match-name');
                 const matchName = matchEl ? matchEl.textContent.trim() : '';
-                let clvData = Market Beat_HISTORY_DATA.find(d => d.match === matchName);
+                let clvData = MARKETBEAT_HISTORY_DATA.find(d => d.match === matchName);
                 if (!clvData) {
                     // Use sequential data from the array
-                    clvData = Market Beat_HISTORY_DATA[clvIndex % Market Beat_HISTORY_DATA.length];
+                    clvData = MARKETBEAT_HISTORY_DATA[clvIndex % MARKETBEAT_HISTORY_DATA.length];
                 }
                 clvIndex++;
 
                 const sign = clvData.clv >= 0 ? '+' : '';
-                const clvClass = getMarket BeatClass(clvData.clv);
+                const clvClass = getMarketBeatClass(clvData.clv);
                 const badge = document.createElement('span');
                 badge.className = `clv-badge ${clvClass}`;
                 badge.textContent = `Market Beat: ${sign}${clvData.clv}%`;
