@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-21T21:34:25.866628+00:00",
-  "updatedAtAthens": "23:34",
+  "updatedAt": "2026-02-21T21:36:24.886745+00:00",
+  "updatedAtAthens": "23:36",
   "matches": [
     {
       "home": "Aston Villa FC",
@@ -48,7 +48,7 @@
       "homeShort": "Man City",
       "awayShort": "Newcastle",
       "status": "IN_PLAY",
-      "minute": 75,
+      "minute": 77,
       "homeGoals": 2,
       "awayGoals": 1
     }
