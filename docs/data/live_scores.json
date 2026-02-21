@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-21T16:08:28.017339+00:00",
-  "updatedAtAthens": "18:08",
+  "updatedAt": "2026-02-21T16:10:32.625150+00:00",
+  "updatedAtAthens": "18:10",
   "matches": [
     {
       "home": "Aston Villa FC",
@@ -27,8 +27,8 @@
       "away": "Burnley FC",
       "homeShort": "Chelsea",
       "awayShort": "Burnley",
-      "status": "PAUSED",
-      "minute": null,
+      "status": "IN_PLAY",
+      "minute": 51,
       "homeGoals": 1,
       "awayGoals": 0
     },
