@@ -430,6 +430,170 @@
             .review-role { font-size: 0.8rem; }
             .review-quote { font-size: 0.9rem; }
         }
+
+        /* Email capture box */
+        .email-capture-box {
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.12);
+          border-radius: 16px;
+          padding: 24px;
+          max-width: 500px;
+          margin: 20px auto 0;
+        }
+        .email-capture-title { font-size: 16px; font-weight: 700; color: white; margin-bottom: 6px; }
+        .email-capture-sub { font-size: 12px; color: #9ca3af; margin-bottom: 14px; line-height: 1.5; }
+        .email-row { display: flex; gap: 8px; }
+        .email-input {
+          flex: 1;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.15);
+          border-radius: 10px;
+          padding: 12px 14px;
+          color: white;
+          font-size: 14px;
+          outline: none;
+          min-width: 0;
+        }
+        .email-input::placeholder { color: #6b7280; }
+        .email-input:focus { border-color: rgba(37,99,235,0.5); }
+        .email-submit-btn {
+          background: linear-gradient(135deg, #2563eb, #9333ea);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          padding: 12px 18px;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .email-trust { font-size: 11px; color: #6b7280; margin-top: 10px; }
+
+        /* Picks preview section */
+        .picks-preview-section {
+          padding: 40px 24px;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+        .picks-preview-header { margin-bottom: 8px; }
+        .picks-preview-title { font-size: 20px; font-weight: 800; color: white; }
+        .picks-preview-sub { font-size: 13px; color: #9ca3af; margin-top: 4px; margin-bottom: 20px; }
+        .picks-preview-sub a { color: #2563eb; text-decoration: none; }
+
+        /* Pick cards */
+        .preview-pick-card {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 14px;
+          padding: 16px;
+          margin-bottom: 12px;
+          transition: border-color 0.2s;
+        }
+        .preview-pick-card:hover { border-color: rgba(37,99,235,0.3); }
+        .preview-pick-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .preview-match-name { font-size: 15px; font-weight: 700; color: white; }
+        .preview-match-time { font-size: 11px; color: #6b7280; margin-top: 3px; }
+        .preview-value-badge {
+          background: linear-gradient(135deg, #f97316, #ef4444);
+          color: white;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 4px 10px;
+          border-radius: 20px;
+          flex-shrink: 0;
+          animation: previewPulse 2s ease-in-out infinite;
+        }
+        @keyframes previewPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+        .preview-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          margin-bottom: 12px;
+        }
+        .preview-stat {
+          background: rgba(255,255,255,0.03);
+          border-radius: 8px;
+          padding: 10px 8px;
+          text-align: center;
+        }
+        .preview-stat-label { font-size: 9px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+        .preview-stat-value { font-size: 15px; font-weight: 800; color: #e5e7eb; }
+        .preview-edge-bar {
+          background: rgba(255,255,255,0.06);
+          border-radius: 4px;
+          height: 5px;
+          margin-bottom: 10px;
+          overflow: hidden;
+        }
+        .preview-edge-fill {
+          background: linear-gradient(90deg, #fbbf24, #10b981);
+          border-radius: 4px;
+          height: 100%;
+        }
+        .preview-pick-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          color: #9ca3af;
+        }
+        .preview-suggested { color: #60a5fa; font-weight: 600; }
+
+        /* Locked divider */
+        .picks-locked-divider {
+          text-align: center;
+          padding: 12px 0;
+          margin-bottom: 12px;
+        }
+        .picks-locked-badge {
+          display: inline-block;
+          background: rgba(239,68,68,0.1);
+          border: 1px solid rgba(239,68,68,0.2);
+          color: #f87171;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 5px 14px;
+          border-radius: 20px;
+        }
+
+        /* Blurred card */
+        .preview-pick-blurred { position: relative; overflow: hidden; }
+        .preview-pick-blurred .preview-pick-inner { filter: blur(6px); user-select: none; pointer-events: none; }
+        .preview-unlock-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: rgba(15,23,42,0.65);
+          backdrop-filter: blur(2px);
+          border-radius: 14px;
+          gap: 6px;
+          padding: 16px;
+          text-align: center;
+        }
+        .preview-lock-icon { font-size: 28px; }
+        .preview-unlock-title { font-size: 14px; font-weight: 700; color: white; }
+        .preview-unlock-sub { font-size: 11px; color: #9ca3af; }
+        .preview-unlock-btn {
+          background: linear-gradient(135deg, #2563eb, #9333ea);
+          color: white;
+          border: none;
+          border-radius: 20px;
+          padding: 9px 22px;
+          font-size: 13px;
+          font-weight: 700;
+          cursor: pointer;
+          margin-top: 6px;
+        }
+
+        @media (max-width: 480px) {
+          .email-row { flex-direction: column; }
+          .email-submit-btn { width: 100%; padding: 13px; }
+          .picks-preview-section { padding: 28px 16px; }
+        }
     </style>
 </head>
 <body>
@@ -471,9 +635,16 @@
         <div class="hero-content">
             <h1>🚀 AI That Beats the Bookmakers</h1>
             <p class="subtitle">Stop guessing. Start winning with machine learning predictions powered by 16,000+ real matches.</p>
-            <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:0.5rem;">
-                <a href="https://t.me/+qhTNVzfVTGU3NjZk" target="_blank" rel="noopener" style="text-decoration:none;"><button class="cta">📲 Join Free on Telegram</button></a>
-                <a href="/dashboard_mockup.html" style="text-decoration:none;"><button class="cta" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);">📊 View Live Dashboard →</button></a>
+            <div class="email-capture-box">
+              <div class="email-capture-title">🎁 Get Today's Free Picks</div>
+              <div class="email-capture-sub">Enter your email — we'll send our 3 highest-confidence picks right now. No card needed.</div>
+              <form class="email-capture-form" onsubmit="handleEmailCapture(event)">
+                <div class="email-row">
+                  <input type="email" class="email-input" placeholder="your@email.com" required id="heroEmailInput">
+                  <button type="submit" class="email-submit-btn">Send Me Picks →</button>
+                </div>
+              </form>
+              <div class="email-trust">✉️ Instant delivery &nbsp;·&nbsp; <span style="color:#10b981;">No spam, ever</span> &nbsp;·&nbsp; Unsubscribe anytime</div>
             </div>
         </div>
     </section>
@@ -500,6 +671,123 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Today's Picks Preview -->
+    <section class="picks-preview-section" style="background:#0f172a; max-width:600px;">
+      <div class="picks-preview-header">
+        <div class="picks-preview-title">📅 Today's Picks</div>
+        <div class="picks-preview-sub">Showing 2 of 8 free · <a href="#" onclick="document.getElementById('heroEmailInput').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Unlock all picks →</a></div>
+      </div>
+
+      <!-- Pick 1: Sunderland vs Fulham -->
+      <div class="preview-pick-card">
+        <div class="preview-pick-header">
+          <div>
+            <div class="preview-match-name">Sunderland vs Fulham</div>
+            <div class="preview-match-time">⏱ 15:00 GMT+2 · Sat 21 Feb</div>
+          </div>
+          <div class="preview-value-badge">🔥 TOP PICK</div>
+        </div>
+        <div class="preview-stats-grid">
+          <div class="preview-stat">
+            <div class="preview-stat-label">KickLab AI</div>
+            <div class="preview-stat-value" style="color:#60a5fa;">66.2%</div>
+          </div>
+          <div class="preview-stat">
+            <div class="preview-stat-label">Bookmaker</div>
+            <div class="preview-stat-value">37%</div>
+          </div>
+          <div class="preview-stat">
+            <div class="preview-stat-label">Our Edge</div>
+            <div class="preview-stat-value" style="color:#f97316;">+29.1%</div>
+          </div>
+        </div>
+        <div class="preview-edge-bar">
+          <div class="preview-edge-fill" style="width:75%"></div>
+        </div>
+        <div class="preview-pick-footer">
+          <span>Home Win · Odds 2.70</span>
+          <span class="preview-suggested">💰 Suggested: €68</span>
+        </div>
+      </div>
+
+      <!-- Pick 2: Brentford vs Brighton -->
+      <div class="preview-pick-card">
+        <div class="preview-pick-header">
+          <div>
+            <div class="preview-match-name">Brentford vs Brighton</div>
+            <div class="preview-match-time">⏱ 17:30 GMT+2 · Sat 21 Feb</div>
+          </div>
+          <div class="preview-value-badge">🔥 VALUE BET</div>
+        </div>
+        <div class="preview-stats-grid">
+          <div class="preview-stat">
+            <div class="preview-stat-label">KickLab AI</div>
+            <div class="preview-stat-value" style="color:#60a5fa;">69.9%</div>
+          </div>
+          <div class="preview-stat">
+            <div class="preview-stat-label">Bookmaker</div>
+            <div class="preview-stat-value">50%</div>
+          </div>
+          <div class="preview-stat">
+            <div class="preview-stat-label">Our Edge</div>
+            <div class="preview-stat-value" style="color:#f97316;">+19.9%</div>
+          </div>
+        </div>
+        <div class="preview-edge-bar">
+          <div class="preview-edge-fill" style="width:55%"></div>
+        </div>
+        <div class="preview-pick-footer">
+          <span>Home Win · Odds 2.00</span>
+          <span class="preview-suggested">💰 Suggested: €47</span>
+        </div>
+      </div>
+
+      <!-- Locked divider -->
+      <div class="picks-locked-divider">
+        <span class="picks-locked-badge">🔒 6 more picks locked</span>
+      </div>
+
+      <!-- Blurred/locked pick card -->
+      <div class="preview-pick-card preview-pick-blurred">
+        <div class="preview-pick-inner">
+          <div class="preview-pick-header">
+            <div>
+              <div class="preview-match-name">Man City vs Newcastle</div>
+              <div class="preview-match-time">⏱ 20:00 GMT+2 · Sat 21 Feb</div>
+            </div>
+            <div class="preview-value-badge">🔥 VALUE BET</div>
+          </div>
+          <div class="preview-stats-grid">
+            <div class="preview-stat">
+              <div class="preview-stat-label">KickLab AI</div>
+              <div class="preview-stat-value" style="color:#60a5fa;">76.7%</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Bookmaker</div>
+              <div class="preview-stat-value">70%</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Our Edge</div>
+              <div class="preview-stat-value" style="color:#f97316;">+6.3%</div>
+            </div>
+          </div>
+          <div class="preview-edge-bar">
+            <div class="preview-edge-fill" style="width:35%"></div>
+          </div>
+          <div class="preview-pick-footer">
+            <span>Home Win · Odds 1.42</span>
+            <span class="preview-suggested">💰 Suggested: €28</span>
+          </div>
+        </div>
+        <div class="preview-unlock-overlay">
+          <div class="preview-lock-icon">🔒</div>
+          <div class="preview-unlock-title">6 more picks today</div>
+          <div class="preview-unlock-sub">Enter your email above to unlock all picks free</div>
+          <button class="preview-unlock-btn" onclick="document.getElementById('heroEmailInput').focus(); window.scrollTo({top:0,behavior:'smooth'})">Unlock Free →</button>
+        </div>
+      </div>
     </section>
 
     <section id="reviews">
@@ -792,5 +1080,32 @@
             ⚠️ Past performance does not guarantee future results. Only bet what you can afford to lose.
         </p>
     </footer>
+
+    <script>
+      function handleEmailCapture(e) {
+        e.preventDefault();
+        const email = document.getElementById('heroEmailInput').value;
+        // Store email
+        localStorage.setItem('kl_email', email);
+        // Show success state
+        const form = e.target.closest('.email-capture-box');
+        form.innerHTML = `
+          <div style="text-align:center; padding:8px 0;">
+            <div style="font-size:32px; margin-bottom:8px;">🎉</div>
+            <div style="font-size:16px; font-weight:700; color:white; margin-bottom:6px;">Picks sent to ${email}</div>
+            <div style="font-size:12px; color:#9ca3af; margin-bottom:16px;">Check your inbox — today's 3 top picks are on their way.</div>
+            <a href="/dashboard_mockup.html" style="display:inline-block; background:linear-gradient(135deg,#2563eb,#9333ea); color:white; text-decoration:none; padding:12px 24px; border-radius:10px; font-weight:700; font-size:14px;">📊 View Full Dashboard →</a>
+          </div>`;
+        // Unblur picks
+        document.querySelectorAll('.preview-pick-blurred').forEach(el => {
+          el.classList.remove('preview-pick-blurred');
+          const overlay = el.querySelector('.preview-unlock-overlay');
+          if (overlay) overlay.remove();
+          const inner = el.querySelector('.preview-pick-inner');
+          if (inner) inner.style.filter = 'none';
+        });
+        document.querySelectorAll('.picks-locked-divider').forEach(el => el.remove());
+      }
+    </script>
 </body>
 </html>
