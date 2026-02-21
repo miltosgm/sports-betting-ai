@@ -2284,23 +2284,35 @@
             .detail-label { font-size: 10px; }
             .detail-value { font-size: 12px; }
 
-            /* Value meter - stack pill below stats on mobile */
+            /* Value meter - full mobile redesign */
+            .value-meter { padding: 10px 12px; }
             .value-meter-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
                 gap: 8px;
             }
             .value-meter-stats {
-                gap: 0.4rem;
-                font-size: 11px;
-                flex-wrap: wrap;
+                display: grid !important;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 4px;
+                font-size: 10px;
+                font-family: inherit;
             }
-            .value-meter-edge { font-size: 11px; }
+            /* Hide pipe separators in stats on mobile */
+            .value-meter-stats > span:nth-child(2),
+            .value-meter-stats > span:nth-child(4) { display: none !important; }
+            /* Each stat on its own line, no wrapping */
+            .value-meter-stats > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .value-meter-edge { font-size: 11px !important; font-weight: 800; }
             .vm-info-pill {
                 font-size: 10px;
-                padding: 2px 8px;
-                align-self: flex-start;
+                padding: 4px 10px;
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
             }
+            /* Hide VALUE BET badge on mobile - verdict shown in reasoning */
+            .value-bet-badge { font-size: 10px; padding: 2px 6px; }
 
             /* Kelly + odds compare tighter */
             .kelly-rec { font-size: 11px; }
@@ -3456,16 +3468,21 @@
         @media (max-width: 640px) {
           .value-meter-header {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: stretch;
             gap: 6px;
           }
           .value-meter-stats {
-            gap: 0.5rem;
-            font-size: 12px;
-            flex-wrap: wrap;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 4px;
+            font-size: 11px;
+            font-family: inherit;
           }
-          .value-meter-edge { font-size: 12px; }
-          .vm-info-pill { font-size: 10px; padding: 2px 8px; }
+          .value-meter-stats > span:nth-child(2),
+          .value-meter-stats > span:nth-child(4) { display: none !important; }
+          .value-meter-stats > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+          .value-meter-edge { font-size: 11px !important; }
+          .vm-info-pill { font-size: 10px; padding: 3px 10px; width: 100%; justify-content: center; box-sizing: border-box; }
         }
         .vm-info-popup {
           position: fixed;
