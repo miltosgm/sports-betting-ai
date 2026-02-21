@@ -12,7 +12,11 @@
     "odds": 3.6,
     "edge": 12.1,
     "time": "17:00",
-    "date": "Sat 21 Feb"
+    "date": "Sat 21 Feb",
+    "result": "Draw",
+    "score": "1-1",
+    "correct": true,
+    "settled": true
   },
   {
     "home": "Brentford FC",
@@ -27,7 +31,11 @@
     "odds": 2.0,
     "edge": 19.9,
     "time": "17:00",
-    "date": "Sat 21 Feb"
+    "date": "Sat 21 Feb",
+    "result": "Away Win",
+    "score": "0-2",
+    "correct": false,
+    "settled": true
   },
   {
     "home": "Chelsea FC",
@@ -42,7 +50,11 @@
     "odds": 1.22,
     "edge": -2.4,
     "time": "17:00",
-    "date": "Sat 21 Feb"
+    "date": "Sat 21 Feb",
+    "result": "Draw",
+    "score": "1-1",
+    "correct": false,
+    "settled": true
   },
   {
     "home": "West Ham United FC",
