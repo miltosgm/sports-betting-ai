@@ -1,20 +1,20 @@
 {
-  "updated": "2026-02-21T14:00:03.113654+00:00",
+  "updated": "2026-02-21T14:30:03.950878+00:00",
   "count": 30,
   "articles": [
     {
       "title": "Aston Villa v Leeds, Chelsea v Burnley, Championship and more: Saturday clockwatch – live",
       "link": "https://www.theguardian.com/football/live/2026/feb/21/aston-villa-leeds-chelsea-burnley-premier-league-championship-clockwatch-live",
-      "description": "⚽ Latest updates from the Premier League and beyond⚽ Live scores | Follow us on Bluesky | And email DomThere are swathes of empty seats at The Hawthorns today. Clearly the West Brom faithful are votin",
+      "description": "⚽ Latest updates from the Premier League and beyond⚽ Live scores | Follow us on Bluesky | And email DomBrentford: Kelleher; Hickey, Ajer, Van den Berg, Henry; Janelt, Henderson, Jensen; Ouattara, Lewi",
       "image": "",
-      "published": "2026-02-21T13:44:44+00:00",
-      "published_ago": "15m ago",
+      "published": "2026-02-21T14:17:47+00:00",
+      "published_ago": "12m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
         "Aston Villa",
-        "Burnley",
-        "Chelsea"
+        "Brentford",
+        "Burnley"
       ]
     },
     {
@@ -49,7 +49,7 @@
       "description": "Jess Park scores a stunner in Manchester United's 2-0 win over Atletico Madrid, sealing their place in the quarter-finals of the Women's Champions League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4973/live/f7dfa6d0-0e78-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T08:28:45+00:00",
-      "published_ago": "5h ago",
+      "published_ago": "6h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -62,7 +62,7 @@
       "description": "What's eating Arsenal? Sunday's North London derby is now a test of the Gunners' \"bottle\", says chief football writer Phil McNulty.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6d0e/live/e36f2b50-0e67-11f1-9f23-b3f349b149c7.jpg",
       "published": "2026-02-21T07:04:14+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -115,7 +115,7 @@
       "description": "Fans turned on manager during match on ThursdayClub decide against change with big games coming upCrystal Palace have decided against sacking Oliver Glasner despite his latest public outburst on Frida",
       "image": "",
       "published": "2026-02-20T21:26:02+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -128,7 +128,7 @@
       "description": "Playmaker, out of favour under Mikel Arteta, has scored 18 of his 38 Premier League goals at business end of the seasonEberechi Eze was asked in an interview this week if there is a motto that he live",
       "image": "",
       "published": "2026-02-20T20:00:48+00:00",
-      "published_ago": "17h ago",
+      "published_ago": "18h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -210,7 +210,7 @@
       "description": "Conor McNamara joins John Murray & Ian Dennis to talk Premier League, travel & language.",
       "image": "https://ichef.bbci.co.uk/images/ic/240x135/p0m29vn0.jpg",
       "published": "2026-02-20T14:18:00+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -223,7 +223,7 @@
       "description": "Crystal Palace manager Oliver Glasner has cast doubt on his immediate future at Selhurst Park after admitting he's \"not good enough\" in the role, following the club's 1-1 draw against Zrinjski in the ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b67a/live/52888440-0e5a-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-20T14:10:04+00:00",
-      "published_ago": "23h ago",
+      "published_ago": "1d ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -269,19 +269,6 @@
         "Arsenal",
         "Everton",
         "Manchester United"
-      ]
-    },
-    {
-      "title": "Cardiff charged over alleged homophobic chants against Chelsea",
-      "link": "https://www.bbc.com/sport/football/articles/cvg3vp14gp4o?at_medium=RSS&at_campaign=rss",
-      "description": "The Football Association charges Cardiff City after the club's fans allegedly aimed homophobic chants at Chelsea.",
-      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a5c7/live/cb6d8180-0e50-11f1-9189-e7ebb4fb5ccd.jpg",
-      "published": "2026-02-20T12:15:13+00:00",
-      "published_ago": "1d ago",
-      "source": "BBC Sport",
-      "source_logo": "🔴",
-      "teams": [
-        "Chelsea"
       ]
     },
     {
@@ -402,6 +389,19 @@
       "source_logo": "🔴",
       "teams": [
         "Premier League"
+      ]
+    },
+    {
+      "title": "Football Daily | Arsenal don’t just drop points, they perform theatrical acts of self-sabotage",
+      "link": "https://www.theguardian.com/football/2026/feb/19/arsenal-wolves-premier-league-title-race-football-daily",
+      "description": "Sign up now! Sign up now! Sign up now? Sign up now!Top of the league, Wembley trip booked, sweeping through Europe, and blessed with a cushty FA Cup draw – it’s fair to say the Arsenal garden is in fu",
+      "image": "",
+      "published": "2026-02-19T16:56:59+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Arsenal"
       ]
     }
   ]
