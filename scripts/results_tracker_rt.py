@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent.parent / '.env')
 
+from urllib.parse import urlencode
 from telegram import Bot
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -128,7 +129,30 @@ def load_predictions():
     return data, latest
 
 
-def build_result_message(pick, result_data, correct):
+def build_win_card_url(pick, result_data, wins, losses):
+    """Build a shareable win card URL for kicklabai.com/win-card.html"""
+    match_str = f"{normalize(pick['home'])} vs {normalize(pick['away'])}"
+    date_str = pick.get('date', datetime.now().strftime('%Y-%m-%d'))
+    # Format date nicely e.g. "Sat 22 Feb 2026"
+    try:
+        dt = datetime.strptime(date_str, '%Y-%m-%d')
+        date_nice = dt.strftime('%a %-d %b %Y')
+    except Exception:
+        date_nice = date_str
+    params = {
+        'match': match_str,
+        'score': result_data['score'],
+        'pick':  pick.get('prediction', ''),
+        'odds':  f"{pick.get('odds', 0):.2f}",
+        'edge':  f"{pick.get('edge', 0):.1f}",
+        'date':  date_nice,
+        'wins':  wins,
+        'losses': losses,
+    }
+    return 'https://kicklabai.com/win-card.html?' + urlencode(params)
+
+
+def build_result_message(pick, result_data, correct, wins=0, losses=0):
     """Build a single-pick result Telegram message"""
     home_s = normalize(pick['home'])
     away_s = normalize(pick['away'])
@@ -140,8 +164,9 @@ def build_result_message(pick, result_data, correct):
 
     if correct:
         profit = odds - 1
+        profit_eur = round((odds - 1) * 100)
         icon = "✅"
-        verdict = f"WIN +{profit:.2f}u"
+        verdict = f"WIN +{profit:.2f}u (+€{profit_eur})"
         color_tag = "🟢"
     else:
         icon = "❌"
@@ -162,6 +187,11 @@ def build_result_message(pick, result_data, correct):
         lines.append(f"📈 Edge was: +{edge:.1f}%")
 
     lines.append("")
+
+    if correct:
+        card_url = build_win_card_url(pick, result_data, wins, losses)
+        lines.append(f"🃏 <a href='{card_url}'>View win card →</a>")
+
     lines.append("⚡ <a href='https://kicklabai.com/results_verified.html'>View all results →</a>")
     lines.append("#PremierLeague #KickLabAI")
 
@@ -180,7 +210,7 @@ async def post_message(text):
     return r.message_id
 
 
-def build_free_win_message(pick, result_data, season_wins=0, season_total=0):
+def build_free_win_message(pick, result_data, wins=0, losses=0):
     """Build a win-only message for the free public channel"""
     home_s = normalize(pick['home'])
     away_s = normalize(pick['away'])
@@ -189,6 +219,7 @@ def build_free_win_message(pick, result_data, season_wins=0, season_total=0):
     odds = pick.get('odds', 0)
     edge = pick.get('edge', 0)
     profit = round((odds - 1) * 100, 0)  # based on €100 stake
+    card_url = build_win_card_url(pick, result_data, wins, losses)
 
     lines = [
         f"✅ <b>WIN — {home_s} {score} {away_s}</b>",
@@ -196,6 +227,8 @@ def build_free_win_message(pick, result_data, season_wins=0, season_total=0):
         f"📌 Our pick: <b>{predicted} @ {odds:.2f}</b>",
         f"📊 AI Advantage: <b>+{edge:.1f}%</b>",
         f"💰 <b>+€{int(profit)} profit</b> (€100 stake)",
+        f"",
+        f"🃏 <a href='{card_url}'>View win card →</a>",
         f"",
         f"🔒 Get all AI picks daily:",
         f"👉 <a href='https://kicklabai.com'>kicklabai.com</a>",
@@ -305,7 +338,8 @@ def main():
 
     # Count season totals for record display
     settled_all = [p for p in updated if p.get('settled')]
-    wins_all = sum(1 for p in settled_all if p.get('correct'))
+    wins_all   = sum(1 for p in settled_all if p.get('correct'))
+    losses_all = len(settled_all) - wins_all
 
     # Post each new result to Telegram
     for pick, result_data, correct, key in new_results:
@@ -315,7 +349,7 @@ def main():
         print(f"  {icon} {home_s} vs {away_s}: {result_data['score']} (predicted {pick['prediction']})")
 
         # Post full result (win or loss) to main private channel
-        msg = build_result_message(pick, result_data, correct)
+        msg = build_result_message(pick, result_data, correct, wins=wins_all, losses=losses_all)
         try:
             asyncio.run(post_message(msg))
             posted_keys.add(key)
@@ -325,7 +359,7 @@ def main():
         # Post wins only to free public channel
         if correct:
             try:
-                free_msg = build_free_win_message(pick, result_data)
+                free_msg = build_free_win_message(pick, result_data, wins=wins_all, losses=losses_all)
                 asyncio.run(post_free_win(free_msg))
             except Exception as e:
                 print(f"  ⚠️ Failed to post to free channel: {e}")
