@@ -1,28 +1,14 @@
 {
-  "updated": "2026-02-22T15:00:18.231907+00:00",
+  "updated": "2026-02-22T15:30:14.597329+00:00",
   "count": 53,
   "articles": [
-    {
-      "title": "Chelsea v Manchester United: Women’s FA Cup fifth round – live",
-      "link": "https://www.theguardian.com/football/live/2026/feb/22/chelsea-v-manchester-united-womens-fa-cup-fifth-round-live",
-      "description": "Updates on the 1.30pm (GMT) kick-off at Kingsmeadow Report: Birmingham 8-0 Chatham | Email Xaymaca here5 min: Lauren James progresses with the ball before slipping in Thompson. Thompson plays it on to",
-      "image": "",
-      "published": "2026-02-22T14:45:17+00:00",
-      "published_ago": "14m ago",
-      "source": "The Guardian",
-      "source_logo": "🔵",
-      "teams": [
-        "Chelsea",
-        "Manchester United"
-      ]
-    },
     {
       "title": "Nottingham Forest v Liverpool: Premier League – live",
       "link": "https://www.theguardian.com/football/live/2026/feb/22/nottingham-forest-v-liverpool-premier-league-live",
       "description": "⚽ Premier League updates from the 2pm GMT kick-off⚽ Live scores | Follow us on Bluesky | And email JohnEric Peterson gets in touch: “I wouldn’t mind Wayne Rooney pulling on an old Everton kit and gett",
       "image": "",
-      "published": "2026-02-22T14:43:42+00:00",
-      "published_ago": "16m ago",
+      "published": "2026-02-22T15:14:57+00:00",
+      "published_ago": "15m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -34,12 +20,26 @@
       ]
     },
     {
+      "title": "Chelsea v Manchester United: Women’s FA Cup fifth round – live",
+      "link": "https://www.theguardian.com/football/live/2026/feb/22/chelsea-v-manchester-united-womens-fa-cup-fifth-round-live",
+      "description": "Updates on the 1.30pm (GMT) kick-off at Kingsmeadow Report: Birmingham 8-0 Chatham | Email Xaymaca here5 min: Lauren James progresses with the ball before slipping in Thompson. Thompson plays it on to",
+      "image": "",
+      "published": "2026-02-22T15:13:20+00:00",
+      "published_ago": "16m ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Chelsea",
+        "Manchester United"
+      ]
+    },
+    {
       "title": "‘You need to be a team’: Rowett urges unity as depleted Leicester show fight",
       "link": "https://www.theguardian.com/football/2026/feb/22/gary-rowett-urges-unity-leicester-city-show-fight-championship",
       "description": "Gary Rowett has told his Leicester players to deprioritise ‘individual ambitions’ after Saturday’s 2-2 draw with StokeBy the stage Ben Nelson headed against the bar in stoppage time and then Luke Thom",
       "image": "",
       "published": "2026-02-22T08:00:32+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -81,7 +81,7 @@
       "description": "Match of the Day pundit Wayne Rooney believes Tammy Abraham's arrival at Aston Villa could be key to Ollie Watkins rediscovering his form, as the pressure of competition for his place in the starting ",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/f56e/live/d2e496b0-0f81-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-22T00:18:47+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -94,7 +94,7 @@
       "description": "BBC Sport pundit Micah Richards explains why Nico O'Reilly should be one of the first names on the Manchester City team sheet, due to the left back's ability to also play in the number 10 role at an \"",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7175/live/d6c0ffd0-0f7c-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-22T00:03:45+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -134,7 +134,7 @@
       "description": "Manchester City beat Newcastle to cut Arsenal’s lead to twoTeam given three days off before facing LeedsPep Guardiola told his players to “take a lot of caipirinhas, daiquiris” to handle the pressure ",
       "image": "",
       "published": "2026-02-21T23:28:18+00:00",
-      "published_ago": "15h ago",
+      "published_ago": "16h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -221,7 +221,7 @@
       "description": "Chelsea make it 17 points dropped from winning positions in the Premier League this season as Zian Flemming's 93rd-minute header gives Burnley a 1-1 draw, after Wesley Fofana is sent off at Stamford B",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2f7b/live/1a82c600-0f59-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T22:29:13+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -235,7 +235,7 @@
       "description": "Tammy Abraham comes off the bench to score an 88th minute equaliser to cancel out Anton Stach's spectacular freekick, as Aston Villa rescue a 1-1 draw against Leeds United at Villa Park in the Premier",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0fa7/live/4b3a2830-0f57-11f1-801d-ed3cff6bf876.jpg",
       "published": "2026-02-21T22:29:03+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -248,7 +248,7 @@
       "description": "Goals from Diego Gomez and Danny Welbeck help Brighton to their first league win in six games, as Fabian Hurzeler's side see off Brentford 2-0 at the GTech Community Stadium.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/da0f/live/44ebd180-0f58-11f1-801d-ed3cff6bf876.jpg",
       "published": "2026-02-21T22:28:53+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -262,7 +262,7 @@
       "description": "Third-bottom West Ham spurn the chance to put pressure on the teams above them in the table as they are held to a 0-0 draw at home to Bournemouth.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b8c5/live/c0f08020-0f60-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T22:28:43+00:00",
-      "published_ago": "16h ago",
+      "published_ago": "17h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -276,7 +276,7 @@
       "description": "Coventry win 2-0 at West Brom; Oxford hold BoroMillwall lose to Portsmouth, Birmingham beat NorwichWrexham boosted their promotion hopes with a 5-3 victory over fellow high-flyers Ipswich in a crazy g",
       "image": "",
       "published": "2026-02-21T21:09:05+00:00",
-      "published_ago": "17h ago",
+      "published_ago": "18h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -289,7 +289,7 @@
       "description": "Burnley midfielder Hannibal Mejbri and Chelsea defender Wesley Fofana have spoken out on social media after being sent racist abuse in the aftermath of the clubs' Premier League match on Saturday.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1c86/live/0e59ae10-0f73-11f1-a139-b59d78a6f8ff.jpg",
       "published": "2026-02-21T20:28:37+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -303,7 +303,7 @@
       "description": "Tottenham have rolled the dice and an injury-ravaged side’s anxiety may only get worse as West Ham close the gapWhen did the reality dawn? Perhaps it was towards the end of the first half of West Ham’",
       "image": "",
       "published": "2026-02-21T20:00:17+00:00",
-      "published_ago": "18h ago",
+      "published_ago": "19h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -374,7 +374,7 @@
       "description": "James Milner reacts to breaking the record for most appearances in the Premier League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/885e/live/e6f59a70-0f4d-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:16:00+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -387,7 +387,7 @@
       "description": "Burnley head coach Scott Parker says he is \"proud\" of his side's \"resilience\" in their 1-1 Premier League draw with Chelsea at Stamford Bridge.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4e65/live/195fb8e0-0f50-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:13:26+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -401,7 +401,7 @@
       "description": "Aston Villa manager Unai Emery remains upbeat after their draw with Leeds United, saying the result is a point gained rather than two points lost.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ff97/live/e6d28210-0f4d-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T18:09:57+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -414,7 +414,7 @@
       "description": "Chelsea head coach Liam Rosenior believes his side lacked the ruthlessness in their 1-1 draw with Burnley at Stamford Bridge in the Premier League.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2222/live/fdb72fb0-0f4f-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T18:09:42+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -428,7 +428,7 @@
       "description": "Phil Parkinson feels Wrexham's \"sheer commitment, honesty and endeavour\" was pivotal to their dramatic 5-3 win over Ipswich Town in the Championship.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5052/live/786ff0a0-0f48-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T18:07:24+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -441,7 +441,7 @@
       "description": "James Milner has broken the Premier League appearance record, 24 years after making his debut as a 16-year-old.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8d31/live/4e3045e0-0784-11f1-b5e2-dd58fc65f0f6.png",
       "published": "2026-02-21T18:03:09+00:00",
-      "published_ago": "20h ago",
+      "published_ago": "21h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -497,7 +497,7 @@
       "description": "This felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser against Leeds. Unai Emery’s side have won only once in their past four Premier League ho",
       "image": "",
       "published": "2026-02-21T17:13:55+00:00",
-      "published_ago": "21h ago",
+      "published_ago": "22h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
@@ -511,7 +511,7 @@
       "description": "James Milner showed he can still contribute during his record-breaking 654th Premier League appearance as Brighton won at Brentford. Milner’s inclusion meant he moved past Gareth Barry’s record tally ",
       "image": "",
       "published": "2026-02-21T17:07:14+00:00",
-      "published_ago": "21h ago",
+      "published_ago": "22h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
