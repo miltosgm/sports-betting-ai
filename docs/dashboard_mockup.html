@@ -1579,17 +1579,26 @@ function confirmBet() {
 // ============================================================
 function selectPreset(mode, btn) {
   accaMode = mode;
+  
   document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderAcca();
 }
 
 function getAccaPicks() {
-  const valuePicks = allPicks.filter(p => p.edge > 5 && p.odds > 1)
-    .sort((a, b) => b.edge - a.edge);
-  if (accaMode === 'safe') return valuePicks.slice(-2).reverse();
-  if (accaMode === 'balanced') return valuePicks.slice(0, 3);
-  return valuePicks; // bold = all
+  // Use ALL picks with valid odds — no edge filter here
+  const pool = allPicks.filter(p => p.odds > 1.01);
+
+  // Safe: top 2 by confidence (highest probability = safest legs)
+  if (accaMode === 'safe') {
+    return [...pool].sort((a, b) => b.confidence - a.confidence).slice(0, 2);
+  }
+  // Balanced: top 3 by edge
+  if (accaMode === 'balanced') {
+    return [...pool].sort((a, b) => b.edge - a.edge).slice(0, 3);
+  }
+  // Bold: all picks sorted by edge
+  return [...pool].sort((a, b) => b.edge - a.edge);
 }
 
 function renderAcca() {
