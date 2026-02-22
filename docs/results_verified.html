@@ -739,6 +739,7 @@
 
     <!-- PREDICTION LOG -->
     <section class="log-section">
+        <div id="liveDataBanner" style="display:none; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:10px 16px; margin-bottom:16px; font-size:13px; font-weight:600; color:#10b981;"></div>
         <h2 class="section-title">📋 Full Prediction History</h2>
         
         <div class="controls">
@@ -766,11 +767,11 @@
             <table class="prediction-table" id="predictionTable">
                 <thead>
                     <tr>
-                        <th>Date & Time</th>
+                        <th>Date</th>
                         <th>Match</th>
                         <th>Prediction</th>
                         <th>Odds</th>
-                        <th>Confidence</th>
+                        <th>Score</th>
                         <th>Result</th>
                         <th>P/L</th>
                     </tr>
@@ -888,7 +889,7 @@
 
     <script>
         // ===== PREDICTION DATA =====
-        const predictions = [
+        let predictions = [
             // February 2026
             { date: '2026-02-11', time: '09:30', match: 'Sunderland vs Liverpool', prediction: 'Away Win', odds: 1.52, confidence: 88, result: 'win', profit: 52, published: '2026-02-11T09:30:00+02:00' },
             { date: '2026-02-12', time: '09:00', match: 'Brentford vs Arsenal', prediction: 'Over 2.5', odds: 1.78, confidence: 82, result: 'loss', profit: -100, published: '2026-02-12T09:00:00+02:00' },
@@ -1018,24 +1019,27 @@
                 const row = document.createElement('tr');
                 row.className = pred.result;
                 
+                const verifiedBadge = pred.realData
+                    ? `<span style="font-size:9px;font-weight:700;background:rgba(16,185,129,0.15);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:1px 5px;border-radius:4px;margin-left:4px;">LIVE</span>`
+                    : '';
+                const scoreDisplay = pred.score
+                    ? `<strong>${pred.score}</strong>`
+                    : `<span style="color:#4b5563;">-</span>`;
+
                 row.innerHTML = `
                     <td>
-                        <div><strong>${pred.date}</strong></div>
-                        <div class="timestamp">Published: ${pred.time} GMT+2</div>
+                        <div><strong>${pred.date}</strong>${verifiedBadge}</div>
+                        <div class="timestamp">${pred.time} GMT+2</div>
                     </td>
                     <td>
                         <div class="match-teams">${pred.match}</div>
                     </td>
                     <td>
                         <span class="prediction-badge">${pred.prediction}</span>
+                        ${pred.edge ? `<div style="font-size:10px;color:#10b981;margin-top:2px;">+${pred.edge}% edge</div>` : ''}
                     </td>
                     <td><strong>${pred.odds.toFixed(2)}</strong></td>
-                    <td>
-                        <div><strong>${pred.confidence}%</strong></div>
-                        <div class="confidence-bar">
-                            <div class="confidence-fill" style="width: ${pred.confidence}%"></div>
-                        </div>
-                    </td>
+                    <td>${scoreDisplay}</td>
                     <td>
                         <span class="result-badge ${pred.result}">
                             ${pred.result === 'win' ? '✓ WIN' : '✗ LOSS'}
@@ -1407,10 +1411,65 @@
         });
 
         // ===== INIT =====
-        document.addEventListener('DOMContentLoaded', () => {
+        // ===== LOAD REAL RESULTS from data/results.json =====
+        async function loadRealResults() {
+            try {
+                const res  = await fetch('./data/results.json?v=' + Date.now());
+                const data = await res.json();
+                const real = data.results || [];
+
+                // Build dedup key set from hardcoded predictions
+                const seen = new Set(predictions.map(p => p.match + '|' + p.date));
+
+                let added = 0;
+                real.forEach(r => {
+                    const key = r.match + '|' + r.date;
+                    if (seen.has(key)) return; // already in historical data
+                    seen.add(key);
+
+                    // Normalise to match hardcoded format
+                    predictions.push({
+                        date:        r.date,
+                        time:        r.time || '09:00',
+                        match:       r.match,
+                        prediction:  r.prediction,
+                        odds:        r.odds,
+                        confidence:  r.confidence,
+                        edge:        r.edge,
+                        result:      r.result,
+                        profit:      r.profit,
+                        score:       r.score || '',
+                        published:   r.published,
+                        realData:    true,   // flag for verified badge
+                    });
+                    added++;
+                });
+
+                // Sort newest first
+                predictions.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Show live data badge
+                const banner = document.getElementById('liveDataBanner');
+                if (banner) {
+                    banner.textContent = `Live data: ${added} new verified result${added !== 1 ? 's' : ''} loaded from real picks`;
+                    banner.style.display = 'block';
+                }
+
+                console.log(`✅ Loaded ${added} real results from data/results.json`);
+            } catch(e) {
+                console.warn('Could not load real results:', e);
+            }
+        }
+
+        function initAll() {
             generateCalendarHeatmap();
             renderPredictionTable();
             createProfitCurveChart();
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadRealResults();
+            initAll();
             createBetTypeChart();
             createConfidenceChart();
             createOddsRangeChart();

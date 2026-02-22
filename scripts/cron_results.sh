@@ -4,6 +4,7 @@ PROJ="/Users/milton/sports-betting-ai"
 cd "$PROJ"
 echo "=== $(date) - Running results tracker ==="
 python3 scripts/results_tracker.py
+python3 scripts/generate_results_json.py
 git add -A
 git commit -m "Auto: results update $(date +%Y-%m-%d)" || echo "Nothing to commit"
 git push
