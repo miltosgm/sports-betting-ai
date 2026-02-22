@@ -70,7 +70,10 @@
     "edge": -4.7,
     "time": "18:30",
     "date": "Sun 22 Feb",
-    "settled": false
+    "settled": true,
+    "result": "Away Win",
+    "score": "1-4",
+    "correct": true
   },
   {
     "home": "Everton FC",
