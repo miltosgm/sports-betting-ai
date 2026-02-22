@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-22T14:48:37.077599+00:00",
-  "updatedAtAthens": "16:48",
+  "updatedAt": "2026-02-22T14:50:25.871054+00:00",
+  "updatedAtAthens": "16:50",
   "matches": [
     {
       "home": "Sunderland AFC",
@@ -8,7 +8,7 @@
       "homeShort": "Sunderland",
       "awayShort": "Fulham",
       "status": "IN_PLAY",
-      "minute": 29,
+      "minute": 31,
       "homeGoals": 0,
       "awayGoals": 0
     },
@@ -18,7 +18,7 @@
       "homeShort": "Crystal Palace",
       "awayShort": "Wolverhampton",
       "status": "IN_PLAY",
-      "minute": 29,
+      "minute": 31,
       "homeGoals": 0,
       "awayGoals": 0
     },
@@ -28,7 +28,7 @@
       "homeShort": "Nottingham",
       "awayShort": "Liverpool",
       "status": "IN_PLAY",
-      "minute": 29,
+      "minute": 31,
       "homeGoals": 0,
       "awayGoals": 0
     },
