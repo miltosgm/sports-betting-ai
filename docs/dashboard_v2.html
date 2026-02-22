@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>KickLab AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d1117;
+    --card: #161b27;
+    --border: rgba(255,255,255,0.06);
+    --blue: #2563eb;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --purple: #a78bfa;
+    --text: #f1f5f9;
+    --text2: #94a3b8;
+    --muted: #475569;
+    --rad-card: 14px;
+    --rad-sm: 10px;
+    --max: 390px;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ---- LAYOUT ---- */
+  #app { display: none; flex-direction: column; min-height: 100vh; }
+  #app.visible { display: flex; }
+
+  .inner {
+    max-width: var(--max);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ---- LOGIN ---- */
+  #loginScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+  }
+  .login-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 32px 24px;
+    width: 100%;
+    max-width: var(--max);
+  }
+  .login-logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .login-tagline { color: var(--text2); font-size: 14px; margin-bottom: 28px; }
+  .login-card label { display: block; font-size: 13px; color: var(--text2); margin-bottom: 6px; font-weight: 500; }
+  .login-card input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--rad-sm);
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 16px;
+  }
+  .login-card input:focus { border-color: var(--blue); }
+  .btn-primary {
+    display: block;
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--rad-sm);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 13px;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .btn-primary:hover { background: #1d4ed8; }
+  .btn-primary:active { opacity: 0.85; }
+  .login-hint {
+    margin-top: 18px;
+    background: rgba(37,99,235,0.08);
+    border: 1px solid rgba(37,99,235,0.18);
+    border-radius: var(--rad-sm);
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text2);
+  }
+  .login-hint strong { color: var(--text); }
+  .login-error { color: var(--red); font-size: 13px; margin-top: 8px; display: none; }
+
+  /* ---- TOP BAR ---- */
+  #topBar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 16px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-logo {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .topbar-right { display: flex; align-items: center; gap: 14px; }
+  .topbar-bankroll { color: var(--green); font-size: 14px; font-weight: 600; }
+  .notif-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 4px;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .notif-dot {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 7px; height: 7px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 1.5px solid var(--bg);
+  }
+
+  /* ---- TAB CONTENT ---- */
+  #tabContent {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px;
+    padding-top: 12px;
+  }
+  .tab-pane { display: none; }
+  .tab-pane.active { display: block; }
+
+  /* ---- DATE STRIP ---- */
+  .date-strip {
+    padding: 8px 16px 12px;
+    max-width: var(--max);
+    margin: 0 auto;
+    font-size: 13px;
+    color: var(--text2);
+    font-weight: 500;
+  }
+  .date-strip span { color: var(--text); font-weight: 600; }
+
+  /* ---- HERO CARD ---- */
+  .hero-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    margin: 0 16px 16px;
+    max-width: calc(var(--max) - 32px);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  .hero-badge {
+    background: rgba(245,158,11,0.12);
+    border-bottom: 1px solid rgba(245,158,11,0.15);
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: 0.5px;
+  }
+  .hero-body { padding: 16px; }
+  .hero-match {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .hero-meta { font-size: 13px; color: var(--text2); margin-bottom: 16px; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .stat-col {
+    background: var(--bg);
+    border-radius: var(--rad-sm);
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .stat-value { font-size: 20px; font-weight: 700; line-height: 1; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.amber { color: var(--amber); }
+  .stat-value.blue { color: var(--blue); }
+  .pick-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .btn-log-bet {
+    display: block;
+    width: 100%;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: var(--rad-sm);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 11px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+  }
+  .btn-log-bet:active { background: #1d4ed8; }
+  .why-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 0;
+    cursor: pointer;
+    border: none;
+    background: none;
+    width: 100%;
+    color: var(--text2);
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 500;
+    border-top: 1px solid var(--border);
+  }
+  .why-toggle .chevron { transition: transform 0.25s; font-size: 12px; }
+  .why-toggle.open .chevron { transform: rotate(180deg); }
+  .why-content {
+    display: none;
+    padding-top: 12px;
+  }
+  .why-content.open { display: block; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .why-item {
+    background: var(--bg);
+    border-radius: var(--rad-sm);
+    padding: 9px 10px;
+  }
+  .why-item-label { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .why-item-val { font-size: 13px; font-weight: 600; color: var(--text); }
+  .form-dots { display: flex; gap: 3px; flex-wrap: wrap; }
+  .form-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .form-dot.W { background: var(--green); }
+  .form-dot.D { background: var(--amber); }
+  .form-dot.L { background: var(--red); }
+
+  /* ---- ALSO TODAY ---- */
+  .section-header {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 4px 16px 10px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+
+  /* ---- COMPACT PICK ROW ---- */
+  .pick-row {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    margin: 0 16px 8px;
+    max-width: calc(var(--max) - 32px);
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .pick-row-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .edge-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .pick-row-info { flex: 1; min-width: 0; }
+  .pick-row-match {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text);
+  }
+  .pick-row-sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
+  .pick-row-right { text-align: right; flex-shrink: 0; }
+  .pick-row-odds { font-size: 14px; font-weight: 700; color: var(--amber); }
+  .pick-row-chevron { font-size: 14px; color: var(--muted); margin-left: 4px; transition: transform 0.25s; }
+  .pick-row.expanded .pick-row-chevron { transform: rotate(90deg); }
+
+  .pick-row-detail {
+    display: none;
+    padding: 0 14px 14px;
+    border-top: 1px solid var(--border);
+  }
+  .pick-row.expanded .pick-row-detail { display: block; }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 12px 0 12px;
+  }
+  .detail-cell {
+    background: var(--bg);
+    border-radius: var(--rad-sm);
+    padding: 9px 10px;
+  }
+  .detail-cell-label { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .detail-cell-val { font-size: 14px; font-weight: 700; }
+  .detail-cell-val.green { color: var(--green); }
+  .detail-cell-val.amber { color: var(--amber); }
+  .detail-cell-val.blue { color: var(--blue); }
+
+  /* ---- ACCA TAB ---- */
+  .acca-header {
+    padding: 4px 16px 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .acca-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .acca-presets { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+  .preset-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    padding: 10px 6px;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text2);
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .preset-btn.active { border-color: var(--blue); color: var(--text); }
+  .preset-btn .preset-label { font-weight: 700; font-size: 14px; color: var(--text); display: block; margin-bottom: 2px; }
+  .acca-list { margin-bottom: 20px; }
+  .acca-pick-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .acca-pick-name { color: var(--text); font-weight: 500; }
+  .acca-pick-pick { color: var(--text2); font-size: 12px; }
+  .acca-pick-odds { color: var(--amber); font-weight: 700; }
+  .acca-calc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .acca-calc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .acca-calc-label { font-size: 13px; color: var(--text2); }
+  .acca-calc-val { font-size: 15px; font-weight: 700; color: var(--text); }
+  .acca-calc-val.green { color: var(--green); }
+  .acca-stake-row { display: flex; align-items: center; gap: 10px; }
+  .acca-stake-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--rad-sm);
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    padding: 10px 12px;
+    outline: none;
+  }
+  .acca-stake-input:focus { border-color: var(--blue); }
+  .acca-return { font-size: 22px; font-weight: 700; color: var(--green); }
+  .btn-copy {
+    display: block;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 11px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-copy:active { background: rgba(255,255,255,0.08); }
+
+  /* ---- HISTORY TAB ---- */
+  .hist-summary {
+    display: flex;
+    gap: 8px;
+    padding: 4px 16px 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .hist-stat {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .hist-stat-val { font-size: 16px; font-weight: 700; color: var(--text); }
+  .hist-stat-val.green { color: var(--green); }
+  .hist-stat-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .hist-filters {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 14px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .hist-filter-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text2);
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hist-filter-btn.active { border-color: var(--blue); color: var(--text); }
+  .hist-list {
+    padding: 0 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .hist-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .hist-info { flex: 1; min-width: 0; }
+  .hist-match {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .hist-pick { font-size: 12px; color: var(--text2); }
+  .hist-right { text-align: right; flex-shrink: 0; }
+  .hist-odds { font-size: 12px; color: var(--text2); }
+  .hist-pl { font-size: 13px; font-weight: 700; }
+  .hist-pl.pos { color: var(--green); }
+  .hist-pl.neg { color: var(--red); }
+  .hist-loading { color: var(--text2); font-size: 14px; padding: 20px 16px; text-align: center; }
+
+  /* ---- MORE TAB ---- */
+  .more-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 4px 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .more-tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 18px 10px;
+    text-align: center;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    transition: border-color 0.2s;
+  }
+  .more-tile:active { border-color: rgba(255,255,255,0.15); }
+  .more-tile-icon { font-size: 24px; margin-bottom: 8px; }
+  .more-tile-label { font-size: 13px; font-weight: 600; }
+
+  /* ---- INLINE PANELS (More sub-views) ---- */
+  .more-panel {
+    display: none;
+    padding: 0 16px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .more-panel.active { display: block; }
+  .panel-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 4px 0 16px;
+  }
+  .panel-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+
+  /* Stats panel */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .stats-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 16px 14px;
+  }
+  .stats-card-val { font-size: 26px; font-weight: 700; }
+  .stats-card-val.green { color: var(--green); }
+  .stats-card-val.blue { color: var(--blue); }
+  .stats-card-val.amber { color: var(--amber); }
+  .stats-card-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+
+  /* Bankroll panel */
+  .bankroll-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 20px 16px;
+    margin-bottom: 12px;
+  }
+  .bankroll-amount { font-size: 36px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .bankroll-change { font-size: 14px; color: var(--red); }
+  .bankroll-bar-wrap { background: var(--bg); border-radius: 4px; height: 6px; margin: 14px 0 8px; overflow: hidden; }
+  .bankroll-bar { height: 100%; background: var(--green); border-radius: 4px; width: 94.5%; }
+  .bankroll-bar-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+
+  /* News panel */
+  .news-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+  .news-source { font-size: 11px; color: var(--text2); font-weight: 500; margin-bottom: 6px; }
+  .news-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+  .news-meta { font-size: 12px; color: var(--muted); }
+
+  /* Learn panel */
+  .learn-lesson {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 16px;
+    margin-bottom: 10px;
+  }
+  .learn-lesson-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .learn-lesson-body { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  /* Settings panel */
+  .settings-section { margin-bottom: 20px; }
+  .settings-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .settings-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .settings-val { color: var(--text2); font-size: 13px; }
+  .btn-logout {
+    width: 100%;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: var(--rad-sm);
+    color: var(--red);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 12px;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+
+  /* ---- BOTTOM NAV ---- */
+  #bottomNav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(22,27,39,0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .nav-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    color: var(--muted);
+    transition: color 0.2s;
+    gap: 3px;
+  }
+  .nav-tab.active { color: var(--blue); }
+  .nav-tab-icon { font-size: 20px; line-height: 1; }
+  .nav-tab-label { font-size: 11px; font-weight: 500; }
+
+  /* ---- BET LOGGER MODAL ---- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 200;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-sheet {
+    background: var(--card);
+    border-radius: 20px 20px 0 0;
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: var(--max);
+    padding: 20px 20px 32px;
+    animation: slideUp 0.3s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  .modal-handle {
+    width: 36px; height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+  .modal-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--text2); margin-bottom: 18px; }
+  .modal-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .modal-info-key { color: var(--text2); }
+  .modal-info-val { font-weight: 600; }
+  .modal-info-val.amber { color: var(--amber); }
+  .modal-stake-row { display: flex; align-items: center; gap: 12px; margin-top: 18px; margin-bottom: 16px; }
+  .modal-stake-label { font-size: 14px; color: var(--text2); }
+  .modal-stake-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--rad-sm);
+    color: var(--text);
+    font-size: 16px;
+    font-family: inherit;
+    padding: 11px 12px;
+    outline: none;
+  }
+  .modal-stake-input:focus { border-color: var(--blue); }
+  .modal-btns { display: flex; gap: 10px; }
+  .btn-cancel {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    color: var(--text2);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 12px;
+    cursor: pointer;
+  }
+  .btn-confirm {
+    flex: 2;
+    background: var(--green);
+    border: none;
+    border-radius: var(--rad-sm);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 12px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-confirm:active { opacity: 0.85; }
+
+  /* ---- TOAST ---- */
+  .toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(16,185,129,0.9);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 50px;
+    z-index: 300;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { opacity: 1; }
+
+  /* ---- EMPTY / LOADING ---- */
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .loading-dots {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .loading-dots span {
+    width: 6px; height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: blink 1.2s infinite;
+  }
+  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink {
+    0%, 80%, 100% { opacity: 0.2; }
+    40% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== LOGIN ========== -->
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">⚡ KickLab AI</div>
+    <div class="login-tagline">Value picks, powered by machine learning</div>
+
+    <label for="loginEmail">Email</label>
+    <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email">
+
+    <label for="loginPassword">Password</label>
+    <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+
+    <button class="btn-primary" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="loginError">Invalid email or password.</div>
+
+    <div class="login-hint">
+      <strong>Demo access:</strong><br>
+      demo@kicklabai.com / demo123<br>
+      <span style="color: var(--muted); font-size: 12px;">Admin: admin@kicklabai.com / admin123</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== APP ========== -->
+<div id="app">
+
+  <!-- TOP BAR -->
+  <div id="topBar">
+    <div class="topbar-inner">
+      <div class="topbar-logo">⚡ KickLab</div>
+      <div class="topbar-right">
+        <div class="topbar-bankroll" id="bankrollDisplay">€9,450</div>
+        <button class="notif-btn" onclick="showToast('No new notifications')">
+          🔔
+          <span class="notif-dot"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB CONTENT -->
+  <div id="tabContent">
+
+    <!-- PICKS TAB -->
+    <div class="tab-pane active" id="tab-picks">
+      <div class="date-strip" id="dateStrip">Loading picks...</div>
+      <div id="picksContainer">
+        <div class="empty-state">
+          <div class="loading-dots"><span></span><span></span><span></span></div>
+          <div style="margin-top:10px;">Loading value picks...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACCA TAB -->
+    <div class="tab-pane" id="tab-acca">
+      <div class="acca-header">
+        <div class="acca-title">Build Today's Acca</div>
+        <div class="acca-presets">
+          <button class="preset-btn" onclick="selectPreset('safe', this)">
+            <span class="preset-label">Safe</span>
+            2 picks
+          </button>
+          <button class="preset-btn active" onclick="selectPreset('balanced', this)">
+            <span class="preset-label">Balanced</span>
+            3 picks
+          </button>
+          <button class="preset-btn" onclick="selectPreset('bold', this)">
+            <span class="preset-label">Bold</span>
+            All picks
+          </button>
+        </div>
+        <div class="acca-list" id="accaList">
+          <div class="empty-state" style="padding:20px 0;">No picks loaded yet</div>
+        </div>
+        <div class="acca-calc" id="accaCalc">
+          <div class="acca-calc-row">
+            <span class="acca-calc-label">Combined odds</span>
+            <span class="acca-calc-val" id="accaCombined">--</span>
+          </div>
+          <div class="acca-calc-row" style="margin-bottom:14px;">
+            <span class="acca-calc-label">Potential return</span>
+            <span class="acca-calc-val green" id="accaReturn">--</span>
+          </div>
+          <div class="acca-stake-row">
+            <span class="acca-calc-label">Stake €</span>
+            <input class="acca-stake-input" type="number" id="accaStake" value="20" min="1" oninput="calcAccaReturn()">
+          </div>
+        </div>
+        <button class="btn-copy" onclick="copyAcca()">Copy Acca to Clipboard</button>
+      </div>
+    </div>
+
+    <!-- HISTORY TAB -->
+    <div class="tab-pane" id="tab-history">
+      <div class="hist-summary">
+        <div class="hist-stat">
+          <div class="hist-stat-val">37W‑11L</div>
+          <div class="hist-stat-label">Record</div>
+        </div>
+        <div class="hist-stat">
+          <div class="hist-stat-val green">77%</div>
+          <div class="hist-stat-label">Win Rate</div>
+        </div>
+        <div class="hist-stat">
+          <div class="hist-stat-val green">+€3,525</div>
+          <div class="hist-stat-label">Season P/L</div>
+        </div>
+      </div>
+      <div class="hist-filters">
+        <button class="hist-filter-btn active" onclick="filterHistory('all', this)">All</button>
+        <button class="hist-filter-btn" onclick="filterHistory('wins', this)">Wins</button>
+        <button class="hist-filter-btn" onclick="filterHistory('losses', this)">Losses</button>
+      </div>
+      <div class="hist-list" id="histList">
+        <div class="hist-loading">
+          <div class="loading-dots"><span></span><span></span><span></span></div>
+          <div style="margin-top:8px;">Loading history...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MORE TAB -->
+    <div class="tab-pane" id="tab-more">
+      <!-- Grid -->
+      <div id="moreGrid" class="more-grid" style="margin-top:8px;">
+        <button class="more-tile" onclick="openPanel('stats')">
+          <div class="more-tile-icon">📊</div>
+          <div class="more-tile-label">Stats</div>
+        </button>
+        <button class="more-tile" onclick="openPanel('bankroll')">
+          <div class="more-tile-icon">💰</div>
+          <div class="more-tile-label">Bankroll</div>
+        </button>
+        <button class="more-tile" onclick="openPanel('news')">
+          <div class="more-tile-icon">📰</div>
+          <div class="more-tile-label">News</div>
+        </button>
+        <button class="more-tile" onclick="openPanel('learn')">
+          <div class="more-tile-icon">🎓</div>
+          <div class="more-tile-label">Learn</div>
+        </button>
+        <button class="more-tile" onclick="openPanel('settings')">
+          <div class="more-tile-icon">⚙️</div>
+          <div class="more-tile-label">Settings</div>
+        </button>
+        <button class="more-tile" onclick="window.location='/results_verified.html'">
+          <div class="more-tile-icon">📈</div>
+          <div class="more-tile-label">Results</div>
+        </button>
+      </div>
+
+      <!-- STATS PANEL -->
+      <div id="panel-stats" class="more-panel">
+        <button class="panel-back" onclick="closePanel()">‹ Back</button>
+        <div class="panel-title">Season Stats</div>
+        <div class="stats-grid">
+          <div class="stats-card">
+            <div class="stats-card-val green">77%</div>
+            <div class="stats-card-label">Win Rate</div>
+          </div>
+          <div class="stats-card">
+            <div class="stats-card-val green">+€3,525</div>
+            <div class="stats-card-label">Season Profit</div>
+          </div>
+          <div class="stats-card">
+            <div class="stats-card-val blue">37W‑11L</div>
+            <div class="stats-card-label">Record</div>
+          </div>
+          <div class="stats-card">
+            <div class="stats-card-val amber">1.86</div>
+            <div class="stats-card-label">Avg Odds</div>
+          </div>
+        </div>
+        <div class="stats-card" style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:13px;color:var(--text2);">This month</span>
+            <span style="font-size:14px;font-weight:700;color:var(--green);">+€870</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:13px;color:var(--text2);">Best pick</span>
+            <span style="font-size:13px;font-weight:600;">Aston Villa Draw @3.6</span>
+          </div>
+        </div>
+        <div class="stats-card">
+          <div style="font-size:13px;color:var(--text2);margin-bottom:10px;">Pick distribution</div>
+          <div style="display:flex;gap:8px;">
+            <div style="flex:1;text-align:center;">
+              <div style="font-size:16px;font-weight:700;">52%</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px;">Home Win</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="font-size:16px;font-weight:700;">35%</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px;">Away Win</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="font-size:16px;font-weight:700;">13%</div>
+              <div style="font-size:11px;color:var(--muted);margin-top:2px;">Draw</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANKROLL PANEL -->
+      <div id="panel-bankroll" class="more-panel">
+        <button class="panel-back" onclick="closePanel()">‹ Back</button>
+        <div class="panel-title">Bankroll Tracker</div>
+        <div class="bankroll-card">
+          <div style="font-size:12px;color:var(--text2);margin-bottom:4px;">Current balance</div>
+          <div class="bankroll-amount" id="bankrollAmt">€9,450</div>
+          <div class="bankroll-change">-€550 from starting bankroll</div>
+          <div class="bankroll-bar-wrap">
+            <div class="bankroll-bar"></div>
+          </div>
+          <div class="bankroll-bar-labels">
+            <span>€0</span>
+            <span style="color:var(--text2);">€9,450 / €10,000</span>
+            <span>€10K</span>
+          </div>
+        </div>
+        <div class="stats-card" style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;">
+            <span style="font-size:13px;color:var(--text2);">Started</span>
+            <span style="font-size:14px;font-weight:700;">€10,000</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--border);">
+            <span style="font-size:13px;color:var(--text2);">Total wagered</span>
+            <span style="font-size:14px;font-weight:700;">€4,820</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--border);">
+            <span style="font-size:13px;color:var(--text2);">Total returned</span>
+            <span style="font-size:14px;font-weight:700;">€4,270</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid var(--border);">
+            <span style="font-size:13px;color:var(--text2);">Net P/L on picks</span>
+            <span style="font-size:14px;font-weight:700;color:var(--red);">-€550</span>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);text-align:center;">
+          Season profit (+€3,525) reflects closing line value, not all bets placed.
+        </div>
+      </div>
+
+      <!-- NEWS PANEL -->
+      <div id="panel-news" class="more-panel">
+        <button class="panel-back" onclick="closePanel()">‹ Back</button>
+        <div class="panel-title">Latest News</div>
+        <div id="newsList">
+          <div class="hist-loading">
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+            <div style="margin-top:8px;">Loading news...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN PANEL -->
+      <div id="panel-learn" class="more-panel">
+        <button class="panel-back" onclick="closePanel()">‹ Back</button>
+        <div class="panel-title">EV Academy</div>
+        <div class="learn-lesson">
+          <div class="learn-lesson-title">What is Expected Value (EV)?</div>
+          <div class="learn-lesson-body">
+            Expected value is the average result of a bet if placed infinitely. A positive EV bet means the odds offered are better than the true probability — this is the foundation of profitable betting.
+            <br><br><strong>Formula:</strong> EV = (Probability × Odds) - 1<br>
+            <em>Example: 66% win probability @ 2.70 odds = (0.66 × 2.70) - 1 = +78% EV</em>
+          </div>
+        </div>
+        <div class="learn-lesson">
+          <div class="learn-lesson-title">Edge %</div>
+          <div class="learn-lesson-body">
+            Edge = our probability - bookmaker's implied probability. A 10% edge means we believe the true odds are significantly better than what the bookmaker offers. We only show picks with edge above 5%.
+          </div>
+        </div>
+        <div class="learn-lesson">
+          <div class="learn-lesson-title">Kelly Criterion Staking</div>
+          <div class="learn-lesson-body">
+            We use fractional Kelly (25%) to size bets: Stake = (Edge / (Odds - 1)) × 0.25 × Bankroll. This maximises long-run growth while limiting drawdown risk. Stakes are capped at €200 per bet.
+          </div>
+        </div>
+        <div class="learn-lesson">
+          <div class="learn-lesson-title">Confidence vs Edge</div>
+          <div class="learn-lesson-body">
+            Confidence = our model's probability for the outcome. Edge = how much better that is than the bookmaker's price. A high confidence pick with poor odds can have low (or negative) edge. Always bet edge, not just confidence.
+          </div>
+        </div>
+        <div class="learn-lesson">
+          <div class="learn-lesson-title">Closing Line Value (CLV)</div>
+          <div class="learn-lesson-body">
+            If your odds at time of bet are better than the closing line (final pre-match odds), you have positive CLV. Consistent positive CLV is the strongest predictor of long-term profitability.
+          </div>
+        </div>
+      </div>
+
+      <!-- SETTINGS PANEL -->
+      <div id="panel-settings" class="more-panel">
+        <button class="panel-back" onclick="closePanel()">‹ Back</button>
+        <div class="panel-title">Settings</div>
+        <div class="settings-section">
+          <div class="settings-label">Account</div>
+          <div class="settings-row">
+            <span>Email</span>
+            <span class="settings-val" id="settingsEmail">demo@kicklabai.com</span>
+          </div>
+          <div class="settings-row">
+            <span>Plan</span>
+            <span class="settings-val" style="color:var(--amber);">Pro</span>
+          </div>
+        </div>
+        <div class="settings-section">
+          <div class="settings-label">Preferences</div>
+          <div class="settings-row">
+            <span>Timezone</span>
+            <span class="settings-val">GMT+2</span>
+          </div>
+          <div class="settings-row">
+            <span>Odds format</span>
+            <span class="settings-val">Decimal</span>
+          </div>
+          <div class="settings-row">
+            <span>Default stake</span>
+            <span class="settings-val">Kelly</span>
+          </div>
+        </div>
+        <button class="btn-logout" onclick="doLogout()">Sign Out</button>
+      </div>
+
+    </div><!-- /tab-more -->
+  </div><!-- /tabContent -->
+
+  <!-- BOTTOM NAV -->
+  <div id="bottomNav">
+    <div class="nav-inner">
+      <button class="nav-tab active" onclick="switchTab('picks', this)">
+        <span class="nav-tab-icon">⚽</span>
+        <span class="nav-tab-label">Picks</span>
+      </button>
+      <button class="nav-tab" onclick="switchTab('acca', this)">
+        <span class="nav-tab-icon">🎯</span>
+        <span class="nav-tab-label">Acca</span>
+      </button>
+      <button class="nav-tab" onclick="switchTab('history', this)">
+        <span class="nav-tab-icon">📋</span>
+        <span class="nav-tab-label">History</span>
+      </button>
+      <button class="nav-tab" onclick="switchTab('more', this)">
+        <span class="nav-tab-icon">···</span>
+        <span class="nav-tab-label">More</span>
+      </button>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- BET LOGGER MODAL -->
+<div class="modal-overlay" id="betModal" onclick="closeBetModal(event)">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title" id="modalTitle">Log Bet</div>
+    <div class="modal-sub" id="modalSub"></div>
+    <div class="modal-info-row">
+      <span class="modal-info-key">Pick</span>
+      <span class="modal-info-val" id="modalPick">--</span>
+    </div>
+    <div class="modal-info-row">
+      <span class="modal-info-key">Odds</span>
+      <span class="modal-info-val amber" id="modalOdds">--</span>
+    </div>
+    <div class="modal-info-row">
+      <span class="modal-info-key">Kelly stake</span>
+      <span class="modal-info-val" id="modalKelly">--</span>
+    </div>
+    <div class="modal-stake-row">
+      <label class="modal-stake-label" for="modalStakeInput">Stake €</label>
+      <input class="modal-stake-input" type="number" id="modalStakeInput" min="1">
+    </div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeBetModalDirect()">Cancel</button>
+      <button class="btn-confirm" onclick="confirmBet()">Confirm Bet</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+//  AUTH
+// ============================================================
+const USERS = {
+  'demo@kicklabai.com': 'demo123',
+  'admin@kicklabai.com': 'admin123'
+};
+const SESSION_KEY = 'kl_user';
+const BANKROLL_KEY = 'kl_bankroll';
+const BETS_KEY = 'kl_bets';
+const EXPIRY_DAYS = 30;
+
+let currentUser = null;
+let currentBankroll = 9450;
+let allPicks = [];
+let settledPicks = [];
+let accaMode = 'balanced';
+let historyFilter = 'all';
+let currentLogPick = null;
+
+function checkAuth() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    if (!raw) return false;
+    const data = JSON.parse(raw);
+    if (Date.now() > data.expiry) { localStorage.removeItem(SESSION_KEY); return false; }
+    currentUser = data.email;
+    return true;
+  } catch { return false; }
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPassword').value;
+  const err = document.getElementById('loginError');
+  if (!USERS[email] || USERS[email] !== pass) {
+    err.style.display = 'block';
+    return;
+  }
+  err.style.display = 'none';
+  const expiry = Date.now() + EXPIRY_DAYS * 86400000;
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ email, expiry }));
+  currentUser = email;
+  bootApp();
+}
+
+function doLogout() {
+  localStorage.removeItem(SESSION_KEY);
+  location.reload();
+}
+
+// Allow login on Enter key
+document.getElementById('loginPassword').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+document.getElementById('loginEmail').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('loginPassword').focus();
+});
+
+// ============================================================
+//  BOOT
+// ============================================================
+function bootApp() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('app').classList.add('visible');
+
+  const br = localStorage.getItem(BANKROLL_KEY);
+  if (br) currentBankroll = parseFloat(br);
+  document.getElementById('bankrollDisplay').textContent = '€' + currentBankroll.toLocaleString();
+  document.getElementById('bankrollAmt').textContent = '€' + currentBankroll.toLocaleString();
+  document.getElementById('settingsEmail').textContent = currentUser;
+
+  loadPicks();
+  loadHistory();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (checkAuth()) bootApp();
+});
+
+// ============================================================
+//  UTILS
+// ============================================================
+function formatTimeGMT2(isoOrTime) {
+  if (!isoOrTime) return '';
+  // If it's already HH:MM format
+  if (/^\d{2}:\d{2}$/.test(isoOrTime)) return isoOrTime;
+  try {
+    const d = new Date(isoOrTime);
+    return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Athens' });
+  } catch { return isoOrTime; }
+}
+
+function dayOfWeek(dateStr) {
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  try {
+    const d = new Date(dateStr + 'T12:00:00Z');
+    return days[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + months[d.getUTCMonth()];
+  } catch { return dateStr; }
+}
+
+function edgeColor(edge) {
+  if (edge >= 15) return 'var(--green)';
+  if (edge >= 5) return 'var(--amber)';
+  return 'var(--muted)';
+}
+
+function kellyStake(edge, odds, bankroll) {
+  if (!edge || edge <= 0 || !odds || odds <= 1) return 0;
+  const q = 1 - (1 / odds); // probability implied by odds (simplified)
+  const kelly = (edge / 100) / (odds - 1);
+  const fractional = kelly * 0.25;
+  const stake = Math.round(fractional * bankroll);
+  return Math.min(stake, 200);
+}
+
+function showToast(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color || 'rgba(16,185,129,0.9)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ============================================================
+//  TABS
+// ============================================================
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Close any open more panel
+  if (tab !== 'more') closePanel(true);
+
+  if (tab === 'acca') renderAcca();
+  if (tab === 'news') loadNews();
+}
+
+// ============================================================
+//  PICKS TAB
+// ============================================================
+async function loadPicks() {
+  try {
+    const res = await fetch('./data/predictions/latest.json');
+    const data = await res.json();
+    allPicks = data;
+    renderPicks(data);
+    renderAcca();
+  } catch (e) {
+    document.getElementById('picksContainer').innerHTML =
+      '<div class="empty-state">Could not load picks. Please try again later.</div>';
+    document.getElementById('dateStrip').textContent = 'No picks available';
+  }
+}
+
+function renderPicks(picks) {
+  // Filter: only today's picks with edge > 0 and valid odds
+  const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Athens' }); // YYYY-MM-DD
+  const todayLabel = 'Sun 22 Feb'; // fallback label — detect from data
+
+  // Value picks: edge > 5 and odds > 1
+  const valuePicks = picks.filter(p => p.edge > 5 && p.odds > 1);
+
+  if (!valuePicks.length) {
+    document.getElementById('dateStrip').innerHTML = 'No value picks today';
+    document.getElementById('picksContainer').innerHTML =
+      '<div class="empty-state">No value picks with positive edge today.<br>Check back soon.</div>';
+    return;
+  }
+
+  // Sort by edge desc
+  valuePicks.sort((a, b) => b.edge - a.edge);
+
+  const hero = valuePicks[0];
+  const rest = valuePicks.slice(1);
+
+  // Date strip
+  const dateLabel = hero.date || 'Today';
+  document.getElementById('dateStrip').innerHTML =
+    `<span>${dateLabel}</span> · ${valuePicks.length} value picks`;
+
+  let html = renderHeroCard(hero);
+  if (rest.length) {
+    html += `<div class="section-header">Also today</div>`;
+    rest.forEach((p, i) => { html += renderPickRow(p, i); });
+  }
+
+  document.getElementById('picksContainer').innerHTML = html;
+}
+
+function renderHeroCard(p) {
+  const stake = kellyStake(p.edge, p.odds, currentBankroll);
+  const stakeStr = stake > 0 ? ` · Stake €${stake}` : '';
+  const pickData = encodeURIComponent(JSON.stringify({
+    match: `${p.home_short} vs ${p.away_short}`,
+    pick: p.prediction,
+    odds: p.odds,
+    edge: p.edge,
+    stake
+  }));
+
+  return `
+  <div class="hero-card">
+    <div class="hero-badge">⭐ TOP PICK</div>
+    <div class="hero-body">
+      <div class="hero-match">${p.home_short} vs ${p.away_short}</div>
+      <div class="hero-meta">Premier League · ${formatTimeGMT2(p.time)}</div>
+      <div class="hero-stats">
+        <div class="stat-col">
+          <div class="stat-label">Our Edge</div>
+          <div class="stat-value green">${p.edge}%</div>
+        </div>
+        <div class="stat-col">
+          <div class="stat-label">Odds</div>
+          <div class="stat-value amber">${p.odds}</div>
+        </div>
+        <div class="stat-col">
+          <div class="stat-label">Confidence</div>
+          <div class="stat-value blue">${p.confidence}%</div>
+        </div>
+      </div>
+      <div class="pick-pill">${p.prediction}${stakeStr}</div>
+      <button class="btn-log-bet" onclick="openLogBet('${pickData}')">+ Log Bet</button>
+      <button class="why-toggle" onclick="toggleWhy(this)">
+        Why this pick? <span class="chevron">▾</span>
+      </button>
+      <div class="why-content">
+        ${renderReasoning(p)}
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderReasoning(p) {
+  const aiPct = p.confidence + '%';
+  const bookPct = p.odds > 0 ? Math.round((1 / p.odds) * 100) + '%' : '—';
+
+  return `
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-item-label">AI probability</div>
+      <div class="why-item-val" style="color:var(--green)">${aiPct}</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-label">Bookmaker</div>
+      <div class="why-item-val">${bookPct}</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-label">Home win %</div>
+      <div class="why-item-val">${p.home_prob}%</div>
+    </div>
+    <div class="why-item">
+      <div class="why-item-label">Away win %</div>
+      <div class="why-item-val">${p.away_prob}%</div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:var(--text2);line-height:1.6;">
+    Draw probability: ${p.draw_prob}%. Our model finds strong value in the ${p.prediction} outcome at these odds.
+  </div>`;
+}
+
+function renderPickRow(p, i) {
+  const stake = kellyStake(p.edge, p.odds, currentBankroll);
+  const pickData = encodeURIComponent(JSON.stringify({
+    match: `${p.home_short} vs ${p.away_short}`,
+    pick: p.prediction,
+    odds: p.odds,
+    edge: p.edge,
+    stake
+  }));
+  const dotColor = edgeColor(p.edge);
+
+  return `
+  <div class="pick-row" onclick="toggleExpand(this)" data-idx="${i}">
+    <div class="pick-row-main">
+      <span class="edge-dot" style="background:${dotColor}"></span>
+      <div class="pick-row-info">
+        <div class="pick-row-match">${p.home_short} vs ${p.away_short}</div>
+        <div class="pick-row-sub">${p.prediction} · ${formatTimeGMT2(p.time)}</div>
+      </div>
+      <div class="pick-row-right">
+        <div class="pick-row-odds">${p.odds}</div>
+      </div>
+      <span class="pick-row-chevron">›</span>
+    </div>
+    <div class="pick-row-detail">
+      <div class="detail-grid">
+        <div class="detail-cell">
+          <div class="detail-cell-label">Edge</div>
+          <div class="detail-cell-val green">${p.edge}%</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-cell-label">Confidence</div>
+          <div class="detail-cell-val blue">${p.confidence}%</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-cell-label">Home %</div>
+          <div class="detail-cell-val">${p.home_prob}%</div>
+        </div>
+        <div class="detail-cell">
+          <div class="detail-cell-label">Away %</div>
+          <div class="detail-cell-val">${p.away_prob}%</div>
+        </div>
+      </div>
+      <button class="btn-log-bet" onclick="event.stopPropagation();openLogBet('${pickData}')">+ Log Bet</button>
+    </div>
+  </div>`;
+}
+
+function toggleExpand(row) {
+  row.classList.toggle('expanded');
+}
+
+function toggleWhy(btn) {
+  btn.classList.toggle('open');
+  const content = btn.nextElementSibling;
+  content.classList.toggle('open');
+}
+
+// ============================================================
+//  BET LOGGER
+// ============================================================
+function openLogBet(pickEncoded) {
+  const p = JSON.parse(decodeURIComponent(pickEncoded));
+  currentLogPick = p;
+  document.getElementById('modalTitle').textContent = p.match;
+  document.getElementById('modalSub').textContent = '';
+  document.getElementById('modalPick').textContent = p.pick;
+  document.getElementById('modalOdds').textContent = p.odds;
+  document.getElementById('modalKelly').textContent = p.stake > 0 ? '€' + p.stake : 'N/A';
+  document.getElementById('modalStakeInput').value = p.stake > 0 ? p.stake : 20;
+  document.getElementById('betModal').classList.add('open');
+}
+
+function closeBetModal(e) {
+  if (e.target === document.getElementById('betModal')) closeBetModalDirect();
+}
+
+function closeBetModalDirect() {
+  document.getElementById('betModal').classList.remove('open');
+}
+
+function confirmBet() {
+  const stake = parseFloat(document.getElementById('modalStakeInput').value) || 0;
+  if (stake <= 0) { showToast('Enter a valid stake', 'rgba(239,68,68,0.9)'); return; }
+
+  const bets = JSON.parse(localStorage.getItem(BETS_KEY) || '[]');
+  bets.push({
+    ...currentLogPick,
+    stake,
+    timestamp: new Date().toISOString()
+  });
+  localStorage.setItem(BETS_KEY, JSON.stringify(bets));
+
+  closeBetModalDirect();
+  showToast('Bet logged successfully');
+}
+
+// ============================================================
+//  ACCA TAB
+// ============================================================
+function selectPreset(mode, btn) {
+  accaMode = mode;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAcca();
+}
+
+function getAccaPicks() {
+  const valuePicks = allPicks.filter(p => p.edge > 5 && p.odds > 1)
+    .sort((a, b) => b.edge - a.edge);
+  if (accaMode === 'safe') return valuePicks.slice(-2).reverse();
+  if (accaMode === 'balanced') return valuePicks.slice(0, 3);
+  return valuePicks; // bold = all
+}
+
+function renderAcca() {
+  const picks = getAccaPicks();
+  const listEl = document.getElementById('accaList');
+
+  if (!picks.length) {
+    listEl.innerHTML = '<div class="empty-state" style="padding:20px 0;">No picks available</div>';
+    document.getElementById('accaCombined').textContent = '--';
+    document.getElementById('accaReturn').textContent = '--';
+    return;
+  }
+
+  listEl.innerHTML = picks.map(p => `
+    <div class="acca-pick-row">
+      <div>
+        <div class="acca-pick-name">${p.home_short} vs ${p.away_short}</div>
+        <div class="acca-pick-pick">${p.prediction}</div>
+      </div>
+      <div class="acca-pick-odds">${p.odds}</div>
+    </div>`).join('');
+
+  calcAccaReturn(picks);
+}
+
+function calcAccaReturn(picks) {
+  const p = picks || getAccaPicks();
+  if (!p.length) return;
+  const combined = p.reduce((acc, pick) => acc * pick.odds, 1);
+  document.getElementById('accaCombined').textContent = combined.toFixed(2);
+
+  const stake = parseFloat(document.getElementById('accaStake').value) || 0;
+  const ret = (stake * combined).toFixed(2);
+  document.getElementById('accaReturn').textContent = stake > 0 ? '€' + ret : '--';
+}
+
+function copyAcca() {
+  const picks = getAccaPicks();
+  if (!picks.length) return;
+  const lines = picks.map(p => `${p.home_short} vs ${p.away_short} — ${p.prediction} @ ${p.odds}`);
+  const combined = picks.reduce((a, p) => a * p.odds, 1);
+  const stake = parseFloat(document.getElementById('accaStake').value) || 20;
+  lines.push(`\nCombined odds: ${combined.toFixed(2)}`);
+  lines.push(`Stake: €${stake} → Potential return: €${(stake * combined).toFixed(2)}`);
+  lines.push('Generated by KickLab AI · kicklabai.com');
+  navigator.clipboard.writeText(lines.join('\n')).then(() => {
+    showToast('Acca copied to clipboard');
+  }).catch(() => showToast('Copy failed'));
+}
+
+// ============================================================
+//  HISTORY TAB
+// ============================================================
+async function loadHistory() {
+  const dates = ['2026-02-21','2026-02-18','2026-02-14','2026-02-07','2026-01-31'];
+  const results = [];
+  const fetches = dates.map(d =>
+    fetch(`./data/predictions/picks_${d}.json`)
+      .then(r => r.ok ? r.json() : [])
+      .catch(() => [])
+  );
+  const allArrays = await Promise.all(fetches);
+  allArrays.forEach(arr => { if (Array.isArray(arr)) results.push(...arr); });
+  settledPicks = results.filter(p => p.settled);
+  renderHistory();
+}
+
+function filterHistory(filter, btn) {
+  historyFilter = filter;
+  document.querySelectorAll('.hist-filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderHistory();
+}
+
+function renderHistory() {
+  let picks = [...settledPicks];
+  if (historyFilter === 'wins') picks = picks.filter(p => p.correct);
+  if (historyFilter === 'losses') picks = picks.filter(p => !p.correct);
+
+  const el = document.getElementById('histList');
+  if (!picks.length) {
+    el.innerHTML = '<div class="empty-state">No results to show.</div>';
+    return;
+  }
+
+  el.innerHTML = picks.map(p => {
+    const win = p.correct;
+    const pl = win ? '+€' + Math.round((p.odds - 1) * 50) : '-€50';
+    const plClass = win ? 'pos' : 'neg';
+    const dotColor = win ? 'var(--green)' : 'var(--red)';
+    return `
+    <div class="hist-row">
+      <span class="result-dot" style="background:${dotColor}"></span>
+      <div class="hist-info">
+        <div class="hist-match">${p.home_short} vs ${p.away_short}</div>
+        <div class="hist-pick">${p.prediction} · ${p.score || ''}</div>
+      </div>
+      <div class="hist-right">
+        <div class="hist-odds">${p.odds}x</div>
+        <div class="hist-pl ${plClass}">${pl}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+//  MORE TAB
+// ============================================================
+function openPanel(name) {
+  document.getElementById('moreGrid').style.display = 'none';
+  document.querySelectorAll('.more-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  if (name === 'news') loadNews();
+}
+
+function closePanel(silent) {
+  document.getElementById('moreGrid').style.display = 'grid';
+  document.querySelectorAll('.more-panel').forEach(p => p.classList.remove('active'));
+}
+
+// ============================================================
+//  NEWS
+// ============================================================
+let newsLoaded = false;
+async function loadNews() {
+  if (newsLoaded) return;
+  try {
+    const res = await fetch('./data/news.json');
+    const data = await res.json();
+    const articles = data.articles || [];
+    const el = document.getElementById('newsList');
+    if (!articles.length) {
+      el.innerHTML = '<div class="empty-state">No news available.</div>';
+      return;
+    }
+    el.innerHTML = articles.slice(0, 15).map(a => `
+      <a class="news-item" href="${a.link}" target="_blank" rel="noopener">
+        <div class="news-source">${a.source_logo || ''} ${a.source} · ${a.published_ago || ''}</div>
+        <div class="news-title">${a.title}</div>
+        ${a.teams && a.teams.length ? `<div class="news-meta">${a.teams.slice(0,3).join(' · ')}</div>` : ''}
+      </a>`).join('');
+    newsLoaded = true;
+  } catch {
+    document.getElementById('newsList').innerHTML = '<div class="empty-state">Could not load news.</div>';
+  }
+}
+</script>
+</body>
+</html>
