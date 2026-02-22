@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-22T15:52:25.814981+00:00",
-  "updatedAtAthens": "17:52",
+  "updatedAt": "2026-02-22T15:54:26.457192+00:00",
+  "updatedAtAthens": "17:54",
   "matches": [
     {
       "home": "Sunderland AFC",
@@ -10,7 +10,7 @@
       "status": "IN_PLAY",
       "minute": 90,
       "homeGoals": 1,
-      "awayGoals": 2
+      "awayGoals": 3
     },
     {
       "home": "Crystal Palace FC",
