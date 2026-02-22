@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-22T17:24:26.999372+00:00",
-  "updatedAtAthens": "19:24",
+  "updatedAt": "2026-02-22T17:26:26.691100+00:00",
+  "updatedAtAthens": "19:26",
   "matches": [
     {
       "home": "Sunderland AFC",
@@ -38,7 +38,7 @@
       "homeShort": "Tottenham",
       "awayShort": "Arsenal",
       "status": "IN_PLAY",
-      "minute": 35,
+      "minute": 37,
       "homeGoals": 1,
       "awayGoals": 1
     }
