@@ -1,100 +1,5 @@
 [
   {
-    "home": "Aston Villa FC",
-    "away": "Leeds United FC",
-    "home_short": "Aston Villa",
-    "away_short": "Leeds United",
-    "prediction": "Draw",
-    "confidence": 39.8,
-    "home_prob": 28.3,
-    "draw_prob": 39.8,
-    "away_prob": 31.9,
-    "odds": 3.6,
-    "edge": 12.1,
-    "time": "17:00",
-    "date": "Sat 21 Feb",
-    "result": "Draw",
-    "score": "1-1",
-    "correct": true,
-    "settled": true
-  },
-  {
-    "home": "Brentford FC",
-    "away": "Brighton & Hove Albion FC",
-    "home_short": "Brentford",
-    "away_short": "Brighton & Hove Albion",
-    "prediction": "Home Win",
-    "confidence": 69.9,
-    "home_prob": 69.9,
-    "draw_prob": 15.0,
-    "away_prob": 15.0,
-    "odds": 2.0,
-    "edge": 19.9,
-    "time": "17:00",
-    "date": "Sat 21 Feb",
-    "result": "Away Win",
-    "score": "0-2",
-    "correct": false,
-    "settled": true
-  },
-  {
-    "home": "Chelsea FC",
-    "away": "Burnley FC",
-    "home_short": "Chelsea",
-    "away_short": "Burnley",
-    "prediction": "Home Win",
-    "confidence": 79.5,
-    "home_prob": 79.5,
-    "draw_prob": 13.3,
-    "away_prob": 7.2,
-    "odds": 1.22,
-    "edge": -2.4,
-    "time": "17:00",
-    "date": "Sat 21 Feb",
-    "result": "Draw",
-    "score": "1-1",
-    "correct": false,
-    "settled": true
-  },
-  {
-    "home": "West Ham United FC",
-    "away": "AFC Bournemouth",
-    "home_short": "West Ham United",
-    "away_short": "AFC Bournemouth",
-    "prediction": "Away Win",
-    "confidence": 41.9,
-    "home_prob": 25.4,
-    "draw_prob": 32.6,
-    "away_prob": 41.9,
-    "odds": 2.88,
-    "edge": 7.2,
-    "time": "19:30",
-    "date": "Sat 21 Feb",
-    "settled": true,
-    "result": "Draw",
-    "score": "0-0",
-    "correct": false
-  },
-  {
-    "home": "Manchester City FC",
-    "away": "Newcastle United FC",
-    "home_short": "Manchester City",
-    "away_short": "Newcastle United",
-    "prediction": "Home Win",
-    "confidence": 76.7,
-    "home_prob": 76.7,
-    "draw_prob": 12.6,
-    "away_prob": 10.6,
-    "odds": 1.42,
-    "edge": 6.3,
-    "time": "22:00",
-    "date": "Sat 21 Feb",
-    "settled": true,
-    "result": "Home Win",
-    "score": "2-1",
-    "correct": true
-  },
-  {
     "home": "Sunderland AFC",
     "away": "Fulham FC",
     "home_short": "Sunderland",
@@ -107,8 +12,7 @@
     "odds": 2.7,
     "edge": 29.1,
     "time": "16:00",
-    "date": "Sun 22 Feb",
-    "settled": false
+    "date": "Sun 22 Feb"
   },
   {
     "home": "Crystal Palace FC",
@@ -123,8 +27,7 @@
     "odds": 1.57,
     "edge": 8.9,
     "time": "16:00",
-    "date": "Sun 22 Feb",
-    "settled": false
+    "date": "Sun 22 Feb"
   },
   {
     "home": "Nottingham Forest FC",
@@ -139,8 +42,7 @@
     "odds": 1.8,
     "edge": 1.9,
     "time": "16:00",
-    "date": "Sun 22 Feb",
-    "settled": false
+    "date": "Sun 22 Feb"
   },
   {
     "home": "Tottenham Hotspur FC",
@@ -155,8 +57,7 @@
     "odds": 1.57,
     "edge": -4.7,
     "time": "18:30",
-    "date": "Sun 22 Feb",
-    "settled": false
+    "date": "Sun 22 Feb"
   },
   {
     "home": "Everton FC",
@@ -171,8 +72,7 @@
     "odds": 1.95,
     "edge": 0.7,
     "time": "22:00",
-    "date": "Mon 23 Feb",
-    "settled": false
+    "date": "Mon 23 Feb"
   },
   {
     "home": "Wolverhampton Wanderers FC",
@@ -187,8 +87,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "20:00",
-    "date": "2026-02-27",
-    "settled": false
+    "date": "2026-02-27"
   },
   {
     "home": "AFC Bournemouth",
@@ -203,8 +102,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "12:30",
-    "date": "2026-02-28",
-    "settled": false
+    "date": "2026-02-28"
   },
   {
     "home": "Burnley FC",
@@ -219,8 +117,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28",
-    "settled": false
+    "date": "2026-02-28"
   },
   {
     "home": "Liverpool FC",
@@ -235,8 +132,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28",
-    "settled": false
+    "date": "2026-02-28"
   },
   {
     "home": "Newcastle United FC",
@@ -251,8 +147,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28",
-    "settled": false
+    "date": "2026-02-28"
   },
   {
     "home": "Leeds United FC",
@@ -267,7 +162,66 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "17:30",
-    "date": "2026-02-28",
-    "settled": false
+    "date": "2026-02-28"
+  },
+  {
+    "home": "Brighton & Hove Albion FC",
+    "away": "Nottingham Forest FC",
+    "home_short": "Brighton & Hove Albion",
+    "away_short": "Nottingham Forest",
+    "prediction": "Away Win",
+    "confidence": 57.3,
+    "home_prob": 18.1,
+    "draw_prob": 24.6,
+    "away_prob": 57.3,
+    "odds": 0.0,
+    "edge": 0.0,
+    "time": "14:00",
+    "date": "2026-03-01"
+  },
+  {
+    "home": "Fulham FC",
+    "away": "Tottenham Hotspur FC",
+    "home_short": "Fulham",
+    "away_short": "Tottenham Hotspur",
+    "prediction": "Home Win",
+    "confidence": 81.1,
+    "home_prob": 81.1,
+    "draw_prob": 5.7,
+    "away_prob": 13.2,
+    "odds": 0.0,
+    "edge": 0.0,
+    "time": "14:00",
+    "date": "2026-03-01"
+  },
+  {
+    "home": "Manchester United FC",
+    "away": "Crystal Palace FC",
+    "home_short": "Manchester United",
+    "away_short": "Crystal Palace",
+    "prediction": "Home Win",
+    "confidence": 81.7,
+    "home_prob": 81.7,
+    "draw_prob": 5.5,
+    "away_prob": 12.8,
+    "odds": 0.0,
+    "edge": 0.0,
+    "time": "14:00",
+    "date": "2026-03-01"
+  },
+  {
+    "home": "Arsenal FC",
+    "away": "Chelsea FC",
+    "home_short": "Arsenal",
+    "away_short": "Chelsea",
+    "prediction": "Home Win",
+    "confidence": 42.4,
+    "home_prob": 42.4,
+    "draw_prob": 17.3,
+    "away_prob": 40.3,
+    "odds": 0.0,
+    "edge": 0.0,
+    "time": "16:30",
+    "date": "2026-03-01"
   }
 ]
