@@ -677,7 +677,7 @@
     max-width: var(--max);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   .nav-tab {
     display: flex;
@@ -693,8 +693,8 @@
     gap: 3px;
   }
   .nav-tab.active { color: var(--blue); }
-  .nav-tab-icon { font-size: 20px; line-height: 1; }
-  .nav-tab-label { font-size: 11px; font-weight: 500; }
+  .nav-tab-icon { font-size: 18px; line-height: 1; }
+  .nav-tab-label { font-size: 9px; font-weight: 600; letter-spacing: 0.2px; }
 
   /* ---- BET LOGGER MODAL ---- */
   .modal-overlay {
@@ -1171,8 +1171,16 @@
         <span class="nav-tab-icon">📋</span>
         <span class="nav-tab-label">History</span>
       </button>
+      <button class="nav-tab" id="nav-stats-btn" onclick="switchToPanel('stats', this)">
+        <span class="nav-tab-icon">📊</span>
+        <span class="nav-tab-label">Stats</span>
+      </button>
+      <button class="nav-tab" id="nav-news-btn" onclick="switchToPanel('news', this)">
+        <span class="nav-tab-icon">📰</span>
+        <span class="nav-tab-label">News</span>
+      </button>
       <button class="nav-tab" onclick="switchTab('more', this)">
-        <span class="nav-tab-icon">···</span>
+        <span class="nav-tab-icon">⚙️</span>
         <span class="nav-tab-label">More</span>
       </button>
     </div>
@@ -1352,6 +1360,19 @@ function switchTab(tab, btn) {
 
   if (tab === 'acca') renderAcca();
   if (tab === 'news') loadNews();
+}
+
+// Direct nav shortcut — opens a panel inside "more" tab
+// without showing the More grid first
+function switchToPanel(name, btn) {
+  // Activate "more" tab content silently
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-more').classList.add('active');
+  // Highlight this specific nav button, not "More"
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  // Open the panel directly (skip the grid)
+  openPanel(name);
 }
 
 // ============================================================
