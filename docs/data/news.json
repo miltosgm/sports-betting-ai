@@ -1,20 +1,22 @@
 {
-  "updated": "2026-02-22T08:30:03.799904+00:00",
-  "count": 30,
+  "updated": "2026-02-22T09:00:05.490192+00:00",
+  "count": 60,
   "articles": [
     {
       "title": "Premier League news, Spurs v Arsenal buildup, Sheffield derby, and more – matchday live",
       "link": "https://www.theguardian.com/football/live/2026/feb/22/premier-league-news-spurs-v-arsenal-buildup-sheffield-derby-and-more-matchday-live",
-      "description": "⚽ Buildup to the weekend’s football action⚽ Follow us over on Bluesky | And mail us hereToday’s Premier League games (2pm GMT unless stated otherwise)Nottingham Forest v LiverpoolSunderland v FulhamCr",
+      "description": "⚽ Buildup to the weekend’s football action⚽ Follow us over on Bluesky | And mail us here“When did the reality dawn? Perhaps it was towards the end of the first half of West Ham’s game at Chelsea at th",
       "image": "",
-      "published": "2026-02-22T08:15:24+00:00",
-      "published_ago": "14m ago",
+      "published": "2026-02-22T08:48:42+00:00",
+      "published_ago": "11m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
         "Arsenal",
-        "Fulham",
-        "Liverpool"
+        "Chelsea",
+        "Tottenham",
+        "West Ham",
+        "Premier League"
       ]
     },
     {
@@ -23,10 +25,11 @@
       "description": "Gary Rowett has told his Leicester players to deprioritise ‘individual ambitions’ after Saturday’s 2-2 draw with StokeBy the stage Ben Nelson headed against the bar in stoppage time and then Luke Thom",
       "image": "",
       "published": "2026-02-22T08:00:32+00:00",
-      "published_ago": "29m ago",
+      "published_ago": "59m ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
+        "Leicester",
         "EPL"
       ]
     },
@@ -36,7 +39,7 @@
       "description": "With the north London derby coming up on Sunday, can you name the top scorers across Arsenal and Tottenham's Premier League meetings?",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d112/live/72ac86c0-0cd6-11f1-b5e2-dd58fc65f0f6.jpg",
       "published": "2026-02-22T06:47:45+00:00",
-      "published_ago": "1h ago",
+      "published_ago": "2h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -51,7 +54,7 @@
       "description": "Intervention over the banning of fans at the Aston Villa match was late and clumsy, MPs say.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a651/live/d8504bb0-0e66-11f1-ac78-0950755f28c4.jpg",
       "published": "2026-02-22T01:34:32+00:00",
-      "published_ago": "6h ago",
+      "published_ago": "7h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -90,11 +93,10 @@
       "description": "Match of the Day pundit Micah Richards criticises Chelsea's inability to show \"leadership and organisation\" in defence, highlighting how Burnley were able to easily attack the home side from set-piece",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2756/live/413bd720-0f7f-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T23:56:40+00:00",
-      "published_ago": "8h ago",
+      "published_ago": "9h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Burnley",
         "Chelsea"
       ]
     },
@@ -104,7 +106,7 @@
       "description": "As Manchester City continue to crank up the pressure on Arsenal, Pep Guardiola tells his players to take three days off to \"enjoy life\" with \"caipirinhas and daiquiris\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4ed8/live/eff93a60-0f7e-11f1-801d-ed3cff6bf876.jpg",
       "published": "2026-02-21T23:52:24+00:00",
-      "published_ago": "8h ago",
+      "published_ago": "9h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -123,8 +125,8 @@
       "source_logo": "🔵",
       "teams": [
         "Arsenal",
-        "Leeds",
-        "Manchester City"
+        "Manchester City",
+        "Newcastle"
       ]
     },
     {
@@ -133,7 +135,7 @@
       "description": "Manchester City boss Pep Guardiola is full of praise for forward Erling Haaland and says his side need to play \"at this level\" for the rest of the season after they beat Newcastle 2-1 at Etihad Stadiu",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/2e35/live/98ede0c0-0f76-11f1-801d-ed3cff6bf876.jpg",
       "published": "2026-02-21T22:48:37+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -147,11 +149,10 @@
       "description": "Fofana’s first of two bookings was for fouling HannibalBurnley: ‘There is no place for this in our society’Hannibal Mejbri and Wesley Fofana have both been racially abused on Instagram in the wake of ",
       "image": "",
       "published": "2026-02-21T22:43:11+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "The Guardian",
       "source_logo": "🔵",
       "teams": [
-        "Burnley",
         "Chelsea"
       ]
     },
@@ -161,13 +162,14 @@
       "description": "Manchester City move to within two points of Premier League leaders Arsenal with a tense victory against Newcastle United at Etihad Stadium.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5080/live/7b2700e0-0f75-11f1-801d-ed3cff6bf876.jpg",
       "published": "2026-02-21T22:42:39+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Arsenal",
         "Manchester City",
-        "Newcastle"
+        "Newcastle",
+        "Premier League"
       ]
     },
     {
@@ -176,7 +178,7 @@
       "description": "Arsenal boss Mikel Arteta says his players should \"be part of a different club\" if they can not deal with the \"noise\" as his team bid to end their 22-year wait for a league title.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b777/live/a22c4590-0f40-11f1-9610-6bdfe89c38bb.jpg",
       "published": "2026-02-21T22:35:41+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -189,13 +191,14 @@
       "description": "Tottenham and Newcastle want to bring Darwin Nunez back to the Premier League, Joe Gomez might leave Liverpool this summer, Roma and Juventus join the race for Marcos Senesi, plus more.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1510/live/ad15fce0-0f6c-11f1-801d-ed3cff6bf876.png",
       "published": "2026-02-21T22:31:33+00:00",
-      "published_ago": "9h ago",
+      "published_ago": "10h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Liverpool",
         "Newcastle",
-        "Tottenham"
+        "Tottenham",
+        "Premier League"
       ]
     },
     {
@@ -208,7 +211,6 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Burnley",
         "Chelsea",
         "Premier League"
       ]
@@ -223,8 +225,7 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Aston Villa",
-        "Leeds"
+        "Aston Villa"
       ]
     },
     {
@@ -251,8 +252,21 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "West Ham",
-        "Bournemouth"
+        "Bournemouth",
+        "West Ham"
+      ]
+    },
+    {
+      "title": "Championship roundup: Wrexham beat Ipswich 5-3, Coventry pull clear of Boro",
+      "link": "https://www.theguardian.com/football/2026/feb/21/championship-roundup-coventry-end-away-woes-leicester-denied-late-on",
+      "description": "Coventry win 2-0 at West Brom; Oxford hold BoroMillwall lose to Portsmouth, Birmingham beat NorwichWrexham boosted their promotion hopes with a 5-3 victory over fellow high-flyers Ipswich in a crazy g",
+      "image": "",
+      "published": "2026-02-21T21:09:05+00:00",
+      "published_ago": "11h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Ipswich"
       ]
     },
     {
@@ -265,7 +279,6 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Burnley",
         "Chelsea",
         "Premier League"
       ]
@@ -285,12 +298,41 @@
       ]
     },
     {
+      "title": "West Ham 0-0 Bournemouth: Premier League – as it happened",
+      "link": "https://www.theguardian.com/football/live/2026/feb/21/west-ham-v-bournemouth-premier-league-live",
+      "description": "Nuno Espírito Santo’s side remain in relegation zone after struggling to take chances in stalemate9 min: Summerville shows off his quick feet inside his own half as West Ham try and counter.8 min: It’",
+      "image": "",
+      "published": "2026-02-21T19:48:45+00:00",
+      "published_ago": "13h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Bournemouth",
+        "West Ham",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "West Ham miss chance to boost survival hopes with wasteful draw against Bournemouth",
+      "link": "https://www.theguardian.com/football/2026/feb/21/west-ham-bournemouth-premier-league-match-report",
+      "description": "When it comes to the back end of May and West Ham reflect on the season that was, there is every chance that this soggy Saturday will go down as a missed opportunity that proved decisive in their surv",
+      "image": "",
+      "published": "2026-02-21T19:42:12+00:00",
+      "published_ago": "13h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Bournemouth",
+        "West Ham"
+      ]
+    },
+    {
       "title": "Red cards and poor home form - Chelsea 'set fire to points'",
       "link": "https://www.bbc.com/sport/football/articles/c05v6j380nmo?at_medium=RSS&at_campaign=rss",
       "description": "Chelsea have more red cards than any side in the Premier League this season, and boss Liam Rosenior says they have \"set fire\" to points.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b8ad/live/24e9bcc0-0f59-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T19:31:46+00:00",
-      "published_ago": "12h ago",
+      "published_ago": "13h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -304,7 +346,7 @@
       "description": "Seven years since firing them into the Premier League, Tammy Abraham is back scoring goals at Aston Villa to keep their fans and players dreaming of glory.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/780a/live/0e05ecf0-0f6c-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T18:55:48+00:00",
-      "published_ago": "13h ago",
+      "published_ago": "14h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -335,7 +377,6 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Burnley",
         "Chelsea",
         "Premier League"
       ]
@@ -350,8 +391,7 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Aston Villa",
-        "Leeds"
+        "Aston Villa"
       ]
     },
     {
@@ -364,9 +404,21 @@
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Burnley",
         "Chelsea",
         "Premier League"
+      ]
+    },
+    {
+      "title": "'Commitment, honesty & endeavour' fuelling Wrexham",
+      "link": "https://www.bbc.com/sport/football/articles/cy03wngny40o?at_medium=RSS&at_campaign=rss",
+      "description": "Phil Parkinson feels Wrexham's \"sheer commitment, honesty and endeavour\" was pivotal to their dramatic 5-3 win over Ipswich Town in the Championship.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5052/live/786ff0a0-0f48-11f1-9a2a-8fa7cf422a25.jpg",
+      "published": "2026-02-21T18:07:24+00:00",
+      "published_ago": "14h ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Ipswich"
       ]
     },
     {
@@ -388,12 +440,11 @@
       "description": "Leeds United manager Daniel Farke is \"disappointed\" with his side's late draw against Aston Villa but believes the result is a \"fair outcome\" in an \"equal game\".",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d6a1/live/36e78630-0f4c-11f1-b048-c9424b2cf5fd.jpg",
       "published": "2026-02-21T17:58:58+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
-        "Aston Villa",
-        "Leeds"
+        "Aston Villa"
       ]
     },
     {
@@ -402,7 +453,7 @@
       "description": "Brighton's James Milner starts against Brentford to break the all-time Premier League appearance record in his 654th match.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8895/live/e1479080-0f50-11f1-9a2a-8fa7cf422a25.jpg",
       "published": "2026-02-21T17:53:58+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
@@ -417,13 +468,367 @@
       "description": "Aston Villa striker Tammy Abraham tells Final Score \"anything can happen\" in the Premier League title race and that his side have to keep pushing to get close to Arsenal.",
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ba2c/live/f686b330-0f4c-11f1-9120-a910fc22c6ac.jpg",
       "published": "2026-02-21T17:49:19+00:00",
-      "published_ago": "14h ago",
+      "published_ago": "15h ago",
       "source": "BBC Sport",
       "source_logo": "🔴",
       "teams": [
         "Arsenal",
         "Aston Villa",
         "Premier League"
+      ]
+    },
+    {
+      "title": "Tammy Abraham salvages late point for Aston Villa to deny battling Leeds",
+      "link": "https://www.theguardian.com/football/2026/feb/21/aston-villa-leeds-premier-league-match-report",
+      "description": "This felt like the day Aston Villa’s faint title hopes were extinguished despite Tammy Abraham’s late equaliser against Leeds. Unai Emery’s side have won only once in their past four Premier League ho",
+      "image": "",
+      "published": "2026-02-21T17:13:55+00:00",
+      "published_ago": "15h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Aston Villa",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "‘Delighted’ James Milner celebrates record with Brighton win at Brentford",
+      "link": "https://www.theguardian.com/football/2026/feb/21/brentford-brighton-premier-league-match-report",
+      "description": "James Milner showed he can still contribute during his record-breaking 654th Premier League appearance as Brighton won at Brentford. Milner’s inclusion meant he moved past Gareth Barry’s record tally ",
+      "image": "",
+      "published": "2026-02-21T17:07:14+00:00",
+      "published_ago": "15h ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Brentford",
+        "Brighton",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Tudor could stay at Tottenham for 'long time'",
+      "link": "https://www.bbc.com/sport/football/articles/cy9g0xyl1g9o?at_medium=RSS&at_campaign=rss",
+      "description": "Sporting director Johan Lange says Igor Tudor could be given the Tottenham job on a permanent basis if he impresses during the remainder of the season.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/47a7/live/fd126310-0e71-11f1-9acc-6bf6c7adf476.jpg",
+      "published": "2026-02-21T10:59:32+00:00",
+      "published_ago": "22h ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Tottenham"
+      ]
+    },
+    {
+      "title": "'Brilliant' Park strikes again for Man Utd",
+      "link": "https://www.bbc.com/sport/football/videos/c1jk5n0ppjno?at_medium=RSS&at_campaign=rss",
+      "description": "Jess Park scores a stunner in Manchester United's 2-0 win over Atletico Madrid, sealing their place in the quarter-finals of the Women's Champions League.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/4973/live/f7dfa6d0-0e78-11f1-9120-a910fc22c6ac.jpg",
+      "published": "2026-02-21T08:28:45+00:00",
+      "published_ago": "1d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Manchester United",
+        "Man Utd"
+      ]
+    },
+    {
+      "title": "What's eating Arsenal? North London derby now a test of Gunners' 'bottle'",
+      "link": "https://www.bbc.com/sport/football/articles/cjwzqn3e193o?at_medium=RSS&at_campaign=rss",
+      "description": "What's eating Arsenal? Sunday's North London derby is now a test of the Gunners' \"bottle\", says chief football writer Phil McNulty.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6d0e/live/e36f2b50-0e67-11f1-9f23-b3f349b149c7.jpg",
+      "published": "2026-02-21T07:04:14+00:00",
+      "published_ago": "1d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Arsenal"
+      ]
+    },
+    {
+      "title": "Crystal Palace will not sack Oliver Glasner despite ‘not good enough’ remark",
+      "link": "https://www.theguardian.com/football/2026/feb/20/crystal-palace-oliver-glasner",
+      "description": "Fans turned on manager during match on ThursdayClub decide against change with big games coming upCrystal Palace have decided against sacking Oliver Glasner despite his latest public outburst on Frida",
+      "image": "",
+      "published": "2026-02-20T21:26:02+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Crystal Palace"
+      ]
+    },
+    {
+      "title": "Eze plays long game but end-of-season form could give Arsenal title lift now | Ed Aarons",
+      "link": "https://www.theguardian.com/football/2026/feb/20/eberechi-eze-mikel-arteta-arsenal-premier-league-title",
+      "description": "Playmaker, out of favour under Mikel Arteta, has scored 18 of his 38 Premier League goals at business end of the seasonEberechi Eze was asked in an interview this week if there is a motto that he live",
+      "image": "",
+      "published": "2026-02-20T20:00:48+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Arsenal",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "The Winter Olympics finale, Six Nations stardust and Tottenham v Arsenal – follow with us",
+      "link": "https://www.theguardian.com/sport/2026/feb/20/winter-olympic-magic-six-nations-stardust-and-a-north-london-derby-follow-with-us",
+      "description": "Here’s how to follow along with our coverage – the finest writing and up-to-the-minute reports Continue reading...",
+      "image": "",
+      "published": "2026-02-20T18:37:34+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Arsenal",
+        "Tottenham"
+      ]
+    },
+    {
+      "title": "Football Daily | Tudor period begins with chance for Spurs’ new man to write himself into history",
+      "link": "https://www.theguardian.com/football/2026/feb/20/igor-tudor-tottenham-arsenal-preview-north-london-derby-football-daily",
+      "description": "Sign up now! Sign up now! Sign up now? Sign up now!So much for the glory game, for daring to do. For Tottenham Hotspur, this season’s highest aspiration – beyond an unlikely Bigger Cup triumph – now r",
+      "image": "",
+      "published": "2026-02-20T17:59:03+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Tottenham"
+      ]
+    },
+    {
+      "title": "Arsenal exactly where we want to be - Arteta",
+      "link": "https://www.bbc.com/sport/football/articles/cy0djw2zwe9o?at_medium=RSS&at_campaign=rss",
+      "description": "Mikel Arteta says Arsenal are \"exactly where they want to be\" in every competition as the Gunners get ready to face rivals Tottenham after the disappointing draw at Wolves.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8e1c/live/9a9b7a50-0e71-11f1-bdbb-11aff6cb7943.jpg",
+      "published": "2026-02-20T16:32:43+00:00",
+      "published_ago": "1d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Arsenal",
+        "Tottenham",
+        "Wolverhampton"
+      ]
+    },
+    {
+      "title": "'I'm not good enough' - Glasner's honest admission",
+      "link": "https://www.bbc.com/articles/c39wxxnwj7yo?at_medium=RSS&at_campaign=rss",
+      "description": "Crystal Palace manager Oliver Glasner has cast doubt on his immediate future at Selhurst Park after admitting he's \"not good enough\" in the role, following the club's 1-1 draw against Zrinjski in the ",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/b67a/live/52888440-0e5a-11f1-9120-a910fc22c6ac.jpg",
+      "published": "2026-02-20T14:10:04+00:00",
+      "published_ago": "1d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Crystal Palace"
+      ]
+    },
+    {
+      "title": "Mourinho 'got it wrong' - McCarthy",
+      "link": "https://www.bbc.com/sport/football/videos/cm2r66j1737o?at_medium=RSS&at_campaign=rss",
+      "description": "Former Premier League striker Benni McCarthy says his former manager Jose Mourinho should apologise for his \"very wrong\" comments after the alleged racial abuse of Vinicius Jr during Real Madrid's 1-0",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a305/live/f5c43fb0-0e5e-11f1-9120-a910fc22c6ac.jpg",
+      "published": "2026-02-20T13:23:08+00:00",
+      "published_ago": "1d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Murillo hails Pereira after ‘problems’ with past Nottingham Forest managers",
+      "link": "https://www.theguardian.com/football/2026/feb/20/murillo-hails-vitor-pereira-after-problems-with-past-nottingham-forest-managers",
+      "description": "There is ‘light at end of tunnel’ with new man in chargeDefender hints at conflicts with Postecoglou and DycheThe Nottingham Forest defender Murillo has said the arrival of Vítor Pereira represents “t",
+      "image": "",
+      "published": "2026-02-20T12:00:52+00:00",
+      "published_ago": "1d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Nottingham Forest",
+        "Forest"
+      ]
+    },
+    {
+      "title": "'Bigger does not mean better' - why more matches is not for good of the game",
+      "link": "https://www.bbc.com/sport/football/articles/cdjmly2rgp2o?at_medium=RSS&at_campaign=rss",
+      "description": "In his BBC Sport column, ex-Premier League boss Tony Pulis explains why more matches in a shorter space of time might mean more injuries, and why the expansion of tournaments does not help players or ",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a08b/live/35d69260-b98c-11f0-aa13-0b0479f6f42a.jpg",
+      "published": "2026-02-20T08:32:27+00:00",
+      "published_ago": "2d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "'It's the ultimate role' - Carrick on Man Utd job",
+      "link": "https://www.bbc.com/sport/football/videos/cddnelqr4plo?at_medium=RSS&at_campaign=rss",
+      "description": "Manchester United interim boss Michael Carrick joins Mark Chapman to discuss the club's academy, midfielder Kobbie Mainoo and whether he sees himself managing United beyond this season.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/bd8a/live/dc4f89b0-0d9e-11f1-b7e1-afb6d0884c18.jpg",
+      "published": "2026-02-20T06:19:48+00:00",
+      "published_ago": "2d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Manchester United",
+        "Man Utd"
+      ]
+    },
+    {
+      "title": "Premier League: 10 things to look out for this weekend",
+      "link": "https://www.theguardian.com/football/2026/feb/20/premier-league-10-things-to-look-out-for-this-weekend",
+      "description": "Tottenham’s Tudor age begins with a north London derby, Guardiola ponders Haaland’s role and Wirtz has a chance to flummox ForestAston Villa, third in the Premier League, chasing Champions League qual",
+      "image": "",
+      "published": "2026-02-20T00:01:17+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Aston Villa",
+        "Forest",
+        "Tottenham",
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Fenerbahce 0-3 Nottingham Forest: Europa League playoff, first leg – as it happened",
+      "link": "https://www.theguardian.com/football/live/2026/feb/19/fenerbahce-v-nottingham-forest-europa-league-playoff-first-leg-live",
+      "description": "Goals from Murillo, Igor Jesus and Morgan Gibbs-White give Vitor Pereira a winning start as Forest head coachI was at Dyche’s final game in charge and Omari Hutchinson was underwhelming, to say the le",
+      "image": "",
+      "published": "2026-02-19T20:06:13+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Nottingham Forest",
+        "Forest"
+      ]
+    },
+    {
+      "title": "Ismaïla Sarr’s strike earns Crystal Palace Conference League draw at Zrinjski",
+      "link": "https://www.theguardian.com/football/2026/feb/19/zrinjski-mostar-crystal-palace-conference-league-playoff-first-leg-match-report",
+      "description": "Crystal Palace’s Conference League hopes hang in the balance after a 1-1 draw against Bosnia and Herzegovina’s Zrinjski Mostar in the first leg of their knockout phase playoff.Oliver Glasner had reinf",
+      "image": "",
+      "published": "2026-02-19T20:02:38+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Crystal Palace"
+      ]
+    },
+    {
+      "title": "Nottingham Forest dominate Fenerbahce to give Vítor Pereira perfect start",
+      "link": "https://www.theguardian.com/football/2026/feb/19/fenerbahce-nottingham-forest-europa-league-playoff-first-leg-match-report",
+      "description": "For Nottingham Forest, and particularly Vítor Pereira and the 1,200 supporters who signed up to this trip, an evening in Istanbul they will not forget in a hurry.After just three training sessions, Pe",
+      "image": "",
+      "published": "2026-02-19T19:46:37+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Nottingham Forest",
+        "Forest"
+      ]
+    },
+    {
+      "title": "Sutton's predictions v Embrace bassist Steve Firth",
+      "link": "https://www.bbc.com/sport/football/articles/cx2j8wljzp3o?at_medium=RSS&at_campaign=rss",
+      "description": "BBC Sport football expert Chris Sutton takes on Embrace bassist Steve Firth plus the BBC readers and AI with his predictions for this weekend's Premier League fixtures.",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/be6f/live/5236b240-0d7f-11f1-b7e1-afb6d0884c18.png",
+      "published": "2026-02-19T19:16:39+00:00",
+      "published_ago": "2d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Football Daily | Arsenal don’t just drop points, they perform theatrical acts of self-sabotage",
+      "link": "https://www.theguardian.com/football/2026/feb/19/arsenal-wolves-premier-league-title-race-football-daily",
+      "description": "Sign up now! Sign up now! Sign up now? Sign up now!Top of the league, Wembley trip booked, sweeping through Europe, and blessed with a cushty FA Cup draw – it’s fair to say the Arsenal garden is in fu",
+      "image": "",
+      "published": "2026-02-19T16:56:59+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Arsenal"
+      ]
+    },
+    {
+      "title": "'Shouldn't be in the game' - Rosenior wants stronger racism penalties",
+      "link": "https://www.bbc.com/sport/football/videos/czd83mg6z88o?at_medium=RSS&at_campaign=rss",
+      "description": "Chelsea head coach Liam Rosenior believes anyone found guilty of racism should not work in football after Real Madrid's Vinicius Jr allegedly received racist abuse from Benfica's Gianluca Prestianni i",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/05c8/live/de035dc0-0daa-11f1-9972-d3f265c101c6.jpg",
+      "published": "2026-02-19T16:02:45+00:00",
+      "published_ago": "2d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Chelsea"
+      ]
+    },
+    {
+      "title": "Arsenal’s wobble worsens at Wolves and Bodø/Glimt brilliance | Football Weekly Extra – video",
+      "link": "https://www.theguardian.com/football/video/2026/feb/19/arsenal-wolves-bodo-glimt-football-weekly-extra-video",
+      "description": "Max Rushden is joined by Barry Glendenning, Philippe Auclair and Paul Watson as Arsenal feel the heat and Inter are caught cold in Norway Continue reading...",
+      "image": "",
+      "published": "2026-02-19T15:17:44+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Arsenal",
+        "Wolverhampton"
+      ]
+    },
+    {
+      "title": "Does the Premier League table get you down? Try one of our five alternatives",
+      "link": "https://www.theguardian.com/football/2026/feb/19/premier-league-table-five-alternatives-set-pieces-goals-shots",
+      "description": "What if games ended at 90 minutes, set-pieces goals were scrapped, or shots that hit the woodwork counted?By Opta AnalystA league table is a pretty helpful barometer of each team’s fortunes. That’s wh",
+      "image": "",
+      "published": "2026-02-19T15:14:23+00:00",
+      "published_ago": "2d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "Premier League"
+      ]
+    },
+    {
+      "title": "Japan replace draws with shootouts and hope to avoid paying World Cup penalty",
+      "link": "https://www.theguardian.com/football/2026/feb/19/japan-replace-draws-with-shootouts-hope-to-avoid-paying-world-cup-penalty",
+      "description": "Move is a temporary measure as J.League transitions to European schedule but could benefit national team in US, Canada and Mexico this summerCynics may say it is no coincidence the J.League has introd",
+      "image": "",
+      "published": "2026-02-19T08:00:03+00:00",
+      "published_ago": "3d ago",
+      "source": "The Guardian",
+      "source_logo": "🔵",
+      "teams": [
+        "EPL"
+      ]
+    },
+    {
+      "title": "The 20-year-old newspaper column that gave a hint to Man City's new tactics",
+      "link": "https://www.bbc.com/sport/football/articles/cr7323v131lo?at_medium=RSS&at_campaign=rss",
+      "description": "Pep Guardiola is using new tactics this season by making Manchester City's attack more narrow, but did he hint at the idea 20 years ago?",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/dc43/live/01568600-0d6d-11f1-b5e2-dd58fc65f0f6.jpg",
+      "published": "2026-02-19T06:50:40+00:00",
+      "published_ago": "3d ago",
+      "source": "BBC Sport",
+      "source_logo": "🔴",
+      "teams": [
+        "Manchester City"
       ]
     }
   ]
