@@ -594,6 +594,13 @@
           .email-submit-btn { width: 100%; padding: 13px; }
           .picks-preview-section { padding: 28px 16px; }
         }
+        .nav-auth { display: flex; align-items: center; gap: 8px; }
+        .nav-user-label { color: #94a3b8; font-size: 13px; font-weight: 500; display: none; }
+        .btn-nav-login { padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: #2563eb; color: #fff !important; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; }
+        .btn-nav-login:hover { background: #1d4ed8 !important; }
+        .btn-nav-logout { padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; background: rgba(239,68,68,0.12); color: #f87171 !important; border: 1px solid rgba(239,68,68,0.25); cursor: pointer; transition: background 0.2s; display: none; align-items: center; }
+        .btn-nav-logout:hover { background: rgba(239,68,68,0.22); }
+        @media (max-width: 768px) { .nav-auth { margin-top: 8px; } }
     </style>
 </head>
 <body>
@@ -612,6 +619,11 @@
             <li><a href="/dashboard_mockup.html">Dashboard</a></li>
             <li><a href="/pricing.html" style="color:#a78bfa; font-weight:700;">Pricing</a></li>
         </ul>
+        <div class="nav-auth">
+            <span class="nav-user-label" id="navUserLabel"></span>
+            <a href="/dashboard_mockup.html" class="btn-nav-login" id="navLoginBtn">Login</a>
+            <button class="btn-nav-logout" id="navLogoutBtn" onclick="kicklabLogout()">Sign Out</button>
+        </div>
     </nav>
     
     <script>
@@ -1170,6 +1182,26 @@
         }
         scheduleNext();
       })();
+    </script>
+    <script>
+    (function(){
+      const KEY='kl_user';
+      function getSession(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');return d&&Date.now()<d.expiry?d:null;}catch(e){return null;}}
+      window.kicklabLogout=function(){localStorage.removeItem(KEY);window.location.href='/dashboard_mockup.html';};
+      const s=getSession();
+      const loginBtn=document.getElementById('navLoginBtn');
+      const logoutBtn=document.getElementById('navLogoutBtn');
+      const label=document.getElementById('navUserLabel');
+      if(s){
+        if(loginBtn)loginBtn.style.display='none';
+        if(logoutBtn)logoutBtn.style.display='inline-flex';
+        if(label){label.style.display='inline';label.textContent='👤 '+(s.email?s.email.split('@')[0]:'User');}
+      }else{
+        if(loginBtn)loginBtn.style.display='inline-flex';
+        if(logoutBtn)logoutBtn.style.display='none';
+        if(label)label.style.display='none';
+      }
+    })();
     </script>
 </body>
 </html>
