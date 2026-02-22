@@ -3553,6 +3553,129 @@
           color: #d1d5db;
           line-height: 1.6;
         }
+
+    /* =====================================================
+       MOBILE DECLUTTER OVERRIDES — applied at ≤768px
+       Goal: show only what matters. Everything else
+       is hidden by default and revealed on tap.
+    ===================================================== */
+    @media (max-width: 768px) {
+
+      /* 1. BOTTOM NAV — trim to 5 tabs.
+            Hide: Home (1st), Academy (7th), Settings (8th).
+            Tap hamburger ☰ for everything else. */
+      .mobile-bottom-nav .mobile-nav-item:nth-child(1),
+      .mobile-bottom-nav .mobile-nav-item:nth-child(7),
+      .mobile-bottom-nav .mobile-nav-item:nth-child(8) {
+        display: none !important;
+      }
+
+      /* 2. COMMUNITY BANNER — off on mobile. Too wide,
+            low priority. Seen on desktop only. */
+      .community-banner {
+        display: none !important;
+      }
+
+      /* 3. VARIANCE / ROUGH PATCH BANNER — hidden by default.
+            Only shown when explicitly triggered by JS. */
+      .variance-banner {
+        display: none !important;
+      }
+
+      /* 4. AI REASONING — collapsed on mobile by default.
+            The header ("Why this Pick?") stays visible.
+            Content hidden until user taps the header.
+            Saves ~150px per card on mobile. */
+      .ai-reasoning > *:not(.ai-reasoning-header) {
+        display: none !important;
+      }
+      .ai-reasoning.mobile-open > * {
+        display: block !important;
+      }
+      .ai-reasoning-header {
+        cursor: pointer;
+      }
+      .ai-reasoning-header::after {
+        content: ' ▾';
+        font-size: 10px;
+        color: #475569;
+        transition: transform 0.2s;
+      }
+      .ai-reasoning.mobile-open .ai-reasoning-header::after {
+        content: ' ▴';
+      }
+
+      /* 5. LIVE ODDS WIDGET (full table) — hidden on mobile.
+            Too wide and not the first thing they need. */
+      .live-odds-widget {
+        display: none !important;
+      }
+
+      /* 6. PICK CARDS — tighter padding + remove inner breathing room */
+      .pick-card { padding: 0 !important; }
+
+      /* 7. KELLY / SUGGESTED BET per pick — shown only on expand.
+            The main stats row (Prediction, Confidence, Odds, Edge)
+            is enough at a glance. */
+      .kelly-rec,
+      .kelly-note {
+        display: none !important;
+      }
+
+      /* 8. CLV / MARKET BEAT badges — small screens don't need them
+            cluttering the card header. */
+      .clv-badge {
+        display: none !important;
+      }
+
+      /* 9. ODDS COMPARISON (bet365/Unibet/Betfair row inside each pick) —
+            hidden by default on mobile. Cleaner card layout. */
+      .odds-compare,
+      .odds-compare-row {
+        display: none !important;
+      }
+
+      /* 10. STAT CARDS on home tab — keep 2x2 grid, not 4 wide. */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      /* 11. PICK ACTIONS ROW — show only on card expand. */
+      .pick-actions {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .pick-actions .action-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+
+      /* 12. HEADER — tighter on mobile */
+      .header { padding: 8px 12px !important; }
+      .header-title { font-size: 1rem !important; }
+      .header-stats { gap: 8px !important; }
+
+      /* 13. PROFIT CALCULATOR on home — remove on mobile,
+            clutters the bottom of the page. */
+      .profit-calculator {
+        display: none !important;
+      }
+
+      /* 14. PL STANDINGS — collapse to show only top 6 rows.
+            Done via overflow + fixed height. */
+      .league-table-container {
+        max-height: 260px;
+        overflow-y: auto;
+      }
+
+      /* 15. EDGE FILTER BAR — compact it */
+      .edge-filter-bar {
+        padding: 8px 12px !important;
+        gap: 8px !important;
+      }
+      .edge-filter-bar label { font-size: 11px !important; }
+    }
     </style>
 </head>
 <body>
@@ -8760,6 +8883,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Preload news 3s after page load so it's ready instantly when tab is clicked
             setTimeout(() => { if (allNewsArticles.length === 0) loadNews(); }, 3000);
+
+            // Mobile: tap "Why this Pick?" header to expand/collapse reasoning
+            // Uses event delegation so it works for dynamically added cards too
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth > 768) return;
+                const header = e.target.closest('.ai-reasoning-header');
+                if (!header) return;
+                const box = header.closest('.ai-reasoning');
+                if (box) box.classList.toggle('mobile-open');
+            });
         });
 
         function showValueMeterInfo(e) {
