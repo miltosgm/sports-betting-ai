@@ -17,12 +17,14 @@ OUT_FILE = BASE_DIR / 'docs' / 'data' / 'news.json'
 OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 PL_TEAMS = [
-    'Arsenal', 'Aston Villa', 'Brentford', 'Brighton', 'Burnley',
-    'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds',
-    'Liverpool', 'Manchester City', 'Man City', 'Manchester United', 'Man United',
-    'Newcastle', 'Nottingham Forest', 'Sunderland', 'Tottenham', 'Spurs',
-    'West Ham', 'Wolves', 'Wolverhampton', 'Bournemouth',
-    'Premier League', 'Premier League', 'EPL',
+    'Arsenal', 'Aston Villa', 'Bournemouth', 'Brentford', 'Brighton',
+    'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Ipswich',
+    'Leicester', 'Liverpool', 'Manchester City', 'Man City',
+    'Manchester United', 'Man United', 'Man Utd',
+    'Newcastle', 'Nottingham Forest', 'Forest',
+    'Southampton', 'Sunderland', 'Tottenham', 'Spurs',
+    'West Ham', 'Wolves', 'Wolverhampton',
+    'Premier League', 'EPL',
 ]
 
 RSS_FEEDS = [
@@ -33,6 +35,47 @@ RSS_FEEDS = [
     },
     {
         'url': 'https://www.theguardian.com/football/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    # Guardian team-specific feeds for clubs underrepresented in main feed
+    {
+        'url': 'https://www.theguardian.com/football/sunderland/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/nottinghamforest/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/brentford/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/bournemouth/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/fulham/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/crystalpalace/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/westhamunited/rss',
+        'source': 'The Guardian',
+        'source_logo': '🔵',
+    },
+    {
+        'url': 'https://www.theguardian.com/football/wolves/rss',
         'source': 'The Guardian',
         'source_logo': '🔵',
     },
@@ -132,7 +175,7 @@ def get_mentioned_teams(article):
             if canonical not in seen:
                 found.append(canonical)
                 seen.add(canonical)
-    return found[:3]  # max 3 team tags
+    return found[:6]  # max 6 team tags
 
 
 def main():
@@ -162,13 +205,36 @@ def main():
     # Sort by published date (newest first)
     unique.sort(key=lambda x: x['published'], reverse=True)
 
-    # Keep top 30
-    unique = unique[:30]
+    # ── Guaranteed coverage ──────────────────────────────────────────
+    # Take top 50 by date (main feed), then guarantee at least 1 article
+    # per club that rarely appears in main PL news (Sunderland, Forest etc.)
+    GUARANTEED_CLUBS = [
+        'Sunderland', 'Brentford', 'Bournemouth', 'Fulham',
+        'Crystal Palace', 'Wolverhampton', 'West Ham',
+        'Nottingham Forest', 'Southampton', 'Ipswich', 'Leicester',
+    ]
+    top_50 = unique[:50]
+    covered = set()
+    for a in top_50:
+        for t in a.get('teams', []):
+            covered.add(t)
+
+    extra = []
+    for club in GUARANTEED_CLUBS:
+        if club not in covered:
+            # Find the most recent article mentioning this club
+            for a in unique[50:]:
+                text = (a.get('title','') + ' ' + a.get('description','')).lower()
+                if club.lower() in text:
+                    extra.append(a)
+                    break
+
+    final = top_50 + extra
 
     output = {
         'updated': datetime.now(timezone.utc).isoformat(),
-        'count': len(unique),
-        'articles': unique,
+        'count': len(final),
+        'articles': final,
     }
 
     with open(OUT_FILE, 'w') as f:

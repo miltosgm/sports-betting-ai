@@ -8706,12 +8706,20 @@
 
             const articles = filter === 'all'
                 ? allNewsArticles
-                : allNewsArticles.filter(a =>
-                    (a.teams || []).some(t => t.toLowerCase().includes(filter.toLowerCase()))
-                  );
+                : allNewsArticles.filter(a => {
+                    const fl = filter.toLowerCase();
+                    const inTeams = (a.teams || []).some(t => t.toLowerCase().includes(fl));
+                    const inText  = ((a.title || '') + ' ' + (a.description || '')).toLowerCase().includes(fl);
+                    return inTeams || inText;
+                });
 
             if (articles.length === 0) {
-                grid.innerHTML = `<div class="news-empty">No news found for ${filter}. Try "All News".</div>`;
+                grid.innerHTML = `<div class="news-empty" style="text-align:center; padding:32px 16px;">
+                    <div style="font-size:32px; margin-bottom:10px;">📭</div>
+                    <div style="font-weight:700; color:#e2e8f0; margin-bottom:6px;">No articles for ${filter} right now</div>
+                    <div style="font-size:12px; color:#64748b; margin-bottom:16px;">Our sources (BBC Sport, The Guardian) don't always cover every club in their main feed. Updates every 30 min.</div>
+                    <button onclick="filterNews('all', document.querySelector('.news-filter-btn'))" style="background:#2563eb; color:white; border:none; padding:8px 20px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer;">View All News</button>
+                </div>`;
                 return;
             }
 
