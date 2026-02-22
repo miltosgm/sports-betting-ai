@@ -1,36 +1,36 @@
 {
-  "updatedAt": "2026-02-22T14:04:28.355426+00:00",
-  "updatedAtAthens": "16:04",
+  "updatedAt": "2026-02-22T14:06:26.337161+00:00",
+  "updatedAtAthens": "16:06",
   "matches": [
     {
       "home": "Sunderland AFC",
       "away": "Fulham FC",
       "homeShort": "Sunderland",
       "awayShort": "Fulham",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "Crystal Palace FC",
       "away": "Wolverhampton Wanderers FC",
       "homeShort": "Crystal Palace",
       "awayShort": "Wolverhampton",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "Nottingham Forest FC",
       "away": "Liverpool FC",
       "homeShort": "Nottingham",
       "awayShort": "Liverpool",
-      "status": "TIMED",
-      "minute": null,
-      "homeGoals": null,
-      "awayGoals": null
+      "status": "IN_PLAY",
+      "minute": 2,
+      "homeGoals": 0,
+      "awayGoals": 0
     },
     {
       "home": "Tottenham Hotspur FC",
