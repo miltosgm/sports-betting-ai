@@ -13,7 +13,10 @@
     "edge": 0.7,
     "time": "22:00",
     "date": "Mon 23 Feb",
-    "settled": false
+    "settled": true,
+    "result": "Away Win",
+    "score": "0-1",
+    "correct": true
   },
   {
     "home": "Wolverhampton Wanderers FC",
