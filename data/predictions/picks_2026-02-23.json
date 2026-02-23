@@ -12,7 +12,8 @@
     "odds": 1.95,
     "edge": 0.7,
     "time": "22:00",
-    "date": "Mon 23 Feb"
+    "date": "Mon 23 Feb",
+    "settled": false
   },
   {
     "home": "Wolverhampton Wanderers FC",
@@ -27,7 +28,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "20:00",
-    "date": "2026-02-27"
+    "date": "2026-02-27",
+    "settled": false
   },
   {
     "home": "AFC Bournemouth",
@@ -42,7 +44,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "12:30",
-    "date": "2026-02-28"
+    "date": "2026-02-28",
+    "settled": false
   },
   {
     "home": "Burnley FC",
@@ -57,7 +60,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28"
+    "date": "2026-02-28",
+    "settled": false
   },
   {
     "home": "Liverpool FC",
@@ -72,7 +76,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28"
+    "date": "2026-02-28",
+    "settled": false
   },
   {
     "home": "Newcastle United FC",
@@ -87,7 +92,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "15:00",
-    "date": "2026-02-28"
+    "date": "2026-02-28",
+    "settled": false
   },
   {
     "home": "Leeds United FC",
@@ -102,7 +108,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "17:30",
-    "date": "2026-02-28"
+    "date": "2026-02-28",
+    "settled": false
   },
   {
     "home": "Brighton & Hove Albion FC",
@@ -117,7 +124,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "14:00",
-    "date": "2026-03-01"
+    "date": "2026-03-01",
+    "settled": false
   },
   {
     "home": "Fulham FC",
@@ -132,7 +140,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "14:00",
-    "date": "2026-03-01"
+    "date": "2026-03-01",
+    "settled": false
   },
   {
     "home": "Manchester United FC",
@@ -147,7 +156,8 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "14:00",
-    "date": "2026-03-01"
+    "date": "2026-03-01",
+    "settled": false
   },
   {
     "home": "Arsenal FC",
@@ -162,6 +172,7 @@
     "odds": 0.0,
     "edge": 0.0,
     "time": "16:30",
-    "date": "2026-03-01"
+    "date": "2026-03-01",
+    "settled": false
   }
 ]

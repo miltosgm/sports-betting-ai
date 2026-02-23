@@ -1,10 +1,10 @@
 {
-  "generated": "2026-02-22T18:00:03Z",
-  "count": 9,
-  "wins": 4,
+  "generated": "2026-02-23T18:00:02Z",
+  "count": 10,
+  "wins": 5,
   "losses": 5,
-  "win_rate": 44.4,
-  "total_profit": -61,
+  "win_rate": 50.0,
+  "total_profit": -4,
   "results": [
     {
       "date": "2026-02-22",
@@ -47,6 +47,21 @@
       "result": "win",
       "profit": 80,
       "score": "0-1",
+      "correct": true,
+      "source": "real",
+      "published": "2026-02-22T09:00:00+02:00"
+    },
+    {
+      "date": "2026-02-22",
+      "time": "18:30",
+      "match": "Tottenham Hotspur vs Arsenal",
+      "prediction": "Away Win",
+      "odds": 1.57,
+      "confidence": 59.0,
+      "edge": -4.7,
+      "result": "win",
+      "profit": 57,
+      "score": "1-4",
       "correct": true,
       "source": "real",
       "published": "2026-02-22T09:00:00+02:00"
