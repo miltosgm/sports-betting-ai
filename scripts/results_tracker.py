@@ -28,6 +28,9 @@ BASE_URL = 'https://api.football-data.org/v4'
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
 
+FREE_BOT_TOKEN = os.getenv('FREE_BOT_TOKEN')
+FREE_CHANNEL_ID = os.getenv('FREE_CHANNEL_ID')
+
 TEAM_NORMALIZE = {
     'Wolverhampton Wanderers FC': 'Wolverhampton Wanderers',
     'Arsenal FC': 'Arsenal',
@@ -170,6 +173,37 @@ async def post_results(message):
     print(f"✅ Results posted! ID: {r.message_id}")
 
 
+def build_free_win_message(wins_list):
+    """Build win announcement for the free channel (wins only)"""
+    lines = ["🏆 <b>KICK LAB AI — WIN ALERT</b> 🏆", ""]
+    for p in wins_list:
+        home_s = normalize(p['home'])
+        away_s = normalize(p['away'])
+        lines.append(f"✅ <b>{home_s} vs {away_s}</b>")
+        lines.append(f"   Score: {p.get('score', '?')} | Pick: {p['prediction']} @ {p['odds']:.2f}")
+        lines.append("")
+    lines.append("━━━━━━━━━━━━━━━━━━━━━")
+    lines.append("⚡ We called it. Follow for daily picks.")
+    lines.append("👉 @kicklabai_bot | kicklabai.com")
+    return "\n".join(lines)
+
+
+async def post_free_wins(wins_list):
+    """Post wins to the free channel"""
+    if not FREE_BOT_TOKEN or not FREE_CHANNEL_ID:
+        print("⚠️ Free channel credentials missing, skipping")
+        return
+    message = build_free_win_message(wins_list)
+    bot = Bot(token=FREE_BOT_TOKEN)
+    r = await bot.send_message(
+        chat_id=FREE_CHANNEL_ID,
+        text=message,
+        parse_mode='HTML',
+        disable_web_page_preview=True,
+    )
+    print(f"✅ Win posted to free channel! ID: {r.message_id}")
+
+
 def main():
     print("=" * 50)
     print("📊 KICK LAB AI — RESULTS TRACKER")
@@ -203,10 +237,17 @@ def main():
             icon = "✅" if p.get('correct') else "❌"
             print(f"  {icon} {normalize(p['home'])} vs {normalize(p['away'])}: {p.get('score')} (predicted {p['prediction']})")
 
-        # Post to Telegram
+        # Post to main channel
         msg = build_results_message(updated)
         if msg:
             asyncio.run(post_results(msg))
+
+        # Post wins to free channel
+        wins_list = [p for p in settled if p.get('correct')]
+        if wins_list:
+            asyncio.run(post_free_wins(wins_list))
+        else:
+            print("No wins to post to free channel")
     else:
         print("No settled predictions yet (matches may not have been played)")
 
