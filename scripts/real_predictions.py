@@ -43,6 +43,41 @@ REAL_ODDS = {
 TEAM_ALIASES = {}
 
 
+def calc_market_odds(home, away, standings):
+    """Estimate bookmaker odds from league standings when real odds unavailable.
+    Uses points-per-game with home advantage factor + bookmaker margin."""
+    hs = standings.get(home, {})
+    as_ = standings.get(away, {})
+    if not hs or not as_:
+        # Unknown team — return balanced odds
+        return {'home': 2.80, 'draw': 3.20, 'away': 2.80}
+
+    home_ppg = hs.get('ppg', 1.0)
+    away_ppg = as_.get('ppg', 1.0)
+
+    # Home advantage: PL home teams win ~45% of games vs ~30% away
+    home_adj = home_ppg * 1.25
+
+    total = home_adj + away_ppg
+    raw_home = home_adj / total
+    raw_away = away_ppg / total
+
+    # Draw probability: 25% base, higher when teams are evenly matched
+    balance = 1 - abs(raw_home - raw_away)
+    draw_prob = 0.22 + 0.08 * balance
+    scale = 1 - draw_prob
+    home_prob = raw_home * scale
+    away_prob = raw_away * scale
+
+    # Apply 8% bookmaker margin (vigorish)
+    margin = 0.08
+    home_odds = round((1 / home_prob) * (1 - margin), 2)
+    away_odds = round((1 / away_prob) * (1 - margin), 2)
+    draw_odds = round((1 / draw_prob) * (1 - margin), 2)
+
+    return {'home': max(home_odds, 1.05), 'draw': max(draw_odds, 1.05), 'away': max(away_odds, 1.05)}
+
+
 def load_model():
     with open(MODEL_PATH, 'rb') as f:
         return pickle.load(f)
@@ -349,11 +384,17 @@ def main():
         fixtures = []
         if r.status_code == 200:
             for m in r.json().get('matches', []):
+                # Convert UTC kickoff to Athens time (GMT+2)
+                from datetime import timezone
+                utc_str = m['utcDate']  # e.g. "2026-02-27T15:00:00Z"
+                utc_dt = datetime.strptime(utc_str, '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=timezone.utc)
+                athens_dt = utc_dt + timedelta(hours=2)
                 fixtures.append({
                     'home': m['homeTeam']['name'],
                     'away': m['awayTeam']['name'],
-                    'date': m['utcDate'][:10],
-                    'time': m['utcDate'][11:16],
+                    'date': athens_dt.strftime('%Y-%m-%d'),
+                    'time': athens_dt.strftime('%H:%M'),
+                    'utc_date': utc_str,
                 })
             print(f"✅ Fixtures: {len(fixtures)} upcoming matches")
         else:
@@ -391,9 +432,16 @@ def main():
             print(f"⚠️ Skipping {home} vs {away} — no stats")
             continue
 
-        # Find real odds
+        # Find real odds — fall back to standings-based estimate if unavailable
         odds_key = find_odds_key(home, away)
         odds = REAL_ODDS.get(odds_key, {})
+        using_estimated_odds = False
+        if not odds:
+            odds = calc_market_odds(home, away, standings)
+            using_estimated_odds = True
+            # Attach time/date from fixture
+            odds['time'] = fix.get('time', '15:00')
+            odds['date'] = fix.get('date', '')
 
         home_prob, not_home_prob = predict_match(model_data, feats, market_odds=odds if odds else None)
 
@@ -445,6 +493,13 @@ def main():
         home_short = home.replace(' FC', '').replace(' AFC', '')
         away_short = away.replace(' FC', '').replace(' AFC', '')
 
+        # Format date for display (e.g. "Thu 27 Feb")
+        raw_date = odds.get('date', fix.get('date', ''))
+        try:
+            display_date = datetime.strptime(raw_date, '%Y-%m-%d').strftime('%a %d %b')
+        except Exception:
+            display_date = raw_date
+
         result = {
             'home': home,
             'away': away,
@@ -458,7 +513,8 @@ def main():
             'odds': pick_odds,
             'edge': round(edge, 1),
             'time': odds.get('time', fix.get('time', '')),
-            'date': odds.get('date', fix.get('date', '')),
+            'date': display_date,
+            'estimated_odds': using_estimated_odds,
         }
         results.append(result)
 
