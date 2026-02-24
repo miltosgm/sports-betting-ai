@@ -645,18 +645,17 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>🚀 AI That Beats the Bookmakers</h1>
-            <p class="subtitle">Stop guessing. Start winning with machine learning predictions powered by 16,000+ real matches.</p>
-            <div class="email-capture-box">
-              <div class="email-capture-title">🎁 Get Today's Free Picks</div>
-              <div class="email-capture-sub">Enter your email — we'll send our 3 highest-confidence picks right now. No card needed.</div>
-              <form class="email-capture-form" onsubmit="handleEmailCapture(event)">
-                <div class="email-row">
-                  <input type="email" class="email-input" placeholder="your@email.com" required id="heroEmailInput">
-                  <button type="submit" class="email-submit-btn">Send Me Picks →</button>
-                </div>
-              </form>
-              <div class="email-trust">✉️ Instant delivery &nbsp;·&nbsp; <span style="color:#10b981;">No spam, ever</span> &nbsp;·&nbsp; Unsubscribe anytime</div>
+            <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); color:#34d399; padding:6px 14px; border-radius:100px; font-size:12px; font-weight:700; margin-bottom:18px; letter-spacing:0.3px;">⚡ Live Season · 79% Win Rate · 37W–11L</div>
+            <h1>The AI That Finds Value<br>Before the Bookmakers Do</h1>
+            <p class="subtitle">Machine learning trained on 16,000+ real matches. Daily picks with verified edge calculations. Every result logged publicly — nothing hidden.</p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px; margin-bottom:16px;">
+              <a href="/pricing.html" style="background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; padding:14px 32px; border-radius:12px; font-size:15px; font-weight:700; text-decoration:none; box-shadow:0 4px 20px rgba(99,102,241,0.4);">Join Now — €19/mo →</a>
+              <a href="/results_verified.html" style="background:rgba(255,255,255,0.06); color:#e2e8f0; padding:14px 24px; border-radius:12px; font-size:15px; font-weight:600; text-decoration:none; border:1px solid rgba(255,255,255,0.1);">See Live Results</a>
+            </div>
+            <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:8px;">
+              <span style="color:#64748b; font-size:12px;">✓ No free trial. Real picks from day one.</span>
+              <span style="color:#64748b; font-size:12px;">✓ All results verified publicly</span>
+              <span style="color:#64748b; font-size:12px;">✓ Cancel anytime</span>
             </div>
         </div>
     </section>
@@ -715,8 +714,8 @@
     <!-- Today's Picks Preview -->
     <section class="picks-preview-section" style="background:#0f172a; max-width:600px;">
       <div class="picks-preview-header">
-        <div class="picks-preview-title">📅 Today's Picks</div>
-        <div class="picks-preview-sub">Showing 2 of 8 free · <a href="#" onclick="document.getElementById('heroEmailInput').focus(); window.scrollTo({top:0,behavior:'smooth'}); return false;">Unlock all picks →</a></div>
+        <div class="picks-preview-title">📅 Sample Picks</div>
+        <div class="picks-preview-sub" style="color:#64748b;">Members get all picks every match day at 9AM</div>
       </div>
 
       <!-- Pick 1: Sunderland vs Fulham -->
@@ -783,51 +782,77 @@
         </div>
       </div>
 
-      <!-- Locked divider -->
-      <div class="picks-locked-divider">
-        <span class="picks-locked-badge">🔒 6 more picks locked</span>
+      <!-- Join CTA inside picks section -->
+      <div style="margin-top:12px; padding:20px; background:rgba(37,99,235,0.07); border:1px solid rgba(37,99,235,0.15); border-radius:12px; text-align:center;">
+        <div style="font-size:13px; color:#94a3b8; margin-bottom:12px;">Members get <strong style="color:#e2e8f0;">8–12 picks per matchweek</strong> — every morning by 9AM with full edge analysis.</div>
+        <a href="/pricing.html" style="display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; padding:12px 28px; border-radius:10px; font-size:14px; font-weight:700; text-decoration:none;">Join for €19/mo →</a>
       </div>
+    </section>
 
-      <!-- Blurred/locked pick card -->
-      <div class="preview-pick-card preview-pick-blurred">
-        <div class="preview-pick-inner">
-          <div class="preview-pick-header">
-            <div>
-              <div class="preview-match-name">Man City vs Newcastle</div>
-              <div class="preview-match-time">⏱ 20:00 GMT+2 · Sat 21 Feb</div>
-            </div>
-            <div class="preview-value-badge">🔥 VALUE BET</div>
-          </div>
-          <div class="preview-stats-grid">
-            <div class="preview-stat">
-              <div class="preview-stat-label">KickLab AI</div>
-              <div class="preview-stat-value" style="color:#60a5fa;">76.7%</div>
-            </div>
-            <div class="preview-stat">
-              <div class="preview-stat-label">Bookmaker</div>
-              <div class="preview-stat-value">70%</div>
-            </div>
-            <div class="preview-stat">
-              <div class="preview-stat-label">Our Edge</div>
-              <div class="preview-stat-value" style="color:#f97316;">+6.3%</div>
-            </div>
-          </div>
-          <div class="preview-edge-bar">
-            <div class="preview-edge-fill" style="width:35%"></div>
-          </div>
-          <div class="preview-pick-footer">
-            <span>Home Win · Odds 1.42</span>
-            <span class="preview-suggested">💰 Suggested: €28</span>
-          </div>
+    <!-- PRODUCT PREVIEW SECTION -->
+    <section style="padding:56px 24px; background:rgba(15,23,42,0.6);">
+      <div style="max-width:900px; margin:0 auto;">
+        <div style="text-align:center; margin-bottom:40px;">
+          <div style="display:inline-block; background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.2); color:#a5b4fc; padding:5px 14px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:12px;">Inside the Dashboard</div>
+          <h2 style="font-size:1.7rem; font-weight:800; letter-spacing:-0.5px; margin-bottom:8px;">Everything You Need. Nothing You Don't.</h2>
+          <p style="color:#64748b; font-size:14px; max-width:480px; margin:0 auto;">Daily picks, edge analysis, bankroll tools, and full results history — all in one clean dashboard.</p>
         </div>
-        <div class="preview-unlock-overlay">
-          <div class="preview-lock-icon">🔒</div>
-          <div class="preview-unlock-title">6 more picks today</div>
-          <div class="preview-unlock-sub">Enter your email above to unlock all picks free</div>
-          <button class="preview-unlock-btn" onclick="document.getElementById('heroEmailInput').focus(); window.scrollTo({top:0,behavior:'smooth'})">Unlock Free →</button>
+
+        <!-- Screenshot + Feature list side by side -->
+        <div class="product-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;">
+          <!-- Phone mockup with dashboard screenshot -->
+          <div style="position:relative; text-align:center;">
+            <div style="display:inline-block; background:#0f172a; border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:8px; box-shadow:0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(99,102,241,0.15); overflow:hidden; max-width:320px;">
+              <img src="/assets/dashboard-preview.jpg" alt="KickLab AI Dashboard" style="width:100%; border-radius:18px; display:block;">
+            </div>
+          </div>
+
+          <!-- Feature list -->
+          <div>
+            <div style="display:flex; flex-direction:column; gap:20px;">
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:36px; height:36px; border-radius:10px; background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.2); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">⚽</div>
+                <div>
+                  <div style="font-size:14px; font-weight:700; margin-bottom:3px;">Daily Value Picks by 9AM</div>
+                  <div style="font-size:13px; color:#64748b; line-height:1.5;">AI scans every PL fixture. Only picks with genuine edge get posted.</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:36px; height:36px; border-radius:10px; background:rgba(124,58,237,0.15); border:1px solid rgba(124,58,237,0.2); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📊</div>
+                <div>
+                  <div style="font-size:14px; font-weight:700; margin-bottom:3px;">Edge vs Bookmaker</div>
+                  <div style="font-size:13px; color:#64748b; line-height:1.5;">See exactly where our model sees value. Our %, their %, the gap.</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:36px; height:36px; border-radius:10px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">💰</div>
+                <div>
+                  <div style="font-size:14px; font-weight:700; margin-bottom:3px;">Suggested Stake Per Pick</div>
+                  <div style="font-size:13px; color:#64748b; line-height:1.5;">Kelly criterion sizing so you never over-bet. Bankroll grows systematically.</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:36px; height:36px; border-radius:10px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;">📈</div>
+                <div>
+                  <div style="font-size:14px; font-weight:700; margin-bottom:3px;">Verified Results History</div>
+                  <div style="font-size:13px; color:#64748b; line-height:1.5;">Every pick logged with timestamp. Win rate, profit, all public.</div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:28px;">
+              <a href="/pricing.html" style="display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; padding:13px 28px; border-radius:10px; font-size:14px; font-weight:700; text-decoration:none;">Get Access — €19/mo →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- MOBILE RESPONSIVE FIX for product section -->
+    <style>
+      @media (max-width: 640px) {
+        .product-grid { grid-template-columns: 1fr !important; }
+      }
+    </style>
 
     <section id="reviews">
         <h2>💬 What Our Members Say</h2>
