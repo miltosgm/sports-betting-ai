@@ -718,67 +718,16 @@
         <div class="picks-preview-sub" style="color:#64748b;">Members get all picks every match day at 9AM</div>
       </div>
 
-      <!-- Pick 1: Sunderland vs Fulham -->
-      <div class="preview-pick-card">
-        <div class="preview-pick-header">
-          <div>
-            <div class="preview-match-name">Sunderland vs Fulham</div>
-            <div class="preview-match-time">⏱ 15:00 GMT+2 · Sat 21 Feb</div>
+      <!-- Live picks loaded from latest.json -->
+      <div id="samplePicksContainer">
+        <!-- Skeleton loaders while fetching -->
+        <div class="preview-pick-card" style="opacity:0.4;">
+          <div class="preview-pick-header"><div><div class="preview-match-name" style="background:#1e293b;color:transparent;border-radius:4px;width:180px;">Loading...</div><div class="preview-match-time" style="background:#1e293b;color:transparent;border-radius:4px;width:120px;margin-top:6px;">...</div></div></div>
+          <div class="preview-stats-grid" style="margin-top:14px;">
+            <div class="preview-stat"><div class="preview-stat-label">KickLab AI</div><div class="preview-stat-value" style="color:#60a5fa;">--</div></div>
+            <div class="preview-stat"><div class="preview-stat-label">Bookmaker</div><div class="preview-stat-value">--</div></div>
+            <div class="preview-stat"><div class="preview-stat-label">Our Edge</div><div class="preview-stat-value" style="color:#f97316;">--</div></div>
           </div>
-          <div class="preview-value-badge">🔥 TOP PICK</div>
-        </div>
-        <div class="preview-stats-grid">
-          <div class="preview-stat">
-            <div class="preview-stat-label">KickLab AI</div>
-            <div class="preview-stat-value" style="color:#60a5fa;">66.2%</div>
-          </div>
-          <div class="preview-stat">
-            <div class="preview-stat-label">Bookmaker</div>
-            <div class="preview-stat-value">37%</div>
-          </div>
-          <div class="preview-stat">
-            <div class="preview-stat-label">Our Edge</div>
-            <div class="preview-stat-value" style="color:#f97316;">+29.1%</div>
-          </div>
-        </div>
-        <div class="preview-edge-bar">
-          <div class="preview-edge-fill" style="width:75%"></div>
-        </div>
-        <div class="preview-pick-footer">
-          <span>Home Win · Odds 2.70</span>
-          <span class="preview-suggested">💰 Suggested: €68</span>
-        </div>
-      </div>
-
-      <!-- Pick 2: Brentford vs Brighton -->
-      <div class="preview-pick-card">
-        <div class="preview-pick-header">
-          <div>
-            <div class="preview-match-name">Brentford vs Brighton</div>
-            <div class="preview-match-time">⏱ 17:30 GMT+2 · Sat 21 Feb</div>
-          </div>
-          <div class="preview-value-badge">🔥 VALUE BET</div>
-        </div>
-        <div class="preview-stats-grid">
-          <div class="preview-stat">
-            <div class="preview-stat-label">KickLab AI</div>
-            <div class="preview-stat-value" style="color:#60a5fa;">69.9%</div>
-          </div>
-          <div class="preview-stat">
-            <div class="preview-stat-label">Bookmaker</div>
-            <div class="preview-stat-value">50%</div>
-          </div>
-          <div class="preview-stat">
-            <div class="preview-stat-label">Our Edge</div>
-            <div class="preview-stat-value" style="color:#f97316;">+19.9%</div>
-          </div>
-        </div>
-        <div class="preview-edge-bar">
-          <div class="preview-edge-fill" style="width:55%"></div>
-        </div>
-        <div class="preview-pick-footer">
-          <span>Home Win · Odds 2.00</span>
-          <span class="preview-suggested">💰 Suggested: €47</span>
         </div>
       </div>
 
@@ -1225,6 +1174,82 @@
         if(logoutBtn)logoutBtn.style.display='none';
         if(label)label.style.display='none';
       }
+    })();
+    </script>
+
+    <script>
+    // Auto-load sample picks from latest.json — updates every 9AM with cron
+    (function() {
+      const BANKROLL = 9450;
+
+      function calcKelly(conf, odds) {
+        const p = conf / 100;
+        const b = odds - 1;
+        const kelly = (p * b - (1 - p)) / b;
+        const half = Math.max(0, kelly * 0.5);
+        return Math.round(BANKROLL * half / 10) * 10;
+      }
+
+      function buildCard(pick, isTop) {
+        const home = (pick.home_short || pick.home || '').replace(' FC','').replace(' AFC','');
+        const away = (pick.away_short || pick.away || '').replace(' FC','').replace(' AFC','');
+        const conf = pick.confidence || 0;
+        const edge = pick.edge || 0;
+        const odds = pick.odds || 0;
+        const pred = pick.prediction || '';
+        const time = pick.time || '';
+        const date = pick.date || '';
+        const marketPct = odds > 0 ? Math.round((1/odds)*100) : 0;
+        const edgeBarW = Math.min(Math.round(edge * 2.5), 100);
+        const stake = odds > 0 ? calcKelly(conf, odds) : 0;
+        const badge = isTop
+          ? '<div class="preview-value-badge">🔥 TOP PICK</div>'
+          : '<div class="preview-value-badge" style="background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);">VALUE BET</div>';
+        return `
+        <div class="preview-pick-card">
+          <div class="preview-pick-header">
+            <div>
+              <div class="preview-match-name">${home} vs ${away}</div>
+              <div class="preview-match-time">⏱ ${time} GMT+2 · ${date}</div>
+            </div>
+            ${badge}
+          </div>
+          <div class="preview-stats-grid">
+            <div class="preview-stat">
+              <div class="preview-stat-label">KickLab AI</div>
+              <div class="preview-stat-value" style="color:#60a5fa;">${conf}%</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Bookmaker</div>
+              <div class="preview-stat-value">${marketPct}%</div>
+            </div>
+            <div class="preview-stat">
+              <div class="preview-stat-label">Our Edge</div>
+              <div class="preview-stat-value" style="color:#f97316;">+${edge}%</div>
+            </div>
+          </div>
+          <div class="preview-edge-bar">
+            <div class="preview-edge-fill" style="width:${edgeBarW}%"></div>
+          </div>
+          <div class="preview-pick-footer">
+            <span>${pred} · Odds ${odds > 0 ? Number(odds).toFixed(2) : '--'}</span>
+            <span class="preview-suggested">💰 Suggested: €${stake > 0 ? stake : '--'}</span>
+          </div>
+        </div>`;
+      }
+
+      fetch('/data/predictions/latest.json?t=' + Date.now())
+        .then(r => r.json())
+        .then(picks => {
+          const top2 = picks
+            .filter(p => (p.edge || 0) > 0 && (p.odds || 0) > 0)
+            .sort((a, b) => (b.edge || 0) - (a.edge || 0))
+            .slice(0, 2);
+          if (!top2.length) return;
+          const el = document.getElementById('samplePicksContainer');
+          if (el) el.innerHTML = top2.map((p, i) => buildCard(p, i === 0)).join('');
+        })
+        .catch(() => {}); // keep skeleton on error
     })();
     </script>
 </body>
