@@ -823,6 +823,103 @@
     0%, 80%, 100% { opacity: 0.2; }
     40% { opacity: 1; }
   }
+
+  /* ======== DESKTOP LAYOUT (≥1024px) ======== */
+  @media (min-width: 1024px) {
+    :root { --max: 720px; }
+
+    /* Reflow app: topbar full-width, then sidebar + content side by side */
+    #app { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+
+    /* Topbar stretches full width */
+    #topBar { width: 100%; order: 0; position: sticky; top: 0; z-index: 200; }
+    .topbar-inner { max-width: 100%; padding: 0 32px; }
+
+    /* Sidebar — convert fixed bottom nav into sticky left sidebar */
+    #bottomNav {
+      order: 1;
+      position: sticky;
+      top: 56px;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      width: 220px;
+      height: calc(100vh - 56px);
+      border-top: none;
+      border-right: 1px solid var(--border);
+      background: rgba(15,20,32,0.98);
+      flex-shrink: 0;
+      padding-bottom: 0;
+    }
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      margin: 0;
+      padding: 20px 12px;
+      gap: 2px;
+    }
+    .nav-tab {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      width: 100%;
+      text-align: left;
+    }
+    .nav-tab-icon { font-size: 18px; }
+    .nav-tab-label { font-size: 13px; font-weight: 600; letter-spacing: 0; }
+    .nav-tab:hover:not(.active) { background: rgba(255,255,255,0.04); color: var(--text2); }
+    .nav-tab.active { background: rgba(37,99,235,0.12); color: var(--blue); }
+
+    /* Sidebar logo/brand below the topbar */
+    .nav-sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px 16px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text2);
+    }
+
+    /* Main content area */
+    #tabContent {
+      order: 2;
+      flex: 1;
+      padding-bottom: 40px;
+      overflow-y: auto;
+      height: calc(100vh - 56px);
+      padding-top: 24px;
+    }
+
+    /* Widen inner content blocks */
+    .inner,
+    .hero-card,
+    .date-strip,
+    .pick-list-item,
+    .tab-section,
+    .ev-section,
+    .acca-section,
+    .bankroll-section {
+      max-width: 720px;
+    }
+
+    /* Hero card a bit wider */
+    .hero-card {
+      max-width: calc(720px - 32px);
+    }
+
+    /* Two-column picks layout on wide screens */
+    @media (min-width: 1340px) {
+      #bottomNav { width: 240px; }
+      :root { --max: 900px; }
+      .hero-card { max-width: calc(900px - 32px); }
+    }
+  }
 </style>
 </head>
 <body>
