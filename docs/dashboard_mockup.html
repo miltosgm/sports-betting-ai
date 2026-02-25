@@ -826,99 +826,73 @@
 
   /* ======== DESKTOP LAYOUT (≥1024px) ======== */
   @media (min-width: 1024px) {
-    :root { --max: 720px; }
+    :root { --max: 680px; }
 
-    /* Reflow app: topbar full-width, then sidebar + content side by side */
-    #app { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+    /* Reflow: topbar full-width, sidebar + content side by side */
+    #app { flex-direction: row; flex-wrap: wrap; align-items: flex-start; background: var(--bg); }
 
-    /* Topbar stretches full width */
+    /* Topbar: full width row */
     #topBar { width: 100%; order: 0; position: sticky; top: 0; z-index: 200; }
     .topbar-inner { max-width: 100%; padding: 0 32px; }
 
-    /* Sidebar — convert fixed bottom nav into sticky left sidebar */
+    /* ---- SIDEBAR (was bottom nav) ---- */
     #bottomNav {
-      order: 1;
-      position: sticky;
-      top: 56px;
-      bottom: auto;
-      left: auto;
-      right: auto;
+      order: 1 !important;
+      position: sticky !important;
+      top: 56px !important;
+      bottom: auto !important;
+      left: auto !important;
+      right: auto !important;
       width: 220px;
       height: calc(100vh - 56px);
-      border-top: none;
+      overflow-y: auto;
+      border-top: none !important;
       border-right: 1px solid var(--border);
-      background: rgba(15,20,32,0.98);
+      border-bottom: none;
+      background: rgba(13,18,30,0.99) !important;
       flex-shrink: 0;
-      padding-bottom: 0;
+      padding-bottom: 0 !important;
+      display: block !important;
     }
     .nav-inner {
-      display: flex;
-      flex-direction: column;
-      max-width: 100%;
-      margin: 0;
-      padding: 20px 12px;
-      gap: 2px;
+      display: flex !important;
+      flex-direction: column !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 16px 10px !important;
+      gap: 2px !important;
+      grid-template-columns: none !important;
     }
     .nav-tab {
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 12px;
-      padding: 11px 14px;
-      border-radius: 10px;
-      width: 100%;
-      text-align: left;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      gap: 12px !important;
+      padding: 11px 14px !important;
+      border-radius: 10px !important;
+      width: 100% !important;
+      text-align: left !important;
+      color: var(--text2) !important;
     }
-    .nav-tab-icon { font-size: 18px; }
-    .nav-tab-label { font-size: 13px; font-weight: 600; letter-spacing: 0; }
-    .nav-tab:hover:not(.active) { background: rgba(255,255,255,0.04); color: var(--text2); }
-    .nav-tab.active { background: rgba(37,99,235,0.12); color: var(--blue); }
+    .nav-tab-icon { font-size: 17px !important; }
+    .nav-tab-label { font-size: 13px !important; font-weight: 600 !important; letter-spacing: 0 !important; }
+    .nav-tab:hover:not(.active) { background: rgba(255,255,255,0.05) !important; }
+    .nav-tab.active { background: rgba(37,99,235,0.14) !important; color: var(--blue) !important; }
 
-    /* Sidebar logo/brand below the topbar */
-    .nav-sidebar-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 14px 16px;
-      margin-bottom: 4px;
-      border-bottom: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text2);
-    }
-
-    /* Main content area */
+    /* ---- MAIN CONTENT ---- */
     #tabContent {
-      order: 2;
-      flex: 1;
-      padding-bottom: 40px;
-      overflow-y: auto;
-      height: calc(100vh - 56px);
-      padding-top: 24px;
+      order: 2 !important;
+      flex: 1 !important;
+      padding-bottom: 40px !important;
+      overflow-y: auto !important;
+      height: calc(100vh - 56px) !important;
+      padding-top: 20px !important;
+      max-width: none !important;
     }
 
-    /* Widen inner content blocks */
-    .inner,
-    .hero-card,
-    .date-strip,
-    .pick-list-item,
-    .tab-section,
-    .ev-section,
-    .acca-section,
-    .bankroll-section {
-      max-width: 720px;
-    }
-
-    /* Hero card a bit wider */
-    .hero-card {
-      max-width: calc(720px - 32px);
-    }
-
-    /* Two-column picks layout on wide screens */
-    @media (min-width: 1340px) {
-      #bottomNav { width: 240px; }
-      :root { --max: 900px; }
-      .hero-card { max-width: calc(900px - 32px); }
-    }
+    /* Widen inner content */
+    .inner { max-width: var(--max); }
+    .hero-card { max-width: calc(var(--max) - 32px); }
+    .date-strip { max-width: var(--max); }
   }
 </style>
 </head>
