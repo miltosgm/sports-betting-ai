@@ -322,6 +322,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
+    position: relative;
   }
   .filter-header label {
     font-size: 13px;
@@ -382,6 +383,41 @@
     transition: color 0.2s;
   }
   .filter-reset:active { color: var(--text); }
+  .filter-info-btn {
+    background: none;
+    border: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    margin-left: 6px;
+    flex-shrink: 0;
+  }
+  .filter-info-btn:hover { border-color: var(--blue); color: var(--blue); background: rgba(37, 99, 235, 0.1); }
+  .filter-tooltip {
+    display: none;
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+    max-width: 200px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  .filter-tooltip.show { display: block; }
 
   /* ---- ALSO TODAY ---- */
   .section-header {
@@ -1026,7 +1062,13 @@
       <div class="filters-panel">
         <div class="filter-group">
           <div class="filter-header">
-            <label for="edgeSlider">Minimum Edge</label>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label for="edgeSlider">Minimum Edge</label>
+              <button class="filter-info-btn" onclick="toggleTooltip('edge-tooltip', event)">i</button>
+              <div class="filter-tooltip" id="edge-tooltip">
+                <strong>Edge</strong> is the difference between our AI's prediction and the bookmaker's odds. Higher edge = better value bet. We default to 20%+ edge picks.
+              </div>
+            </div>
             <span class="filter-value" id="edgeValue">20%</span>
           </div>
           <input type="range" id="edgeSlider" min="0" max="50" value="20" step="1" class="slider" oninput="updateEdgeFilter(this.value)">
@@ -1037,7 +1079,13 @@
         </div>
         <div class="filter-group">
           <div class="filter-header">
-            <label for="confSlider">Minimum Confidence</label>
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label for="confSlider">Minimum Confidence</label>
+              <button class="filter-info-btn" onclick="toggleTooltip('conf-tooltip', event)">i</button>
+              <div class="filter-tooltip" id="conf-tooltip">
+                <strong>Confidence</strong> is how certain our AI model is about a prediction (0-100%). Higher confidence means stronger signal. We default to 70%+ confidence picks.
+              </div>
+            </div>
             <span class="filter-value" id="confValue">70%</span>
           </div>
           <input type="range" id="confSlider" min="0" max="100" value="70" step="1" class="slider" oninput="updateConfFilter(this.value)">
@@ -1557,9 +1605,34 @@ function switchToPanel(name, btn) {
 // ============================================================
 //  PICKS TAB
 // ============================================================
+function toggleTooltip(tooltipId, event) {
+  event.preventDefault();
+  event.stopPropagation();
+  
+  // Close all other tooltips
+  document.querySelectorAll('.filter-tooltip').forEach(t => t.classList.remove('show'));
+  
+  // Toggle this one
+  const tooltip = document.getElementById(tooltipId);
+  tooltip.classList.toggle('show');
+  
+  // Close when clicking outside
+  if (tooltip.classList.contains('show')) {
+    setTimeout(() => {
+      document.addEventListener('click', function closeTooltip(e) {
+        if (!tooltip.contains(e.target) && !event.target.contains(e.target)) {
+          tooltip.classList.remove('show');
+          document.removeEventListener('click', closeTooltip);
+        }
+      });
+    }, 10);
+  }
+}
+
 function updateEdgeFilter(val) {
   filterEdge = parseInt(val);
   document.getElementById('edgeValue').textContent = filterEdge + '%';
+  document.querySelectorAll('.filter-tooltip').forEach(t => t.classList.remove('show'));
   renderPicks(allPicks);
   renderAcca();
   // Save to localStorage
@@ -1569,6 +1642,7 @@ function updateEdgeFilter(val) {
 function updateConfFilter(val) {
   filterConfidence = parseInt(val);
   document.getElementById('confValue').textContent = filterConfidence + '%';
+  document.querySelectorAll('.filter-tooltip').forEach(t => t.classList.remove('show'));
   renderPicks(allPicks);
   renderAcca();
   // Save to localStorage
