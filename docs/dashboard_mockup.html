@@ -304,6 +304,85 @@
   .form-dot.D { background: var(--amber); }
   .form-dot.L { background: var(--red); }
 
+  /* ---- FILTERS ---- */
+  .filters-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-card);
+    padding: 16px;
+    margin: 16px 16px 0;
+    max-width: calc(var(--max) - 32px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .filter-group { margin-bottom: 16px; }
+  .filter-group:last-of-type { margin-bottom: 14px; }
+  .filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .filter-header label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text2);
+  }
+  .filter-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  }
+  .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--blue);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  }
+  .filter-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .filter-reset {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--rad-sm);
+    color: var(--text2);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 8px;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .filter-reset:active { color: var(--text); }
+
   /* ---- ALSO TODAY ---- */
   .section-header {
     font-size: 12px;
@@ -943,6 +1022,33 @@
 
     <!-- PICKS TAB -->
     <div class="tab-pane active" id="tab-picks">
+      <!-- Filter sliders -->
+      <div class="filters-panel">
+        <div class="filter-group">
+          <div class="filter-header">
+            <label for="edgeSlider">Minimum Edge</label>
+            <span class="filter-value" id="edgeValue">20%</span>
+          </div>
+          <input type="range" id="edgeSlider" min="0" max="50" value="20" step="1" class="slider" oninput="updateEdgeFilter(this.value)">
+          <div class="filter-labels">
+            <span>0%</span>
+            <span>50%</span>
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-header">
+            <label for="confSlider">Minimum Confidence</label>
+            <span class="filter-value" id="confValue">70%</span>
+          </div>
+          <input type="range" id="confSlider" min="0" max="100" value="70" step="1" class="slider" oninput="updateConfFilter(this.value)">
+          <div class="filter-labels">
+            <span>0%</span>
+            <span>100%</span>
+          </div>
+        </div>
+        <button class="filter-reset" onclick="resetFilters()">Reset to Defaults</button>
+      </div>
+
       <div class="date-strip" id="dateStrip">Loading picks...</div>
       <div id="picksContainer">
         <div class="empty-state">
@@ -1311,6 +1417,8 @@ let settledPicks = [];
 let accaMode = 'balanced';
 let historyFilter = 'all';
 let currentLogPick = null;
+let filterEdge = 20;     // Default: 20% edge minimum
+let filterConfidence = 70; // Default: 70% confidence minimum
 
 function checkAuth() {
   try {
@@ -1449,8 +1557,52 @@ function switchToPanel(name, btn) {
 // ============================================================
 //  PICKS TAB
 // ============================================================
+function updateEdgeFilter(val) {
+  filterEdge = parseInt(val);
+  document.getElementById('edgeValue').textContent = filterEdge + '%';
+  renderPicks(allPicks);
+  renderAcca();
+  // Save to localStorage
+  localStorage.setItem('kl_filterEdge', filterEdge);
+}
+
+function updateConfFilter(val) {
+  filterConfidence = parseInt(val);
+  document.getElementById('confValue').textContent = filterConfidence + '%';
+  renderPicks(allPicks);
+  renderAcca();
+  // Save to localStorage
+  localStorage.setItem('kl_filterConfidence', filterConfidence);
+}
+
+function resetFilters() {
+  filterEdge = 20;
+  filterConfidence = 70;
+  document.getElementById('edgeSlider').value = 20;
+  document.getElementById('confSlider').value = 70;
+  document.getElementById('edgeValue').textContent = '20%';
+  document.getElementById('confValue').textContent = '70%';
+  renderPicks(allPicks);
+  renderAcca();
+  localStorage.setItem('kl_filterEdge', 20);
+  localStorage.setItem('kl_filterConfidence', 70);
+  showToast('Filters reset to defaults');
+}
+
 async function loadPicks() {
   try {
+    // Load saved filter preferences
+    const savedEdge = localStorage.getItem('kl_filterEdge');
+    const savedConf = localStorage.getItem('kl_filterConfidence');
+    if (savedEdge) filterEdge = parseInt(savedEdge);
+    if (savedConf) filterConfidence = parseInt(savedConf);
+    
+    // Update slider display
+    document.getElementById('edgeSlider').value = filterEdge;
+    document.getElementById('confSlider').value = filterConfidence;
+    document.getElementById('edgeValue').textContent = filterEdge + '%';
+    document.getElementById('confValue').textContent = filterConfidence + '%';
+    
     const res = await fetch('./data/predictions/latest.json');
     const data = await res.json();
     allPicks = data;
@@ -1468,8 +1620,12 @@ function renderPicks(picks) {
   const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Europe/Athens' }); // YYYY-MM-DD
   const todayLabel = 'Sun 22 Feb'; // fallback label — detect from data
 
-  // Value picks: edge > 5 and odds > 1
-  const valuePicks = picks.filter(p => p.edge > 5 && p.odds > 1);
+  // Value picks: apply slider filters (edge >= filterEdge and confidence >= filterConfidence)
+  const valuePicks = picks.filter(p => 
+    p.edge >= filterEdge && 
+    p.confidence >= filterConfidence && 
+    p.odds > 1
+  );
 
   if (!valuePicks.length) {
     document.getElementById('dateStrip').innerHTML = 'No value picks today';
